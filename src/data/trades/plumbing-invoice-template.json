@@ -1,0 +1,39 @@
+{
+  "slug": "plumbing-invoice-template",
+  "trade": "Plumber",
+  "docType": "invoice",
+  "title": "Plumbing Invoice Template",
+  "subtitle": "A professional invoice pre-filled for plumbing service calls — call-out fee, labor, materials and warranty. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business.",
+  "lineItems": [
+    {"code": "SVC", "description": "Service / Call-Out Fee", "defaultQty": 1, "unit": "each", "sampleRate": 75.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 2, "unit": "hr", "sampleRate": 95.0, "taxable": true},
+    {"code": "PARTS", "description": "Materials / Parts", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "WARRANTY", "description": "Warranty (30-day parts & labor)", "defaultQty": 1, "unit": "each", "sampleRate": 0.0, "taxable": false}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled plumbing line items: call-out fee, labor, parts, warranty",
+    "License # and EIN / Tax ID fields — required on client-facing invoices in most states",
+    "Clear payment terms and late-fee line for faster payment"
+  ],
+  "faqs": [
+    {"q": "What should I include on a plumbing invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list of services (call-out fee, labor, parts), tax, and a total due. Most states require a contractor license number on client-facing invoices."},
+    {"q": "Is this template free to use?", "a": "Yes. Download the PDF free without an email. The Word and Excel versions are free too — just leave your email so we can send the download link and occasional updates."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "email", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "email", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

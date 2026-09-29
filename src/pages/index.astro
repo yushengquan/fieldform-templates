@@ -1,0 +1,72 @@
+---
+// 首页：模板库入口，自动列出 src/data/trades/ 下所有模板
+import { glob } from 'astro/loaders';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqList from '../components/FaqList.astro';
+
+const modules = import.meta.glob('../data/trades/*.json', { eager: true });
+const trades = Object.values(modules)
+  .map((m: any) => m.default)
+  .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
+
+const faqs = [
+  { q: "Are these templates free to use?", a: "Yes. Every template is free — download the PDF without an email. The Word and Excel versions are free too, just leave your email so we can send the download link and occasional updates." },
+  { q: "Do the Excel templates calculate tax automatically?", a: "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax." },
+  { q: "Is this legal or tax advice?", a: "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use." },
+];
+---
+<BaseLayout
+  title="Free Invoice & Estimate Templates for Trades — FieldForm Templates"
+  description="Free, professional invoice and estimate templates for plumbers, electricians and more. Download as Excel (auto-calculating), Word, or PDF."
+>
+  <section class="section wrap" style="padding-top:64px;">
+    <div class="section-head">
+      <h1>Free invoice &amp; estimate templates for trades</h1>
+      <p class="lead">Professional templates pre-filled for how each trade actually bills — call-out fees, permits, labor and materials. Excel versions auto-calculate tax and totals.</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="templates" style="padding-top:8px;">
+    <div class="grid2">
+      {trades.map((t: any) => (
+        <a class="tpl-card" href={`/templates/${t.slug}/`}>
+          <span class="tag">{t.docType}</span>
+          <h3>{t.title}</h3>
+          <p>{t.subtitle}</p>
+          <span class="go">View &amp; download →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap" id="why">
+    <div class="section-head">
+      <h2>Why use these templates</h2>
+      <p>Built for the way a trade business actually bills a job.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#1668D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="20" height="24" rx="2"/><path d="M6 12h20M6 18h20M6 24h20M13 12V4M19 12V4"/></svg>
+        <h3>Auto-calculating tax</h3>
+        <p>Enter your state rate once in the Excel version — subtotal, tax and total update automatically.</p>
+      </div>
+      <div class="card">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l11 11a3 3 0 0 1 0 4.2l-3.8 3.8a3 3 0 0 1-4.2 0l-11-11z"/><path d="M14 8L6 16l7 7 8-8M19 3l2 2M27 11l2 2M9 14L5 10"/></svg>
+        <h3>Pre-filled line items</h3>
+        <p>Call-out fees, permits, labor, materials and warranty — already laid out for a service call.</p>
+      </div>
+      <div class="card">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#1668D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l11 4v7c0 6.5-4.7 11.4-11 13C9.7 25.4 5 20.5 5 14V7z"/><path d="M12 16l3 3 6-6"/></svg>
+        <h3>License &amp; tax ID fields</h3>
+        <p>Most states require a contractor license number on client-facing invoices. The templates include the fields up front.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="faq">
+    <div class="section-head">
+      <h2>Questions</h2>
+    </div>
+    <FaqList faqs={faqs} />
+  </section>
+</BaseLayout>

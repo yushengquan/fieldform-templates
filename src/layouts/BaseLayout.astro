@@ -1,0 +1,66 @@
+---
+// 全站布局：head SEO + 导航 + 页脚 + toast 脚本
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+const { title, description, canonical } = Astro.props;
+const site = Astro.site?.toString() ?? 'https://fieldform-templates.pages.dev';
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site).toString();
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://miaoda.feishu.cn">
+  <link href="https://miaoda.feishu.cn/fonts/css2?family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1668D4"/><path d="M9 7h10l4 4v14H9z" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M13 17h8M13 21h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        FieldForm Templates
+      </a>
+      <nav class="nav-links">
+        <a href="/#templates">Templates</a>
+        <a href="/#why">Why</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <span>FieldForm Templates — free invoice &amp; estimate templates for trades</span>
+      <span>Template for informational purposes only; does not constitute legal, tax, or accounting advice.</span>
+    </div>
+  </footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script is:inline>
+    (function () {
+      var toast = document.getElementById('toast');
+      var t = null;
+      window.showToast = function (msg) {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        if (t) clearTimeout(t);
+        t = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+      };
+    })();
+  </script>
+</body>
+</html>

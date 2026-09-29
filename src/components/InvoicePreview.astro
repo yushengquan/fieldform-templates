@@ -1,0 +1,55 @@
+---
+// 发票预览组件：用 CSS 渲染一张"纸面发票"示意，数据来自模板配置
+interface Props {
+  trade: any;
+}
+const { trade } = Astro.props;
+const items = trade.lineItems ?? [];
+let subtotal = 0;
+const rows = items.map((it: any, i: number) => {
+  const amount = (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
+  subtotal += amount;
+  return { ...it, i: i + 1, amount };
+});
+const fmt = (n: number) => "$" + n.toFixed(2);
+---
+<div class="preview-band">
+  <div class="paper">
+    <h4>{trade.title?.toUpperCase()}</h4>
+    <div class="paper-grid">
+      <div>
+        <div class="lbl">From</div>
+        <div>Your Business Name<br>Street Address, City, State ZIP<br>Phone | Email</div>
+        <div style="margin-top:8px;">License #: ________<br>EIN / Tax ID: ________</div>
+      </div>
+      <div>
+        <div class="lbl">Bill To</div>
+        <div>Client Name<br>Client Address<br>Job Site Address</div>
+        <div style="margin-top:8px;">Invoice #: INV-0001<br>Date: 2026-09-29 · Terms: Net 14<br>Due: 2026-10-13</div>
+      </div>
+    </div>
+    <table class="paper-table">
+      <tr><th style="width:8%">#</th><th style="width:52%">Description</th><th style="width:9%">Qty</th><th style="width:11%">Unit</th><th style="width:10%">Rate</th><th style="width:10%">Amount</th></tr>
+      {rows.map((r: any) => (
+        <tr>
+          <td>{r.i}</td>
+          <td>{r.description}</td>
+          <td class="num">{r.defaultQty}</td>
+          <td>{r.unit}</td>
+          <td class="num">{fmt(r.sampleRate)}</td>
+          <td class="num">{fmt(r.amount)}</td>
+        </tr>
+      ))}
+    </table>
+    <div class="paper-totals">
+      <span>SUBTOTAL</span><span class="num">{fmt(subtotal)}</span>
+      <span>TAX RATE</span><span class="num">(enter state rate)</span>
+      <span>TAX</span><span class="num">—</span>
+      <span class="big">TOTAL DUE</span><span class="big num">{fmt(subtotal)}</span>
+    </div>
+    <div class="paper-note">
+      Payment terms: {trade.paymentTerms} {trade.notes ? trade.notes + " " : ""}
+      {trade.disclaimer}
+    </div>
+  </div>
+</div>

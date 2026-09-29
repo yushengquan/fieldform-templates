@@ -1,0 +1,75 @@
+---
+// 动态模板页：/templates/[slug]/ — 从 data/trades/*.json 批量生成
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InvoicePreview from '../../components/InvoicePreview.astro';
+import DownloadCards from '../../components/DownloadCards.astro';
+import FaqList from '../../components/FaqList.astro';
+
+export function getStaticPaths() {
+  const modules = import.meta.glob('../../data/trades/*.json', { eager: true });
+  const trades: any[] = Object.values(modules).map((m: any) => m.default);
+  return trades.map((t) => ({ params: { slug: t.slug }, props: { trade: t } }));
+}
+
+const { trade } = Astro.props;
+const items = trade.lineItems ?? [];
+let subtotal = 0;
+for (const it of items) subtotal += (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
+
+const desc = trade.subtitle;
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: (trade.faqs ?? []).map((f: any) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+});
+---
+<BaseLayout title={`${trade.title} — FieldForm Templates`} description={desc}>
+  <script is:inline type="application/ld+json" set:html={jsonLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;">
+    <div class="section-head">
+      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">{trade.trade} · {trade.docType} template</p>
+      <h1>{trade.title}</h1>
+      <p class="lead">{trade.subtitle}</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="download" style="padding-top:8px;">
+    <DownloadCards slug={trade.slug} downloads={trade.downloads} />
+  </section>
+
+  <section class="section wrap" id="preview" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>What the file looks like</h2>
+      <p>Every field maps to data — swap the content, keep the structure.</p>
+    </div>
+    <InvoicePreview trade={trade} />
+  </section>
+
+  <section class="section wrap" id="features" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>Why this template works</h2>
+      <p>Built for the way a {trade.trade.toLowerCase()} business bills a job.</p>
+    </div>
+    <div class="grid3">
+      {(trade.features ?? []).map((f: string) => (
+        <div class="card">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#1668D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l11 4v7c0 6.5-4.7 11.4-11 13C9.7 25.4 5 20.5 5 14V7z"/><path d="M12 16l3 3 6-6"/></svg>
+          <h3 style="margin-bottom:8px;">{f.split(" — ")[0]}</h3>
+          <p>{f.split(" — ").slice(1).join(" — ")}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap" id="faq">
+    <div class="section-head">
+      <h2>Questions</h2>
+    </div>
+    <FaqList faqs={trade.faqs ?? []} />
+  </section>
+</BaseLayout>
