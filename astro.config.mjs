@@ -1,9 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// 站点地址：上线后替换为你的真实域名（影响 canonical 与 sitemap）
+// 站点地址：正式域名
 export default defineConfig({
-  site: 'https://fieldform-templates.pages.dev',
+  site: 'https://fieldformtemplates.com',
   output: 'static',
   build: { format: 'directory' },
   compressHTML: true,

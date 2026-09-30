@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fieldform-templates.pages.dev/sitemap.xml
+Sitemap: https://fieldformtemplates.com/sitemap.xml
