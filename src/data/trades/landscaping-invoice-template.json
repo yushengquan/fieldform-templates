@@ -1,0 +1,40 @@
+{
+  "slug": "landscaping-invoice-template",
+  "trade": "Landscaper",
+  "docType": "invoice",
+  "title": "Landscaping Invoice Template",
+  "subtitle": "A professional invoice pre-filled for landscaping work — crew labor, mulch, plants, equipment and recurring maintenance. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Recurring maintenance billed monthly unless canceled in writing.",
+  "lineItems": [
+    {"code": "CREW", "description": "Crew Labor", "defaultQty": 3, "unit": "hr", "sampleRate": 65.0, "taxable": true},
+    {"code": "MULCH", "description": "Mulch (by cu. yd.)", "defaultQty": 3, "unit": "cu yd", "sampleRate": 45.0, "taxable": true},
+    {"code": "PLANTS", "description": "Plants / Materials", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "EQUIP", "description": "Equipment Rental", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
+    {"code": "MAINT", "description": "Recurring Maintenance (monthly)", "defaultQty": 1, "unit": "mo", "sampleRate": 150.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled landscaping line items: crew labor, mulch, plants, equipment, recurring maintenance",
+    "License # and EIN / Tax ID fields where your state requires them",
+    "Recurring maintenance line for monthly lawn and garden contracts"
+  ],
+  "faqs": [
+    {"q": "What should I include on a landscaping invoice?", "a": "At minimum: your business name and license number where required, the client and job-site address, a dated line-item list of work (crew labor, mulch by cubic yard, plants and materials, equipment), tax, and a total due. Add a recurring maintenance line if you service the property monthly."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
