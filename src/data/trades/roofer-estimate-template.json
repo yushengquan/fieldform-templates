@@ -1,0 +1,41 @@
+{
+  "slug": "roofer-estimate-template",
+  "trade": "Roofer",
+  "docType": "estimate",
+  "title": "Roofer Estimate Template",
+  "subtitle": "A professional estimate pre-filled for roofing jobs — per-square pricing, tear-off, underlayment, labor and materials. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 14 — payment due within 14 days of acceptance. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Estimate valid for 30 days. A 25% deposit is due at signing; the balance is due upon completion.",
+  "lineItems": [
+    {"code": "ROOF", "description": "Roofing Installation (per square)", "defaultQty": 20, "unit": "sq", "sampleRate": 450.0, "taxable": true},
+    {"code": "TEAR", "description": "Tear-Off of Old Roofing", "defaultQty": 20, "unit": "sq", "sampleRate": 60.0, "taxable": true},
+    {"code": "UNDL", "description": "Underlayment (felt / synthetic)", "defaultQty": 20, "unit": "sq", "sampleRate": 35.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor (crew)", "defaultQty": 40, "unit": "hr", "sampleRate": 55.0, "taxable": true},
+    {"code": "PERMIT", "description": "Permit / Inspection Fee", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": false},
+    {"code": "MATL", "description": "Materials / Accessories (flashing, drip edge)", "defaultQty": 1, "unit": "job", "sampleRate": 850.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 25% deposit and balance update automatically",
+    "Pre-filled roofing line items: per-square installation, tear-off, underlayment, labor, permits",
+    "Valid-until date and deposit line built in — standard practice for roofing contracts",
+    "Exclusions note field so scope stays clear"
+  ],
+  "faqs": [
+    {"q": "What should I include on a roofing estimate?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items with per-square pricing (installation, tear-off, underlayment), labor, materials and permit fees, plus a valid-until date, deposit terms and exclusions. Most states require a contractor license number on client-facing documents."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

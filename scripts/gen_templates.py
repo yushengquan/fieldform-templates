@@ -78,14 +78,24 @@ def gen_xlsx(cfg, out_path):
     for r in range(4, 9):
         ws.row_dimensions[r].height = 17
 
-    fill("D4", "INVOICE #:", label_font)
-    fill("E4", "INV-0001", base_font)
-    fill("D5", "DATE:", label_font)
-    fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
-    fill("D6", "PAYMENT TERMS:", label_font)
-    fill("E6", "Net 14", base_font)
-    fill("D7", "DUE DATE:", label_font)
-    fill("E7", "=E5+14", base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+    if cfg.get("docType") == "estimate":
+        fill("D4", "ESTIMATE #:", label_font)
+        fill("E4", "EST-0001", base_font)
+        fill("D5", "DATE:", label_font)
+        fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+        fill("D6", "VALID UNTIL:", label_font)
+        fill("E6", "=E5+30", base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+        fill("D7", "PAYMENT TERMS:", label_font)
+        fill("E7", "Net 14", base_font)
+    else:
+        fill("D4", "INVOICE #:", label_font)
+        fill("E4", "INV-0001", base_font)
+        fill("D5", "DATE:", label_font)
+        fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+        fill("D6", "PAYMENT TERMS:", label_font)
+        fill("E6", "Net 14", base_font)
+        fill("D7", "DUE DATE:", label_font)
+        fill("E7", "=E5+14", base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
 
     fill("A10", "BILL TO", label_font)
     for i, txt in enumerate(["Client Name", "Client Address", "Job Site Address", "Phone  |  Email"]):
@@ -120,29 +130,50 @@ def gen_xlsx(cfg, out_path):
          Alignment(horizontal="right", vertical="center"), money_fmt)
     ws[f"F{sub_row}"].border = Border(top=top_line)
 
-    tax_rate_row = sub_row + 1
-    fill(f"D{tax_rate_row}", "TAX RATE", label_font)
-    fill(f"E{tax_rate_row}", None, base_font, Alignment(horizontal="right", vertical="center"), "0.00%")
-    fill(f"C{tax_rate_row}", "look up your state rate", small_gray, Alignment(horizontal="left", vertical="center"))
-    tax_row = sub_row + 2
-    fill(f"D{tax_row}", "TAX", label_font)
-    fill(f"F{tax_row}", f'=IF(E{tax_rate_row}="","",ROUND(F{sub_row}*E{tax_rate_row},2))',
-         base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
-    total_row = sub_row + 3
-    fill(f"D{total_row}", "TOTAL DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
-    fill(f"F{total_row}", f"=F{sub_row}+IF(ISNUMBER(F{tax_row}),F{tax_row},0)",
-         Font(name="Arial", bold=True, size=11, color="17365D"),
-         Alignment(horizontal="right", vertical="center"), money_fmt)
-    ws[f"F{total_row}"].border = Border(top=top_line, bottom=top_line)
+    if cfg.get("docType") == "estimate":
+        deposit_row = sub_row + 1
+        fill(f"D{deposit_row}", "DEPOSIT (25%)", label_font)
+        fill(f"F{deposit_row}", f"=ROUND(F{sub_row}*0.25,2)", bold_font,
+             Alignment(horizontal="right", vertical="center"), money_fmt)
+        balance_row = sub_row + 2
+        fill(f"D{balance_row}", "BALANCE DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
+        fill(f"F{balance_row}", f"=F{sub_row}-F{deposit_row}",
+             Font(name="Arial", bold=True, size=11, color="17365D"),
+             Alignment(horizontal="right", vertical="center"), money_fmt)
+        ws[f"F{balance_row}"].border = Border(top=top_line, bottom=top_line)
+        note_start = balance_row + 2
+    else:
+        tax_rate_row = sub_row + 1
+        fill(f"D{tax_rate_row}", "TAX RATE", label_font)
+        fill(f"E{tax_rate_row}", None, base_font, Alignment(horizontal="right", vertical="center"), "0.00%")
+        fill(f"C{tax_rate_row}", "look up your state rate", small_gray, Alignment(horizontal="left", vertical="center"))
+        tax_row = sub_row + 2
+        fill(f"D{tax_row}", "TAX", label_font)
+        fill(f"F{tax_row}", f'=IF(E{tax_rate_row}="","",ROUND(F{sub_row}*E{tax_rate_row},2))',
+             base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
+        total_row = sub_row + 3
+        fill(f"D{total_row}", "TOTAL DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
+        fill(f"F{total_row}", f"=F{sub_row}+IF(ISNUMBER(F{tax_row}),F{tax_row},0)",
+             Font(name="Arial", bold=True, size=11, color="17365D"),
+             Alignment(horizontal="right", vertical="center"), money_fmt)
+        ws[f"F{total_row}"].border = Border(top=top_line, bottom=top_line)
+        note_start = total_row + 2
 
-    note_start = total_row + 2
     fill(f"A{note_start}", "PAYMENT TERMS:", label_font)
     fill(f"B{note_start}", cfg.get("paymentTerms", ""), base_font)
     ws.row_dimensions[note_start].height = 30
     fill(f"A{note_start+1}", "NOTES:", label_font)
     fill(f"B{note_start+1}", cfg.get("notes", ""), base_font)
 
-    disc = note_start + 3
+    if cfg.get("docType") == "estimate":
+        est_row = note_start + 2
+        fill(f"A{est_row}", "NOTICE:", label_font)
+        fill(f"B{est_row}", "This is an estimate, not a final invoice. Final charges may vary based on actual work performed.", base_font)
+        ws.row_dimensions[est_row].height = 30
+        disc = est_row + 2
+    else:
+        disc = note_start + 3
+
     ws.merge_cells(f"A{disc}:F{disc+2}")
     fill(f"A{disc}", cfg.get("disclaimer", ""), small_gray, Alignment(vertical="top", wrap_text=True))
 
@@ -174,7 +205,10 @@ def gen_docx(cfg, out_path):
         p.paragraph_format.space_after = Pt(0)
 
     doc.add_paragraph()
-    doc.add_paragraph("Invoice #: INV-0001    |    Date: 2026-09-29    |    Payment Terms: Net 14    |    Due: 2026-10-13")
+    if cfg.get("docType") == "estimate":
+        doc.add_paragraph("Estimate #: EST-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: Net 14")
+    else:
+        doc.add_paragraph("Invoice #: INV-0001    |    Date: 2026-09-29    |    Payment Terms: Net 14    |    Due: 2026-10-13")
     bt = doc.add_paragraph()
     bt.add_run("BILL TO").bold = True
     for line in ["Client Name", "Client Address", "Job Site Address", "Phone  |  Email"]:
@@ -199,20 +233,48 @@ def gen_docx(cfg, out_path):
     sum_row = table.add_row().cells
     sum_row[0].text = "SUBTOTAL"
     sum_row[4].text = f"${subtotal:.2f}"
-    tax_row = table.add_row().cells
-    tax_row[0].text = "TAX (enter your state rate)"
-    total_row = table.add_row().cells
-    total_row[0].text = "TOTAL DUE"
-    total_row[4].text = f"${subtotal:.2f}"
+    if cfg.get("docType") == "estimate":
+        dep_row = table.add_row().cells
+        dep_row[0].text = "DEPOSIT (25%)"
+        dep_row[4].text = f"${subtotal * 0.25:.2f}"
+        bal_row = table.add_row().cells
+        bal_row[0].text = "BALANCE DUE"
+        bal_row[4].text = f"${subtotal * 0.75:.2f}"
+    else:
+        tax_row = table.add_row().cells
+        tax_row[0].text = "TAX (enter your state rate)"
+        total_row = table.add_row().cells
+        total_row[0].text = "TOTAL DUE"
+        total_row[4].text = f"${subtotal:.2f}"
 
     doc.add_paragraph()
     doc.add_paragraph(f"Payment terms: {cfg.get('paymentTerms', '')}")
     doc.add_paragraph(f"Notes: {cfg.get('notes', '')}")
+    if cfg.get("docType") == "estimate":
+        doc.add_paragraph("Notice: This is an estimate, not a final invoice. Final charges may vary based on actual work performed.")
     doc.add_paragraph(cfg.get("disclaimer", ""))
     doc.save(out_path)
 
 
 # ---------------- PDF ----------------
+def draw_wrapped(pdf, x, y, text, font_name, font_size, max_width, leading):
+    """把长文本按可用宽度折行绘制，返回下一行 y 坐标。"""
+    pdf.setFont(font_name, font_size)
+    words = text.split()
+    line = ""
+    for w in words:
+        test = line + (" " if line else "") + w
+        if pdf.stringWidth(test, font_name, font_size) <= max_width:
+            line = test
+        else:
+            pdf.drawString(x, y, line)
+            y -= leading
+            line = w
+    if line:
+        pdf.drawString(x, y, line)
+    return y
+
+
 def gen_pdf(cfg, out_path):
     from reportlab.lib.pagesizes import letter
     from reportlab.lib.colors import HexColor
@@ -236,10 +298,16 @@ def gen_pdf(cfg, out_path):
         y -= 17
 
     pdf.setFont("Helvetica-Bold", 10)
-    pdf.drawString(400, H - 95, "Invoice #: INV-0001")
-    pdf.drawString(400, H - 112, "Date: 2026-09-29")
-    pdf.drawString(400, H - 129, "Payment Terms: Net 14")
-    pdf.drawString(400, H - 146, "Due Date: 2026-10-13")
+    if cfg.get("docType") == "estimate":
+        pdf.drawString(400, H - 95, "Estimate #: EST-0001")
+        pdf.drawString(400, H - 112, "Date: 2026-09-29")
+        pdf.drawString(400, H - 129, "Valid Until: 2026-10-29")
+        pdf.drawString(400, H - 146, "Payment Terms: Net 14")
+    else:
+        pdf.drawString(400, H - 95, "Invoice #: INV-0001")
+        pdf.drawString(400, H - 112, "Date: 2026-09-29")
+        pdf.drawString(400, H - 129, "Payment Terms: Net 14")
+        pdf.drawString(400, H - 146, "Due Date: 2026-10-13")
 
     # BILL TO 块：标签放在 From 块下方，客户信息再从标签下方排开，避免与 EIN 行重叠
     pdf.setFont("Helvetica-Bold", 10)
@@ -273,25 +341,37 @@ def gen_pdf(cfg, out_path):
 
     ry -= 8
     pdf.setStrokeColor(HexColor("#9AA7B5"))
-    pdf.line(420, ry, W - 60, ry)
+    pdf.line(400, ry, W - 60, ry)
     ry -= 16
     pdf.setFont("Helvetica-Bold", 10)
-    pdf.drawString(420, ry, "SUBTOTAL")
+    pdf.drawString(400, ry, "SUBTOTAL")
     pdf.drawString(485, ry, f"${subtotal:.2f}")
-    ry -= 16
-    pdf.setFont("Helvetica", 10)
-    pdf.drawString(420, ry, "TAX (enter state rate)")
-    ry -= 20
-    pdf.setFont("Helvetica-Bold", 11)
-    pdf.drawString(420, ry, "TOTAL DUE")
-    pdf.drawString(485, ry, f"${subtotal:.2f}")
+    if cfg.get("docType") == "estimate":
+        ry -= 16
+        pdf.setFont("Helvetica", 10)
+        pdf.drawString(400, ry, "DEPOSIT (25%)")
+        pdf.drawString(485, ry, f"${subtotal * 0.25:.2f}")
+        ry -= 20
+        pdf.setFont("Helvetica-Bold", 11)
+        pdf.drawString(400, ry, "BALANCE DUE")
+        pdf.drawString(485, ry, f"${subtotal * 0.75:.2f}")
+    else:
+        ry -= 16
+        pdf.setFont("Helvetica", 10)
+        pdf.drawString(400, ry, "TAX (enter state rate)")
+        ry -= 20
+        pdf.setFont("Helvetica-Bold", 11)
+        pdf.drawString(400, ry, "TOTAL DUE")
+        pdf.drawString(485, ry, f"${subtotal:.2f}")
 
     ry -= 40
     pdf.setFillColor(gray)
-    pdf.setFont("Helvetica", 8)
-    pdf.drawString(60, ry, f"Payment terms: {cfg.get('paymentTerms', '')}")
-    pdf.drawString(60, ry - 12, f"Notes: {cfg.get('notes', '')}")
-    pdf.drawString(60, ry - 28, cfg.get("disclaimer", ""))
+    fy = ry
+    fy = draw_wrapped(pdf, 60, fy, f"Payment terms: {cfg.get('paymentTerms', '')}", "Helvetica", 8, W - 120, 12)
+    fy = draw_wrapped(pdf, 60, fy, f"Notes: {cfg.get('notes', '')}", "Helvetica", 8, W - 120, 12)
+    if cfg.get("docType") == "estimate":
+        fy = draw_wrapped(pdf, 60, fy, "Notice: This is an estimate, not a final invoice. Final charges may vary based on actual work performed.", "Helvetica", 8, W - 120, 12)
+    draw_wrapped(pdf, 60, fy, cfg.get("disclaimer", ""), "Helvetica", 8, W - 120, 12)
     pdf.save()
 
 
