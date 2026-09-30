@@ -1,0 +1,41 @@
+{
+  "slug": "electrician-estimate-template",
+  "trade": "Electrician",
+  "docType": "estimate",
+  "title": "Electrician Estimate Template",
+  "subtitle": "A professional estimate pre-filled for electrical jobs — service call, panel upgrade, breakers, wiring, labor and permits. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 14 — payment due within 14 days of acceptance. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Estimate valid for 30 days. A 25% deposit is due at signing; the balance is due upon completion.",
+  "lineItems": [
+    {"code": "TRIP", "description": "Service Call / Diagnostic", "defaultQty": 1, "unit": "each", "sampleRate": 85.0, "taxable": true},
+    {"code": "PANEL", "description": "Upgrade to 200A Panel", "defaultQty": 1, "unit": "job", "sampleRate": 1800.0, "taxable": true},
+    {"code": "BRKR", "description": "New Breakers & GFCI", "defaultQty": 8, "unit": "each", "sampleRate": 45.0, "taxable": true},
+    {"code": "WIRE", "description": "Wiring (per linear foot)", "defaultQty": 120, "unit": "ft", "sampleRate": 4.5, "taxable": true},
+    {"code": "LABOR", "description": "Labor (licensed electrician)", "defaultQty": 24, "unit": "hr", "sampleRate": 75.0, "taxable": true},
+    {"code": "PERMIT", "description": "Permit / Inspection", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": false}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 25% deposit and balance update automatically",
+    "Pre-filled electrician line items: service call, panel upgrade, breakers, wiring, labor, permits",
+    "Valid-until date and deposit line built in — standard practice for electrical estimates",
+    "Permit line kept separate and non-taxable where your state allows"
+  ],
+  "faqs": [
+    {"q": "What should I include on an electrician estimate?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items for the work (service call, panel work, breakers, wiring, labor, permits), a valid-until date, deposit terms and exclusions. Most states require a contractor license number on client-facing documents."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

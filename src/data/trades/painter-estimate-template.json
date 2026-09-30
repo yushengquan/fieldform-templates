@@ -1,0 +1,41 @@
+{
+  "slug": "painter-estimate-template",
+  "trade": "Painter",
+  "docType": "estimate",
+  "title": "Painter Estimate Template",
+  "subtitle": "A professional estimate pre-filled for painting jobs — per-sq-ft pricing, prep, paint, primer, labor and supplies. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 14 — payment due within 14 days of acceptance. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Estimate valid for 30 days. A 25% deposit is due at signing; the balance is due upon completion. Paint colors and sheens to be confirmed before work begins.",
+  "lineItems": [
+    {"code": "PREP", "description": "Surface Preparation (per sq ft)", "defaultQty": 2000, "unit": "sqft", "sampleRate": 0.75, "taxable": true},
+    {"code": "PAINT", "description": "Interior Paint (per sq ft)", "defaultQty": 2000, "unit": "sqft", "sampleRate": 1.5, "taxable": true},
+    {"code": "GAL", "description": "Paint (per gallon)", "defaultQty": 15, "unit": "gal", "sampleRate": 48.0, "taxable": true},
+    {"code": "PRIM", "description": "Primer (per gallon)", "defaultQty": 8, "unit": "gal", "sampleRate": 35.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor (per sq ft)", "defaultQty": 2000, "unit": "sqft", "sampleRate": 0.9, "taxable": true},
+    {"code": "SUPL", "description": "Supplies (tape, drop cloths, misc.)", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 25% deposit and balance update automatically",
+    "Pre-filled painting line items: per-sq-ft prep and paint, gallons, primer, labor, supplies",
+    "Valid-until date and deposit line built in — standard practice for painting estimates",
+    "Scope note field so colors and finishes stay clear"
+  ],
+  "faqs": [
+    {"q": "What should I include on a painting estimate?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items with per-sq-ft pricing (prep, paint, labor), paint and primer quantities, supplies, a valid-until date, deposit terms and exclusions. Most states require a contractor license number on client-facing documents."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
