@@ -1,11 +1,13 @@
 ---
-// 下载卡片：PDF 免邮箱直链；Word/Excel 演示留资墙（MVP 阶段点击提示，正式版接 Brevo 邮箱门）
+// 下载卡片：PDF / Word / Excel 全部免邮箱直链下载（MVP 阶段；未来流量起来后再上留资墙）
 interface Props {
   slug: string;
   downloads: any;
 }
 const { slug, downloads } = Astro.props;
 const order = ["pdf", "word", "excel"];
+const ext: Record<string, string> = { pdf: "pdf", word: "docx", excel: "xlsx" };
+const btnCls: Record<string, string> = { pdf: "btn-primary", word: "btn-ghost", excel: "btn-teal" };
 const meta: Record<string, { cls: string; icon: string }> = {
   pdf: { cls: "tag-blue", icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>' },
   word: { cls: "tag-gray", icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>' },
@@ -17,22 +19,14 @@ const meta: Record<string, { cls: string; icon: string }> = {
     const d = downloads?.[key];
     if (!d) return null;
     const m = meta[key];
-    const gateNote = d.gate === "none" ? "Free download" : "Email to receive";
     return (
       <div class="dl-card">
-        <span class={`tag ${m.cls}`} set:html={m.icon + gateNote}></span>
+        <span class={`tag ${m.cls}`} set:html={m.icon + "Free download"}></span>
         <h3>{d.label}</h3>
         <p>{d.note}</p>
-        {d.gate === "none" ? (
-          <a class="btn btn-primary btn-block" href={`/downloads/${slug}.pdf`} download>
-            Download {d.label}
-          </a>
-        ) : (
-          <button class={key === "excel" ? "btn btn-teal btn-block" : "btn btn-ghost btn-block"}
-            onclick={`showToast('Demo prototype — in the live site this sends the ${d.label} download link to your email')`}>
-            Get the {d.label} version
-          </button>
-        )}
+        <a class={`btn btn-block ${btnCls[key]}`} href={`/downloads/${slug}.${ext[key]}`} download>
+          Download {d.label}
+        </a>
       </div>
     );
   })}

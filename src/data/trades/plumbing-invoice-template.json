@@ -26,14 +26,14 @@
   ],
   "faqs": [
     {"q": "What should I include on a plumbing invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list of services (call-out fee, labor, parts), tax, and a total due. Most states require a contractor license number on client-facing invoices."},
-    {"q": "Is this template free to use?", "a": "Yes. Download the PDF free without an email. The Word and Excel versions are free too — just leave your email so we can send the download link and occasional updates."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
     {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
     {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
   ],
   "downloads": {
     "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "email", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "email", "note": "Auto-calculating tax and totals"}
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
 }
