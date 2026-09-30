@@ -1,0 +1,40 @@
+{
+  "slug": "freelance-invoice-template",
+  "trade": "Freelancer",
+  "docType": "invoice",
+  "title": "Freelance Invoice Template",
+  "subtitle": "A professional invoice pre-filled for freelance work — hourly or project fees, revisions and usage licenses. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Usage rights transfer upon full payment.",
+  "lineItems": [
+    {"code": "HOURLY", "description": "Creative Work (hourly)", "defaultQty": 8, "unit": "hr", "sampleRate": 85.0, "taxable": true},
+    {"code": "PROJECT", "description": "Project Fee", "defaultQty": 1, "unit": "job", "sampleRate": 500.0, "taxable": true},
+    {"code": "REVISION", "description": "Revisions (billed hourly)", "defaultQty": 2, "unit": "hr", "sampleRate": 60.0, "taxable": true},
+    {"code": "LICENSE", "description": "License / Usage Fee", "defaultQty": 1, "unit": "each", "sampleRate": 150.0, "taxable": true},
+    {"code": "EXPENSES", "description": "Expenses (stock, fonts, travel)", "defaultQty": 1, "unit": "job", "sampleRate": 45.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled freelance line items: hourly or project fee, revisions, usage license, expenses",
+    "License / usage fee line for creative work (stock photos, fonts, deliverables)",
+    "Clean one-page layout that makes you look established"
+  ],
+  "faqs": [
+    {"q": "What should I include on a freelance invoice?", "a": "At minimum: your business name and EIN where required, the client and project details, a dated line-item list of work (hourly or project fee, revisions, expenses), tax, and a total due. Add a license / usage fee line if the work grants usage rights to deliverables."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with a CPA or attorney before use."
+}
