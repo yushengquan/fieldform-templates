@@ -233,7 +233,7 @@ def gen_pdf(cfg, out_path):
     for line in ["Your Business Name", "Street Address, City, State ZIP",
                  "Phone  |  Email", "License #: ______________", "EIN / Tax ID: ______________"]:
         pdf.drawString(60, y, line)
-        y -= 16
+        y -= 17
 
     pdf.setFont("Helvetica-Bold", 10)
     pdf.drawString(400, H - 95, "Invoice #: INV-0001")
@@ -241,14 +241,15 @@ def gen_pdf(cfg, out_path):
     pdf.drawString(400, H - 129, "Payment Terms: Net 14")
     pdf.drawString(400, H - 146, "Due Date: 2026-10-13")
 
+    # BILL TO 块：标签放在 From 块下方，客户信息再从标签下方排开，避免与 EIN 行重叠
     pdf.setFont("Helvetica-Bold", 10)
-    pdf.drawString(60, y + 20, "BILL TO")
-    y2 = y
+    pdf.drawString(60, y - 8, "BILL TO")
+    y2 = y - 25
     for line in ["Client Name", "Client Address", "Job Site Address", "Phone  |  Email"]:
         pdf.drawString(60, y2, line)
-        y2 -= 16
+        y2 -= 17
 
-    ty = y2 - 20
+    ty = y2 - 18
     pdf.setFillColor(mid)
     pdf.rect(60, ty - 20, W - 120, 20, stroke=0, fill=1)
     pdf.setFillColor(HexColor("#FFFFFF"))
