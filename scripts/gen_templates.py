@@ -78,9 +78,15 @@ def gen_xlsx(cfg, out_path):
     for r in range(4, 9):
         ws.row_dimensions[r].height = 17
 
-    if cfg.get("docType") == "estimate":
-        fill("D4", "ESTIMATE #:", label_font)
-        fill("E4", "EST-0001", base_font)
+    is_est = cfg.get("docType") in ("estimate", "quote")
+    est_label = "QUOTE #:" if cfg.get("docType") == "quote" else "ESTIMATE #:"
+    est_no = "QUOTE-0001" if cfg.get("docType") == "quote" else "EST-0001"
+    est_notice = ("This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary."
+                  if cfg.get("docType") == "quote"
+                  else "This is an estimate, not a final invoice. Final charges may vary based on actual work performed.")
+    if is_est:
+        fill("D4", est_label, label_font)
+        fill("E4", est_no, base_font)
         fill("D5", "DATE:", label_font)
         fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
         fill("D6", "VALID UNTIL:", label_font)
@@ -130,7 +136,7 @@ def gen_xlsx(cfg, out_path):
          Alignment(horizontal="right", vertical="center"), money_fmt)
     ws[f"F{sub_row}"].border = Border(top=top_line)
 
-    if cfg.get("docType") == "estimate":
+    if is_est:
         deposit_row = sub_row + 1
         fill(f"D{deposit_row}", "DEPOSIT (25%)", label_font)
         fill(f"F{deposit_row}", f"=ROUND(F{sub_row}*0.25,2)", bold_font,
@@ -165,10 +171,10 @@ def gen_xlsx(cfg, out_path):
     fill(f"A{note_start+1}", "NOTES:", label_font)
     fill(f"B{note_start+1}", cfg.get("notes", ""), base_font)
 
-    if cfg.get("docType") == "estimate":
+    if is_est:
         est_row = note_start + 2
         fill(f"A{est_row}", "NOTICE:", label_font)
-        fill(f"B{est_row}", "This is an estimate, not a final invoice. Final charges may vary based on actual work performed.", base_font)
+        fill(f"B{est_row}", est_notice, base_font)
         ws.row_dimensions[est_row].height = 30
         disc = est_row + 2
     else:
@@ -205,7 +211,9 @@ def gen_docx(cfg, out_path):
         p.paragraph_format.space_after = Pt(0)
 
     doc.add_paragraph()
-    if cfg.get("docType") == "estimate":
+    if cfg.get("docType") == "quote":
+        doc.add_paragraph("Quote #: QUOTE-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: Net 14")
+    elif cfg.get("docType") == "estimate":
         doc.add_paragraph("Estimate #: EST-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: Net 14")
     else:
         doc.add_paragraph("Invoice #: INV-0001    |    Date: 2026-09-29    |    Payment Terms: Net 14    |    Due: 2026-10-13")
@@ -233,7 +241,7 @@ def gen_docx(cfg, out_path):
     sum_row = table.add_row().cells
     sum_row[0].text = "SUBTOTAL"
     sum_row[4].text = f"${subtotal:.2f}"
-    if cfg.get("docType") == "estimate":
+    if cfg.get("docType") in ("estimate", "quote"):
         dep_row = table.add_row().cells
         dep_row[0].text = "DEPOSIT (25%)"
         dep_row[4].text = f"${subtotal * 0.25:.2f}"
@@ -250,7 +258,9 @@ def gen_docx(cfg, out_path):
     doc.add_paragraph()
     doc.add_paragraph(f"Payment terms: {cfg.get('paymentTerms', '')}")
     doc.add_paragraph(f"Notes: {cfg.get('notes', '')}")
-    if cfg.get("docType") == "estimate":
+    if cfg.get("docType") == "quote":
+        doc.add_paragraph("Notice: This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary.")
+    elif cfg.get("docType") == "estimate":
         doc.add_paragraph("Notice: This is an estimate, not a final invoice. Final charges may vary based on actual work performed.")
     doc.add_paragraph(cfg.get("disclaimer", ""))
     doc.save(out_path)
@@ -298,7 +308,12 @@ def gen_pdf(cfg, out_path):
         y -= 17
 
     pdf.setFont("Helvetica-Bold", 10)
-    if cfg.get("docType") == "estimate":
+    if cfg.get("docType") == "quote":
+        pdf.drawString(400, H - 95, "Quote #: QUOTE-0001")
+        pdf.drawString(400, H - 112, "Date: 2026-09-29")
+        pdf.drawString(400, H - 129, "Valid Until: 2026-10-29")
+        pdf.drawString(400, H - 146, "Payment Terms: Net 14")
+    elif cfg.get("docType") == "estimate":
         pdf.drawString(400, H - 95, "Estimate #: EST-0001")
         pdf.drawString(400, H - 112, "Date: 2026-09-29")
         pdf.drawString(400, H - 129, "Valid Until: 2026-10-29")
@@ -346,7 +361,7 @@ def gen_pdf(cfg, out_path):
     pdf.setFont("Helvetica-Bold", 10)
     pdf.drawString(400, ry, "SUBTOTAL")
     pdf.drawString(485, ry, f"${subtotal:.2f}")
-    if cfg.get("docType") == "estimate":
+    if cfg.get("docType") in ("estimate", "quote"):
         ry -= 16
         pdf.setFont("Helvetica", 10)
         pdf.drawString(400, ry, "DEPOSIT (25%)")
@@ -369,7 +384,9 @@ def gen_pdf(cfg, out_path):
     fy = ry
     fy = draw_wrapped(pdf, 60, fy, f"Payment terms: {cfg.get('paymentTerms', '')}", "Helvetica", 8, W - 120, 12)
     fy = draw_wrapped(pdf, 60, fy, f"Notes: {cfg.get('notes', '')}", "Helvetica", 8, W - 120, 12)
-    if cfg.get("docType") == "estimate":
+    if cfg.get("docType") == "quote":
+        fy = draw_wrapped(pdf, 60, fy, "Notice: This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary.", "Helvetica", 8, W - 120, 12)
+    elif cfg.get("docType") == "estimate":
         fy = draw_wrapped(pdf, 60, fy, "Notice: This is an estimate, not a final invoice. Final charges may vary based on actual work performed.", "Helvetica", 8, W - 120, 12)
     draw_wrapped(pdf, 60, fy, cfg.get("disclaimer", ""), "Helvetica", 8, W - 120, 12)
     pdf.save()

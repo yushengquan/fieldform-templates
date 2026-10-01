@@ -1,0 +1,41 @@
+{
+  "slug": "handyman-invoice-template",
+  "trade": "Handyman",
+  "docType": "invoice",
+  "title": "Handyman Invoice Template",
+  "subtitle": "An invoice pre-filled for handyman work — call-out fee, labor, drywall repair, door adjustments, materials and debris removal. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Labor guaranteed for 30 days; materials warranty per manufacturer.",
+  "lineItems": [
+    {"code": "CALL", "description": "Call-Out / Diagnostic Fee", "defaultQty": 1, "unit": "each", "sampleRate": 65.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 4, "unit": "hr", "sampleRate": 75.0, "taxable": true},
+    {"code": "DRYW", "description": "Drywall / Paint Repair", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
+    {"code": "DOOR", "description": "Door / Latch / Lock Adjustment", "defaultQty": 1, "unit": "job", "sampleRate": 45.0, "taxable": true},
+    {"code": "MAT", "description": "Materials & Parts", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true},
+    {"code": "WASTE", "description": "Debris Removal", "defaultQty": 1, "unit": "job", "sampleRate": 25.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled handyman line items: call-out fee, labor, drywall repair, door work, materials, debris",
+    "Itemized small jobs — clear lines for each fix so clients see the value",
+    "License # and EIN / Tax ID fields — required on client-facing invoices in most states"
+  ],
+  "faqs": [
+    {"q": "What should I include on a handyman invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list of the work done (call-out fee, labor, each repair, materials), tax, and a total due. Most states require a contractor license number on client-facing invoices."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

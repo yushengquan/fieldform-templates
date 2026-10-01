@@ -4,7 +4,8 @@ interface Props {
   trade: any;
 }
 const { trade } = Astro.props;
-const isEst = trade.docType === "estimate";
+const isEst = trade.docType === "estimate" || trade.docType === "quote";
+const docNo = trade.docType === "quote" ? "Quote #: QUOTE-0001" : "Estimate #: EST-0001";
 const items = trade.lineItems ?? [];
 let subtotal = 0;
 const rows = items.map((it: any, i: number) => {
@@ -27,7 +28,7 @@ const fmt = (n: number) => "$" + n.toFixed(2);
         <div class="lbl">Bill To</div>
         <div>Client Name<br>Client Address<br>Job Site Address</div>
         {isEst ? (
-          <div style="margin-top:8px;">Estimate #: EST-0001<br>Date: 2026-09-29 · Valid Until: 2026-10-29<br>Terms: Net 14</div>
+          <div style="margin-top:8px;">{docNo}<br>Date: 2026-09-29 · Valid Until: 2026-10-29<br>Terms: Net 14</div>
         ) : (
           <div style="margin-top:8px;">Invoice #: INV-0001<br>Date: 2026-09-29 · Terms: Net 14<br>Due: 2026-10-13</div>
         )}
@@ -63,7 +64,7 @@ const fmt = (n: number) => "$" + n.toFixed(2);
       )}
     </div>
     <div class="paper-note">
-      {isEst ? "This is an estimate — not a final invoice. Final charges may vary based on actual work performed. " : ""}
+      {isEst ? (trade.docType === "quote" ? "This is a quote — not an invoice. Pricing valid for 30 days. " : "This is an estimate — not a final invoice. Final charges may vary based on actual work performed. ") : ""}
       Payment terms: {trade.paymentTerms} {trade.notes ? trade.notes + " " : ""}
       {trade.disclaimer}
     </div>
