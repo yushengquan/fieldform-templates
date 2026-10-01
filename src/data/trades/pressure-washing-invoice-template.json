@@ -1,0 +1,41 @@
+{
+  "slug": "pressure-washing-invoice-template",
+  "trade": "Pressure Washing",
+  "docType": "invoice",
+  "title": "Pressure Washing Invoice Template",
+  "subtitle": "An invoice pre-filled for pressure washing jobs — driveway, house exterior, deck, fence, sidewalk and gutter cleaning. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Property Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 7 — payment due within 7 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Recurring seasonal washing (spring / fall) billed per the quoted surface list.",
+  "lineItems": [
+    {"code": "DRIVE", "description": "Driveway Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "HOUSE", "description": "House Exterior", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
+    {"code": "DECK", "description": "Deck & Patio", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "FENCE", "description": "Fence Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
+    {"code": "SIDEW", "description": "Sidewalk / Walkway", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true},
+    {"code": "GUTTER", "description": "Gutter Cleaning (soft wash)", "defaultQty": 1, "unit": "job", "sampleRate": 75.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled pressure washing line items: driveway, exterior, deck, fence, sidewalk, gutters",
+    "Surface-by-surface itemization — clients see exactly what was cleaned",
+    "Short Net 7 terms keep small jobs paid fast"
+  ],
+  "faqs": [
+    {"q": "What should I include on a pressure washing invoice?", "a": "At minimum: your business name, the client and property address, a dated line-item list of surfaces cleaned (driveway, exterior, deck, fence), tax, and a total due. Surface-by-surface itemization helps clients verify the work."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}

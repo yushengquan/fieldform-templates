@@ -1,0 +1,41 @@
+{
+  "slug": "hvac-invoice-template",
+  "trade": "HVAC Service",
+  "docType": "invoice",
+  "title": "HVAC Invoice Template",
+  "subtitle": "An invoice pre-filled for HVAC work — service call, labor, AC repair, tune-up, thermostat installation and parts. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Labor guaranteed for 90 days; manufacturer warranty applies to parts and equipment.",
+  "lineItems": [
+    {"code": "CALL", "description": "Service Call / Diagnostic", "defaultQty": 1, "unit": "each", "sampleRate": 89.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 3, "unit": "hr", "sampleRate": 95.0, "taxable": true},
+    {"code": "ACREP", "description": "AC / Heat Pump Repair", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "TUNE", "description": "System Tune-Up", "defaultQty": 1, "unit": "job", "sampleRate": 99.0, "taxable": true},
+    {"code": "THRM", "description": "Thermostat Installation", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "PART", "description": "Parts & Materials", "defaultQty": 1, "unit": "job", "sampleRate": 65.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled HVAC line items: service call, labor, repairs, tune-up, thermostat, parts",
+    "License # field — HVAC contractors must show it on client-facing invoices in most states",
+    "Warranty-friendly layout: separate labor and parts lines make guarantee terms easy to reference"
+  ],
+  "faqs": [
+    {"q": "What should I include on an HVAC invoice?", "a": "At minimum: your business name and license number, the client and service address, a dated line-item list (service call, labor, each repair, parts), tax, and a total due. Split labor and parts so warranty terms are easy to reference."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

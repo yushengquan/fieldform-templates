@@ -1,0 +1,41 @@
+{
+  "slug": "tree-service-estimate-template",
+  "trade": "Tree Service",
+  "docType": "estimate",
+  "title": "Tree Service Estimate Template",
+  "subtitle": "An estimate pre-filled for tree work — removal, stump grinding, trimming, pruning, storm cleanup and debris hauling. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the job; balance due on completion.",
+  "notes": "This is an estimate, not a final invoice. Final charges may vary based on site conditions and additional work approved on site.",
+  "lineItems": [
+    {"code": "REMOV", "description": "Tree Removal", "defaultQty": 1, "unit": "tree", "sampleRate": 350.0, "taxable": true},
+    {"code": "STUMP", "description": "Stump Grinding", "defaultQty": 1, "unit": "stump", "sampleRate": 150.0, "taxable": true},
+    {"code": "TRIM", "description": "Tree Trimming", "defaultQty": 2, "unit": "hr", "sampleRate": 85.0, "taxable": true},
+    {"code": "PRUNE", "description": "Pruning", "defaultQty": 1, "unit": "tree", "sampleRate": 120.0, "taxable": true},
+    {"code": "STORM", "description": "Storm Damage Cleanup", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
+    {"code": "HAUL", "description": "Debris Removal & Hauling", "defaultQty": 1, "unit": "job", "sampleRate": 95.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled tree service line items: removal, stump grinding, trimming, pruning, storm cleanup, hauling",
+    "Valid-until date + deposit section standard for tree work quotes",
+    "License # field — many states require an arborist/contractor license on client-facing estimates"
+  ],
+  "faqs": [
+    {"q": "What should I include on a tree service estimate?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (removal, stump grinding, trimming, debris), a validity date, deposit terms, and exclusions. Note that the estimate is not a final invoice."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

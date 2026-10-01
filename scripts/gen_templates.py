@@ -27,6 +27,12 @@ def trade_label(cfg):
     return f"{cfg.get('title', 'Template').upper()}"
 
 
+def term_short(cfg):
+    """从 paymentTerms 提取 'Net N' 用于表头；缺失时回退 Net 14。"""
+    m = re.search(r"Net\s+\d+", cfg.get("paymentTerms", ""))
+    return m.group(0) if m else "Net 14"
+
+
 # ---------------- Excel ----------------
 def gen_xlsx(cfg, out_path):
     from openpyxl import Workbook
@@ -92,14 +98,14 @@ def gen_xlsx(cfg, out_path):
         fill("D6", "VALID UNTIL:", label_font)
         fill("E6", "=E5+30", base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
         fill("D7", "PAYMENT TERMS:", label_font)
-        fill("E7", "Net 14", base_font)
+        fill("E7", term_short(cfg), base_font)
     else:
         fill("D4", "INVOICE #:", label_font)
         fill("E4", "INV-0001", base_font)
         fill("D5", "DATE:", label_font)
         fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
         fill("D6", "PAYMENT TERMS:", label_font)
-        fill("E6", "Net 14", base_font)
+        fill("E6", term_short(cfg), base_font)
         fill("D7", "DUE DATE:", label_font)
         fill("E7", "=E5+14", base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
 
@@ -212,11 +218,11 @@ def gen_docx(cfg, out_path):
 
     doc.add_paragraph()
     if cfg.get("docType") == "quote":
-        doc.add_paragraph("Quote #: QUOTE-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: Net 14")
+        doc.add_paragraph(f"Quote #: QUOTE-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: {term_short(cfg)}")
     elif cfg.get("docType") == "estimate":
-        doc.add_paragraph("Estimate #: EST-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: Net 14")
+        doc.add_paragraph(f"Estimate #: EST-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: {term_short(cfg)}")
     else:
-        doc.add_paragraph("Invoice #: INV-0001    |    Date: 2026-09-29    |    Payment Terms: Net 14    |    Due: 2026-10-13")
+        doc.add_paragraph(f"Invoice #: INV-0001    |    Date: 2026-09-29    |    Payment Terms: {term_short(cfg)}    |    Due: 2026-10-13")
     bt = doc.add_paragraph()
     bt.add_run("BILL TO").bold = True
     for line in ["Client Name", "Client Address", "Job Site Address", "Phone  |  Email"]:
@@ -312,16 +318,16 @@ def gen_pdf(cfg, out_path):
         pdf.drawString(400, H - 95, "Quote #: QUOTE-0001")
         pdf.drawString(400, H - 112, "Date: 2026-09-29")
         pdf.drawString(400, H - 129, "Valid Until: 2026-10-29")
-        pdf.drawString(400, H - 146, "Payment Terms: Net 14")
+        pdf.drawString(400, H - 146, f"Payment Terms: {term_short(cfg)}")
     elif cfg.get("docType") == "estimate":
         pdf.drawString(400, H - 95, "Estimate #: EST-0001")
         pdf.drawString(400, H - 112, "Date: 2026-09-29")
         pdf.drawString(400, H - 129, "Valid Until: 2026-10-29")
-        pdf.drawString(400, H - 146, "Payment Terms: Net 14")
+        pdf.drawString(400, H - 146, f"Payment Terms: {term_short(cfg)}")
     else:
         pdf.drawString(400, H - 95, "Invoice #: INV-0001")
         pdf.drawString(400, H - 112, "Date: 2026-09-29")
-        pdf.drawString(400, H - 129, "Payment Terms: Net 14")
+        pdf.drawString(400, H - 129, f"Payment Terms: {term_short(cfg)}")
         pdf.drawString(400, H - 146, "Due Date: 2026-10-13")
 
     # BILL TO 块：标签放在 From 块下方，客户信息再从标签下方排开，避免与 EIN 行重叠
