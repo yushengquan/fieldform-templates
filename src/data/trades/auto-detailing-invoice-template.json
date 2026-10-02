@@ -1,0 +1,41 @@
+{
+  "slug": "auto-detailing-invoice-template",
+  "trade": "Auto Detailing",
+  "docType": "invoice",
+  "title": "Auto Detailing Invoice Template",
+  "subtitle": "An invoice pre-filled for detailing jobs — exterior wash, interior detail, full package, ceramic coating, upholstery and paint polish. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Vehicle (Make / Model / VIN)", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Payment due at time of pickup unless prior credit terms are agreed.",
+  "notes": "Thank you for your business. Ceramic coating warranty per manufacturer; please avoid washing for 48 hours after application.",
+  "lineItems": [
+    {"code": "EXT", "description": "Exterior Wash & Wax", "defaultQty": 1, "unit": "car", "sampleRate": 80.0, "taxable": true},
+    {"code": "INT", "description": "Interior Detail", "defaultQty": 1, "unit": "car", "sampleRate": 150.0, "taxable": true},
+    {"code": "FULL", "description": "Full Detail Package", "defaultQty": 1, "unit": "car", "sampleRate": 220.0, "taxable": true},
+    {"code": "CERAM", "description": "Ceramic Coating", "defaultQty": 1, "unit": "car", "sampleRate": 350.0, "taxable": true},
+    {"code": "SEAT", "description": "Seat / Upholstery Shampoo", "defaultQty": 1, "unit": "car", "sampleRate": 90.0, "taxable": true},
+    {"code": "POLISH", "description": "Paint Polish / Correction", "defaultQty": 1, "unit": "car", "sampleRate": 180.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled detailing line items: wash & wax, interior, full package, ceramic, upholstery, polish",
+    "Vehicle field (make / model / VIN) keeps records clean per car",
+    "Pay-at-pickup terms standard for detailing"
+  ],
+  "faqs": [
+    {"q": "What should I include on an auto detailing invoice?", "a": "At minimum: your business name, the client and vehicle details (make, model, VIN), a dated line-item list of services (wash & wax, interior, coating, polish), tax, and a total due. Record the VIN so each car's history stays clear."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}

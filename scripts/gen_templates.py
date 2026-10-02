@@ -32,6 +32,8 @@ def term_short(cfg):
     t = cfg.get("paymentTerms", "")
     if "at time of service" in t:
         return "Due on Service"
+    if "at time of pickup" in t:
+        return "Due on Pickup"
     if "balance due on completion" in t:
         return "Due on Completion"
     m = re.search(r"Net\s+\d+", t)

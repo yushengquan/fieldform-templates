@@ -1,0 +1,41 @@
+{
+  "slug": "tiling-invoice-template",
+  "trade": "Tile Installer",
+  "docType": "invoice",
+  "title": "Tile Installation Invoice Template",
+  "subtitle": "An invoice pre-filled for tile work — installation, labor, grouting, demo, waterproofing and materials. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Grout sealer warranty applies per manufacturer; labor guaranteed for 90 days.",
+  "lineItems": [
+    {"code": "TILE", "description": "Tile Installation", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 8, "unit": "hr", "sampleRate": 45.0, "taxable": true},
+    {"code": "GROUT", "description": "Grouting & Sealing", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "DEMO", "description": "Tile Removal / Demo", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
+    {"code": "WATER", "description": "Waterproofing / Backer Board", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "MAT", "description": "Materials & Adhesive", "defaultQty": 1, "unit": "job", "sampleRate": 220.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled tile work line items: installation, labor, grouting, demo, waterproofing, materials",
+    "License # field — most states require a contractor license on client-facing invoices",
+    "Warranty-friendly layout: separate labor and materials lines"
+  ],
+  "faqs": [
+    {"q": "What should I include on a tile installation invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (installation, labor, grouting, demo, materials), tax, and a total due. Split labor and materials so warranty terms are easy to reference."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "photographer-invoice-template",
+  "trade": "Photographer",
+  "docType": "invoice",
+  "title": "Photographer Invoice Template",
+  "subtitle": "An invoice pre-filled for photography work — session, extra hours, edited photos, prints, travel and albums. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Shoot Location", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 7 — payment due within 7 days. A 50% retainer is required to book the shoot date.",
+  "notes": "Thank you for your business. Edited photos delivered by the agreed date; printing and albums billed separately.",
+  "lineItems": [
+    {"code": "SESS", "description": "Photography Session", "defaultQty": 1, "unit": "session", "sampleRate": 250.0, "taxable": true},
+    {"code": "HOUR", "description": "Additional Hour", "defaultQty": 1, "unit": "hr", "sampleRate": 150.0, "taxable": true},
+    {"code": "PHOTO", "description": "Edited Photos", "defaultQty": 20, "unit": "photo", "sampleRate": 25.0, "taxable": true},
+    {"code": "PRINT", "description": "Prints", "defaultQty": 1, "unit": "set", "sampleRate": 45.0, "taxable": true},
+    {"code": "TRAVEL", "description": "Travel / Location Fee", "defaultQty": 1, "unit": "job", "sampleRate": 50.0, "taxable": true},
+    {"code": "ALBUM", "description": "Album / Online Gallery", "defaultQty": 1, "unit": "each", "sampleRate": 120.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled photography line items: session, extra hours, edited photos, prints, travel, album",
+    "Net 7 + 50% retainer terms standard for creative work",
+    "Per-photo and per-hour lines make quote-to-invoice matching easy"
+  ],
+  "faqs": [
+    {"q": "What should I include on a photographer invoice?", "a": "At minimum: your business name, the client and shoot location, a dated line-item list (session fee, extra hours, edited photos, prints, travel), tax, and a total due. Itemize per-photo and per-hour charges so the final bill matches the quote."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}
