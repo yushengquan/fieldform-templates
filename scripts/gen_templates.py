@@ -28,8 +28,13 @@ def trade_label(cfg):
 
 
 def term_short(cfg):
-    """从 paymentTerms 提取 'Net N' 用于表头；缺失时回退 Net 14。"""
-    m = re.search(r"Net\s+\d+", cfg.get("paymentTerms", ""))
+    """从 paymentTerms 提取简短条款用于表头：Net N / Due on Service；缺失时回退 Net 14。"""
+    t = cfg.get("paymentTerms", "")
+    if "at time of service" in t:
+        return "Due on Service"
+    if "balance due on completion" in t:
+        return "Due on Completion"
+    m = re.search(r"Net\s+\d+", t)
     return m.group(0) if m else "Net 14"
 
 

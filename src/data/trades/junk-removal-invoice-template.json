@@ -1,0 +1,41 @@
+{
+  "slug": "junk-removal-invoice-template",
+  "trade": "Junk Removal",
+  "docType": "invoice",
+  "title": "Junk Removal Invoice Template",
+  "subtitle": "An invoice pre-filled for junk removal jobs — full or half truckload, furniture, appliances, labor and disposal. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Pickup Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Payment due at time of service unless prior credit terms are agreed.",
+  "notes": "Thank you for your business. Weight and volume confirmed at pickup; final total reflects actual load.",
+  "lineItems": [
+    {"code": "FULL", "description": "Full Truckload Removal", "defaultQty": 1, "unit": "load", "sampleRate": 350.0, "taxable": true},
+    {"code": "HALF", "description": "Half Truckload Removal", "defaultQty": 1, "unit": "load", "sampleRate": 180.0, "taxable": true},
+    {"code": "FURN", "description": "Furniture Removal", "defaultQty": 1, "unit": "item", "sampleRate": 95.0, "taxable": true},
+    {"code": "APPL", "description": "Appliance Removal", "defaultQty": 1, "unit": "item", "sampleRate": 60.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 2, "unit": "hr", "sampleRate": 60.0, "taxable": true},
+    {"code": "DROP", "description": "Disposal / Dump Fee", "defaultQty": 1, "unit": "job", "sampleRate": 40.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled junk removal line items: truckload, furniture, appliances, labor, disposal",
+    "Pickup-address field — junk jobs often bill the pickup site, not the client address",
+    "Pay-at-service terms keep every load settled before the truck leaves"
+  ],
+  "faqs": [
+    {"q": "What should I include on a junk removal invoice?", "a": "At minimum: your business name, the client and pickup address, a dated line-item list (truckload, furniture, appliances, labor, disposal fee), tax, and a total due. Confirm weight and volume at pickup so the final total matches the load."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}
