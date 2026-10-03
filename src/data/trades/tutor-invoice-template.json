@@ -1,0 +1,41 @@
+{
+  "slug": "tutor-invoice-template",
+  "trade": "Tutor / Educator",
+  "docType": "invoice",
+  "title": "Tutor Invoice Template",
+  "subtitle": "An invoice pre-filled for tutoring services — sessions, packages, lesson prep, travel, materials and online lessons. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Student Name", "Parent / Guardian", "Client Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 7 — payment due within 7 days. Package sessions are valid for 3 months from purchase.",
+  "notes": "Thank you for your business. Cancellations accepted with 24 hours' notice; otherwise the session is billed.",
+  "lineItems": [
+    {"code": "SESS", "description": "Tutoring Session", "defaultQty": 4, "unit": "session", "sampleRate": 45.0, "taxable": true},
+    {"code": "PKG", "description": "10-Session Package", "defaultQty": 1, "unit": "package", "sampleRate": 400.0, "taxable": true},
+    {"code": "PREP", "description": "Lesson Preparation", "defaultQty": 1, "unit": "each", "sampleRate": 30.0, "taxable": true},
+    {"code": "TRVL", "description": "Travel / Location Fee", "defaultQty": 1, "unit": "visit", "sampleRate": 15.0, "taxable": true},
+    {"code": "MAT", "description": "Materials / Worksheets", "defaultQty": 1, "unit": "each", "sampleRate": 20.0, "taxable": true},
+    {"code": "ONLN", "description": "Online Lesson", "defaultQty": 2, "unit": "session", "sampleRate": 40.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled tutoring line items: sessions, packages, prep, travel, materials, online",
+    "Package expiry terms printed on the invoice avoid credit disputes",
+    "Student and guardian fields keep billing and attendance clear"
+  ],
+  "faqs": [
+    {"q": "What should I include on a tutor invoice?", "a": "At minimum: your business name, the student and billing contact, a dated line-item list (sessions, packages, prep, materials), tax, and a total due. Print your cancellation and package expiry policy so families know the terms."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}

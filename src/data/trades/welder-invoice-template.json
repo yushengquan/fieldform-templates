@@ -1,0 +1,41 @@
+{
+  "slug": "welder-invoice-template",
+  "trade": "Welder",
+  "docType": "invoice",
+  "title": "Welder Invoice Template",
+  "subtitle": "An invoice pre-filled for welding services — MIG and TIG labor, materials, mobilization, repairs and safety fees. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 10 — payment due within 10 days. Workmanship guaranteed for 90 days on welded joints.",
+  "notes": "Thank you for your business. Welding performed per AWS D1.1/D1.2 standards where applicable.",
+  "lineItems": [
+    {"code": "MIG", "description": "MIG Welding Labor", "defaultQty": 4, "unit": "hour", "sampleRate": 65.0, "taxable": true},
+    {"code": "TIG", "description": "TIG Welding Labor", "defaultQty": 2, "unit": "hour", "sampleRate": 85.0, "taxable": true},
+    {"code": "MAT", "description": "Materials (rod / wire / gas)", "defaultQty": 1, "unit": "job", "sampleRate": 75.0, "taxable": true},
+    {"code": "MOB", "description": "Mobilization / Travel", "defaultQty": 1, "unit": "visit", "sampleRate": 50.0, "taxable": true},
+    {"code": "REP", "description": "Repair Work", "defaultQty": 2, "unit": "joint", "sampleRate": 40.0, "taxable": true},
+    {"code": "SAF", "description": "Safety / Permits", "defaultQty": 1, "unit": "job", "sampleRate": 25.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled welding line items: MIG/TIG labor, materials, mobilization, repairs",
+    "90-day workmanship guarantee printed on the invoice",
+    "Separate labor and materials lines make cost breakdown transparent"
+  ],
+  "faqs": [
+    {"q": "What should I include on a welder invoice?", "a": "At minimum: your business name, the client and job site, a dated line-item list (labor by type, materials, mobilization), tax, and a total due. Note any weld standard used and your workmanship guarantee."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "drywall-invoice-template",
+  "trade": "Drywall Contractor",
+  "docType": "invoice",
+  "title": "Drywall Invoice Template",
+  "subtitle": "An invoice pre-filled for drywall work — hanging per sheet, taping & mudding, texture, sanding, patching and cleanup. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Balance due on completion of final inspection.",
+  "notes": "Thank you for your business. Workmanship guaranteed for 12 months on taping and seams.",
+  "lineItems": [
+    {"code": "HANG", "description": "Hanging Drywall", "defaultQty": 10, "unit": "sheet", "sampleRate": 12.0, "taxable": true},
+    {"code": "TAPE", "description": "Taping & Mudding", "defaultQty": 500, "unit": "sq ft", "sampleRate": 0.6, "taxable": true},
+    {"code": "TEX", "description": "Texture Finish", "defaultQty": 300, "unit": "sq ft", "sampleRate": 0.8, "taxable": true},
+    {"code": "SAND", "description": "Sanding & Prep", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "PATCH", "description": "Patch & Repair", "defaultQty": 3, "unit": "each", "sampleRate": 45.0, "taxable": true},
+    {"code": "CLEAN", "description": "Cleanup & Disposal", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled drywall line items: hanging, taping, texture, sanding, patch, cleanup",
+    "Per-square-foot and per-sheet pricing keeps bids and invoices consistent",
+    "12-month workmanship guarantee printed on the invoice"
+  ],
+  "faqs": [
+    {"q": "What should I include on a drywall invoice?", "a": "At minimum: your business name, the client and job site, a dated line-item list (hanging by sheet, taping and texture by square foot, patch work), tax, and a total due. Itemizing by square footage keeps estimates and final invoices comparable."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+}
