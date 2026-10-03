@@ -1,0 +1,41 @@
+{
+  "slug": "salon-invoice-template",
+  "trade": "Salon / Hair Stylist",
+  "docType": "invoice",
+  "title": "Salon Invoice Template",
+  "subtitle": "An invoice pre-filled for salon services — haircut, color, shampoo & blowout, treatment, event styling and retail products. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Phone", "Email", ""],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Payment due at time of service unless prior arrangements are agreed.",
+  "notes": "Thank you for your business. Retail products carry manufacturer satisfaction guarantee.",
+  "lineItems": [
+    {"code": "CUT", "description": "Haircut & Style", "defaultQty": 1, "unit": "service", "sampleRate": 55.0, "taxable": true},
+    {"code": "COLOR", "description": "Color / Highlights", "defaultQty": 1, "unit": "service", "sampleRate": 120.0, "taxable": true},
+    {"code": "WASH", "description": "Shampoo & Blowout", "defaultQty": 1, "unit": "service", "sampleRate": 45.0, "taxable": true},
+    {"code": "TREAT", "description": "Treatment / Mask", "defaultQty": 1, "unit": "service", "sampleRate": 35.0, "taxable": true},
+    {"code": "STYLE", "description": "Event Styling", "defaultQty": 1, "unit": "service", "sampleRate": 85.0, "taxable": true},
+    {"code": "PROD", "description": "Retail Products", "defaultQty": 1, "unit": "each", "sampleRate": 40.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled salon line items: cut, color, blowout, treatment, event styling, retail",
+    "Tip-friendly total section for front-desk checkout",
+    "Pay-at-service terms keep the till simple"
+  ],
+  "faqs": [
+    {"q": "What should I include on a salon invoice?", "a": "At minimum: your business name, the client details, a dated line-item list of services (cut, color, treatment, styling) plus any retail products, tax, and a total due. Itemize services so clients can verify their bill and rebook the same stylist package."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}

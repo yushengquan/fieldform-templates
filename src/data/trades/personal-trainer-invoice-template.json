@@ -1,0 +1,41 @@
+{
+  "slug": "personal-trainer-invoice-template",
+  "trade": "Personal Trainer",
+  "docType": "invoice",
+  "title": "Personal Trainer Invoice Template",
+  "subtitle": "An invoice pre-filled for training services — sessions, packages, nutrition plans, online coaching, assessments and facility fees. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Phone", "Email", ""],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 7 — payment due within 7 days. Packages are non-refundable; unused sessions valid for 6 months.",
+  "notes": "Thank you for your business. Online coaching billed monthly; pause or cancel anytime with 30 days' notice.",
+  "lineItems": [
+    {"code": "SESS", "description": "Training Session", "defaultQty": 4, "unit": "session", "sampleRate": 50.0, "taxable": true},
+    {"code": "PACK", "description": "10-Session Pack", "defaultQty": 1, "unit": "pack", "sampleRate": 450.0, "taxable": true},
+    {"code": "NUTR", "description": "Nutrition Plan", "defaultQty": 1, "unit": "plan", "sampleRate": 150.0, "taxable": true},
+    {"code": "ONLN", "description": "Online Coaching", "defaultQty": 1, "unit": "month", "sampleRate": 180.0, "taxable": true},
+    {"code": "ASMT", "description": "Initial Assessment", "defaultQty": 1, "unit": "each", "sampleRate": 75.0, "taxable": true},
+    {"code": "TRAV", "description": "Travel / Facility Fee", "defaultQty": 1, "unit": "job", "sampleRate": 25.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled trainer line items: sessions, packs, nutrition, online coaching, assessment",
+    "Package expiry terms printed on the invoice keep policy disputes away",
+    "Per-session and pack lines make partial usage easy to track"
+  ],
+  "faqs": [
+    {"q": "What should I include on a personal trainer invoice?", "a": "At minimum: your business name, the client details, a dated line-item list (sessions, packages, nutrition or coaching plans), tax, and a total due. Print package expiry and cancellation terms so clients know the policy up front."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}
