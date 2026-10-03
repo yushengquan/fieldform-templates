@@ -1,5 +1,6 @@
 ---
 // 动态模板页：/templates/[slug]/ — 从 data/trades/*.json 批量生成
+// 每个工种生成 3 个变体：主页面 + Word 版 + Excel 版（格式长尾页，各自独立 SEO）
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InvoicePreview from '../../components/InvoicePreview.astro';
 import DownloadCards from '../../components/DownloadCards.astro';
@@ -8,15 +9,30 @@ import FaqList from '../../components/FaqList.astro';
 export function getStaticPaths() {
   const modules = import.meta.glob('../../data/trades/*.json', { eager: true });
   const trades: any[] = Object.values(modules).map((m: any) => m.default);
-  return trades.map((t) => ({ params: { slug: t.slug }, props: { trade: t } }));
+  const paths: any[] = [];
+  for (const t of trades) {
+    paths.push({ params: { slug: t.slug }, props: { trade: t, format: '' } });
+    paths.push({ params: { slug: t.slug + '-word' }, props: { trade: t, format: 'word' } });
+    paths.push({ params: { slug: t.slug + '-excel' }, props: { trade: t, format: 'excel' } });
+  }
+  return paths;
 }
 
-const { trade } = Astro.props;
+const { trade, format } = Astro.props;
 const items = trade.lineItems ?? [];
 let subtotal = 0;
 for (const it of items) subtotal += (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
 
-const desc = trade.subtitle;
+const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
+const pageTitle = format
+  ? `${trade.title} (${fmtLabel}) — FieldForm Templates`
+  : `${trade.title} — FieldForm Templates`;
+const pageDesc = format
+  ? `${trade.subtitle} Get the ${fmtLabel} version — free to download, no email required.`
+  : trade.subtitle;
+const firstItem = items[0] ?? { code: 'ITEM', description: 'your first line item' };
+const exampleItem = `${firstItem.description} (${firstItem.code})`;
+
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -27,20 +43,66 @@ const jsonLd = JSON.stringify({
   })),
 });
 ---
-<BaseLayout title={`${trade.title} — FieldForm Templates`} description={desc}>
+<BaseLayout title={pageTitle} description={pageDesc}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
 
   <section class="section wrap" style="padding-top:56px;">
     <div class="section-head">
-      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">{trade.trade} · {trade.docType} template</p>
-      <h1>{trade.title}</h1>
-      <p class="lead">{trade.subtitle}</p>
+      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">{trade.trade} · {trade.docType} template{format ? ` · ${fmtLabel} format` : ''}</p>
+      <h1>{pageTitle.split(' — ')[0]}</h1>
+      <p class="lead">{pageDesc}</p>
     </div>
   </section>
 
   <section class="section wrap" id="download" style="padding-top:8px;">
-    <DownloadCards slug={trade.slug} downloads={trade.downloads} />
+    <DownloadCards slug={trade.slug} downloads={trade.downloads} active={format || undefined} />
   </section>
+
+  {format === 'word' && (
+    <section class="section wrap" id="word-tips" style="padding-top:40px;">
+      <div class="section-head">
+        <h2>Using this template in Word</h2>
+        <p>Everything you can change in a few clicks — no design skills needed.</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Edit the line items</h3>
+          <p>Start with the pre-filled <strong>{exampleItem}</strong> row and adjust it to your actual job. Add or delete rows in the table — the layout stays aligned.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Add your branding</h3>
+          <p>Drop your logo into the header box, change the accent color, and swap the default fonts to match your business. Everything is editable text, not an image.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Send it as a PDF</h3>
+          <p>After editing, use File → Save As → PDF to send a polished invoice or estimate that the client cannot accidentally alter.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {format === 'excel' && (
+    <section class="section wrap" id="excel-tips" style="padding-top:40px;">
+      <div class="section-head">
+        <h2>Using this template in Excel</h2>
+        <p>The math is already wired up — enter amounts, totals update themselves.</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Built-in formulas</h3>
+          <p>Subtotal, tax and total cells use live formulas (<code>=SUM(...)</code> and <code>=subtotal × rate</code>). Type your quantities and rates for rows like <strong>{exampleItem}</strong> and the invoice recalculates instantly.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Set your tax rate</h3>
+          <p>The tax rate cell is left blank on purpose — look up your state's rate and enter it once. No rate required? Leave it empty and the total equals the subtotal.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Reuse for every job</h3>
+          <p>Duplicate the sheet per client or save copies per project. Keep one master copy and your pricing history stays organized.</p>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section wrap" id="preview" style="padding-top:40px;">
     <div class="section-head">

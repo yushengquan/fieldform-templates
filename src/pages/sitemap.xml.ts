@@ -13,6 +13,10 @@ export const GET: APIRoute = async ({ site }) => {
       priority: '0.9',
       changefreq: 'monthly',
     })),
+    ...trades.flatMap((t) => [
+      { loc: `${base}/templates/${t.slug}-word/`, priority: '0.8', changefreq: 'monthly' },
+      { loc: `${base}/templates/${t.slug}-excel/`, priority: '0.8', changefreq: 'monthly' },
+    ]),
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

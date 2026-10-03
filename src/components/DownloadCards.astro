@@ -3,8 +3,9 @@
 interface Props {
   slug: string;
   downloads: any;
+  active?: string;
 }
-const { slug, downloads } = Astro.props;
+const { slug, downloads, active } = Astro.props;
 const order = ["pdf", "word", "excel"];
 const ext: Record<string, string> = { pdf: "pdf", word: "docx", excel: "xlsx" };
 const btnCls: Record<string, string> = { pdf: "btn-primary", word: "btn-ghost", excel: "btn-teal" };
@@ -13,14 +14,20 @@ const meta: Record<string, { cls: string; icon: string }> = {
   word: { cls: "tag-gray", icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>' },
   excel: { cls: "tag-teal", icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 10h16M4 15h16M10 3v18"/></svg>' },
 };
+const activeNote: Record<string, string> = {
+  word: "This is the Word version you searched for — download it below.",
+  excel: "This is the Excel version you searched for — download it below.",
+};
 ---
 <div class="dl-grid">
   {order.map((key) => {
     const d = downloads?.[key];
     if (!d) return null;
     const m = meta[key];
+    const isActive = active === key;
     return (
-      <div class="dl-card">
+      <div class="dl-card" style={isActive ? "border-color:var(--teal);box-shadow:0 4px 14px rgba(20,155,140,.15);" : ""}>
+        {isActive && <span style="display:block;font-size:12px;font-weight:700;color:var(--teal);margin-bottom:8px;">✓ {activeNote[key]}</span>}
         <span class={`tag ${m.cls}`} set:html={m.icon + "Free download"}></span>
         <h3>{d.label}</h3>
         <p>{d.note}</p>
@@ -31,3 +38,4 @@ const meta: Record<string, { cls: string; icon: string }> = {
     );
   })}
 </div>
+
