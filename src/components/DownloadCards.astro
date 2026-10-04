@@ -1,5 +1,5 @@
 ---
-// 下载卡片：PDF / Word / Excel 全部免邮箱直链下载（MVP 阶段；未来流量起来后再上留资墙）
+// 下载卡片：PDF 免费直接下（护 SEO）；Word/Excel 邮箱换下载（FormSubmit 过渡方案，未来迁 Brevo）
 interface Props {
   slug: string;
   downloads: any;
@@ -25,18 +25,106 @@ const activeNote: Record<string, string> = {
     if (!d) return null;
     const m = meta[key];
     const isActive = active === key;
+    const downloadUrl = `/downloads/${slug}.${ext[key]}`;
     return (
       <div class="dl-card" style={isActive ? "border-color:var(--teal);box-shadow:0 4px 14px rgba(20,155,140,.15);" : ""}>
         {isActive && <span style="display:block;font-size:12px;font-weight:700;color:var(--teal);margin-bottom:8px;">✓ {activeNote[key]}</span>}
         <span class={`tag ${m.cls}`} set:html={m.icon + "Free download"}></span>
         <h3>{d.label}</h3>
         <p>{d.note}</p>
-        <a class={`btn btn-block ${btnCls[key]}`} href={`/downloads/${slug}.${ext[key]}`} download
-           onclick={`if(window.gtag)gtag('event','download',{file_format:'${key}',template:'${slug}'});`}>
-          Download {d.label}
-        </a>
+
+        {key === "pdf" ? (
+          <a class="btn btn-block btn-primary" href={downloadUrl} download
+             onclick={`if(window.gtag)gtag('event','download',{file_format:'pdf',template:'${slug}'});`}>
+            Download PDF
+          </a>
+        ) : (
+          <div class="gate">
+            <button class={`btn btn-block ${btnCls[key]} gate-open`} type="button" data-gate-open={key}>
+              Get {d.label}
+            </button>
+            <form class="gate-form" data-gate-form={key} hidden>
+              <input class="gate-email" type="email" name="email" placeholder="Email to get the download link" required />
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+              <button class="btn btn-block btn-primary" type="submit">Send me the link</button>
+              <p class="gate-msg" data-gate-msg={key}></p>
+            </form>
+            <a class={`btn btn-block ${btnCls[key]} gate-ready`} href={downloadUrl} download
+               data-gate-ready={key} hidden
+               onclick={`if(window.gtag)gtag('event','download',{file_format:'${key}',template:'${slug}'});`}>
+              Download {d.label}
+            </a>
+          </div>
+        )}
       </div>
     );
   })}
 </div>
 
+<script define:vars={{ slug }}>
+  document.querySelectorAll("[data-gate-open]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.hidden = true;
+      const form = btn.parentElement.querySelector("[data-gate-form]");
+      if (form) form.hidden = false;
+    });
+  });
+
+  document.querySelectorAll("[data-gate-form]").forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fmt = form.getAttribute("data-gate-form");
+      const msg = form.querySelector("[data-gate-msg]");
+      const emailInput = form.querySelector('input[name="email"]');
+      const email = emailInput.value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        msg.textContent = "Please enter a valid email address.";
+        return;
+      }
+      msg.textContent = "Sending…";
+      try {
+        const res = await fetch("https://formsubmit.co/ajax/yushengquanem@163.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            email: email,
+            template: slug,
+            format: fmt,
+            _subject: "FieldForm template download: " + slug + " (" + fmt + ")",
+            _template: "table",
+            _captcha: "false",
+          }),
+        });
+        const data = await res.json();
+        if (data.success === "true" || data.success === true) {
+          msg.textContent = "✓ Link sent to your inbox.";
+          form.hidden = true;
+          const ready = form.parentElement.querySelector("[data-gate-ready]");
+          if (ready) ready.hidden = false;
+          if (window.gtag) gtag("event", "lead", { template: slug, format: fmt });
+        } else {
+          msg.textContent = "Something went wrong — please try again.";
+        }
+      } catch (err) {
+        msg.textContent = "Network error — please try again.";
+      }
+    });
+  });
+</script>
+
+<style>
+  .gate-email {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    box-sizing: border-box;
+    color: var(--ink);
+    background: #fff;
+  }
+  .gate-email:focus { outline: none; border-color: var(--accent); }
+  .gate-msg { font-size: 13px; color: var(--muted); margin: 8px 0 0; min-height: 16px; }
+</style>
