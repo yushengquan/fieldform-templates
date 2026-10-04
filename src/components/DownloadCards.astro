@@ -97,7 +97,7 @@ const activeNote: Record<string, string> = {
         });
         const data = await res.json();
         if (data.success === "true" || data.success === true) {
-          msg.textContent = "✓ Link sent to your inbox.";
+          msg.textContent = "✓ Download ready below — click the button.";
           form.hidden = true;
           const ready = form.parentElement.querySelector("[data-gate-ready]");
           if (ready) ready.hidden = false;
