@@ -1,0 +1,41 @@
+{
+  "slug": "roofer-invoice-template",
+  "trade": "Roofer",
+  "docType": "invoice",
+  "title": "Roofer Invoice Template",
+  "subtitle": "An invoice pre-filled for roofing work — repairs, shingle replacement per square, flashing, gutters, skylights and debris removal. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Workmanship guaranteed for 5 years on installed shingles.",
+  "notes": "Thank you for your business. Roof warranty per manufacturer terms; labor warranty as stated on the invoice.",
+  "lineItems": [
+    {"code": "RPR", "description": "Roof Repair", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": true},
+    {"code": "SHNG", "description": "Shingle Replacement", "defaultQty": 2, "unit": "sq", "sampleRate": 350.0, "taxable": true},
+    {"code": "FLASH", "description": "Flashing Repair", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
+    {"code": "GUTT", "description": "Gutter Service", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "SKYL", "description": "Skylight Work", "defaultQty": 1, "unit": "each", "sampleRate": 300.0, "taxable": true},
+    {"code": "DBLY", "description": "Debris Removal / Haul", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled roofing line items: repairs, shingle replacement per square, flashing, gutters",
+    "License # field — most states require a roofing license on client invoices",
+    "Warranty terms printed on the invoice keep claims clear"
+  ],
+  "faqs": [
+    {"q": "What should I include on a roofer invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (repairs, shingle replacement by square, flashing, gutters), tax, and a total due. Note the warranty terms so clients know what is covered."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

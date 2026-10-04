@@ -46,6 +46,8 @@ def gen_xlsx(cfg, out_path):
     from openpyxl.styles import Font, PatternFill, Alignment, Side, Border
     from openpyxl.utils import get_column_letter
 
+    deposit_pct = cfg.get("depositPct", 25)
+
     HEADER = "17365D"; SECOND = "5B9BD5"; LINE = "B8C7D9"
     thin = Side(style="thin", color=LINE)
     top_line = Side(style="thin", color="9AA7B5")
@@ -151,8 +153,8 @@ def gen_xlsx(cfg, out_path):
 
     if is_est:
         deposit_row = sub_row + 1
-        fill(f"D{deposit_row}", "DEPOSIT (25%)", label_font)
-        fill(f"F{deposit_row}", f"=ROUND(F{sub_row}*0.25,2)", bold_font,
+        fill(f"D{deposit_row}", f"DEPOSIT ({deposit_pct}%)", label_font)
+        fill(f"F{deposit_row}", f"=ROUND(F{sub_row}*{deposit_pct/100},2)", bold_font,
              Alignment(horizontal="right", vertical="center"), money_fmt)
         balance_row = sub_row + 2
         fill(f"D{balance_row}", "BALANCE DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
@@ -206,6 +208,7 @@ def gen_docx(cfg, out_path):
     from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.enum.table import WD_TABLE_ALIGNMENT
 
+    deposit_pct = cfg.get("depositPct", 25)
     doc = Document()
     st = doc.styles["Normal"]
     st.font.name = "Calibri"
@@ -256,11 +259,11 @@ def gen_docx(cfg, out_path):
     sum_row[4].text = f"${subtotal:.2f}"
     if cfg.get("docType") in ("estimate", "quote"):
         dep_row = table.add_row().cells
-        dep_row[0].text = "DEPOSIT (25%)"
-        dep_row[4].text = f"${subtotal * 0.25:.2f}"
+        dep_row[0].text = f"DEPOSIT ({deposit_pct}%)"
+        dep_row[4].text = f"${subtotal * deposit_pct / 100:.2f}"
         bal_row = table.add_row().cells
         bal_row[0].text = "BALANCE DUE"
-        bal_row[4].text = f"${subtotal * 0.75:.2f}"
+        bal_row[4].text = f"${subtotal * (100 - deposit_pct) / 100:.2f}"
     else:
         tax_row = table.add_row().cells
         tax_row[0].text = "TAX (enter your state rate)"
@@ -303,6 +306,7 @@ def gen_pdf(cfg, out_path):
     from reportlab.lib.colors import HexColor
     from reportlab.pdfgen import canvas
 
+    deposit_pct = cfg.get("depositPct", 25)
     pdf = canvas.Canvas(out_path, pagesize=letter)
     W, H = letter
     dark = HexColor("#17365D")
@@ -377,12 +381,12 @@ def gen_pdf(cfg, out_path):
     if cfg.get("docType") in ("estimate", "quote"):
         ry -= 16
         pdf.setFont("Helvetica", 10)
-        pdf.drawString(400, ry, "DEPOSIT (25%)")
-        pdf.drawString(485, ry, f"${subtotal * 0.25:.2f}")
+        pdf.drawString(400, ry, f"DEPOSIT ({deposit_pct}%)")
+        pdf.drawString(485, ry, f"${subtotal * deposit_pct / 100:.2f}")
         ry -= 20
         pdf.setFont("Helvetica-Bold", 11)
         pdf.drawString(400, ry, "BALANCE DUE")
-        pdf.drawString(485, ry, f"${subtotal * 0.75:.2f}")
+        pdf.drawString(485, ry, f"${subtotal * (100 - deposit_pct) / 100:.2f}")
     else:
         ry -= 16
         pdf.setFont("Helvetica", 10)

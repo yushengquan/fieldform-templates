@@ -1,0 +1,42 @@
+{
+  "slug": "hvac-estimate-template",
+  "trade": "HVAC Technician",
+  "docType": "estimate",
+  "title": "HVAC Estimate Template",
+  "subtitle": "A professional estimate pre-filled for HVAC jobs — diagnostic, AC repair, furnace replacement, duct cleaning, maintenance plans and thermostat upgrades. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "depositPct": 30,
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 14 — payment due within 14 days of acceptance. Financing options available for system replacements.",
+  "notes": "Thank you for your business. Estimate valid for 30 days. A 30% deposit is due at signing for equipment replacement; the balance is due upon completion and inspection.",
+  "lineItems": [
+    {"code": "SVC", "description": "Service Call / Diagnostic", "defaultQty": 1, "unit": "visit", "sampleRate": 89.0, "taxable": true},
+    {"code": "ACRE", "description": "AC Repair", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true},
+    {"code": "FURN", "description": "Furnace Replacement", "defaultQty": 1, "unit": "system", "sampleRate": 4200.0, "taxable": true},
+    {"code": "DUCT", "description": "Duct Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": true},
+    {"code": "MAIN", "description": "Annual Maintenance Plan", "defaultQty": 1, "unit": "year", "sampleRate": 180.0, "taxable": true},
+    {"code": "THERM", "description": "Thermostat Upgrade", "defaultQty": 1, "unit": "each", "sampleRate": 250.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 30% deposit and balance update automatically",
+    "Pre-filled HVAC line items: diagnostic, AC repair, furnace replacement, duct cleaning, plans",
+    "License # field — most states require an HVAC license on client documents",
+    "Valid-until and deposit line built in — standard for equipment quotes"
+  ],
+  "faqs": [
+    {"q": "What should I include on an HVAC estimate?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items (diagnostic, repair, replacement or maintenance), a valid-until date, deposit terms and exclusions. Most states require an HVAC contractor license on client-facing documents."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 30% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing board and CPA/attorney."
+}

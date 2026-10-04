@@ -1,0 +1,42 @@
+{
+  "slug": "welder-estimate-template",
+  "trade": "Welder",
+  "docType": "estimate",
+  "title": "Welder Estimate Template",
+  "subtitle": "A professional estimate pre-filled for welding jobs — MIG and TIG labor, materials, mobilization, repairs and custom fabrication. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "depositPct": 50,
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 10 — payment due within 10 days of acceptance. Workmanship guaranteed for 90 days on welded joints.",
+  "notes": "Thank you for your business. Estimate valid for 30 days. A 50% deposit is due at signing for custom fabrication; the balance is due upon completion.",
+  "lineItems": [
+    {"code": "MIG", "description": "MIG Welding Labor", "defaultQty": 4, "unit": "hour", "sampleRate": 65.0, "taxable": true},
+    {"code": "TIG", "description": "TIG Welding Labor", "defaultQty": 2, "unit": "hour", "sampleRate": 85.0, "taxable": true},
+    {"code": "MAT", "description": "Materials (rod / wire / gas)", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "MOB", "description": "Mobilization / Travel", "defaultQty": 1, "unit": "visit", "sampleRate": 50.0, "taxable": true},
+    {"code": "REP", "description": "Repair Work", "defaultQty": 2, "unit": "joint", "sampleRate": 40.0, "taxable": true},
+    {"code": "FAB", "description": "Custom Fabrication", "defaultQty": 1, "unit": "job", "sampleRate": 320.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 50% deposit and balance update automatically",
+    "Pre-filled welding line items: MIG/TIG labor, materials, mobilization, fabrication",
+    "Valid-until and deposit line built in — standard for fabrication quotes",
+    "Separate labor and materials lines keep estimates transparent"
+  ],
+  "faqs": [
+    {"q": "What should I include on a welder estimate?", "a": "At minimum: your business name, the client and job site, dated line items (labor by type, materials, mobilization), a valid-until date, deposit terms and exclusions. Note the weld standard you will follow and your workmanship guarantee."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 50% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+}
