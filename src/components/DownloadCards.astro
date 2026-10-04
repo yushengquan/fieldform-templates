@@ -103,7 +103,7 @@ const activeNote: Record<string, string> = {
           if (ready) ready.hidden = false;
           if (window.gtag) gtag("event", "lead", { template: slug, format: fmt });
         } else {
-          msg.textContent = "Something went wrong — please try again.";
+          msg.textContent = (data && data.message) ? data.message : "Something went wrong — please try again.";
         }
       } catch (err) {
         msg.textContent = "Network error — please try again.";
