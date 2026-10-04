@@ -31,7 +31,8 @@ const activeNote: Record<string, string> = {
         <span class={`tag ${m.cls}`} set:html={m.icon + "Free download"}></span>
         <h3>{d.label}</h3>
         <p>{d.note}</p>
-        <a class={`btn btn-block ${btnCls[key]}`} href={`/downloads/${slug}.${ext[key]}`} download>
+        <a class={`btn btn-block ${btnCls[key]}`} href={`/downloads/${slug}.${ext[key]}`} download
+           onclick={`if(window.gtag)gtag('event','download',{file_format:'${key}',template:'${slug}'});`}>
           Download {d.label}
         </a>
       </div>
