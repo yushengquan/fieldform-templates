@@ -31,7 +31,14 @@ export default {
           _honey: String(body._honey || ""),
         }),
       });
-      const data = await r.json();
+      const text = await r.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        // FormSubmit 临时故障（如 522 网关超时）时返回友好提示，用户重试即可
+        data = { success: "false", message: "Email service is busy - please try again in a moment." };
+      }
       return new Response(JSON.stringify(data), { headers });
     } catch (e) {
       return new Response(JSON.stringify({ success: "false", message: String(e) }), { headers });
