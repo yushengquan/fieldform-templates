@@ -1,0 +1,41 @@
+{
+  "slug": "tree-service-invoice-template",
+  "trade": "Tree Service",
+  "docType": "invoice",
+  "title": "Tree Service Invoice Template",
+  "subtitle": "An invoice pre-filled for tree work — removal, stump grinding, trimming, pruning, storm cleanup and debris hauling. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Scope per the signed estimate; additional work approved on site billed separately.",
+  "lineItems": [
+    {"code": "REMOV", "description": "Tree Removal", "defaultQty": 1, "unit": "tree", "sampleRate": 350.0, "taxable": true},
+    {"code": "STUMP", "description": "Stump Grinding", "defaultQty": 1, "unit": "stump", "sampleRate": 150.0, "taxable": true},
+    {"code": "TRIM", "description": "Tree Trimming", "defaultQty": 2, "unit": "hr", "sampleRate": 85.0, "taxable": true},
+    {"code": "PRUNE", "description": "Pruning", "defaultQty": 1, "unit": "tree", "sampleRate": 120.0, "taxable": true},
+    {"code": "STORM", "description": "Storm Damage Cleanup", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
+    {"code": "HAUL", "description": "Debris Removal & Hauling", "defaultQty": 1, "unit": "job", "sampleRate": 95.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and tax in Excel",
+    "Pre-filled tree service line items: removal, stump grinding, trimming, pruning, storm cleanup, hauling",
+    "Net-14 payment terms and late-fee line standard for tree work invoices",
+    "License # field — many states require an arborist/contractor license on client-facing invoices"
+  ],
+  "faqs": [
+    {"q": "What should I include on a tree service invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (removal, stump grinding, trimming, debris), payment terms and due date. Reference the signed estimate for scope."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate totals automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, tax and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and tax"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

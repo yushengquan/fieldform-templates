@@ -1,0 +1,41 @@
+{
+  "slug": "carpenter-invoice-template",
+  "trade": "Carpenter",
+  "docType": "invoice",
+  "title": "Carpenter Invoice Template",
+  "subtitle": "An invoice pre-filled for carpentry work — cabinetry, trim, decking, doors, framing and materials. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Scope per the signed estimate; change orders billed separately.",
+  "lineItems": [
+    {"code": "CAB", "description": "Custom Cabinetry / Shelving", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": true},
+    {"code": "TRIM", "description": "Trim / Molding Installation", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
+    {"code": "DECK", "description": "Deck / Patio Construction", "defaultQty": 1, "unit": "job", "sampleRate": 800.0, "taxable": true},
+    {"code": "DOOR", "description": "Door Installation / Repair", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
+    {"code": "FRAME", "description": "Framing Work", "defaultQty": 1, "unit": "job", "sampleRate": 600.0, "taxable": true},
+    {"code": "MAT", "description": "Materials & Lumber", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and tax in Excel",
+    "Pre-filled carpentry line items: cabinetry, trim, decking, doors, framing, materials",
+    "Net-14 payment terms and late-fee line standard for carpentry invoices",
+    "License # field — many states require a contractor license on client-facing invoices"
+  ],
+  "faqs": [
+    {"q": "What should I include on a carpenter invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (cabinetry, trim, decking, doors, framing, materials), payment terms and due date. Reference the signed estimate for scope."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate totals automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, tax and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and tax"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

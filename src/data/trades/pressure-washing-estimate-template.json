@@ -1,0 +1,41 @@
+{
+  "slug": "pressure-washing-estimate-template",
+  "trade": "Pressure Washing",
+  "docType": "estimate",
+  "title": "Pressure Washing Estimate Template",
+  "subtitle": "An estimate pre-filled for pressure washing jobs — driveway, house exterior, deck, fence, sidewalk and gutter cleaning. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Property Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the job; balance due on completion.",
+  "notes": "This is an estimate, not a final invoice. Final charges may vary with surface condition and access.",
+  "lineItems": [
+    {"code": "DRIVE", "description": "Driveway Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "HOUSE", "description": "House Exterior", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
+    {"code": "DECK", "description": "Deck & Patio", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "FENCE", "description": "Fence Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
+    {"code": "SIDEW", "description": "Sidewalk / Walkway", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true},
+    {"code": "GUTTER", "description": "Gutter Cleaning (soft wash)", "defaultQty": 1, "unit": "job", "sampleRate": 75.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled pressure washing line items: driveway, house exterior, deck, fence, sidewalk, gutters",
+    "Valid-until date + deposit section standard for washing quotes",
+    "Surface checklist helps clients add or remove items before signing"
+  ],
+  "faqs": [
+    {"q": "What should I include on a pressure washing estimate?", "a": "At minimum: your business name, the client and property address, a dated surface-by-surface list (driveway, house exterior, deck, fence, sidewalk), a validity date, deposit terms, and a note that it is not a final invoice."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
