@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import fitz, sys
 
-files = ["tree-service-invoice-template", "pressure-washing-estimate-template", "carpenter-invoice-template"]
+files = ["tree-service-invoice-template", "pressure-washing-estimate-template", "carpenter-invoice-template", "cleaning-estimate-template", "painter-invoice-template", "handyman-estimate-template"]
 ok = True
 for f in files:
     doc = fitz.open(f"public/downloads/{f}.pdf")

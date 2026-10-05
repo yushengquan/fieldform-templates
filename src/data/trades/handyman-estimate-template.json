@@ -1,0 +1,41 @@
+{
+  "slug": "handyman-estimate-template",
+  "trade": "Handyman",
+  "docType": "estimate",
+  "title": "Handyman Estimate Template",
+  "subtitle": "An estimate pre-filled for handyman jobs — call-out, labor, drywall, door adjustments, materials and debris. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the job; balance due on completion.",
+  "notes": "This is an estimate, not a final invoice. Final charges may vary based on site conditions and additional work approved on site.",
+  "lineItems": [
+    {"code": "CALL", "description": "Call-Out / Diagnostic Fee", "defaultQty": 1, "unit": "each", "sampleRate": 65.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 4, "unit": "hr", "sampleRate": 75.0, "taxable": true},
+    {"code": "DRYW", "description": "Drywall / Paint Repair", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
+    {"code": "DOOR", "description": "Door / Latch / Lock Adjustment", "defaultQty": 1, "unit": "job", "sampleRate": 45.0, "taxable": true},
+    {"code": "MAT", "description": "Materials & Parts", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true},
+    {"code": "WASTE", "description": "Debris Removal", "defaultQty": 1, "unit": "job", "sampleRate": 25.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled handyman line items: call-out fee, labor by hour, drywall repair, door adjustments, materials, debris",
+    "Valid-until date + deposit section standard for handyman quotes",
+    "Call-out fee included — most handymen charge it before any work starts"
+  ],
+  "faqs": [
+    {"q": "What should I include on a handyman estimate?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (call-out fee, labor, repairs, materials), a validity date, deposit terms, and a note that it is not a final invoice."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

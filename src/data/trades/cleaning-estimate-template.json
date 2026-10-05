@@ -1,0 +1,41 @@
+{
+  "slug": "cleaning-estimate-template",
+  "trade": "Cleaning Service",
+  "docType": "estimate",
+  "title": "Cleaning Service Estimate Template",
+  "subtitle": "An estimate pre-filled for residential or commercial cleaning — standard visits, deep cleans, windows, carpet, move-out and supplies. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Property Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the first scheduled visit; balance due after service.",
+  "notes": "This is an estimate, not a final invoice. Recurring weekly / bi-weekly service billed at the standard visit rate unless add-ons are requested.",
+  "lineItems": [
+    {"code": "VISIT", "description": "Standard Clean (per visit)", "defaultQty": 1, "unit": "visit", "sampleRate": 120.0, "taxable": true},
+    {"code": "DEEP", "description": "Deep Clean (per visit)", "defaultQty": 1, "unit": "visit", "sampleRate": 180.0, "taxable": true},
+    {"code": "WINDOW", "description": "Windows (per pane)", "defaultQty": 12, "unit": "pane", "sampleRate": 5.0, "taxable": true},
+    {"code": "CARPET", "description": "Carpet / Upholstery Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 75.0, "taxable": true},
+    {"code": "MOVE", "description": "Move-Out / Move-In Clean", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
+    {"code": "SUPPLY", "description": "Supplies & Equipment", "defaultQty": 1, "unit": "job", "sampleRate": 35.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled cleaning line items: standard visits, deep cleans, windows, carpet, move-out, supplies",
+    "Valid-until date + deposit section standard for cleaning quotes",
+    "Recurring service note helps set weekly / bi-weekly expectations up front"
+  ],
+  "faqs": [
+    {"q": "What should I include on a cleaning service estimate?", "a": "At minimum: your business name, the client and property address, a dated line-item list (visits, deep clean, windows, carpet, move-out), a validity date, deposit terms, and a note that it is not a final invoice."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with a CPA/attorney."
+}

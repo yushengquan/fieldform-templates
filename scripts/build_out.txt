@@ -1,0 +1,137 @@
+﻿
+> fieldform-templates@0.1.0 build
+> astro build
+
+[2m20:02:59[22m [34m[content][39m Syncing content
+[2m20:02:59[22m [34m[content][39m Synced content
+[2m20:02:59[22m [34m[types][39m Generated [2m106ms[22m
+[2m20:02:59[22m [34m[build][39m output: [34m"static"[39m
+[2m20:02:59[22m [34m[build][39m mode: [34m"static"[39m
+[2m20:02:59[22m [34m[build][39m directory: [34mC:\Users\HUAWEI\Downloads\fieldform-site\fieldform-site\dist\[39m
+[2m20:02:59[22m [34m[build][39m Collecting build info...
+[2m20:02:59[22m [34m[build][39m [32m✓ Completed in 156ms.[39m
+[2m20:03:01[22m [34m[build][39m Building static entrypoints...
+[2m20:03:05[22m [34m[vite][39m [32m✓ built in 4.63s[39m
+[2m20:03:05[22m [34m[build][39m [32m✓ Completed in 4.74s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m20:03:05[22m [34m[vite][39m transforming...
+[2m20:03:05[22m [34m[vite][39m [32m✓[39m 1 modules transformed.
+[2m20:03:05[22m [34m[vite][39m rendering chunks...
+[2m20:03:05[22m [34m[vite][39m [32m✓ built in 32ms[39m
+
+[42m[30m generating static routes [39m[49m
+[2m20:03:06[22m [32m▶[39m src/pages/index.astro
+[2m20:03:06[22m   [34m└─[39m [2m/index.html[22m [2m(+21ms)[22m 
+[2m20:03:06[22m [35mλ[39m src/pages/sitemap.xml.ts
+[2m20:03:06[22m   [34m└─[39m [2m/sitemap.xml[22m [2m(+8ms)[22m 
+[2m20:03:06[22m [32m▶[39m src/pages/templates/[slug].astro
+[2m20:03:06[22m   [34m├─[39m [2m/templates/auto-detailing-invoice-template/index.html[22m [2m(+14ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/auto-detailing-invoice-template-word/index.html[22m [2m(+10ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/auto-detailing-invoice-template-excel/index.html[22m [2m(+10ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/carpenter-estimate-template/index.html[22m [2m(+107ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/carpenter-estimate-template-word/index.html[22m [2m(+27ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/carpenter-estimate-template-excel/index.html[22m [2m(+12ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/carpenter-invoice-template/index.html[22m [2m(+36ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/carpenter-invoice-template-word/index.html[22m [2m(+12ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/carpenter-invoice-template-excel/index.html[22m [2m(+7ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/cleaning-estimate-template/index.html[22m [2m(+11ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/cleaning-estimate-template-word/index.html[22m [2m(+39ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/cleaning-estimate-template-excel/index.html[22m [2m(+17ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/cleaning-invoice-template/index.html[22m [2m(+11ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/cleaning-invoice-template-word/index.html[22m [2m(+7ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/cleaning-invoice-template-excel/index.html[22m [2m(+24ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/drywall-invoice-template/index.html[22m [2m(+5ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/drywall-invoice-template-word/index.html[22m [2m(+16ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/drywall-invoice-template-excel/index.html[22m [2m(+20ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/electrician-estimate-template/index.html[22m [2m(+17ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/electrician-estimate-template-word/index.html[22m [2m(+10ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/electrician-estimate-template-excel/index.html[22m [2m(+34ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/electrician-invoice-template/index.html[22m [2m(+7ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/electrician-invoice-template-word/index.html[22m [2m(+12ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/electrician-invoice-template-excel/index.html[22m [2m(+13ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/freelance-invoice-template/index.html[22m [2m(+8ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/freelance-invoice-template-word/index.html[22m [2m(+14ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/freelance-invoice-template-excel/index.html[22m [2m(+13ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/general-contractor-estimate-template/index.html[22m [2m(+21ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/general-contractor-estimate-template-word/index.html[22m [2m(+17ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/general-contractor-estimate-template-excel/index.html[22m [2m(+35ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/handyman-estimate-template/index.html[22m [2m(+22ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/handyman-estimate-template-word/index.html[22m [2m(+5ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/handyman-estimate-template-excel/index.html[22m [2m(+6ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/handyman-invoice-template/index.html[22m [2m(+5ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/handyman-invoice-template-word/index.html[22m [2m(+21ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/handyman-invoice-template-excel/index.html[22m [2m(+12ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/hvac-estimate-template/index.html[22m [2m(+18ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/hvac-estimate-template-word/index.html[22m [2m(+15ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/hvac-estimate-template-excel/index.html[22m [2m(+31ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/hvac-invoice-template/index.html[22m [2m(+14ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/hvac-invoice-template-word/index.html[22m [2m(+14ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/hvac-invoice-template-excel/index.html[22m [2m(+18ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/junk-removal-invoice-template/index.html[22m [2m(+8ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/junk-removal-invoice-template-word/index.html[22m [2m(+10ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/junk-removal-invoice-template-excel/index.html[22m [2m(+10ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/landscaping-invoice-template/index.html[22m [2m(+8ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/landscaping-invoice-template-word/index.html[22m [2m(+6ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/landscaping-invoice-template-excel/index.html[22m [2m(+9ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/locksmith-invoice-template/index.html[22m [2m(+17ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/locksmith-invoice-template-word/index.html[22m [2m(+16ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/locksmith-invoice-template-excel/index.html[22m [2m(+18ms)[22m 
+[2m20:03:06[22m   [34m├─[39m [2m/templates/moving-company-quote-template/index.html[22m [2m(+33ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/moving-company-quote-template-word/index.html[22m [2m(+15ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/moving-company-quote-template-excel/index.html[22m [2m(+37ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/painter-estimate-template/index.html[22m [2m(+17ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/painter-estimate-template-word/index.html[22m [2m(+24ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/painter-estimate-template-excel/index.html[22m [2m(+8ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/painter-invoice-template/index.html[22m [2m(+13ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/painter-invoice-template-word/index.html[22m [2m(+30ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/painter-invoice-template-excel/index.html[22m [2m(+10ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/personal-trainer-invoice-template/index.html[22m [2m(+6ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/personal-trainer-invoice-template-word/index.html[22m [2m(+5ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/personal-trainer-invoice-template-excel/index.html[22m [2m(+31ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pest-control-invoice-template/index.html[22m [2m(+25ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pest-control-invoice-template-word/index.html[22m [2m(+56ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pest-control-invoice-template-excel/index.html[22m [2m(+27ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/photographer-invoice-template/index.html[22m [2m(+8ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/photographer-invoice-template-word/index.html[22m [2m(+10ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/photographer-invoice-template-excel/index.html[22m [2m(+5ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/plumbing-invoice-template/index.html[22m [2m(+10ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/plumbing-invoice-template-word/index.html[22m [2m(+52ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/plumbing-invoice-template-excel/index.html[22m [2m(+182ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pressure-washing-estimate-template/index.html[22m [2m(+29ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pressure-washing-estimate-template-word/index.html[22m [2m(+7ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pressure-washing-estimate-template-excel/index.html[22m [2m(+6ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pressure-washing-invoice-template/index.html[22m [2m(+7ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pressure-washing-invoice-template-word/index.html[22m [2m(+15ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/pressure-washing-invoice-template-excel/index.html[22m [2m(+24ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/roofer-estimate-template/index.html[22m [2m(+19ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/roofer-estimate-template-word/index.html[22m [2m(+14ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/roofer-estimate-template-excel/index.html[22m [2m(+5ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/roofer-invoice-template/index.html[22m [2m(+6ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/roofer-invoice-template-word/index.html[22m [2m(+13ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/roofer-invoice-template-excel/index.html[22m [2m(+11ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/salon-invoice-template/index.html[22m [2m(+8ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/salon-invoice-template-word/index.html[22m [2m(+73ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/salon-invoice-template-excel/index.html[22m [2m(+7ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tiling-invoice-template/index.html[22m [2m(+8ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tiling-invoice-template-word/index.html[22m [2m(+8ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tiling-invoice-template-excel/index.html[22m [2m(+10ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tree-service-estimate-template/index.html[22m [2m(+15ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tree-service-estimate-template-word/index.html[22m [2m(+5ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tree-service-estimate-template-excel/index.html[22m [2m(+9ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tree-service-invoice-template/index.html[22m [2m(+6ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tree-service-invoice-template-word/index.html[22m [2m(+5ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tree-service-invoice-template-excel/index.html[22m [2m(+50ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tutor-invoice-template/index.html[22m [2m(+9ms)[22m 
+[2m20:03:07[22m   [34m├─[39m [2m/templates/tutor-invoice-template-word/index.html[22m [2m(+11ms)[22m 
+[2m20:03:08[22m   [34m├─[39m [2m/templates/tutor-invoice-template-excel/index.html[22m [2m(+24ms)[22m 
+[2m20:03:08[22m   [34m├─[39m [2m/templates/welder-estimate-template/index.html[22m [2m(+6ms)[22m 
+[2m20:03:08[22m   [34m├─[39m [2m/templates/welder-estimate-template-word/index.html[22m [2m(+10ms)[22m 
+[2m20:03:08[22m   [34m├─[39m [2m/templates/welder-estimate-template-excel/index.html[22m [2m(+39ms)[22m 
+[2m20:03:08[22m   [34m├─[39m [2m/templates/welder-invoice-template/index.html[22m [2m(+27ms)[22m 
+[2m20:03:08[22m   [34m├─[39m [2m/templates/welder-invoice-template-word/index.html[22m [2m(+5ms)[22m 
+[2m20:03:08[22m   [34m└─[39m [2m/templates/welder-invoice-template-excel/index.html[22m [2m(+12ms)[22m 
+[2m20:03:08[22m [32m✓ Completed in 2.14s.
+[39m
+[2m20:03:08[22m [34m[build][39m 106 page(s) built in [1m8.89s[22m
+[2m20:03:08[22m [34m[build][39m [1mComplete![22m

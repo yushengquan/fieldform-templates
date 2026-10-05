@@ -1,0 +1,17 @@
+﻿== robots.txt: 200
+# As a condition of accessing this website, you agree to abide by the following
+# content signals:
+
+# (a)  If a Content-Signal = yes, you may collect content for the corresponding
+#      use.
+# (b)  If a Content-Signal = no, you may not collect content for the
+#      corresponding use.
+# (c)  If the website operator does not include a Content-Signal for a
+#      corresponding use, the website operator neither grants nor restricts
+#      permission via Content-Signal with respect to the correspon
+== homepage: 200
+title: Free Invoice &amp; Estimate Templates for Trades — FieldForm Templates
+== plumbing page: 200
+has canonical: True
+== googlebot fetch: 200
+== sitemap: 200 bytes: 16706

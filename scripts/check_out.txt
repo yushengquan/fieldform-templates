@@ -1,0 +1,8 @@
+﻿warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+tree-service-invoice-template -> ['SUBTOTAL', 'TOTAL DUE']
+pressure-washing-estimate-template -> ['SUBTOTAL', 'DEPOSIT (25%)', 'BALANCE DUE $506.25']
+carpenter-invoice-template -> ['SUBTOTAL', 'TOTAL DUE']
+cleaning-estimate-template -> ['SUBTOTAL', 'DEPOSIT (25%)', 'BALANCE DUE $540.00']
+painter-invoice-template -> ['SUBTOTAL', 'TOTAL DUE']
+handyman-estimate-template -> ['SUBTOTAL', 'DEPOSIT (25%)', 'BALANCE DUE $438.75']
+ALL_OK
