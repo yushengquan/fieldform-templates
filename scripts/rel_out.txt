@@ -1,0 +1,3 @@
+﻿related section present: True
+template links on page: 6
+['/templates/auto-detailing-invoice-template/', '/templates/carpenter-invoice-template/', '/templates/cleaning-invoice-template/', '/templates/drywall-invoice-template/', '/templates/electrician-invoice-template/', '/templates/freelance-invoice-template/']

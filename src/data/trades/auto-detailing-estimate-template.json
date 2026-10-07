@@ -1,0 +1,41 @@
+{
+  "slug": "auto-detailing-estimate-template",
+  "trade": "Auto Detailing",
+  "docType": "estimate",
+  "title": "Auto Detailing Estimate Template",
+  "subtitle": "An estimate pre-filled for detailing jobs — exterior wash, interior detail, full package, ceramic coating and paint polish. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Vehicle (Make / Model / VIN)", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit books the appointment; balance due at pickup.",
+  "notes": "This is an estimate, not a final invoice. Final price depends on vehicle condition — heavily soiled interiors or paint defects may add prep time.",
+  "lineItems": [
+    {"code": "EXT", "description": "Exterior Wash & Wax", "defaultQty": 1, "unit": "car", "sampleRate": 80.0, "taxable": true},
+    {"code": "INT", "description": "Interior Detail", "defaultQty": 1, "unit": "car", "sampleRate": 150.0, "taxable": true},
+    {"code": "FULL", "description": "Full Detail Package", "defaultQty": 1, "unit": "car", "sampleRate": 220.0, "taxable": true},
+    {"code": "CERAM", "description": "Ceramic Coating", "defaultQty": 1, "unit": "car", "sampleRate": 350.0, "taxable": true},
+    {"code": "SEAT", "description": "Seat / Upholstery Shampoo", "defaultQty": 1, "unit": "car", "sampleRate": 90.0, "taxable": true},
+    {"code": "POLISH", "description": "Paint Polish / Correction", "defaultQty": 1, "unit": "car", "sampleRate": 180.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled detailing line items: wash & wax, interior, full package, ceramic, upholstery, polish",
+    "Vehicle field (make / model / VIN) keeps quotes accurate per car",
+    "Valid-until date + deposit section standard for detailing quotes"
+  ],
+  "faqs": [
+    {"q": "What should I include on an auto detailing estimate?", "a": "At minimum: your business name, the client and vehicle details (make, model, VIN), a dated line-item list of services, a validity date, deposit terms, and a note that it is not a final invoice. Add a note that heavily soiled vehicles may require extra prep time."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}

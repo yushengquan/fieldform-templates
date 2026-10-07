@@ -4,115 +4,115 @@
 🌀 Building list of assets...
 ✨ Read 323 files from the assets directory C:\Users\HUAWEI\Downloads\fieldform-site\fieldform-site\dist
 🌀 Starting asset upload...
-🌀 Found 116 new or modified static assets to upload. Proceeding with upload...
-+ /downloads/plumbing-invoice-template.pdf
-+ /downloads/landscaping-invoice-template.pdf
-+ /downloads/roofer-invoice-template.pdf
-+ /downloads/drywall-invoice-template.pdf
-+ /downloads/pest-control-invoice-template.pdf
-+ /downloads/welder-invoice-template.pdf
-+ /downloads/handyman-invoice-template.pdf
-+ /downloads/cleaning-invoice-template.pdf
-+ /downloads/pressure-washing-estimate-template.pdf
-+ /downloads/cleaning-estimate-template.pdf
-+ /downloads/electrician-estimate-template.pdf
-+ /downloads/painter-estimate-template.pdf
-+ /downloads/freelance-invoice-template.xlsx
-+ /downloads/pressure-washing-estimate-template.xlsx
-+ /downloads/junk-removal-invoice-template.xlsx
-+ /downloads/carpenter-invoice-template.xlsx
-+ /downloads/drywall-invoice-template.xlsx
-+ /downloads/pest-control-invoice-template.xlsx
-+ /downloads/handyman-invoice-template.xlsx
-+ /downloads/hvac-invoice-template.xlsx
-+ /downloads/cleaning-estimate-template.xlsx
-+ /downloads/welder-estimate-template.xlsx
-+ /downloads/roofer-estimate-template.xlsx
-+ /downloads/moving-company-quote-template.xlsx
+🌀 Found 105 new or modified static assets to upload. Proceeding with upload...
++ /templates/moving-company-quote-template/index.html
++ /templates/plumbing-invoice-template/index.html
++ /templates/welder-invoice-template/index.html
++ /templates/tutor-invoice-template/index.html
++ /templates/hvac-invoice-template/index.html
++ /templates/landscaping-invoice-template/index.html
++ /templates/junk-removal-invoice-template/index.html
 + /templates/cleaning-estimate-template/index.html
-+ /templates/painter-invoice-template-excel/index.html
-+ /templates/cleaning-estimate-template-excel/index.html
-+ /downloads/plumbing-invoice-template.docx
-+ /downloads/junk-removal-invoice-template.docx
-+ /downloads/pressure-washing-invoice-template.docx
-+ /downloads/photographer-invoice-template.docx
-+ /downloads/tutor-invoice-template.docx
-+ /downloads/electrician-invoice-template.docx
-+ /downloads/hvac-invoice-template.docx
-+ /downloads/cleaning-invoice-template.docx
-+ /downloads/tree-service-estimate-template.docx
-+ /downloads/cleaning-estimate-template.docx
-+ /downloads/roofer-estimate-template.docx
-+ /downloads/general-contractor-estimate-template.docx
-+ /downloads/freelance-invoice-template.pdf
-+ /downloads/junk-removal-invoice-template.pdf
-+ /downloads/tree-service-invoice-template.pdf
-+ /downloads/hvac-invoice-template.pdf
-+ /downloads/personal-trainer-invoice-template.pdf
-+ /downloads/tiling-invoice-template.pdf
-+ /downloads/carpenter-invoice-template.pdf
-+ /downloads/painter-invoice-template.pdf
-+ /downloads/carpenter-estimate-template.pdf
-+ /downloads/welder-estimate-template.pdf
-+ /downloads/roofer-estimate-template.pdf
-+ /downloads/moving-company-quote-template.pdf
-+ /downloads/landscaping-invoice-template.xlsx
-+ /downloads/tree-service-estimate-template.xlsx
-+ /downloads/pressure-washing-invoice-template.xlsx
-+ /downloads/handyman-estimate-template.xlsx
-+ /downloads/welder-invoice-template.xlsx
-+ /downloads/tree-service-invoice-template.xlsx
-+ /downloads/photographer-invoice-template.xlsx
-+ /downloads/electrician-invoice-template.xlsx
-+ /downloads/cleaning-invoice-template.xlsx
-+ /downloads/hvac-estimate-template.xlsx
-+ /downloads/general-contractor-estimate-template.xlsx
-+ /templates/painter-invoice-template/index.html
++ /templates/pressure-washing-invoice-template/index.html
++ /templates/handyman-invoice-template/index.html
++ /templates/pest-control-invoice-template/index.html
++ /templates/roofer-estimate-template/index.html
++ /templates/general-contractor-estimate-template/index.html
++ /templates/freelance-invoice-template-word/index.html
 + /templates/painter-invoice-template-word/index.html
++ /templates/carpenter-invoice-template-excel/index.html
++ /templates/painter-invoice-template-excel/index.html
++ /templates/hvac-invoice-template-word/index.html
++ /templates/landscaping-invoice-template-word/index.html
++ /templates/electrician-invoice-template-word/index.html
++ /templates/photographer-invoice-template-word/index.html
 + /templates/handyman-estimate-template-excel/index.html
-+ /sitemap.xml
-+ /downloads/freelance-invoice-template.docx
-+ /downloads/landscaping-invoice-template.docx
-+ /downloads/roofer-invoice-template.docx
-+ /downloads/welder-invoice-template.docx
-+ /downloads/tree-service-invoice-template.docx
-+ /downloads/carpenter-invoice-template.docx
-+ /downloads/tiling-invoice-template.docx
-+ /downloads/painter-invoice-template.docx
-+ /downloads/carpenter-estimate-template.docx
-+ /downloads/welder-estimate-template.docx
-+ /downloads/electrician-estimate-template.docx
-+ /downloads/moving-company-quote-template.docx
-+ /downloads/salon-invoice-template.pdf
-+ /downloads/locksmith-invoice-template.pdf
-+ /downloads/tutor-invoice-template.pdf
-+ /downloads/photographer-invoice-template.pdf
-+ /downloads/pressure-washing-invoice-template.pdf
-+ /downloads/auto-detailing-invoice-template.pdf
-+ /downloads/electrician-invoice-template.pdf
-+ /downloads/tree-service-estimate-template.pdf
-+ /downloads/handyman-estimate-template.pdf
-+ /downloads/hvac-estimate-template.pdf
-+ /downloads/general-contractor-estimate-template.pdf
-+ /downloads/plumbing-invoice-template.xlsx
-+ /downloads/salon-invoice-template.xlsx
-+ /downloads/carpenter-estimate-template.xlsx
-+ /downloads/roofer-invoice-template.xlsx
-+ /downloads/tutor-invoice-template.xlsx
-+ /downloads/locksmith-invoice-template.xlsx
-+ /downloads/auto-detailing-invoice-template.xlsx
-+ /downloads/tiling-invoice-template.xlsx
-+ /downloads/personal-trainer-invoice-template.xlsx
-+ /downloads/painter-invoice-template.xlsx
-+ /downloads/electrician-estimate-template.xlsx
++ /templates/hvac-invoice-template-excel/index.html
++ /templates/landscaping-invoice-template-excel/index.html
++ /templates/tree-service-estimate-template-word/index.html
++ /templates/electrician-invoice-template-excel/index.html
++ /templates/photographer-invoice-template-excel/index.html
++ /templates/cleaning-invoice-template-word/index.html
++ /templates/pest-control-invoice-template-word/index.html
++ /templates/tree-service-estimate-template-excel/index.html
++ /templates/handyman-invoice-template-excel/index.html
++ /templates/pest-control-invoice-template-excel/index.html
++ /templates/roofer-estimate-template-word/index.html
++ /templates/hvac-estimate-template-excel/index.html
++ /templates/electrician-estimate-template-excel/index.html
++ /templates/moving-company-quote-template-word/index.html
++ /templates/freelance-invoice-template/index.html
++ /templates/painter-invoice-template/index.html
++ /templates/handyman-estimate-template/index.html
++ /templates/drywall-invoice-template/index.html
++ /templates/roofer-invoice-template/index.html
++ /templates/electrician-invoice-template/index.html
++ /templates/tiling-invoice-template/index.html
++ /templates/tree-service-estimate-template/index.html
++ /templates/auto-detailing-invoice-template/index.html
++ /templates/personal-trainer-invoice-template/index.html
++ /templates/painter-estimate-template/index.html
++ /templates/plumbing-invoice-template-word/index.html
++ /templates/carpenter-invoice-template-word/index.html
++ /templates/tree-service-invoice-template-word/index.html
++ /templates/welder-invoice-template-excel/index.html
++ /templates/salon-invoice-template-word/index.html
++ /templates/drywall-invoice-template-word/index.html
++ /templates/roofer-invoice-template-word/index.html
++ /templates/carpenter-estimate-template-word/index.html
++ /templates/tutor-invoice-template-excel/index.html
++ /templates/tiling-invoice-template-word/index.html
++ /templates/drywall-invoice-template-excel/index.html
++ /templates/roofer-invoice-template-excel/index.html
++ /templates/pressure-washing-invoice-template-word/index.html
++ /templates/carpenter-estimate-template-excel/index.html
++ /templates/handyman-invoice-template-word/index.html
++ /templates/tiling-invoice-template-excel/index.html
++ /templates/personal-trainer-invoice-template-word/index.html
++ /templates/pressure-washing-invoice-template-excel/index.html
++ /templates/auto-detailing-invoice-template-excel/index.html
++ /templates/personal-trainer-invoice-template-excel/index.html
++ /templates/painter-estimate-template-word/index.html
++ /templates/roofer-estimate-template-excel/index.html
++ /templates/general-contractor-estimate-template-word/index.html
++ /templates/moving-company-quote-template-excel/index.html
++ /templates/carpenter-invoice-template/index.html
++ /templates/tree-service-invoice-template/index.html
++ /templates/salon-invoice-template/index.html
++ /templates/locksmith-invoice-template/index.html
++ /templates/carpenter-estimate-template/index.html
++ /templates/photographer-invoice-template/index.html
++ /templates/pressure-washing-estimate-template/index.html
++ /templates/welder-estimate-template/index.html
++ /templates/cleaning-invoice-template/index.html
++ /templates/hvac-estimate-template/index.html
++ /templates/electrician-estimate-template/index.html
++ /templates/plumbing-invoice-template-excel/index.html
++ /templates/welder-invoice-template-word/index.html
++ /templates/freelance-invoice-template-excel/index.html
++ /templates/tutor-invoice-template-word/index.html
++ /templates/handyman-estimate-template-word/index.html
++ /templates/tree-service-invoice-template-excel/index.html
++ /templates/locksmith-invoice-template-word/index.html
++ /templates/junk-removal-invoice-template-word/index.html
++ /templates/salon-invoice-template-excel/index.html
++ /templates/cleaning-estimate-template-word/index.html
++ /templates/pressure-washing-estimate-template-word/index.html
++ /templates/locksmith-invoice-template-excel/index.html
++ /templates/welder-estimate-template-word/index.html
++ /templates/junk-removal-invoice-template-excel/index.html
++ /templates/auto-detailing-invoice-template-word/index.html
++ /templates/cleaning-estimate-template-excel/index.html
++ /templates/pressure-washing-estimate-template-excel/index.html
++ /templates/welder-estimate-template-excel/index.html
    (truncating changed assets log, set `WRANGLER_LOG=debug` environment variable to see full diff)
-Uploaded 39 of 116 assets
-Uploaded 77 of 116 assets
-Uploaded 116 of 116 assets
-✨ Success! Uploaded 116 files (99 already uploaded) (3.43 sec)
+Uploaded 35 of 105 assets
+Uploaded 70 of 105 assets
+Uploaded 105 of 105 assets
+✨ Success! Uploaded 105 files (110 already uploaded) (4.41 sec)
 
 Total Upload: 0.41 KiB / gzip: 0.29 KiB
-Uploaded fieldform-templates (9.05 sec)
-Deployed fieldform-templates triggers (0.94 sec)
+Uploaded fieldform-templates (10.09 sec)
+Deployed fieldform-templates triggers (1.30 sec)
   https://fieldform-templates.yushengquanem.workers.dev
-Current Version ID: 285a91dd-714c-4fde-a281-260b1bdb127b
+Current Version ID: 43394ae8-cde7-403c-844a-b1c2d2d523f9

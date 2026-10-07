@@ -1,0 +1,41 @@
+{
+  "slug": "locksmith-estimate-template",
+  "trade": "Locksmith",
+  "docType": "estimate",
+  "title": "Locksmith Estimate Template",
+  "subtitle": "An estimate pre-filled for locksmith jobs — lockout, picking, rekeying, replacement, key duplication and labor. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the booking; balance due at time of service.",
+  "notes": "This is an estimate, not a final invoice. Emergency callout rates may differ from standard service after hours or on weekends.",
+  "lineItems": [
+    {"code": "CALL", "description": "Service Call / Lockout Fee", "defaultQty": 1, "unit": "each", "sampleRate": 85.0, "taxable": true},
+    {"code": "PICK", "description": "Lock Opening / Picking", "defaultQty": 1, "unit": "each", "sampleRate": 60.0, "taxable": true},
+    {"code": "REKEY", "description": "Rekey Locks", "defaultQty": 2, "unit": "lock", "sampleRate": 45.0, "taxable": true},
+    {"code": "REPL", "description": "Lock / Hardware Replacement", "defaultQty": 1, "unit": "lock", "sampleRate": 120.0, "taxable": true},
+    {"code": "KEY", "description": "Keys Cut / Duplicated", "defaultQty": 2, "unit": "key", "sampleRate": 15.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 1, "unit": "hr", "sampleRate": 75.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled locksmith line items: lockout, picking, rekeying, replacement, keys, labor",
+    "License # field — many cities and states require a locksmith license on estimates and invoices",
+    "Valid-until date + deposit section standard for locksmith quotes"
+  ],
+  "faqs": [
+    {"q": "What should I include on a locksmith estimate?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (lockout, picking, rekeying, replacement, keys), a validity date, deposit terms, and a note that it is not a final invoice."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state and city — verify with your licensing authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state and city — verify with your licensing authority and CPA/attorney."
+}

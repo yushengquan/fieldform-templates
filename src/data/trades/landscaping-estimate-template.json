@@ -1,0 +1,40 @@
+{
+  "slug": "landscaping-estimate-template",
+  "trade": "Landscaper",
+  "docType": "estimate",
+  "title": "Landscaping Estimate Template",
+  "subtitle": "An estimate pre-filled for landscaping projects — crew labor, mulch, plants, equipment and design work. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the project start date; balance due at completion.",
+  "notes": "This is an estimate, not a final invoice. Material prices (mulch, sod, plants) can shift — final invoice reflects actual quantities delivered.",
+  "lineItems": [
+    {"code": "CREW", "description": "Crew Labor", "defaultQty": 3, "unit": "hr", "sampleRate": 65.0, "taxable": true},
+    {"code": "MULCH", "description": "Mulch (by cu. yd.)", "defaultQty": 3, "unit": "cu yd", "sampleRate": 45.0, "taxable": true},
+    {"code": "PLANTS", "description": "Plants / Materials", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "EQUIP", "description": "Equipment Rental", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
+    {"code": "DESIGN", "description": "Landscape Design", "defaultQty": 1, "unit": "job", "sampleRate": 200.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled landscaping line items: crew labor, mulch, plants, equipment, design",
+    "License # and EIN / Tax ID fields where your state requires them",
+    "Valid-until date + deposit section standard for landscaping quotes"
+  ],
+  "faqs": [
+    {"q": "What should I include on a landscaping estimate?", "a": "At minimum: your business name and license number where required, the client and job-site address, a dated line-item list (crew labor, mulch by cubic yard, plants and materials, equipment), a validity date, deposit terms, and a note that it is not a final invoice."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
