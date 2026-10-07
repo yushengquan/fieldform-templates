@@ -23,6 +23,12 @@ const items = trade.lineItems ?? [];
 let subtotal = 0;
 for (const it of items) subtotal += (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
 
+// 内部链接：同工种其他单据 + 同类型单据的其他工种（pSEO 权重流动 + 全站爬取）
+const allTrades: any[] = Object.values(import.meta.glob('../../data/trades/*.json', { eager: true })).map((m: any) => m.default);
+const sameTradeRel = allTrades.filter((t: any) => t.trade === trade.trade && t.slug !== trade.slug);
+const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && t.trade !== trade.trade);
+const related = [...sameTradeRel, ...sameDocRel].slice(0, 6);
+
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
 const pageTitle = format
   ? `${trade.title} (${fmtLabel}) — FieldForm Templates`
@@ -124,6 +130,22 @@ const jsonLd = JSON.stringify({
           <h3 style="margin-bottom:8px;">{f.split(" — ")[0]}</h3>
           <p>{f.split(" — ").slice(1).join(" — ")}</p>
         </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap" id="related" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>Related templates</h2>
+      <p>Same trade, same paperwork — pick the document that fits the job.</p>
+    </div>
+    <div class="grid3">
+      {related.map((t: any) => (
+        <a class="card" style="text-decoration:none;color:var(--ink);" href={`/templates/${t.slug}/`}>
+          <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">{t.trade} · {t.docType}</span>
+          <h3 style="margin-bottom:6px;color:var(--ink);">{t.title.replace(' Template', '')}</h3>
+          <p style="color:var(--muted);font-size:14px;">{t.subtitle.slice(0, 90)}{t.subtitle.length > 90 ? '…' : ''}</p>
+        </a>
       ))}
     </div>
   </section>

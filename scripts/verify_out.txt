@@ -1,0 +1,12 @@
+﻿200 /templates/cleaning-estimate-template/
+200 /templates/cleaning-estimate-template-word/
+200 /templates/painter-invoice-template/
+200 /templates/painter-invoice-template-excel/
+200 /templates/handyman-estimate-template/
+200 /templates/handyman-estimate-template-word/
+200 /sitemap.xml
+SITEMAP_URL_COUNT: 106
+cleaning-estimate-template in sitemap: True
+painter-invoice-template in sitemap: True
+handyman-estimate-template in sitemap: True
+ALL_OK
