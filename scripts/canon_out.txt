@@ -1,0 +1,5 @@
+﻿/templates/plumbing-invoice-template/ -> canonical: https://fieldformtemplates.com/templates/plumbing-invoice-template/
+/templates/plumbing-invoice-template-word/ -> canonical: https://fieldformtemplates.com/templates/plumbing-invoice-template-word/
+/templates/plumbing-invoice-template-excel/ -> canonical: https://fieldformtemplates.com/templates/plumbing-invoice-template-excel/
+/templates/locksmith-estimate-template/ -> canonical: https://fieldformtemplates.com/templates/locksmith-estimate-template/
+/templates/locksmith-estimate-template-word/ -> canonical: https://fieldformtemplates.com/templates/locksmith-estimate-template-word/

@@ -1,0 +1,4 @@
+﻿pest-control-estimate-template -> [True, True, True] | all ok
+moving-company-invoice-template -> [True, True] | all ok
+general-contractor-invoice-template -> [True, True] | all ok
+ALL_OK

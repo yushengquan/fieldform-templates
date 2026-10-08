@@ -1,0 +1,41 @@
+{
+  "slug": "pest-control-estimate-template",
+  "trade": "Pest Control",
+  "docType": "estimate",
+  "title": "Pest Control Estimate Template",
+  "subtitle": "An estimate pre-filled for pest control jobs — inspection, general treatment, termite, rodent, bed bug and quarterly plans. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the first treatment date; balance due after service.",
+  "notes": "This is an estimate, not a final invoice. Treatment type and scope are confirmed at the on-site inspection — pricing may adjust if the infestation is larger than expected.",
+  "lineItems": [
+    {"code": "CALL", "description": "Service Call / Inspection", "defaultQty": 1, "unit": "each", "sampleRate": 85.0, "taxable": true},
+    {"code": "GEN", "description": "General Pest Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "TERM", "description": "Termite Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true},
+    {"code": "ROD", "description": "Rodent Exclusion / Baiting", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "BED", "description": "Bed Bug Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
+    {"code": "QTR", "description": "Quarterly Service Plan", "defaultQty": 1, "unit": "plan", "sampleRate": 95.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled pest control line items: inspection, general, termite, rodent, bed bug, quarterly plan",
+    "License # field — most states require a pest control license on estimates and invoices",
+    "Valid-until date + inspection-scope note standard for pest quotes"
+  ],
+  "faqs": [
+    {"q": "What should I include on a pest control estimate?", "a": "At minimum: your business name and license number, the client and service address, a dated line-item list (inspection, treatment type, plan), a validity date, deposit terms, and a note that final pricing is confirmed after the on-site inspection."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+}

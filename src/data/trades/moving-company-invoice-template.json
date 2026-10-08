@@ -1,0 +1,41 @@
+{
+  "slug": "moving-company-invoice-template",
+  "trade": "Moving Company",
+  "docType": "invoice",
+  "title": "Moving Company Invoice Template",
+  "subtitle": "An invoice pre-filled for moving jobs — crew labor, truck and fuel, stairs surcharge, packing, valuation and disassembly. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "DOT / License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Move-From Address", "Move-To Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Balance due upon completion of the move. A 25% deposit was due at booking; the remainder is payable on delivery.",
+  "notes": "Thank you for your business. Final charges reflect actual crew hours and services performed; any difference from the quote is itemized below.",
+  "lineItems": [
+    {"code": "CREW", "description": "Crew Labor (2 movers, per hour)", "defaultQty": 8, "unit": "hr", "sampleRate": 60.0, "taxable": true},
+    {"code": "TRUCK", "description": "Truck & Fuel", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "STAI", "description": "Stairs / Walk-Up Surcharge", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
+    {"code": "WRAP", "description": "Furniture Wrap & Padding", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
+    {"code": "VAL", "description": "Insurance Valuation", "defaultQty": 1, "unit": "job", "sampleRate": 200.0, "taxable": false},
+    {"code": "DISA", "description": "Disassembly / Reassembly", "defaultQty": 1, "unit": "job", "sampleRate": 140.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled moving line items: crew labor, truck and fuel, stairs surcharge, packing, valuation",
+    "DOT / license field plus final-vs-quote note for FMCSA compliance",
+    "Balance-on-delivery terms standard for moving invoices"
+  ],
+  "faqs": [
+    {"q": "What should I include on a moving company invoice?", "a": "At minimum: your business name and DOT number, the client, move-from and move-to addresses, dated line items (crew labor, truck and fuel, surcharges, packing, valuation), tax, and a total due. If the final charges differ from the quote, itemize the difference. Interstate moves are regulated by FMCSA."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your moving authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your moving authority and CPA/attorney."
+}

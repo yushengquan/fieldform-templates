@@ -1,0 +1,41 @@
+{
+  "slug": "general-contractor-invoice-template",
+  "trade": "General Contractor",
+  "docType": "invoice",
+  "title": "General Contractor Invoice Template",
+  "subtitle": "An invoice pre-filled for GC billing — materials, subcontractors, crew labor, permits, equipment and cleanup. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days of invoice date. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. This invoice covers work completed to date; change orders are billed separately.",
+  "lineItems": [
+    {"code": "MATL", "description": "Materials (actual)", "defaultQty": 1, "unit": "job", "sampleRate": 4800.0, "taxable": true},
+    {"code": "SUBC", "description": "Subcontractors (electrical / plumbing / HVAC)", "defaultQty": 1, "unit": "job", "sampleRate": 3200.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor (crew)", "defaultQty": 80, "unit": "hr", "sampleRate": 55.0, "taxable": true},
+    {"code": "PERMIT", "description": "Permits & Inspections", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": false},
+    {"code": "EQUIP", "description": "Equipment Rental", "defaultQty": 1, "unit": "job", "sampleRate": 650.0, "taxable": true},
+    {"code": "CLEAN", "description": "Site Prep & Cleanup", "defaultQty": 1, "unit": "job", "sampleRate": 380.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled GC line items: materials, subcontractors, crew labor, permits, equipment, cleanup",
+    "License # field — most states require a contractor license on client-facing invoices",
+    "Change-order note keeps scope changes billable"
+  ],
+  "faqs": [
+    {"q": "What should I include on a general contractor invoice?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items for materials, subcontractors, labor, permits, equipment and cleanup, tax, and a total due. Most states require a contractor license number on client-facing documents."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

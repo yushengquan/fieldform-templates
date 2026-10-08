@@ -3,12 +3,12 @@ import urllib.request, re, json
 
 BASE = "https://fieldformtemplates.com"
 pages = [
-    "/templates/cleaning-estimate-template/",
-    "/templates/cleaning-estimate-template-word/",
-    "/templates/painter-invoice-template/",
-    "/templates/painter-invoice-template-excel/",
-    "/templates/handyman-estimate-template/",
-    "/templates/handyman-estimate-template-word/",
+    "/templates/locksmith-estimate-template/",
+    "/templates/locksmith-estimate-template-word/",
+    "/templates/landscaping-estimate-template/",
+    "/templates/landscaping-estimate-template-excel/",
+    "/templates/auto-detailing-estimate-template/",
+    "/templates/auto-detailing-estimate-template-word/",
     "/sitemap.xml",
 ]
 allok = True
@@ -29,6 +29,6 @@ body = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
 urls = re.findall(r"<loc>(.*?)</loc>", body)
 print("SITEMAP_URL_COUNT:", len(urls))
 # 检查新页在 sitemap
-for slug in ["cleaning-estimate-template", "painter-invoice-template", "handyman-estimate-template"]:
+for slug in ["locksmith-estimate-template", "landscaping-estimate-template", "auto-detailing-estimate-template"]:
     print(slug, "in sitemap:", any(slug in u for u in urls))
 print("ALL_OK" if allok else "SOME_FAILED")
