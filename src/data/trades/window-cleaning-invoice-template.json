@@ -1,0 +1,41 @@
+{
+  "slug": "window-cleaning-invoice-template",
+  "trade": "Window Cleaner",
+  "docType": "invoice",
+  "title": "Window Cleaning Invoice Template",
+  "subtitle": "An invoice pre-filled for window cleaning jobs — exterior and interior panes, screens, tracks, high windows and storefronts. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Glass breakage is covered during service; screens are cleaned with the windows unless requested otherwise.",
+  "lineItems": [
+    {"code": "EXT", "description": "Exterior Windows (per pane)", "defaultQty": 20, "unit": "pane", "sampleRate": 4.0, "taxable": true},
+    {"code": "INT", "description": "Interior Windows (per pane)", "defaultQty": 20, "unit": "pane", "sampleRate": 3.5, "taxable": true},
+    {"code": "SCRE", "description": "Screen Cleaning (per screen)", "defaultQty": 10, "unit": "screen", "sampleRate": 2.0, "taxable": true},
+    {"code": "TRAC", "description": "Track / Sill Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 45.0, "taxable": true},
+    {"code": "HIGH", "description": "High Windows (2nd floor+)", "defaultQty": 6, "unit": "pane", "sampleRate": 6.0, "taxable": true},
+    {"code": "STORE", "description": "Storefront / Commercial", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled window cleaning line items: exterior/interior panes, screens, tracks, high windows, storefront",
+    "Per-pane pricing structure keeps quotes and invoices consistent",
+    "Notes field for glass-breakage coverage and screen policy"
+  ],
+  "faqs": [
+    {"q": "What should I include on a window cleaning invoice?", "a": "At minimum: your business name, the client and job-site address, a dated line-item list (exterior and interior panes, screens, tracks, high windows), tax, and a total due. Per-pane pricing keeps it easy to verify."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}

@@ -1,0 +1,12 @@
+﻿200 /templates/pest-control-estimate-template/
+200 /templates/pest-control-estimate-template-word/
+200 /templates/moving-company-invoice-template/
+200 /templates/moving-company-invoice-template-excel/
+200 /templates/general-contractor-invoice-template/
+200 /templates/general-contractor-invoice-template-word/
+200 /sitemap.xml
+SITEMAP_URL_COUNT: 133
+pest-control-estimate-template in sitemap: True
+moving-company-invoice-template in sitemap: True
+general-contractor-invoice-template in sitemap: True
+ALL_OK

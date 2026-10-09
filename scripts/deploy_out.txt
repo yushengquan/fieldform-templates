@@ -1,10 +1,19 @@
-﻿
- ⛅️ wrangler 4.147.0
+﻿node.exe : npm warn exec The following package was not found and will be installed: wrangler@4.148.0
+所在位置 行:1 字符: 1
++ & "C:\Users\HUAWEI\AppData\Local\DoubaoWork\User Data\sandbox_runtime ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn exec T...rangler@4.148.0:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+ ⛅️ wrangler 4.148.0
 ────────────────────
+
+Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
 🌀 Building list of assets...
-✨ Read 350 files from the assets directory C:\Users\HUAWEI\Downloads\fieldform-site\fieldform-site\dist
+✨ Read 377 files from the assets directory C:\Users\HUAWEI\Downloads\fieldform-site\fieldform-site\dist
 🌀 Starting asset upload...
-🌀 Found 167 new or modified static assets to upload. Proceeding with upload...
+🌀 Found 149 new or modified static assets to upload. Proceeding with upload...
 + /downloads/plumbing-invoice-template.pdf
 + /downloads/landscaping-invoice-template.pdf
 + /downloads/roofer-invoice-template.pdf
@@ -13,9 +22,10 @@
 + /downloads/welder-invoice-template.pdf
 + /downloads/handyman-invoice-template.pdf
 + /downloads/cleaning-invoice-template.pdf
-+ /downloads/pressure-washing-estimate-template.pdf
-+ /downloads/landscaping-estimate-template.pdf
-+ /downloads/auto-detailing-estimate-template.pdf
++ /downloads/tree-service-estimate-template.pdf
++ /downloads/handyman-estimate-template.pdf
++ /downloads/cleaning-estimate-template.pdf
++ /downloads/welder-estimate-template.pdf
 + /downloads/electrician-estimate-template.pdf
 + /downloads/painter-estimate-template.pdf
 + /downloads/freelance-invoice-template.xlsx
@@ -24,30 +34,22 @@
 + /downloads/roofer-invoice-template.xlsx
 + /downloads/tutor-invoice-template.xlsx
 + /downloads/locksmith-invoice-template.xlsx
-+ /downloads/tree-service-invoice-template.xlsx
-+ /downloads/tiling-invoice-template.xlsx
++ /downloads/photographer-invoice-template.xlsx
++ /downloads/hvac-invoice-template.xlsx
 + /downloads/electrician-invoice-template.xlsx
 + /downloads/cleaning-invoice-template.xlsx
-+ /downloads/welder-estimate-template.xlsx
++ /downloads/pest-control-estimate-template.xlsx
++ /downloads/hvac-estimate-template.xlsx
 + /downloads/roofer-estimate-template.xlsx
 + /downloads/moving-company-quote-template.xlsx
-+ /templates/locksmith-invoice-template/index.html
-+ /templates/locksmith-estimate-template/index.html
-+ /templates/tree-service-estimate-template/index.html
++ /templates/moving-company-quote-template-excel/index.html
++ /templates/pest-control-invoice-template/index.html
++ /templates/moving-company-invoice-template/index.html
 + /index.html
-+ /templates/roofer-estimate-template/index.html
-+ /templates/general-contractor-estimate-template/index.html
-+ /templates/handyman-estimate-template-word/index.html
-+ /templates/locksmith-invoice-template-word/index.html
-+ /templates/handyman-estimate-template-excel/index.html
-+ /templates/locksmith-invoice-template-excel/index.html
-+ /templates/welder-estimate-template-word/index.html
-+ /templates/locksmith-estimate-template-excel/index.html
-+ /templates/tree-service-estimate-template-excel/index.html
-+ /templates/auto-detailing-invoice-template-excel/index.html
-+ /templates/roofer-estimate-template-word/index.html
-+ /templates/hvac-estimate-template-excel/index.html
-+ /templates/electrician-estimate-template-excel/index.html
++ /templates/drywall-invoice-template-excel/index.html
++ /templates/pest-control-estimate-template-word/index.html
++ /templates/moving-company-invoice-template-word/index.html
++ /templates/general-contractor-estimate-template-word/index.html
 + /downloads/plumbing-invoice-template.docx
 + /downloads/junk-removal-invoice-template.docx
 + /downloads/pressure-washing-invoice-template.docx
@@ -56,9 +58,10 @@
 + /downloads/electrician-invoice-template.docx
 + /downloads/hvac-invoice-template.docx
 + /downloads/cleaning-invoice-template.docx
-+ /downloads/tree-service-estimate-template.docx
-+ /downloads/landscaping-estimate-template.docx
-+ /downloads/auto-detailing-estimate-template.docx
++ /downloads/general-contractor-invoice-template.docx
++ /downloads/handyman-estimate-template.docx
++ /downloads/moving-company-invoice-template.docx
++ /downloads/pest-control-estimate-template.docx
 + /downloads/roofer-estimate-template.docx
 + /downloads/general-contractor-estimate-template.docx
 + /downloads/freelance-invoice-template.pdf
@@ -69,9 +72,10 @@
 + /downloads/tiling-invoice-template.pdf
 + /downloads/carpenter-invoice-template.pdf
 + /downloads/painter-invoice-template.pdf
-+ /downloads/carpenter-estimate-template.pdf
-+ /downloads/cleaning-estimate-template.pdf
-+ /downloads/welder-estimate-template.pdf
++ /downloads/pressure-washing-estimate-template.pdf
++ /downloads/landscaping-estimate-template.pdf
++ /downloads/locksmith-estimate-template.pdf
++ /downloads/pest-control-estimate-template.pdf
 + /downloads/roofer-estimate-template.pdf
 + /downloads/moving-company-quote-template.pdf
 + /downloads/landscaping-invoice-template.xlsx
@@ -81,38 +85,43 @@
 + /downloads/drywall-invoice-template.xlsx
 + /downloads/pest-control-invoice-template.xlsx
 + /downloads/auto-detailing-invoice-template.xlsx
-+ /downloads/hvac-invoice-template.xlsx
++ /downloads/tiling-invoice-template.xlsx
 + /downloads/personal-trainer-invoice-template.xlsx
 + /downloads/painter-invoice-template.xlsx
-+ /downloads/hvac-estimate-template.xlsx
-+ /downloads/general-contractor-estimate-template.xlsx
-+ /templates/landscaping-estimate-template/index.html
-+ /templates/landscaping-invoice-template/index.html
-+ /templates/cleaning-estimate-template/index.html
-+ /templates/welder-estimate-template/index.html
-+ /templates/auto-detailing-estimate-template/index.html
-+ /templates/painter-estimate-template/index.html
-+ /sitemap.xml
-+ /templates/landscaping-estimate-template-excel/index.html
-+ /templates/carpenter-estimate-template-word/index.html
-+ /templates/cleaning-estimate-template-word/index.html
-+ /templates/pressure-washing-estimate-template-word/index.html
-+ /templates/carpenter-estimate-template-excel/index.html
-+ /templates/cleaning-estimate-template-excel/index.html
-+ /templates/welder-estimate-template-excel/index.html
-+ /templates/auto-detailing-estimate-template-excel/index.html
-+ /templates/painter-estimate-template-word/index.html
-+ /templates/roofer-estimate-template-excel/index.html
-+ /templates/general-contractor-estimate-template-word/index.html
++ /downloads/general-contractor-invoice-template.xlsx
++ /downloads/electrician-estimate-template.xlsx
++ /downloads/painter-estimate-template.xlsx
++ /templates/moving-company-quote-template/index.html
++ /templates/freelance-invoice-template/index.html
++ /templates/pest-control-estimate-template/index.html
++ /templates/general-contractor-estimate-template/index.html
++ /templates/freelance-invoice-template-excel/index.html
++ /templates/pest-control-invoice-template-word/index.html
++ /templates/general-contractor-invoice-template-word/index.html
++ /templates/general-contractor-invoice-template-excel/index.html
++ /templates/general-contractor-estimate-template-excel/index.html
 + /downloads/freelance-invoice-template.docx
++ /downloads/landscaping-invoice-template.docx
++ /downloads/roofer-invoice-template.docx
++ /downloads/welder-invoice-template.docx
++ /downloads/tree-service-invoice-template.docx
++ /downloads/carpenter-invoice-template.docx
++ /downloads/tiling-invoice-template.docx
++ /downloads/painter-invoice-template.docx
++ /downloads/tree-service-estimate-template.docx
++ /downloads/landscaping-estimate-template.docx
++ /downloads/locksmith-estimate-template.docx
++ /downloads/welder-estimate-template.docx
++ /downloads/electrician-estimate-template.docx
++ /downloads/moving-company-quote-template.docx
    (truncating changed assets log, set `WRANGLER_LOG=debug` environment variable to see full diff)
-Uploaded 55 of 167 assets
-Uploaded 111 of 167 assets
-Uploaded 167 of 167 assets
-✨ Success! Uploaded 167 files (66 already uploaded) (8.98 sec)
+Uploaded 50 of 149 assets
+Uploaded 99 of 149 assets
+Uploaded 149 of 149 assets
+✨ Success! Uploaded 149 files (102 already uploaded) (10.87 sec)
 
 Total Upload: 0.41 KiB / gzip: 0.29 KiB
-Uploaded fieldform-templates (16.52 sec)
-Deployed fieldform-templates triggers (2.20 sec)
+Uploaded fieldform-templates (18.54 sec)
+Deployed fieldform-templates triggers (2.07 sec)
   https://fieldform-templates.yushengquanem.workers.dev
-Current Version ID: 58afb693-c3cf-4b52-8153-077d56084ba4
+Current Version ID: 4d84614c-c781-461c-a2c7-5b6817a29861

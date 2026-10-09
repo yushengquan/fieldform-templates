@@ -1,12 +1,12 @@
-﻿200 /templates/locksmith-estimate-template/
-200 /templates/locksmith-estimate-template-word/
-200 /templates/landscaping-estimate-template/
-200 /templates/landscaping-estimate-template-excel/
-200 /templates/auto-detailing-estimate-template/
-200 /templates/auto-detailing-estimate-template-word/
+﻿200 /templates/pest-control-estimate-template/
+200 /templates/pest-control-estimate-template-word/
+200 /templates/moving-company-invoice-template/
+200 /templates/moving-company-invoice-template-excel/
+200 /templates/general-contractor-invoice-template/
+200 /templates/general-contractor-invoice-template-word/
 200 /sitemap.xml
-SITEMAP_URL_COUNT: 115
-locksmith-estimate-template in sitemap: True
-landscaping-estimate-template in sitemap: True
-auto-detailing-estimate-template in sitemap: True
+SITEMAP_URL_COUNT: 124
+pest-control-estimate-template in sitemap: True
+moving-company-invoice-template in sitemap: True
+general-contractor-invoice-template in sitemap: True
 ALL_OK

@@ -1,0 +1,4 @@
+﻿window-cleaning-invoice-template -> [True, True] | all ok
+mechanic-invoice-template -> [True, True] | all ok
+appliance-repair-invoice-template -> [True, True] | all ok
+ALL_OK

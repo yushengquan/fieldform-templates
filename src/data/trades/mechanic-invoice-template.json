@@ -1,0 +1,41 @@
+{
+  "slug": "mechanic-invoice-template",
+  "trade": "Auto Mechanic",
+  "docType": "invoice",
+  "title": "Mechanic Invoice Template",
+  "subtitle": "An invoice pre-filled for auto repair — diagnostic fee, labor, oil change, brakes, tires, parts and shop supplies. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Vehicle (Make / Model / VIN)", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Payment due at time of pickup unless prior credit terms are agreed. Lien rights per state law for unpaid repairs.",
+  "notes": "Thank you for your business. Parts carry the manufacturer warranty; labor is guaranteed for 12 months / 12,000 miles.",
+  "lineItems": [
+    {"code": "DIAG", "description": "Diagnostic Fee", "defaultQty": 1, "unit": "each", "sampleRate": 95.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 3, "unit": "hr", "sampleRate": 110.0, "taxable": true},
+    {"code": "OIL", "description": "Oil Change & Filter", "defaultQty": 1, "unit": "each", "sampleRate": 75.0, "taxable": true},
+    {"code": "BRAKE", "description": "Brake Pads / Rotors", "defaultQty": 1, "unit": "axle", "sampleRate": 180.0, "taxable": true},
+    {"code": "TIRES", "description": "Tire Rotation / Balancing", "defaultQty": 1, "unit": "set", "sampleRate": 60.0, "taxable": true},
+    {"code": "PARTS", "description": "Parts & Supplies", "defaultQty": 1, "unit": "job", "sampleRate": 220.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled mechanic line items: diagnostic, labor, oil change, brakes, tires, parts",
+    "Vehicle field (make / model / VIN) keeps repair records clean per car",
+    "Pay-at-pickup terms and warranty notes standard for shops"
+  ],
+  "faqs": [
+    {"q": "What should I include on a mechanic invoice?", "a": "At minimum: your business name and license number where required, the client and vehicle details (make, model, VIN), a dated line-item list of work (diagnostic, labor, parts), tax, and a total due. Note the parts warranty and any lien rights for unpaid repairs."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+}
