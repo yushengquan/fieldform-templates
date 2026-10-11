@@ -1,0 +1,116 @@
+{
+  "slug": "snow-removal-invoice-template",
+  "trade": "Snow Removal",
+  "docType": "invoice",
+  "title": "Snow Removal Invoice Template",
+  "subtitle": "An invoice pre-filled for snow removal — plowing, shoveling, salting and roof clearing. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Stay safe and clear access per local requirements.",
+  "lineItems": [
+    {
+      "code": "PLOW",
+      "description": "Snow Plowing",
+      "defaultQty": 1,
+      "unit": "visit",
+      "sampleRate": 75,
+      "taxable": true
+    },
+    {
+      "code": "SHOVEL",
+      "description": "Sidewalk Shoveling",
+      "defaultQty": 1,
+      "unit": "visit",
+      "sampleRate": 50,
+      "taxable": true
+    },
+    {
+      "code": "SALT",
+      "description": "Salt / De-icer",
+      "defaultQty": 1,
+      "unit": "bag",
+      "sampleRate": 25,
+      "taxable": true
+    },
+    {
+      "code": "ROOF",
+      "description": "Roof Snow Removal",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor",
+      "defaultQty": 1,
+      "unit": "hr",
+      "sampleRate": 60,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled snow removal line items: plowing, shoveling, salting, roof clearing",
+    "EIN / Tax ID and business fields for clean client-facing invoices",
+    "Per-visit pricing with salt and roof clearing broken out separately"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a snow removal invoice?",
+      "a": "At minimum: your business name and contact, the client and service address, a dated line-item list (plowing, shoveling, salt, roof clearing), tax, and total due. Note visit date and accumulation depth for record-keeping."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
