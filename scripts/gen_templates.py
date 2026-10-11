@@ -54,6 +54,7 @@ def gen_xlsx(cfg, out_path):
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill, Alignment, Side, Border
     from openpyxl.utils import get_column_letter
+    from openpyxl.worksheet.properties import PageSetupProperties
 
     deposit_pct = cfg.get("depositPct", 25)
 
@@ -177,7 +178,7 @@ def gen_xlsx(cfg, out_path):
         tax_rate_row = sub_row + 1
         fill(f"D{tax_rate_row}", "TAX RATE", label_font)
         fill(f"E{tax_rate_row}", None, base_font, Alignment(horizontal="right", vertical="center"), "0.00%")
-        fill(f"C{tax_rate_row}", "look up your state rate", small_gray, Alignment(horizontal="left", vertical="center"))
+        fill(f"B{tax_rate_row}", "look up your state rate", small_gray, Alignment(horizontal="left", vertical="center"))
         tax_row = sub_row + 2
         fill(f"D{tax_row}", "TAX", label_font)
         fill(f"F{tax_row}",
@@ -192,11 +193,11 @@ def gen_xlsx(cfg, out_path):
         deposit_row = total_row + 1
         fill(f"D{deposit_row}", "DEPOSIT RECEIVED", label_font)
         fill(f"F{deposit_row}", None, base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
-        fill(f"C{deposit_row}", "enter if collected", small_gray, Alignment(horizontal="left", vertical="center"))
+        fill(f"B{deposit_row}", "enter if collected", small_gray, Alignment(horizontal="left", vertical="center"))
         paid_row = total_row + 2
         fill(f"D{paid_row}", "AMOUNT PAID", label_font)
         fill(f"F{paid_row}", None, base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
-        fill(f"C{paid_row}", "enter if any", small_gray, Alignment(horizontal="left", vertical="center"))
+        fill(f"B{paid_row}", "enter if any", small_gray, Alignment(horizontal="left", vertical="center"))
         balance_row = total_row + 3
         fill(f"D{balance_row}", "BALANCE DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
         fill(f"F{balance_row}",
@@ -229,6 +230,12 @@ def gen_xlsx(cfg, out_path):
     ws.merge_cells(f"A{disc}:F{disc+2}")
     fill(f"A{disc}", cfg.get("disclaimer", ""), small_gray, Alignment(vertical="top", wrap_text=True))
 
+    ws.column_dimensions['G'].hidden = True
+    ws.page_setup.orientation = 'portrait'
+    ws.page_setup.fitToWidth = 1
+    ws.page_setup.fitToHeight = 0
+    ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
+    ws.print_area = f"A1:F{disc+2}"
     wb.save(out_path)
 
 
