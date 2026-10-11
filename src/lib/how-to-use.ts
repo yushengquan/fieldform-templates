@@ -98,3 +98,44 @@ export function howToUseCards(trade: Trade): { title: string; body: string }[] {
     },
   ];
 }
+
+// "How {trade}s typically bill" — 行业计费知识段落(200+ 词)
+// 从 lineItems 推导,解释 call-out fee / labor / materials / warranty 的行业惯例
+export function billingContext(trade: Trade): string {
+  const { noun, verb } = docNoun(trade.docType);
+  const tl = tradeLower(trade.trade);
+  const items = trade.lineItems ?? [];
+  const hasCallOut = items.some(i => /call.?out|service.?fee|trip/i.test(i.description));
+  const hasLabor = items.some(i => /labor/i.test(i.description));
+  const hasMaterials = items.some(i => /material|parts|supply/i.test(i.description));
+  const hasWarranty = items.some(i => /warranty|guarantee/i.test(i.description));
+  const hasPermit = items.some(i => /permit|inspection/i.test(i.description));
+  const hasLicense = trade.licenseField === true;
+
+  const parts: string[] = [];
+
+  parts.push(`Most ${tl} businesses ${verb} a job using a combination of fixed fees and time-and-materials pricing.`);
+
+  if (hasCallOut) {
+    parts.push(`A service call-out fee covers the cost of traveling to the job site and the first hour of diagnosis — it is typically a flat charge ($50–$150 depending on your market and whether the job is after hours). Some ${tl}s waive the call-out fee if the customer approves the repair on the spot; others always charge it. Put it on its own line so the customer sees it itemized.`);
+  }
+  if (hasLabor) {
+    parts.push(`Labor is usually billed at an hourly rate ($75–$150/hr for skilled trades in most US markets). Track time from arrival to completion, including any time spent picking up parts. If you have a minimum charge (e.g. 1 hour even for a 20-minute fix), note it in the line item description.`);
+  }
+  if (hasMaterials) {
+    parts.push(`Materials and parts are billed at cost plus a markup — 20% to 30% is common for consumables, higher for hard-to-source items. Keep receipts for every purchase; on the ${noun}, list each material as a separate line if it is over $50, or group small items under "Materials" with a single total.`);
+  }
+  if (hasPermit) {
+    parts.push(`Permits and inspection fees, if required by your city or county, are usually passed through at cost. List them as a separate line so the customer understands they are a government fee, not your markup.`);
+  }
+  if (hasWarranty) {
+    parts.push(`A warranty line — typically 30 to 90 days on parts and labor — tells the customer you stand behind the work. Most ${tl}s offer it at no charge as a line item marked $0.00; some sell extended warranties as an upsell. Check whether your state requires a written warranty by law for ${tl} work.`);
+  }
+  if (hasLicense) {
+    parts.push(`In most US states, a ${tl} must include their contractor license number on every client-facing ${noun}. Leaving it off can result in fines from the state board and gives the customer grounds to dispute the charge. Enter it in the License # field before sending.`);
+  }
+
+  parts.push(`Tax treatment varies by state — some states tax ${tl} labor, others only tax materials, and a few tax nothing. Look up your state's rule or ask your CPA, then set the tax rate cell accordingly. When in doubt, tax the materials and leave labor untaxed, which is the most common treatment.`);
+
+  return parts.join(' ');
+}

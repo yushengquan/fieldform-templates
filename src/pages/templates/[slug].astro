@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import InvoicePreview from '../../components/InvoicePreview.astro';
 import DownloadCards from '../../components/DownloadCards.astro';
 import FaqList from '../../components/FaqList.astro';
-import { howToUseParagraph, howToUseCards } from '../../lib/how-to-use';
+import { howToUseParagraph, howToUseCards, billingContext } from '../../lib/how-to-use';
 
 export function getStaticPaths() {
   const modules = import.meta.glob('../../data/trades/*.json', { eager: true });
@@ -82,11 +82,26 @@ const appLd = JSON.stringify({
 // 独特正文段落 —— 从 trade 字段自动生成,避免 156 个模板页内容雷同被判定 thin content
 const howToUseText = howToUseParagraph(trade);
 const howToUseSteps = howToUseCards(trade);
+const billingText = billingContext(trade);
+
+// HowTo schema → 富摘要机会(逐步说明 + 总耗时)
+const howToLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: `How to use ${trade.title.toLowerCase()}`,
+  description: howToUseText.slice(0, 200),
+  step: howToUseSteps.map((s: any) => ({
+    "@type": "HowToStep",
+    name: s.title,
+    text: s.body,
+  })),
+});
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <script is:inline type="application/ld+json" set:html={appLd}></script>
+  <script is:inline type="application/ld+json" set:html={howToLd}></script>
 
   <section class="section wrap" style="padding-top:56px;">
     <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
@@ -105,6 +120,26 @@ const howToUseSteps = howToUseCards(trade);
 
   <section class="section wrap" id="download" style="padding-top:8px;">
     <DownloadCards slug={trade.slug} downloads={trade.downloads} active={format || undefined} />
+
+    {/* 变体页三角互链 — 消除 orphan page,让 Word/Excel 变体页获得内链权重 */}
+    {!format && (
+      <div class="variant-links" style="margin-top:24px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;">
+        <p style="font-size:14px;font-weight:700;margin-bottom:10px;">Looking for a specific format?</p>
+        <p style="font-size:14px;color:var(--muted);">See the <a href={`/templates/${trade.slug}-word/`} style="color:var(--blue);font-weight:600;">Word version</a> or the <a href={`/templates/${trade.slug}-excel/`} style="color:var(--blue);font-weight:600;">Excel version</a> of this template — each has format-specific tips.</p>
+      </div>
+    )}
+    {format === 'word' && (
+      <div class="variant-links" style="margin-top:24px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;">
+        <p style="font-size:14px;font-weight:700;margin-bottom:10px;">Other formats</p>
+        <p style="font-size:14px;color:var(--muted);">See the <a href={`/templates/${trade.slug}/`} style="color:var(--blue);font-weight:600;">main template page</a> or the <a href={`/templates/${trade.slug}-excel/`} style="color:var(--blue);font-weight:600;">Excel version</a> — the Excel version auto-calculates tax and totals.</p>
+      </div>
+    )}
+    {format === 'excel' && (
+      <div class="variant-links" style="margin-top:24px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;">
+        <p style="font-size:14px;font-weight:700;margin-bottom:10px;">Other formats</p>
+        <p style="font-size:14px;color:var(--muted);">See the <a href={`/templates/${trade.slug}/`} style="color:var(--blue);font-weight:600;">main template page</a> or the <a href={`/templates/${trade.slug}-word/`} style="color:var(--blue);font-weight:600;">Word version</a> — the Word version is easiest to edit and brand.</p>
+      </div>
+    )}
   </section>
 
   <section class="section wrap" id="how-to-use" style="padding-top:40px;">
@@ -189,6 +224,41 @@ const howToUseSteps = howToUseCards(trade);
           <p>{f.split(" — ").slice(1).join(" — ")}</p>
         </div>
       ))}
+    </div>
+  </section>
+
+  <section class="section wrap" id="billing-guide" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>How {trade.trade.toLowerCase()}s typically bill</h2>
+      <p>Industry norms for pricing {trade.docType === 'invoice' ? 'a job' : 'a quote'} — so your numbers look right to the customer.</p>
+    </div>
+    <p class="how-to-use-body">{billingText}</p>
+  </section>
+
+  <section class="section wrap" id="whats-included" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>What's included in this template</h2>
+      <p>Every field you need — nothing you don't.</p>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin-bottom:10px;">Header fields</h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.8;">
+          {(trade.headerFields ?? []).map((f: string) => <li>· {f}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:10px;">Bill-to fields</h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.8;">
+          {(trade.billToFields ?? []).map((f: string) => <li>· {f}</li>)}
+        </ul>
+      </div>
+      <div class="card" style="grid-column:1 / -1;">
+        <h3 style="margin-bottom:10px;">Pre-filled line items</h3>
+        <ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.8;">
+          {(trade.lineItems ?? []).map((it: any) => <li>· {it.description} — {it.unit ?? 'each'} at ${it.sampleRate ?? 0}/{it.unit ?? 'each'}{it.taxable === false ? ' (non-taxable)' : ''}</li>)}
+        </ul>
+      </div>
     </div>
   </section>
 

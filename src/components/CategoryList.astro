@@ -11,8 +11,9 @@ interface Props {
   description: string;
   intro: string;
   trades: any[];
+  ogImage?: string;
 }
-const { docType, title, h1, description, intro, trades } = Astro.props;
+const { docType, title, h1, description, intro, trades, ogImage } = Astro.props;
 const filtered = trades
   .filter((t: any) => t.docType === docType)
   .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
@@ -50,7 +51,7 @@ const faqs = [
   { q: `What's the difference between the PDF, Word, and Excel versions?`, a: "PDF is print-ready and locked — send it as-is. Word is fully editable text — best for adding your branding. Excel has live formulas — type quantities and rates, and subtotal, tax, and total recalculate automatically." },
 ];
 ---
-<BaseLayout title={title} description={description} canonical={`${siteUrl}${categoryPath}`}>
+<BaseLayout title={title} description={description} canonical={`${siteUrl}${categoryPath}`} ogImage={ogImage}>
   <script is:inline type="application/ld+json" set:html={itemListLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
 
