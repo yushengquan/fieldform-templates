@@ -1,0 +1,125 @@
+{
+  "slug": "fencing-invoice-template",
+  "trade": "Fencing Contractor",
+  "docType": "invoice",
+  "title": "Fencing Invoice Template",
+  "subtitle": "An invoice pre-filled for fencing work — materials, posts, gates, labor and old-fence removal. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. All fencing work performed per local code and property lines.",
+  "lineItems": [
+    {
+      "code": "MAT",
+      "description": "Fencing Materials (per linear ft)",
+      "defaultQty": 100,
+      "unit": "lf",
+      "sampleRate": 12,
+      "taxable": true
+    },
+    {
+      "code": "POSTS",
+      "description": "Posts",
+      "defaultQty": 20,
+      "unit": "each",
+      "sampleRate": 25,
+      "taxable": true
+    },
+    {
+      "code": "GATES",
+      "description": "Gates",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 150,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor",
+      "defaultQty": 1,
+      "unit": "day",
+      "sampleRate": 400,
+      "taxable": true
+    },
+    {
+      "code": "REMOVAL",
+      "description": "Old Fencing Removal",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200,
+      "taxable": true
+    },
+    {
+      "code": "WARRANTY",
+      "description": "Warranty (1-year workmanship)",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 0,
+      "taxable": false
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled fencing line items: materials, posts, gates, labor, old-fence removal",
+    "License # and EIN / Tax ID fields — required on client-facing invoices in most states",
+    "Materials and labor broken out by linear foot and day for accurate quoting"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a fencing contractor invoice?",
+      "a": "At minimum: your business and contractor license number, the client and job-site address, a dated line-item list (materials, posts, gates, labor), tax, and total due. Verify property lines before installation."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
