@@ -5,7 +5,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import InvoicePreview from '../../components/InvoicePreview.astro';
 import DownloadCards from '../../components/DownloadCards.astro';
 import FaqList from '../../components/FaqList.astro';
-import AffiliateCard from '../../components/AffiliateCard.astro';
 
 export function getStaticPaths() {
   const modules = import.meta.glob('../../data/trades/*.json', { eager: true });
@@ -163,14 +162,6 @@ const appLd = JSON.stringify({
         </div>
       ))}
     </div>
-  </section>
-
-  <section class="section wrap" id="automate" style="padding-top:40px;">
-    <div class="section-head">
-      <h2>Prefer to automate?</h2>
-      <p>Templates are free — but if you bill every week, software pays for itself fast.</p>
-    </div>
-    <AffiliateCard trade={trade.trade} docType={trade.docType} />
   </section>
 
   <section class="section wrap" id="related" style="padding-top:40px;">
