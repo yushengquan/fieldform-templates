@@ -1,0 +1,125 @@
+{
+  "slug": "solar-installation-invoice-template",
+  "trade": "Solar Installer",
+  "docType": "invoice",
+  "title": "Solar Invoice Template",
+  "subtitle": "An invoice pre-filled for solar installation work — site assessment, panels, inverter, installation labor and permits. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. All solar work performed per local code; permits and inspections were obtained where required.",
+  "lineItems": [
+    {
+      "code": "SITE",
+      "description": "Site Assessment / Design",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 250,
+      "taxable": true
+    },
+    {
+      "code": "PANELS",
+      "description": "Solar Panels",
+      "defaultQty": 1,
+      "unit": "system",
+      "sampleRate": 8000,
+      "taxable": true
+    },
+    {
+      "code": "INVERTER",
+      "description": "Inverter",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 1500,
+      "taxable": true
+    },
+    {
+      "code": "INSTALL",
+      "description": "Installation Labor",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 2500,
+      "taxable": true
+    },
+    {
+      "code": "PERMIT",
+      "description": "Permits / Inspection",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 500,
+      "taxable": false
+    },
+    {
+      "code": "WARRANTY",
+      "description": "Warranty (25-yr panel, 10-yr inverter)",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 0,
+      "taxable": false
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled solar line items: site assessment, panels, inverter, installation, permits",
+    "License # and EIN / Tax ID fields — required on client-facing invoices in most states",
+    "Permits and inspection line kept separate and non-taxable"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a solar installer invoice?",
+      "a": "At minimum: your business and contractor license number, the client and site address, a dated line-item list (panels, inverter, installation labor, permits), tax, and total due. Many states require a solar/electrical contractor license."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
