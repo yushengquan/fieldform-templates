@@ -108,7 +108,75 @@ const breadcrumbLd = JSON.stringify({
       <p>Spot a line item we missed for your trade, or want a template for a trade we do not cover yet? Let us know.</p>
     </div>
     <div class="card" style="max-width:560px;">
-      <p>Email <a href="mailto:hello@fieldformtemplates.com">hello@fieldformtemplates.com</a> with the trade name and the line items you expect to see. We read every message and add trades based on real demand.</p>
+      <form id="contact-form" class="contact-form">
+        <input type="hidden" name="_subject" value="FieldForm Templates — new contact form submission">
+        <div class="form-row">
+          <label for="cf-email">Your email<span style="color:var(--muted);font-weight:400;"> (so we can reply)</span></label>
+          <input id="cf-email" name="_replyto" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-row">
+          <label for="cf-trade">Trade<span style="color:var(--muted);font-weight:400;"> (e.g. plumber, electrician)</span></label>
+          <input id="cf-trade" name="trade" type="text" placeholder="What trade do you do?">
+        </div>
+        <div class="form-row">
+          <label for="cf-msg">What line items should we add, or what template do you need?</label>
+          <textarea id="cf-msg" name="message" rows="4" required placeholder="e.g. I'm a well pump installer — I need a template with pump replacement, labor, and warranty line items."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p id="cf-status" class="cf-status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
+
+  <style>
+    .contact-form{display:flex;flex-direction:column;gap:16px;}
+    .form-row{display:flex;flex-direction:column;gap:6px;}
+    .form-row label{font-size:14px;font-weight:700;}
+    .form-row input,.form-row textarea{
+      font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--line);
+      border-radius:8px;background:var(--surface);color:var(--ink);
+    }
+    .form-row input:focus,.form-row textarea:focus{outline:2px solid var(--blue);border-color:var(--blue);}
+    .cf-status{font-size:14px;margin:0;}
+    .cf-status.ok{color:var(--teal);}
+    .cf-status.err{color:#dc2626;}
+  </style>
+
+  <script is:inline>
+    // Formspree endpoint — 替换下面的 ID 为你的真实 form ID
+    // 拿法:去 https://formspree.io 注册 → New Form → 复制 endpoint(形如 f/xxxxxxxx)
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/your-form-id-here";
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('cf-status');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        status.className = 'cf-status';
+        status.textContent = '';
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form),
+          });
+          if (res.ok) {
+            status.className = 'cf-status ok';
+            status.textContent = 'Thanks — we got your message and will reply within a few days.';
+            form.reset();
+          } else {
+            status.className = 'cf-status err';
+            status.textContent = 'Something went wrong. Please try again or email us directly.';
+          }
+        } catch (err) {
+          status.className = 'cf-status err';
+          status.textContent = 'Network error. Please check your connection and try again.';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      });
+    }
+  </script>
 </BaseLayout>
