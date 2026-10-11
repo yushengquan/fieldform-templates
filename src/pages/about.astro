@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+
+const aboutLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: `${siteUrl}/about/`,
+  name: "About FieldForm Templates",
+  description: "Why we built trade-specific invoice and estimate templates, and how they are made.",
+  isPartOf: { "@type": "WebSite", name: "FieldForm Templates", url: siteUrl },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "About", item: `${siteUrl}/about/` },
+  ],
+});
+---
+<BaseLayout
+  title="About — FieldForm Templates"
+  description="Why we built trade-specific invoice and estimate templates, how each template is made, and who they are for."
+  canonical={`${siteUrl}/about/`}
+>
+  <script is:inline type="application/ld+json" set:html={aboutLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;">
+    <div class="section-head">
+      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">About</p>
+      <h1>Templates built for how trades actually bill</h1>
+      <p class="lead">Most free invoice templates are blank grids. We pre-fill them for each trade — so a plumber opens a file and sees call-out fee, labor, materials and warranty already laid out, not an empty table to build from scratch.</p>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:8px;">
+    <div class="grid3">
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Why we started</h3>
+        <p>Trades contractors spend too long building invoices in Word. A generic template does not know that an electrician bills a trip fee plus permits plus labor, or that a roofer prices per square. We make one template per trade so the line items are already there.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">How each template is made</h3>
+        <p>For every trade we look at how that business actually bills a service call — the standard line items, whether a license number is required, whether permits are taxable. We pre-fill the template with those items and wire up the Excel formulas so tax and totals calculate automatically.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Who they are for</h3>
+        <p>Solo contractors and small trade businesses — plumbers, electricians, HVAC, roofers, landscapers, painters, and 45+ more — who want a professional invoice or estimate in minutes without paying for invoicing software. Free for commercial use, no email required.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="how-it-works" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>How a template gets built</h2>
+      <p>From trade practice to downloadable file — the process for every template on this site.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#1668D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l4 8 8 1-6 6 2 8-8-4-8 4 2-8-6-6 8-1z"/></svg>
+        <h3 style="margin-bottom:8px;">1. Research the trade</h3>
+        <p>We identify the standard line items for that trade's service call — what gets billed, in what order, and what is taxable versus not. Permits are often non-taxable; labor and materials usually are.</p>
+      </div>
+      <div class="card">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="2"/><path d="M5 12h22M11 18h10M11 22h6"/></svg>
+        <h3 style="margin-bottom:8px;">2. Pre-fill the file</h3>
+        <p>We build the template in Word and Excel with those line items already in the table, plus the header fields the trade needs — License #, EIN, job site address — and sensible payment terms and notes.</p>
+      </div>
+      <div class="card">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#1668D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l4 4 12-12"/><path d="M4 26h24"/></svg>
+        <h3 style="margin-bottom:8px;">3. Wire up the math</h3>
+        <p>The Excel version gets live formulas — subtotal sums the line items, tax multiplies by your rate, total adds them. We export a print-ready PDF from the Word version so all three formats stay in sync.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="commitments" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>What we will and will not do</h2>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Always free, no email gate</h3>
+        <p>Every template downloads directly — no sign-up, no email, no trial. The files are free for commercial use with no attribution required. If we ever add affiliate links to invoicing software, they will be clearly labeled and never gate a download.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Updated when billing changes</h3>
+        <p>When a trade's common line items or permit requirements shift, we update the template and redeploy. The Excel formulas and line items reflect how each trade actually bills today, not a snapshot from five years ago.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Not legal or tax advice</h3>
+        <p>Templates are for informational purposes only. Contractor license requirements, sales tax rules, and permit obligations vary by state and trade. Verify with your contractor board and a CPA or attorney before using a template for paying clients.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px;">No data collected</h3>
+        <p>Downloads are direct file links — we do not ask for your name, email, or business details, and we do not track which template you downloaded. Analytics is privacy-friendly and aggregated only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="contact" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>Get in touch</h2>
+      <p>Spot a line item we missed for your trade, or want a template for a trade we do not cover yet? Let us know.</p>
+    </div>
+    <div class="card" style="max-width:560px;">
+      <p>Email <a href="mailto:hello@fieldformtemplates.com">hello@fieldformtemplates.com</a> with the trade name and the line items you expect to see. We read every message and add trades based on real demand.</p>
+    </div>
+  </section>
+</BaseLayout>
