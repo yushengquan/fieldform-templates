@@ -242,7 +242,7 @@ def gen_xlsx(cfg, out_path):
 # ---------------- Word ----------------
 def gen_docx(cfg, out_path):
     from docx import Document
-    from docx.shared import Pt, RGBColor
+    from docx.shared import Pt, RGBColor, Inches
     from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.enum.table import WD_TABLE_ALIGNMENT
 
@@ -280,6 +280,11 @@ def gen_docx(cfg, out_path):
     table = doc.add_table(rows=1, cols=5)
     table.style = "Table Grid"
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    table.autofit = False
+    col_widths = [Inches(3.0), Inches(0.6), Inches(0.6), Inches(0.9), Inches(0.9)]
+    for row in table.rows:
+        for i, w in enumerate(col_widths):
+            row.cells[i].width = w
     for i, txt in enumerate(["Description", "Qty", "Unit", "Rate ($)", "Amount ($)"]):
         run = table.rows[0].cells[i].paragraphs[0].add_run(txt)
         run.bold = True
@@ -349,6 +354,7 @@ def draw_wrapped(pdf, x, y, text, font_name, font_size, max_width, leading):
             line = w
     if line:
         pdf.drawString(x, y, line)
+        y -= leading
     return y
 
 
@@ -448,7 +454,7 @@ def gen_pdf(cfg, out_path):
         pdf.drawString(485, ry, f"${subtotal:.2f}")
         ry -= 16
         pdf.setFont("Helvetica", 10)
-        pdf.drawString(400, ry, f"DEPOSIT RECEIVED ({deposit_pct}%)")
+        pdf.drawString(400, ry, f"DEPOSIT ({deposit_pct}%)")
         pdf.drawString(485, ry, f"${subtotal * deposit_pct / 100:.2f}")
         ry -= 16
         pdf.drawString(400, ry, "AMOUNT PAID")
