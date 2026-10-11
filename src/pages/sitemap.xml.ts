@@ -4,6 +4,9 @@ import type { APIRoute } from 'astro';
 const modules = import.meta.glob('../data/trades/*.json', { eager: true });
 const trades: any[] = Object.values(modules).map((m: any) => m.default);
 
+// 构建时间戳作为 lastmod —— 每次部署自动更新,Google 据此判断哪些 URL 变了需要重爬
+const lastmod = new Date().toISOString().slice(0, 10);
+
 export const GET: APIRoute = async ({ site }) => {
   const base = site?.toString().replace(/\/$/, '') ?? 'https://fieldform-templates.pages.dev';
   const urls = [
@@ -24,6 +27,7 @@ ${urls
   .map(
     (u) => `  <url>
     <loc>${u.loc}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`
