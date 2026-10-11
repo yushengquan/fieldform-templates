@@ -1,0 +1,124 @@
+{
+  "slug": "mover-invoice-template",
+  "trade": "Mover",
+  "docType": "invoice",
+  "title": "Mover Invoice Template",
+  "subtitle": "An invoice pre-filled for moving services — loading, transport, unloading, packing and boxes. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. All items handled with care; valuation coverage noted on the invoice.",
+  "lineItems": [
+    {
+      "code": "LOAD",
+      "description": "Loading",
+      "defaultQty": 2,
+      "unit": "hr",
+      "sampleRate": 80,
+      "taxable": true
+    },
+    {
+      "code": "TRANSPORT",
+      "description": "Transport",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200,
+      "taxable": true
+    },
+    {
+      "code": "UNLOAD",
+      "description": "Unloading",
+      "defaultQty": 2,
+      "unit": "hr",
+      "sampleRate": 80,
+      "taxable": true
+    },
+    {
+      "code": "PACK",
+      "description": "Packing",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150,
+      "taxable": true
+    },
+    {
+      "code": "BOXES",
+      "description": "Boxes / Supplies",
+      "defaultQty": 20,
+      "unit": "each",
+      "sampleRate": 3,
+      "taxable": true
+    },
+    {
+      "code": "VALUATION",
+      "description": "Valuation Coverage",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 0,
+      "taxable": false
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled moving line items: loading, transport, unloading, packing, boxes",
+    "EIN / Tax ID and business fields for clean client-facing invoices",
+    "Loading and unloading priced per hour with transport as a flat line"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a mover invoice?",
+      "a": "At minimum: your business name and DOT/MC number (for interstate moves), the client and origin/destination addresses, a dated line-item list (loading, transport, unloading, packing, boxes), tax, and total due. Note valuation coverage level."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
