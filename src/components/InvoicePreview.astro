@@ -22,7 +22,7 @@ const fmt = (n: number) => "$" + n.toFixed(2);
       <div>
         <div class="lbl">From</div>
         <div>Your Business Name<br>Street Address, City, State ZIP<br>Phone | Email</div>
-        <div style="margin-top:8px;">License #: ________<br>EIN / Tax ID: ________</div>
+        <div style="margin-top:8px;">{trade.licenseField !== false && <>License #: ________<br></>}EIN / Tax ID: ________</div>
       </div>
       <div>
         <div class="lbl">Bill To</div>
