@@ -10,9 +10,10 @@ const trades = Object.values(modules)
   .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
 
 const faqs = [
-  { q: "Are these templates free to use?", a: "Yes. Every template is free — download the PDF without an email. The Word and Excel versions are free too, just leave your email so we can send the download link and occasional updates." },
-  { q: "Do the Excel templates calculate tax automatically?", a: "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax." },
-  { q: "Is this legal or tax advice?", a: "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use." },
+  { q: "How many templates are available?", a: `Over ${trades.length} templates covering 25+ trades — plumbing, electrical, HVAC, roofing, concrete, landscaping, painting, welding and more. Each comes in PDF, Word, and Excel formats, so there are over ${trades.length * 3} downloadable files in total.` },
+  { q: "Do you update the templates?", a: "Yes. When trade billing practices change (new permit requirements, common line items, tax rules), we update the corresponding template and redeploy. The Excel formulas and line items reflect how each trade actually bills today." },
+  { q: "Can I use these templates for commercial work?", a: "Yes. Every template is free for commercial use — download without an email and use it for paying clients. The Word and Excel versions are editable so you can add your business name, logo, and license number. No attribution required." },
+  { q: "What's the difference between the PDF, Word, and Excel versions?", a: "PDF is print-ready and locked — send it as-is. Word is fully editable text — best for adding your branding and adjusting layout. Excel has live formulas — type quantities and rates, and subtotal, tax, and total recalculate automatically. All three are free." },
 ];
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
