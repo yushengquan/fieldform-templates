@@ -11,6 +11,10 @@ os.makedirs(OUT_DIR, exist_ok=True)
 
 SAMPLE_DATE = datetime.date(2026, 9, 29)
 
+DEFAULT_PAYMENT_METHODS = ["Make checks payable to: ______",
+                            "Card / Venmo / Zelle: ______",
+                            "Pay online: ______"]
+
 
 def load_trades():
     trades = []
@@ -38,6 +42,11 @@ def term_short(cfg):
         return "Due on Completion"
     m = re.search(r"Net\s+\d+", t)
     return m.group(0) if m else "Net 14"
+
+
+def payment_methods(cfg):
+    pm = cfg.get("paymentMethods")
+    return pm if pm else DEFAULT_PAYMENT_METHODS
 
 
 # ---------------- Excel ----------------
@@ -202,15 +211,20 @@ def gen_xlsx(cfg, out_path):
     ws.row_dimensions[note_start].height = 30
     fill(f"A{note_start+1}", "NOTES:", label_font)
     fill(f"B{note_start+1}", cfg.get("notes", ""), base_font)
+    pay_start = note_start + 2
+    fill(f"A{pay_start}", "PAYMENT:", label_font)
+    for i, m in enumerate(payment_methods(cfg)):
+        fill(f"B{pay_start+i}", m, base_font)
+    pay_after = pay_start + len(payment_methods(cfg))
 
     if is_est:
-        est_row = note_start + 2
+        est_row = pay_after + 1
         fill(f"A{est_row}", "NOTICE:", label_font)
         fill(f"B{est_row}", est_notice, base_font)
         ws.row_dimensions[est_row].height = 30
         disc = est_row + 2
     else:
-        disc = note_start + 3
+        disc = pay_after + 1
 
     ws.merge_cells(f"A{disc}:F{disc+2}")
     fill(f"A{disc}", cfg.get("disclaimer", ""), small_gray, Alignment(vertical="top", wrap_text=True))
@@ -287,10 +301,23 @@ def gen_docx(cfg, out_path):
         total_row = table.add_row().cells
         total_row[0].text = "TOTAL DUE"
         total_row[4].text = f"${subtotal:.2f}"
+        dep_row = table.add_row().cells
+        dep_row[0].text = f"DEPOSIT RECEIVED ({deposit_pct}%)"
+        dep_row[4].text = f"${subtotal * deposit_pct / 100:.2f}"
+        paid_row = table.add_row().cells
+        paid_row[0].text = "AMOUNT PAID"
+        paid_row[4].text = "$0.00"
+        bal_row = table.add_row().cells
+        bal_row[0].text = "BALANCE DUE"
+        bal_row[4].text = f"${subtotal - subtotal * deposit_pct / 100:.2f}"
 
     doc.add_paragraph()
     doc.add_paragraph(f"Payment terms: {cfg.get('paymentTerms', '')}")
     doc.add_paragraph(f"Notes: {cfg.get('notes', '')}")
+    pmp = doc.add_paragraph()
+    pmp.add_run("PAYMENT").bold = True
+    for line in payment_methods(cfg):
+        doc.add_paragraph(line).paragraph_format.space_after = Pt(0)
     if cfg.get("docType") == "quote":
         doc.add_paragraph("Notice: This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary.")
     elif cfg.get("docType") == "estimate":
@@ -412,12 +439,26 @@ def gen_pdf(cfg, out_path):
         pdf.setFont("Helvetica-Bold", 11)
         pdf.drawString(400, ry, "TOTAL DUE")
         pdf.drawString(485, ry, f"${subtotal:.2f}")
+        ry -= 16
+        pdf.setFont("Helvetica", 10)
+        pdf.drawString(400, ry, f"DEPOSIT RECEIVED ({deposit_pct}%)")
+        pdf.drawString(485, ry, f"${subtotal * deposit_pct / 100:.2f}")
+        ry -= 16
+        pdf.drawString(400, ry, "AMOUNT PAID")
+        pdf.drawString(485, ry, "$0.00")
+        ry -= 20
+        pdf.setFont("Helvetica-Bold", 11)
+        pdf.drawString(400, ry, "BALANCE DUE")
+        pdf.drawString(485, ry, f"${subtotal - subtotal * deposit_pct / 100:.2f}")
 
     ry -= 40
     pdf.setFillColor(gray)
     fy = ry
     fy = draw_wrapped(pdf, 60, fy, f"Payment terms: {cfg.get('paymentTerms', '')}", "Helvetica", 8, W - 120, 12)
     fy = draw_wrapped(pdf, 60, fy, f"Notes: {cfg.get('notes', '')}", "Helvetica", 8, W - 120, 12)
+    fy = draw_wrapped(pdf, 60, fy, "PAYMENT:", "Helvetica-Bold", 8, W - 120, 12)
+    for line in payment_methods(cfg):
+        fy = draw_wrapped(pdf, 60, fy, "  " + line, "Helvetica", 8, W - 120, 12)
     if cfg.get("docType") == "quote":
         fy = draw_wrapped(pdf, 60, fy, "Notice: This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary.", "Helvetica", 8, W - 120, 12)
     elif cfg.get("docType") == "estimate":
