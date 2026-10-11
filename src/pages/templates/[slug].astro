@@ -60,10 +60,28 @@ const breadcrumbLd = JSON.stringify({
     { "@type": "ListItem", position: 2, name: trade.title, item: `${siteUrl}templates/${trade.slug}/` },
   ],
 });
+
+// SoftwareApplication schema → 免费数字产品富摘要（价格 $0、下载链接）
+const appLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: trade.title,
+  description: trade.subtitle,
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Any",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  url: `${siteUrl}templates/${trade.slug}/`,
+  brand: { "@type": "Brand", name: "FieldForm Templates" },
+});
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <script is:inline type="application/ld+json" set:html={appLd}></script>
 
   <section class="section wrap" style="padding-top:56px;">
     <div class="section-head">
