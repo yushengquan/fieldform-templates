@@ -80,6 +80,9 @@ a:hover{text-decoration:underline;}
 .dl-card p{font-size:14px;color:var(--muted);flex:1;margin-bottom:16px;}
 .dl-card .btn{margin-top:auto;}
 
+/* 模板页 how-to-use 正文 */
+.how-to-use-body{font-size:15px;line-height:1.7;color:var(--ink);max-width:720px;}
+
 /* FAQ */
 details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:10px;}
 summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}

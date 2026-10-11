@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import InvoicePreview from '../../components/InvoicePreview.astro';
 import DownloadCards from '../../components/DownloadCards.astro';
 import FaqList from '../../components/FaqList.astro';
+import { howToUseParagraph, howToUseCards } from '../../lib/how-to-use';
 
 export function getStaticPaths() {
   const modules = import.meta.glob('../../data/trades/*.json', { eager: true });
@@ -76,6 +77,10 @@ const appLd = JSON.stringify({
   url: `${siteUrl}templates/${trade.slug}/`,
   brand: { "@type": "Brand", name: "FieldForm Templates" },
 });
+
+// 独特正文段落 —— 从 trade 字段自动生成,避免 156 个模板页内容雷同被判定 thin content
+const howToUseText = howToUseParagraph(trade);
+const howToUseSteps = howToUseCards(trade);
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
@@ -92,6 +97,21 @@ const appLd = JSON.stringify({
 
   <section class="section wrap" id="download" style="padding-top:8px;">
     <DownloadCards slug={trade.slug} downloads={trade.downloads} active={format || undefined} />
+  </section>
+
+  <section class="section wrap" id="how-to-use" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>How to use this template</h2>
+    </div>
+    <p class="how-to-use-body">{howToUseText}</p>
+    <div class="grid3" style="margin-top:24px;">
+      {howToUseSteps.map((step) => (
+        <div class="card">
+          <h3 style="margin-bottom:8px;">{step.title}</h3>
+          <p>{step.body}</p>
+        </div>
+      ))}
+    </div>
   </section>
 
   {format === 'word' && (
