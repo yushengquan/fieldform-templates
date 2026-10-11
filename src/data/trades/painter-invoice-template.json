@@ -3,39 +3,123 @@
   "trade": "Painter",
   "docType": "invoice",
   "title": "Painter Invoice Template",
-  "subtitle": "An invoice pre-filled for painting jobs — surface prep, interior painting, paint and primer, labor and supplies. Download as Excel (auto-calculating), Word, or PDF.",
+  "subtitle": "An invoice pre-filled for painting work — paint, primer, labor, prep and trim. Download as Excel (auto-calculating), Word, or PDF.",
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
-  "notes": "Thank you for your business. Scope per the signed estimate; paint colors and sheens as confirmed before work began.",
+  "notes": "Thank you for your business. All painting performed per manufacturer specifications.",
   "lineItems": [
-    {"code": "PREP", "description": "Surface Preparation (per sq ft)", "defaultQty": 2000, "unit": "sqft", "sampleRate": 0.75, "taxable": true},
-    {"code": "PAINT", "description": "Interior Paint (per sq ft)", "defaultQty": 2000, "unit": "sqft", "sampleRate": 1.5, "taxable": true},
-    {"code": "GAL", "description": "Paint (per gallon)", "defaultQty": 15, "unit": "gal", "sampleRate": 48.0, "taxable": true},
-    {"code": "PRIM", "description": "Primer (per gallon)", "defaultQty": 8, "unit": "gal", "sampleRate": 35.0, "taxable": true},
-    {"code": "LABOR", "description": "Labor (per sq ft)", "defaultQty": 2000, "unit": "sqft", "sampleRate": 0.9, "taxable": true},
-    {"code": "SUPL", "description": "Supplies (tape, drop cloths, misc.)", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true}
+    {
+      "code": "PAINT",
+      "description": "Paint",
+      "defaultQty": 5,
+      "unit": "gal",
+      "sampleRate": 45,
+      "taxable": true
+    },
+    {
+      "code": "PRIMER",
+      "description": "Primer",
+      "defaultQty": 2,
+      "unit": "gal",
+      "sampleRate": 35,
+      "taxable": true
+    },
+    {
+      "code": "PREP",
+      "description": "Surface Prep",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor",
+      "defaultQty": 2,
+      "unit": "day",
+      "sampleRate": 350,
+      "taxable": true
+    },
+    {
+      "code": "TRIM",
+      "description": "Trim / Cut-in",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150,
+      "taxable": true
+    },
+    {
+      "code": "WARRANTY",
+      "description": "Warranty (2-year workmanship)",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 0,
+      "taxable": false
+    }
   ],
   "features": [
-    "Auto-calculating totals and tax in Excel",
-    "Pre-filled painter line items: surface prep, interior paint, paint and primer by gallon, labor, supplies",
-    "Net-14 payment terms and late-fee line standard for painting invoices",
-    "License # field — many states require a contractor license on client-facing invoices"
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled painting line items: paint, primer, prep, labor, trim",
+    "License # and EIN / Tax ID fields — required on client-facing invoices in most states",
+    "Paint and primer priced per gallon with prep and trim broken out separately"
   ],
   "faqs": [
-    {"q": "What should I include on a painter invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (prep, paint, primer, labor, supplies), payment terms and due date. Reference the signed estimate for scope."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate totals automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, tax and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a painter invoice?",
+      "a": "At minimum: your business and contractor license number, the client and job-site address, a dated line-item list (paint, primer, prep, labor, trim), tax, and total due. Note paint brand/color and number of coats."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and tax"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
 }
