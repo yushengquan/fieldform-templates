@@ -1,0 +1,71 @@
+name: regen-and-check-templates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/gen_templates.py'
+      - 'scripts/check_templates.py'
+      - 'src/data/trades/**'
+      - '.github/workflows/regen-templates.yml'
+  workflow_dispatch:
+
+# 让 bot 能把重新生成的二进制 commit 回 main
+permissions:
+  contents: write
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: install python deps
+        run: pip install openpyxl python-docx reportlab
+
+      - name: regenerate template binaries (xlsx/docx/pdf)
+        run: python scripts/gen_templates.py
+
+      - name: self-check templates
+        run: python scripts/check_templates.py
+
+      - name: commit regenerated binaries if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/downloads
+          if git diff --cached --quiet; then
+            echo "no binary changes to commit"
+          else
+            git commit -m "chore: regenerate template binaries (auto)"
+            git push
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+# 部署：若你已用 Cloudflare Pages 直连本仓库（README 方式A），
+# 上面 push 二进制后会自动触发 Pages 重建，无需在此部署。
+# 若改用 CLI 部署，取消下面注释并配置 secrets：
+#   CLOUDFLARE_API_TOKEN（Pages:Edit 权限）、CLOUDFLARE_ACCOUNT_ID
+#
+#      - name: deploy to cloudflare pages
+#        if: ${{ github.ref == 'refs/heads/main' }}
+#        uses: cloudflare/wrangler-action@v3
+#        with:
+#          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+#          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+#          command: pages deploy dist --project-name=fieldform-templates
