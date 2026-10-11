@@ -64,7 +64,7 @@ def gen_xlsx(cfg, out_path):
     ws = wb.active
     ws.title = "Invoice"
     ws.sheet_view.showGridLines = False
-    for col, w in zip("ABCDEF", (6, 40, 8, 16, 14, 14)):
+    for col, w in zip("ABCDEFG", (6, 40, 8, 16, 14, 14, 10)):
         ws.column_dimensions[col].width = w
 
     def fill(addr, value, font=base_font, align=None, numfmt=None, fill_color=None):
@@ -124,10 +124,10 @@ def gen_xlsx(cfg, out_path):
         ws.row_dimensions[11+i].height = 16
 
     hdr_row = 16
-    for i, h in enumerate(["#", "Description", "Qty", "Unit", "Rate ($)", "Amount ($)"]):
+    for i, h in enumerate(["#", "Description", "Qty", "Unit", "Rate ($)", "Amount ($)", "Taxable"]):
         col = get_column_letter(i + 1)
         fill(f"{col}{hdr_row}", h, white_bold,
-             Alignment(horizontal="center" if i in (0, 2, 3) else "left", vertical="center"),
+             Alignment(horizontal="center" if i in (0, 2, 3, 6) else "left", vertical="center"),
              fill_color=SECOND)
         ws[f"{col}{hdr_row}"].border = Border(bottom=thin)
     ws.row_dimensions[hdr_row].height = 20
@@ -143,6 +143,7 @@ def gen_xlsx(cfg, out_path):
         fill(f"D{r}", it["unit"], base_font, Alignment(horizontal="center", vertical="center"))
         fill(f"E{r}", it["sampleRate"], base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
         fill(f"F{r}", f"=C{r}*E{r}", base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
+        fill(f"G{r}", bool(it.get("taxable", True)), base_font, Alignment(horizontal="center", vertical="center"))
     last = data_start + len(items) - 1
 
     sub_row = last + 2
@@ -170,7 +171,8 @@ def gen_xlsx(cfg, out_path):
         fill(f"C{tax_rate_row}", "look up your state rate", small_gray, Alignment(horizontal="left", vertical="center"))
         tax_row = sub_row + 2
         fill(f"D{tax_row}", "TAX", label_font)
-        fill(f"F{tax_row}", f'=IF(E{tax_rate_row}="","",ROUND(F{sub_row}*E{tax_rate_row},2))',
+        fill(f"F{tax_row}",
+             f'=IF(E{tax_rate_row}="","",ROUND(SUMPRODUCT(($G${data_start}:$G${last}=TRUE)*F{data_start}:F{last})*E{tax_rate_row},2))',
              base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
         total_row = sub_row + 3
         fill(f"D{total_row}", "TOTAL DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
@@ -178,7 +180,22 @@ def gen_xlsx(cfg, out_path):
              Font(name="Arial", bold=True, size=11, color="17365D"),
              Alignment(horizontal="right", vertical="center"), money_fmt)
         ws[f"F{total_row}"].border = Border(top=top_line, bottom=top_line)
-        note_start = total_row + 2
+        deposit_row = total_row + 1
+        fill(f"D{deposit_row}", "DEPOSIT RECEIVED", label_font)
+        fill(f"F{deposit_row}", None, base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
+        fill(f"C{deposit_row}", "enter if collected", small_gray, Alignment(horizontal="left", vertical="center"))
+        paid_row = total_row + 2
+        fill(f"D{paid_row}", "AMOUNT PAID", label_font)
+        fill(f"F{paid_row}", None, base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
+        fill(f"C{paid_row}", "enter if any", small_gray, Alignment(horizontal="left", vertical="center"))
+        balance_row = total_row + 3
+        fill(f"D{balance_row}", "BALANCE DUE", Font(name="Arial", bold=True, size=11, color="17365D"))
+        fill(f"F{balance_row}",
+             f"=F{total_row}-IF(ISNUMBER(F{deposit_row}),F{deposit_row},0)-IF(ISNUMBER(F{paid_row}),F{paid_row},0)",
+             Font(name="Arial", bold=True, size=11, color="17365D"),
+             Alignment(horizontal="right", vertical="center"), money_fmt)
+        ws[f"F{balance_row}"].border = Border(top=top_line, bottom=top_line)
+        note_start = balance_row + 2
 
     fill(f"A{note_start}", "PAYMENT TERMS:", label_font)
     fill(f"B{note_start}", cfg.get("paymentTerms", ""), base_font)
