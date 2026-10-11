@@ -207,4 +207,13 @@ const howToUseSteps = howToUseCards(trade);
     </div>
     <FaqList faqs={trade.faqs ?? []} />
   </section>
+
+  <script is:inline define:vars={{ itemSlug: trade.slug, itemTrade: trade.trade, itemDocType: trade.docType }}>
+    if (window.gtag) gtag('event', 'view_item', {
+      item_id: itemSlug,
+      item_name: itemTrade + ' ' + itemDocType,
+      item_category: itemDocType,
+      item_category2: itemTrade,
+    });
+  </script>
 </BaseLayout>

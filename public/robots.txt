@@ -1,4 +1,23 @@
+# robots.txt — FieldForm Templates
+# 允许正常内容爬取,屏蔽常见垃圾/追踪/筛选参数产生的重复 URL
+
 User-agent: *
 Allow: /
+
+# 屏蔽带追踪/会话/筛选参数的 URL 变体(防止重复内容稀释)
+Disallow: /*?utm_*
+Disallow: /*?ref=
+Disallow: /*?source=
+Disallow: /*?sessionid=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?mc_*
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?page=
+Disallow: /*?q=
+
+# 不允许爬取下载文件本身(HTML 才是要索引的内容)
+Disallow: /downloads/
 
 Sitemap: https://fieldformtemplates.com/sitemap.xml

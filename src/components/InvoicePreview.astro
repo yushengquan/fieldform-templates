@@ -7,6 +7,17 @@ const { trade } = Astro.props;
 const isEst = trade.docType === "estimate" || trade.docType === "quote";
 const docNo = trade.docType === "quote" ? "Quote #: QUOTE-0001" : "Estimate #: EST-0001";
 const items = trade.lineItems ?? [];
+
+// 日期：构建时动态计算,不再硬编码。每次部署日期自动更新。
+const now = new Date();
+const todayStr = now.toISOString().slice(0, 10);
+const plusDays = (n: number) => {
+  const d = new Date(now);
+  d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+};
+const validUntil = plusDays(30);  // 估价有效期 30 天
+const dueDate = plusDays(14);      // 发票到期 14 天(Net 14)
 let subtotal = 0;
 const rows = items.map((it: any, i: number) => {
   const amount = (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
@@ -28,9 +39,9 @@ const fmt = (n: number) => "$" + n.toFixed(2);
         <div class="lbl">Bill To</div>
         <div>Client Name<br>Client Address<br>Job Site Address</div>
         {isEst ? (
-          <div style="margin-top:8px;">{docNo}<br>Date: 2026-09-29 · Valid Until: 2026-10-29<br>Terms: Net 14</div>
+          <div style="margin-top:8px;">{docNo}<br>Date: {todayStr} · Valid Until: {validUntil}<br>Terms: Net 14</div>
         ) : (
-          <div style="margin-top:8px;">Invoice #: INV-0001<br>Date: 2026-09-29 · Terms: Net 14<br>Due: 2026-10-13</div>
+          <div style="margin-top:8px;">Invoice #: INV-0001<br>Date: {todayStr} · Terms: Net 14<br>Due: {dueDate}</div>
         )}
       </div>
     </div>

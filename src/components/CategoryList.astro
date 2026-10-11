@@ -65,7 +65,8 @@ const faqs = [
     <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">{filtered.length} templates — pre-filled for how each trade actually bills.</p>
     <div class="grid2">
       {filtered.map((t: any) => (
-        <a class="tpl-card" href={`/templates/${t.slug}/`}>
+        <a class="tpl-card" href={`/templates/${t.slug}/`}
+          onclick={`if(window.gtag)gtag('event','select_item',{item_id:'${t.slug}',item_category:'${docType}'});`}>
           <span class="tag">{t.trade}</span>
           <h3>{t.title}</h3>
           <p>{t.subtitle}</p>
