@@ -89,6 +89,13 @@ const howToUseSteps = howToUseCards(trade);
   <script is:inline type="application/ld+json" set:html={appLd}></script>
 
   <section class="section wrap" style="padding-top:56px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a>
+      <span style="margin:0 6px;">/</span>
+      <a href={`/${trade.docType === 'invoice' ? 'invoice' : 'estimate'}-templates/`} style="color:var(--muted);">{trade.docType === 'invoice' ? 'Invoice Templates' : 'Estimate Templates'}</a>
+      <span style="margin:0 6px;">/</span>
+      <span style="color:var(--ink);font-weight:600;">{pageTitle.split(' — ')[0]}</span>
+    </nav>
     <div class="section-head">
       <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">{trade.trade} · {trade.docType} template{format ? ` · ${fmtLabel} format` : ''}</p>
       <h1>{pageTitle.split(' — ')[0]}</h1>
