@@ -21,8 +21,11 @@ const imageUrl = new URL(ogImage ?? '/og-image.png', site).toString();
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://miaoda.feishu.cn">
-  <link href="https://miaoda.feishu.cn/fonts/css2?family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://miaoda.feishu.cn" crossorigin>
+  <link rel="dns-prefetch" href="https://miaoda.feishu.cn">
+  <link rel="preload" as="style" href="https://miaoda.feishu.cn/fonts/css2?family=Archivo:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Archivo:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Archivo:wght@600;700;800&display=swap"></noscript>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">

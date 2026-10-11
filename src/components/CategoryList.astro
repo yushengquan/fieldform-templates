@@ -1,0 +1,84 @@
+---
+// 分类聚合页内容组件：按 docType 筛选模板并展示
+// 用于 /invoice-templates/ 和 /estimate-templates/，各自传入 docType + 页面文案
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqList from './FaqList.astro';
+
+interface Props {
+  docType: 'invoice' | 'estimate';
+  title: string;
+  h1: string;
+  description: string;
+  intro: string;
+  trades: any[];
+}
+const { docType, title, h1, description, intro, trades } = Astro.props;
+const filtered = trades
+  .filter((t: any) => t.docType === docType)
+  .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const categoryPath = `/${docType}-templates/`;
+
+// ItemList schema — 列出该分类下所有模板
+const itemListLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: title,
+  numberOfItems: filtered.length,
+  itemListElement: filtered.map((t: any, i: number) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.title,
+    url: `${siteUrl}/templates/${t.slug}/`,
+  })),
+});
+
+// 面包屑
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: title, item: `${siteUrl}${categoryPath}` },
+  ],
+});
+
+const faqs = [
+  { q: `How many ${docType} templates are available?`, a: `${filtered.length} ${docType} templates covering trades from plumbing and electrical to HVAC, roofing, concrete, landscaping and more. Each comes in PDF, Word, and Excel formats — ${filtered.length * 3} downloadable files in total.` },
+  { q: `Are these ${docType} templates free?`, a: "Yes. Every template is free for commercial use — download as PDF, Word, or Excel with no email required and no attribution needed." },
+  { q: `What's the difference between the PDF, Word, and Excel versions?`, a: "PDF is print-ready and locked — send it as-is. Word is fully editable text — best for adding your branding. Excel has live formulas — type quantities and rates, and subtotal, tax, and total recalculate automatically." },
+];
+---
+<BaseLayout title={title} description={description} canonical={`${siteUrl}${categoryPath}`}>
+  <script is:inline type="application/ld+json" set:html={itemListLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;">
+    <div class="section-head">
+      <h1>{h1}</h1>
+      <p class="lead">{intro}</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="templates" style="padding-top:8px;">
+    <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">{filtered.length} templates — pre-filled for how each trade actually bills.</p>
+    <div class="grid2">
+      {filtered.map((t: any) => (
+        <a class="tpl-card" href={`/templates/${t.slug}/`}>
+          <span class="tag">{t.trade}</span>
+          <h3>{t.title}</h3>
+          <p>{t.subtitle}</p>
+          <span class="go">View &amp; download →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap" id="faq">
+    <div class="section-head">
+      <h2>Questions</h2>
+    </div>
+    <FaqList faqs={faqs} />
+  </section>
+</BaseLayout>

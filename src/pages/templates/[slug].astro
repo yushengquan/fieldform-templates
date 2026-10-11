@@ -61,20 +61,21 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
-// SoftwareApplication schema → 免费数字产品富摘要（价格 $0、下载链接）
+// Product schema → 免费数字产品富摘要（Google Merchant Listings 认 Product 类型，显示 $0 价格标签）
 const appLd = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "Product",
   name: trade.title,
   description: trade.subtitle,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Any",
+  category: "Business Template",
+  isAccessibleForFree: true,
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: `${siteUrl}templates/${trade.slug}/`,
   },
-  url: `${siteUrl}templates/${trade.slug}/`,
   brand: { "@type": "Brand", name: "FieldForm Templates" },
 });
 

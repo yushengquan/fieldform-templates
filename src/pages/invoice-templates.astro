@@ -1,0 +1,15 @@
+---
+// /invoice-templates/ — 所有 invoice 模板的分类聚合页
+import CategoryList from '../components/CategoryList.astro';
+
+const modules = import.meta.glob('../data/trades/*.json', { eager: true });
+const trades = Object.values(modules).map((m: any) => m.default);
+---
+<CategoryList
+  docType="invoice"
+  title="Free Invoice Templates for Trades — FieldForm Templates"
+  h1="Free invoice templates for trades"
+  description="36 free invoice templates pre-filled for trades — electrician, plumber, HVAC, roofer, concrete, cleaning, landscaping and more. Excel auto-calculates tax and totals. Download as PDF, Word, or Excel."
+  intro="Professional invoice templates pre-filled for how each trade actually bills — trip fees, permits, labor, materials and warranty. Excel versions auto-calculate tax and totals."
+  trades={trades}
+/>

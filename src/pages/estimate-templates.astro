@@ -1,0 +1,15 @@
+---
+// /estimate-templates/ — 所有 estimate 模板的分类聚合页
+import CategoryList from '../components/CategoryList.astro';
+
+const modules = import.meta.glob('../data/trades/*.json', { eager: true });
+const trades = Object.values(modules).map((m: any) => m.default);
+---
+<CategoryList
+  docType="estimate"
+  title="Free Estimate Templates for Trades — FieldForm Templates"
+  h1="Free estimate templates for trades"
+  description="15 free estimate templates pre-filled for trades — carpenter, cleaning, electrician, auto detailing and more. Excel auto-calculates tax and totals. Download as PDF, Word, or Excel."
+  intro="Professional estimate templates pre-filled for how each trade actually quotes a job — line items, materials, labor and deposit terms. Excel versions auto-calculate tax and totals."
+  trades={trades}
+/>
