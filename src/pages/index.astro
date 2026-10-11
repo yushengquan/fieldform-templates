@@ -14,11 +14,53 @@ const faqs = [
   { q: "Do the Excel templates calculate tax automatically?", a: "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax." },
   { q: "Is this legal or tax advice?", a: "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use." },
 ];
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+
+// WebSite + Organization schema → sitelinks search box + 品牌知识面板
+const websiteLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "FieldForm Templates",
+  url: siteUrl,
+  description: "Free invoice and estimate templates for trades — Excel auto-calculates tax and totals.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+});
+
+const orgLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "FieldForm Templates",
+  url: siteUrl,
+  logo: `${siteUrl}/og-image.png`,
+  description: "Free invoice and estimate templates for home-service trades.",
+});
+
+// ItemList — 列出所有模板,提升内链发现 + 富摘要
+const itemListLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Free Invoice & Estimate Templates for Trades",
+  numberOfItems: trades.length,
+  itemListElement: trades.map((t: any, i: number) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.title,
+    url: `${siteUrl}/templates/${t.slug}/`,
+  })),
+});
 ---
 <BaseLayout
   title="Free Invoice & Estimate Templates for Trades — FieldForm Templates"
-  description="Free, professional invoice and estimate templates for plumbers, electricians and more. Download as Excel (auto-calculating), Word, or PDF."
+  description="Free invoice & estimate templates for 50+ trades — solar, plumbing, HVAC, concrete, roofing, electrical, painting and more. Excel auto-calculates tax and totals. Download as PDF, Word, or Excel."
 >
+  <script is:inline type="application/ld+json" set:html={websiteLd}></script>
+  <script is:inline type="application/ld+json" set:html={orgLd}></script>
+  <script is:inline type="application/ld+json" set:html={itemListLd}></script>
   <section class="section wrap" style="padding-top:64px;">
     <div class="section-head">
       <h1>Free invoice &amp; estimate templates for trades</h1>
