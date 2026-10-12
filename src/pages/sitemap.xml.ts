@@ -9,6 +9,10 @@ import { fileURLToPath } from 'node:url';
 const modules = import.meta.glob('../data/trades/*.json', { eager: true });
 const trades: any[] = Object.values(modules).map((m: any) => m.default);
 
+// guides (长尾信息型页面)
+const guideModules = import.meta.glob('../data/guides/*.json', { eager: true });
+const guides: any[] = Object.values(guideModules).map((m: any) => m.default);
+
 // 扫 src/pages/ 下所有顶层 .astro 页面 → 自动进 sitemap
 // index.astro → /，about.astro → /about/，contact.astro → /contact/ ...
 const astroPages = import.meta.glob('../pages/*.astro', { eager: false });
@@ -67,7 +71,18 @@ export const GET: APIRoute = async ({ site }) => {
     ]),
   ];
 
-  const urls = [...staticUrls, ...tradeUrls];
+  // guide 页：0.6 monthly（信息型长尾，低于模板页权重）
+  const guideUrls = [
+    { loc: `${base}/guides/`, priority: '0.6', changefreq: 'monthly', lastmod: today },
+    ...guides.map((g: any) => ({
+      loc: `${base}/guides/${g.slug}/`,
+      priority: '0.6',
+      changefreq: 'monthly',
+      lastmod: today,
+    })),
+  ];
+
+  const urls = [...staticUrls, ...tradeUrls, ...guideUrls];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls

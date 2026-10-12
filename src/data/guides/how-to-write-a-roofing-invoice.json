@@ -1,0 +1,100 @@
+{
+  "slug": "how-to-write-a-roofing-invoice",
+  "trade": "Roofer",
+  "templateSlug": "roofer-invoice-template",
+  "title": "How to Write a Roofing Invoice (with Example Line Items)",
+  "description": "Learn how to write a roofing invoice with example line items for tear-off, overlay, shingle and metal material, underlayment, squares and waste factor, deposit and progress draws, warranty registration, and sales tax. Includes 2024 national midpoint rates and a sample invoice layout for roofers.",
+  "h1": "How to Write a Roofer Invoice",
+  "intro": "A roofing invoice is built around squares (100 sq ft bundles) and a waste factor, not linear feet, so material math differs from every other trade. Roofers also juggle deposits, progress draws, permit numbers, and manufacturer warranty registration lines that must appear on the final invoice to keep coverage valid. Getting the line-item structure right speeds payment and protects the contractor's license.",
+  "sections": [
+    {
+      "h2": "Required Fields on a Roofing Invoice",
+      "blocks": [
+        { "type": "p", "text": "Every roofing invoice must carry the contractor's license number, the building permit number issued by the municipality, and the property address including roof slope and story count. Without the permit number, the homeowner cannot pass final inspection and the invoice reads as unpermitted work." },
+        { "type": "ul", "items": [
+          "Contractor name, license #, EIN, insurance policy references",
+          "Job address, roof slope (e.g. 6/12), number of stories, deck type",
+          "Building permit # and inspection sign-off date",
+          "Squares installed, waste factor %, total bundles consumed",
+          "Deposit received, progress draws billed, balance due"
+        ] },
+        { "type": "h3", "text": "Deposit and Progress Draw Structure" },
+        { "type": "p", "text": "Most residential roofs are invoiced in three draws: a 30-50% material deposit before tear-off, a second draw at dry-in (underlayment complete), and the final balance after cleanup and inspection. Each draw should be a separate invoice or a clearly labeled line on a running invoice so the homeowner sees what they are paying for at each milestone." }
+      ]
+    },
+    {
+      "h2": "Common Roofing Line Items and 2024 Rates",
+      "blocks": [
+        { "type": "p", "text": "Rates below are national midpoints for 2024 residential work and exclude sales tax, permit fees, and disposal. Multiply the per-square rate by total squares (including waste) for combined material-and-labor lines, or break them out separately for transparency." },
+        { "type": "table", "headers": ["Line item", "Unit", "2024 midpoint rate"], "rows": [
+          ["Architectural shingle tear-off (1 layer)", "per square", "$100-$150"],
+          ["Architectural shingle install (labor+material)", "per square", "$350-$475"],
+          ["Synthetic underlayment", "per square", "$35-$55"],
+          ["Ice and water shield", "per linear ft (3 ft roll)", "$2.50-$4.00"],
+          ["Standing seam metal roof install", "per square", "$700-$1,100"],
+          ["Drip edge / rake edge (aluminum)", "per linear ft", "$2.00-$3.50"],
+          ["Ridge vent install", "per linear ft", "$4.00-$7.00"],
+          ["Roof deck plywood replacement (1/2 in CDX)", "per 4x8 sheet", "$45-$75"],
+          ["Chimney flashing re-lead", "per chimney", "$300-$600"],
+          ["Skylight curb flashing", "per skylight", "$150-$300"]
+        ] },
+        { "type": "p", "text": "Show the waste factor as its own line (typically 10-15% for cut-up roofs, 5-7% for simple gables). A 30-square job at 12% waste bills 33.6 squares of material, and the invoice should make that math visible to avoid disputes over bundle count." }
+      ]
+    },
+    {
+      "h2": "Tear-Off vs Overlay and Material Itemization",
+      "blocks": [
+        { "type": "p", "text": "Tear-off and overlay are billed very differently and must never be collapsed into one lump line. A tear-off charges disposal (dumpster plus tonnage at the landfill) plus deck inspection and replacement of any rotten sheathing found, billed per sheet at actual count. An overlay skips disposal but charges for starter strip and cap over the existing layer." },
+        { "type": "ul", "items": [
+          "Tear-off: dumpster rental, tonnage at landfill, deck inspection, sheathing replacement per sheet",
+          "Overlay: starter strip, cap, second layer of shingles, no disposal line",
+          "Material itemization: shingle brand + color + warranty tier, underlayment type, fastener type (ring shank vs smooth)"
+        ] },
+        { "type": "p", "text": "Itemize shingles by manufacturer, product line, color, and warranty tier (e.g. GAF Timberline HDZ Charcoal, 25-year limited). Metal roofs need panel profile, gauge, paint system (Kynar 500), and color code. Underlayment should specify synthetic vs felt and the ASTM rating. This detail is what the manufacturer needs to honor the warranty registration." }
+      ]
+    },
+    {
+      "h2": "Sales Tax, Licensing, and Permit Handling",
+      "blocks": [
+        { "type": "p", "text": "Roofing sales tax varies by state: in Texas, labor is taxable on residential real property repairs; in Florida, roofing labor is exempt but materials are taxed. Check the state DOR rule before applying tax, because misapplying it triggers audit liability for the contractor, not the homeowner." },
+        { "type": "ul", "items": [
+          "Apply sales tax to materials only in labor-exempt states (FL, PA, MD)",
+          "Apply tax to the full invoice in labor-taxable states (TX, CA on real property repair)",
+          "Permit fees are pass-through: bill at cost with the municipality receipt attached",
+          "License # must appear on every invoice in states that require it (most do)"
+        ] },
+        { "type": "p", "text": "Pull the permit before billing the deposit, and list the permit number on the first invoice. If the municipality requires a final inspection sign-off, attach the passed inspection card or note the approval date on the final invoice so the homeowner has proof the roof was closed out legally." }
+      ]
+    },
+    {
+      "h2": "Pricing Strategy: Flat Bid vs Time-and-Materials",
+      "blocks": [
+        { "type": "p", "text": "Residential re-roofs are almost always flat bids quoted per square, because the scope is measurable from the roof plan and the homeowner wants price certainty. Use T&M only for hidden-rot repair discovered mid-tear-off, with a not-to-exceed clause and per-sheet billing for deck replacement." },
+        { "type": "ul", "items": [
+          "Flat bid: quote total squares x per-square rate + flashing + disposal + permit, hold a 10% contingency line for deck rot",
+          "T&M: hourly crew rate + material at cost + 15-20% markup, only for change orders or inspection-driven repairs",
+          "One-time job: standard re-roof, single final invoice after inspection",
+          "Recurring: annual maintenance inspection (separate invoice, flat fee, covers gutter clean and flashing check)"
+        ] },
+        { "type": "p", "text": "Never bill a re-roof as recurring or subscription work. Maintenance contracts (gutter cleaning, annual flashing inspection, storm-check after hail season) are the only recurring roofing invoices and should be flat-fee with a defined scope, not hourly." }
+      ]
+    },
+    {
+      "h2": "Warranty Registration Line",
+      "blocks": [
+        { "type": "p", "text": "Manufacturer warranties on shingles and metal panels require registration of the install to activate enhanced coverage (e.g. GAF Golden Pledge, Owens Corning Platinum). The final invoice must include a warranty registration line stating the system, the registration number, and the coverage term." },
+        { "type": "ul", "items": [
+          "Manufacturer system warranty: name, tier (standard / system / platinum), term in years, registration #",
+          "Contractor workmanship warranty: term (e.g. 5-year labor), what it covers (leaks from install, not storm damage)",
+          "Exclude acts of God and improper maintenance explicitly to avoid future disputes"
+        ] },
+        { "type": "p", "text": "Register the warranty before sending the final invoice, because the registration number is what the homeowner needs to file a future leak claim. A roofing invoice without the warranty registration line leaves the manufacturer warranty unactivated and the contractor on the hook for material failures." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "How many squares should I bill if the roof is 28 squares with a 10% waste factor?", "a": "Bill 30.8 squares of material (28 x 1.10) on the material line, and show the base 28 squares plus the 2.8-square waste factor as separate sub-lines. The labor line is usually billed on the base 28 squares, not the waste-adjusted number, unless your contract states otherwise." },
+    { "q": "Do I charge sales tax on roofing labor or just materials?", "a": "It depends on your state. In labor-exempt states like Florida and Pennsylvania, tax materials only. In labor-taxable states like Texas, tax the full invoice including labor on residential real property repair. Verify the current DOR rule each year, because these rules change and misapplication is contractor liability." },
+    { "q": "Should the deposit invoice include the permit number?", "a": "Yes. Pull the permit before billing the deposit and put the permit number on the first invoice. Homeowners need it for inspection scheduling, and lenders and insurance adjusters will not release draw funds without proof the job is permitted." }
+  ]
+}

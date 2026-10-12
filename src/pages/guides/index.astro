@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const modules = import.meta.glob('../../data/guides/*.json', { eager: true });
+const guides: any[] = Object.values(modules).map((m: any) => m.default);
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Guides", item: `${siteUrl}/guides/` },
+  ],
+});
+---
+<BaseLayout
+  title="Invoicing Guides — How to Write Trade Invoices | FieldForm Templates"
+  description="Step-by-step guides on how to write invoices for plumbers, HVAC, electricians, roofers, landscapers, pest control and more — with real line items and sample rates."
+  canonical={`${siteUrl}/guides/`}
+>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <section class="section wrap" style="padding-top:56px;">
+    <h1 style="font-size:38px;margin-bottom:16px;">Invoicing guides</h1>
+    <p style="font-size:18px;color:var(--muted);margin-bottom:40px;max-width:600px;">
+      How to write a proper invoice for your trade — what line items to include, how to price, and the sales tax and licensing rules that catch contractors out.
+    </p>
+    <div class="grid3">
+      {guides.map((g: any) => (
+        <a class="card" style="text-decoration:none;color:var(--ink);" href={`/guides/${g.slug}/`}>
+          <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">{g.trade}</span>
+          <h3 style="margin-bottom:6px;">{g.h1}</h3>
+          <p style="color:var(--muted);font-size:14px;">{g.description.slice(0, 110)}{g.description.length > 110 ? '…' : ''}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

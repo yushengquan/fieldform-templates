@@ -1,0 +1,76 @@
+{
+  "slug": "how-to-write-a-landscaping-invoice",
+  "trade": "Landscaper",
+  "templateSlug": "landscaping-invoice-template",
+  "title": "How to Write a Landscaping Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing landscaping jobs — how to bill design, install, and maintenance work, mark up plants and materials, handle seasonal contracts, and apply sales tax correctly on labor vs plants.",
+  "h1": "How to Write a Landscaper Invoice",
+  "intro": "A landscaping invoice has to handle three very different business models — design, installation, and maintenance — often in the same company. Design fees are flat or hourly, install jobs blend crew labor with marked-up materials, and maintenance runs on recurring seasonal contracts, so the way you structure line items and tax changes with each.",
+  "sections": [
+    {
+      "h2": "What every landscaping invoice must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond the standard invoice fields (business name, client, dates, totals), landscapers should include trade-specific items that tie the invoice back to the scope of work and any permits pulled:" },
+        { "type": "ul", "items": [
+          "Job type tag — design, install, or maintenance — so the client can match the invoice to the right contract or proposal",
+          "Crew size and hours when billing time-and-materials, not just a lump labor total",
+          "Plant and material list with quantities, sizes (e.g., #5 container, 2 in caliper B&B), and unit cost before markup",
+          "Permit # and municipality if hardscape work required a permit (retaining walls over 4 ft, irrigation tie-in)"
+        ]},
+        { "type": "p", "text": "Tying each line to the original proposal prevents scope-creep disputes. If the client approved 15 shrubs and you installed 22, the invoice should show the 7-additional line separately rather than burying it in a revised total." }
+      ]
+    },
+    {
+      "h2": "Common landscaping line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Rates vary widely by region, crew skill level, and whether the job is residential or commercial. These are national midpoints from 2024 contractor surveys — adjust to your overhead and local market." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Lawn mowing (residential, quarter acre)", "$35-$55 per visit", "Varies by state"],
+          ["Landscape design (master plan)", "$500-$2,500 flat", "Usually exempt"],
+          ["Crew labor (2-person crew)", "$60-$95 per hour", "Varies by state"],
+          ["Plant - #5 container shrub", "$35-$75 each (cost + 50-100% markup)", "Usually"],
+          ["Mulch (dyed hardwood, installed)", "$65-$95 per cubic yard", "Usually"],
+          ["Decorative stone (river rock, installed)", "$120-$180 per cubic yard", "Usually"],
+          ["Retaining wall (modular block, installed)", "$45-$85 per sq ft", "Usually"],
+          ["Seasonal color rotation (annuals)", "$250-$600 per rotation", "Varies by state"]
+        ]},
+        { "type": "p", "text": "Materials markup is where most landscapers lose margin or lose clients. A 50-100% markup on plants and mulch is standard because it covers sourcing, delivery, plant loss, and warranty replacement. Mark up hardscape materials (stone, block, pavers) 20-35% — higher markups on commodity items are hard to justify." }
+      ]
+    },
+    {
+      "h2": "Pricing strategy: flat bid vs. time-and-materials",
+      "blocks": [
+        { "type": "h3", "text": "Design work" },
+        { "type": "p", "text": "Bill design as a flat fee or hourly with a not-to-exceed cap. A flat master-plan fee ($500-$2,500 depending on lot size) is cleaner than hourly and signals professional value. If the client proceeds to install, many firms credit half the design fee toward the install — note that credit as a line item, not a discount, so the design revenue stays visible." },
+        { "type": "h3", "text": "Install jobs" },
+        { "type": "p", "text": "Bid install work as a flat project price broken into phases (demo, hardscape, softscape, cleanup). Invoicing by phase milestone — 30% on signing, 40% on hardscape completion, 30% on final walk-through — protects cash flow better than a single end-of-job invoice. Reserve T&M billing for change orders and unknowns like rock excavation or drainage discovered mid-project." },
+        { "type": "h3", "text": "Maintenance contracts" },
+        { "type": "p", "text": "Maintenance is recurring — invoice monthly or per visit on a fixed seasonal rate. A 32-week mowing contract at $45/visit invoices $180/month April-October. Build in a fuel/equipment surcharge clause for material cost spikes (fertilizer, gas) rather than eating the increase mid-contract." }
+      ]
+    },
+    {
+      "h2": "Sales tax on plants vs. labor",
+      "blocks": [
+        { "type": "p", "text": "Landscaping has the most tangled sales tax rules of any home-service trade because states treat plants, materials, and labor differently. In Texas, plants and materials are taxable but installation labor is exempt when billed separately. In Florida, plants installed as part of a real-property improvement are exempt, but container plants sold over the counter are taxable. In California, live plants and seeds are generally exempt, but mulch, stone, and hardscape materials are taxable." },
+        { "type": "p", "text": "The safe rule: split labor and materials into separate line items and set the taxable flag per line, never globally. Search your state DOR for landscaping sales tax rules — several states updated plant-tax exemptions in 2023-2024." }
+      ]
+    },
+    {
+      "h2": "Licensing and seasonal contract fields",
+      "blocks": [
+        { "type": "p", "text": "Most states require a landscape contractor license for hardscape and irrigation work but not for basic lawn maintenance or mowing. Put your license # in the business header block, not the line items. Include the state of issuance so clients in multi-state border markets can verify it." },
+        { "type": "ul", "items": [
+          "State landscape contractor license # (for hardscape, irrigation, grading)",
+          "Pesticide applicator license # if you apply fertilizer, herbicide, or pesticide — separate from the landscape license",
+          "Irrigation contractor license # where states require a specialty permit for backflow and tie-in work"
+        ]},
+        { "type": "p", "text": "For seasonal maintenance contracts, include the contract term dates and visit count on every invoice (e.g., \"Visit 14 of 32, contract Apr 1 - Oct 31\"). This tracks fulfillment and makes renewal conversations concrete — the client can see exactly how many visits remain." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "How much should I mark up plants and materials on an invoice?", "a": "Standard plant and mulch markup is 50-100% over your wholesale cost because it covers sourcing, delivery, plant loss, and the warranty replacement you owe when a plant dies. Mark up commodity hardscape materials (stone, block, pavers) 20-35% — clients can price-check those at a supply yard." },
+    { "q": "Should I invoice a landscape install job all at once or in phases?", "a": "Phase milestone invoicing protects cash flow better than a single end-of-job invoice. A common split is 30% on signing, 40% on hardscape completion, and 30% after the final walk-through. Hold the final 10% until the client signs off on the punch list." },
+    { "q": "Is landscaping labor taxable or just the materials?", "a": "It depends on your state. Texas taxes materials but exempts installation labor when billed separately. Florida exempts plants installed as real-property improvement but taxes container plants sold retail. Split labor and materials into separate line items and set the taxable flag per line, never globally." }
+  ]
+}

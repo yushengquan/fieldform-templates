@@ -1,0 +1,71 @@
+{
+  "slug": "how-to-write-a-pest-control-invoice",
+  "trade": "Pest Control",
+  "templateSlug": "pest-control-invoice-template",
+  "title": "How to Write a Pest Control Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing pest control jobs — what line items to include, how to price treatments and recurring visits, and sales tax rules by state.",
+  "h1": "How to Write a Pest Control Invoice",
+  "intro": "A pest control invoice isn't just a receipt — it documents what chemicals were applied, where, and at what concentration, which you're legally required to keep in many states. This guide walks through every field a compliant pest control invoice needs, with real line-item examples for one-time treatments and recurring contracts.",
+  "sections": [
+    {
+      "h2": "What every pest control invoice must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond the standard invoice fields (business name, client, dates, totals), pest control operators should include three trade-specific items that protect both you and the client:" },
+        { "type": "ul", "items": [
+          "EPA registration number for each chemical applied — required for recordkeeping under FIFRA for commercial applicators",
+          "Target pest and treatment site (e.g., \"perimeter spray for ants — foundation, entry points\")",
+          "Re-treatment window if the visit is part of a quarterly or annual contract"
+        ]},
+        { "type": "p", "text": "Most states require commercial pesticide applicators to keep application records for 2–3 years. Your invoice doubles as that record, so the chemical and concentration fields aren't optional." }
+      ]
+    },
+    {
+      "h2": "Common pest control line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Rates vary widely by region and whether the job is residential or commercial. These are national midpoints from 2024 contractor surveys — adjust to your overhead and local market." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Initial inspection & treatment", "$120–$250 flat", "Varies by state"],
+          ["Quarterly follow-up visit", "$75–$120 per visit", "Varies by state"],
+          ["Termite treatment (liquid barrier)", "$500–$1,500 flat", "Usually"],
+          ["Bed bug heat treatment", "$1,000–$2,500 flat", "Usually"],
+          ["Chemicals/materials (EPA-reg #)", "Cost + 20–30% markup", "Usually"],
+          ["Trip charge (rural)", "$25–$50 flat", "No"]
+        ]},
+        { "type": "p", "text": "Mark up materials modestly — clients who see a 3× markup on chemicals feel nickel-and-dimed. A 20–30% markup over your actual product cost is standard and defensible." }
+      ]
+    },
+    {
+      "h2": "One-time treatment vs. recurring contract invoicing",
+      "blocks": [
+        { "type": "h3", "text": "One-time treatment (ants, wasps, spiders)" },
+        { "type": "p", "text": "Invoice the full amount on the day of service. Include a re-treatment guarantee line (e.g., \"30-day re-treatment included at no charge\") so the client knows the warranty terms without a separate document." },
+        { "type": "h3", "text": "Recurring contract (quarterly, monthly)" },
+        { "type": "p", "text": "Two options: (1) invoice each visit separately at the per-visit rate, or (2) invoice the full annual contract up front with a line showing \"Visit 1 of 4.\" Option 2 improves cash flow but requires a clear refund policy if the client cancels mid-contract." }
+      ]
+    },
+    {
+      "h2": "Sales tax on pest control services",
+      "blocks": [
+        { "type": "p", "text": "Pest control is one of the most inconsistent service categories for sales tax. In Texas and Florida, pest control services are taxable. In California and New York, the service is generally exempt but the chemicals/materials portion may be taxable. In many states, residential pest control is exempt while commercial is taxable." },
+        { "type": "p", "text": "Check your state's department of revenue — search \"[your state] sales tax pest control services\" — and set the taxable flag per line item in your invoice template rather than applying tax globally." }
+      ]
+    },
+    {
+      "h2": "Licensing and certification fields",
+      "blocks": [
+        { "type": "p", "text": "Most states require your commercial applicator license number on any invoice or contract for pesticide application. Include:" },
+        { "type": "ul", "items": [
+          "State pesticide applicator license # (commercial, not private)",
+          "Business EPA establishment # if you manufacture any products",
+          "Technician certification # if different from the business license"
+        ]},
+        { "type": "p", "text": "These go in the business header block, not the line items — they identify the applicator, not the service performed." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Do I need to list the chemical names on the invoice?", "a": "For commercial applicators, yes — most states require the EPA product name and registration number, amount applied, and treatment site to be in the application record. Your invoice can serve as that record." },
+    { "q": "Should I charge tax on the chemicals or the service?", "a": "It depends on your state. Some tax the service, some tax only the materials, some exempt residential entirely. Check your state DOR and set the taxable flag per line item." },
+    { "q": "How do I invoice a quarterly contract?", "a": "Either invoice each visit at the per-visit rate on the day of service, or invoice the full annual amount up front with a visit counter (\"Visit 1 of 4\"). The up-front method improves cash flow but needs a clear cancellation/refund policy." }
+  ]
+}

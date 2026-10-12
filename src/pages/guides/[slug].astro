@@ -1,0 +1,136 @@
+---
+// 长尾信息型 guide 页: /guides/how-to-write-a-{trade}-invoice/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqList from '../../components/FaqList.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+
+const modules = import.meta.glob('../../data/guides/*.json', { eager: true });
+const allGuides: any[] = Object.values(modules).map((m: any) => m.default);
+
+export function getStaticPaths() {
+  const mods = import.meta.glob('../../data/guides/*.json', { eager: true });
+  const guides: any[] = Object.values(mods).map((m: any) => m.default);
+  return guides.map((g: any) => ({ params: { slug: g.slug }, props: { guide: g } }));
+}
+
+const { guide } = Astro.props;
+
+const allTrades: any[] = Object.values(import.meta.glob('../../data/trades/*.json', { eager: true })).map((m: any) => m.default);
+const linkedTemplate = allTrades.find((t: any) => t.slug === guide.templateSlug);
+const otherGuides = allGuides.filter((g: any) => g.slug !== guide.slug).slice(0, 4);
+
+const articleLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: guide.title,
+  description: guide.description,
+  author: { "@type": "Organization", name: "FieldForm Templates" },
+  publisher: { "@type": "Organization", name: "FieldForm Templates", url: siteUrl },
+  mainEntityOfPage: `${siteUrl}/guides/${guide.slug}/`,
+  isPartOf: { "@type": "WebSite", name: "FieldForm Templates", url: siteUrl },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Guides", item: `${siteUrl}/guides/` },
+    { "@type": "ListItem", position: 3, name: guide.h1, item: `${siteUrl}/guides/${guide.slug}/` },
+  ],
+});
+
+const faqLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: (guide.faq ?? []).map((f: any) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+});
+---
+<BaseLayout
+  title={guide.title}
+  description={guide.description}
+  canonical={`${siteUrl}/guides/${guide.slug}/`}
+  ogImage="/og-image.png"
+>
+  <script is:inline type="application/ld+json" set:html={articleLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <script is:inline type="application/ld+json" set:html={faqLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;max-width:760px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a> ›
+      <a href="/guides/" style="color:var(--muted);">Guides</a> ›
+      <span style="color:var(--ink);">{guide.trade}</span>
+    </nav>
+
+    <h1 style="font-size:38px;line-height:1.15;margin-bottom:16px;">{guide.h1}</h1>
+    <p style="font-size:18px;color:var(--muted);margin-bottom:32px;">{guide.intro}</p>
+
+    {linkedTemplate && (
+      <div style="background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <div>
+          <strong style="color:var(--ink);">Need the template?</strong>
+          <span style="color:var(--muted);"> Download a free {guide.trade} invoice template — Excel, Word & PDF.</span>
+        </div>
+        <a href={`/templates/${linkedTemplate.slug}/`} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Get the template →</a>
+      </div>
+    )}
+
+    <article style="font-size:17px;line-height:1.7;color:var(--ink);">
+      {guide.sections.map((sec: any) => (
+        <section style="margin-bottom:40px;">
+          <h2 style="font-size:26px;margin-bottom:16px;">{sec.h2}</h2>
+          {sec.blocks.map((b: any) => (
+            b.type === 'p' ? (
+              <p style="margin-bottom:16px;">{b.text}</p>
+            ) : b.type === 'h3' ? (
+              <h3 style="font-size:21px;margin:24px 0 12px;">{b.text}</h3>
+            ) : b.type === 'ul' ? (
+              <ul style="margin:0 0 16px 0;padding-left:24px;">
+                {b.items.map((it: string) => <li style="margin-bottom:8px;">{it}</li>)}
+              </ul>
+            ) : b.type === 'table' ? (
+              <div style="overflow-x:auto;margin-bottom:16px;">
+                <table style="width:100%;border-collapse:collapse;font-size:15px;">
+                  <thead>
+                    <tr>{b.headers.map((h: string) => <th style="text-align:left;padding:10px 12px;background:var(--soft);border-bottom:2px solid var(--blue);">{h}</th>)}</tr>
+                  </thead>
+                  <tbody>
+                    {b.rows.map((row: string[]) => (
+                      <tr>{row.map((cell: string) => <td style="padding:10px 12px;border-bottom:1px solid #eee;">{cell}</td>)}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : null
+          ))}
+        </section>
+      ))}
+    </article>
+
+    {(guide.faq ?? []).length > 0 && (
+      <section style="margin-bottom:40px;">
+        <h2 style="font-size:26px;margin-bottom:16px;">Frequently asked questions</h2>
+        <FaqList faqs={guide.faq} />
+      </section>
+    )}
+
+    {otherGuides.length > 0 && (
+      <section style="margin-bottom:40px;">
+        <h2 style="font-size:22px;margin-bottom:16px;">More invoicing guides</h2>
+        <ul style="list-style:none;padding:0;">
+          {otherGuides.map((g: any) => (
+            <li style="margin-bottom:10px;">
+              <a href={`/guides/${g.slug}/`} style="color:var(--blue);font-weight:600;">{g.h1}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </section>
+</BaseLayout>

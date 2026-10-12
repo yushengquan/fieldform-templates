@@ -1,0 +1,169 @@
+{
+  "slug": "how-to-write-an-electrician-invoice",
+  "trade": "Electrician",
+  "templateSlug": "electrician-invoice-template",
+  "title": "How to Write an Electrician Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing electrical work — permit and inspection fees, T&M vs fixed bid, material markup on fixtures and panels, and license number requirements by state.",
+  "h1": "How to Write a Electrician Invoice",
+  "intro": "An electrician invoice carries legal weight that most trade invoices don't — it ties the work to a permit number, an inspection sign-off, and a license # that the building department and future homeowners will trace. This guide walks through every field a compliant electrical invoice needs, with real line-item examples for service calls, rough-ins, and panel upgrades.",
+  "sections": [
+    {
+      "h2": "What every electrician invoice must include",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Beyond the standard invoice fields (business name, client, dates, totals), electrical contractors should include four trade-specific items that protect both you and the property owner:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Electrical contractor license # with state of issue — required on invoices and contracts in nearly all 50 states",
+            "Permit # and inspection status (passed, failed, pending) for any work that touched the panel, new circuits, or load-bearing wiring",
+            "Circuit or device count and panel location so the next electrician can find the work",
+            "Voltage and amperage ratings on any new circuit, breaker, or fixture installed"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Most jurisdictions require the permit # on the final invoice when the job closed out under a permit. Without it, the homeowner can't prove the work was inspected, which blocks resale and insurance claims."
+        }
+      ]
+    },
+    {
+      "h2": "Common electrical line items (with sample rates)",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Rates vary by region, license class (journeyman vs master), and whether the job is residential or commercial. These are national midpoints from 2024 contractor surveys — adjust to your overhead and local market."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Line item",
+            "Typical pricing",
+            "Taxable?"
+          ],
+          "rows": [
+            [
+              "Service call / diagnostic (1 hr min)",
+              "$75–$150 flat",
+              "Varies by state"
+            ],
+            [
+              "Replace standard receptacle or switch",
+              "$100–$180 each",
+              "Usually materials only"
+            ],
+            [
+              "Install ceiling fan (existing box)",
+              "$150–$300 flat",
+              "Varies by state"
+            ],
+            [
+              "200A panel upgrade (parts + labor)",
+              "$1,500–$3,000 flat",
+              "Materials taxable"
+            ],
+            [
+              "Whole-house rewire (per opening)",
+              "$150–$250 per opening",
+              "Materials taxable"
+            ],
+            [
+              "Wire (Romex 12/2) — materials",
+              "Cost + 20–30% markup",
+              "Usually"
+            ],
+            [
+              "Permit & inspection fees (pass-through)",
+              "At cost, no markup",
+              "No"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Mark up materials modestly — fixtures, wire, and panels bought at a supply house warrant a 20–30% markup. Clients who see a 3× markup on a $4 breaker feel nickel-and-dimed and question the whole bill."
+        }
+      ]
+    },
+    {
+      "h2": "T&M vs fixed bid: which to use when",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Time and materials (T&M)"
+        },
+        {
+          "type": "p",
+          "text": "Best for service calls, troubleshooting, and small repairs where the scope is unknown until you open the wall. Invoice an hourly labor rate (typically $75–$125/hr for a licensed electrician), materials at cost plus markup, and a trip charge if outside your base radius. Always include a not-to-exceed estimate on the work order so the client has a ceiling."
+        },
+        {
+          "type": "h3",
+          "text": "Fixed bid (flat-rate)"
+        },
+        {
+          "type": "p",
+          "text": "Best for rough-ins, panel upgrades, and whole-house rewires where the scope is defined by a walk-through. Quote a single flat price that includes labor, materials, permit, and inspection. The risk is scope creep — every change order must be a signed line item before you do the extra work."
+        },
+        {
+          "type": "h3",
+          "text": "Change order handling"
+        },
+        {
+          "type": "p",
+          "text": "When the client adds a receptacle or upgrades a fixture mid-job, issue a change order line on the same invoice with a description, price, and the client's verbal or written approval noted. Don't bundle change orders into the original flat bid silently — that's how disputes start."
+        }
+      ]
+    },
+    {
+      "h2": "Permit, inspection, and licensing fields",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Electrical work is the most heavily permitted trade after plumbing. Any new circuit, panel work, or load change typically requires a permit and rough-in plus final inspection. Your invoice should itemize these as pass-through costs at cost, with no markup:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Permit # issued by the local building department (e.g., \"Permit #EL-2024-04821\")",
+            "Inspection date and result — \"Rough-in passed 3/12, final passed 3/28\"",
+            "Electrical contractor license # with state (e.g., \"CA C-10 #987654\")",
+            "Master electrician signature line if your state requires sign-off by a master, not just a journeyman"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "License class matters: a C-10 (California), E-2 (Connecticut), or Class A (Texas) carries different scope limits. Listing the wrong class on an invoice for work outside its scope is a licensing violation, not just a paperwork error."
+        }
+      ]
+    },
+    {
+      "h2": "Sales tax on electrical services and materials",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Electrical services are taxed inconsistently across states. In Texas and Washington, labor on new construction is taxable but repair labor is exempt. In Florida, electrical repair labor is taxable. In California and New York, labor is generally exempt but fixtures, wire, and panels are taxable as tangible personal property."
+        },
+        {
+          "type": "p",
+          "text": "Check your state's department of revenue — search \"[your state] sales tax electrical contractor\" — and set the taxable flag per line item in your invoice template rather than applying tax globally. Materials are almost always taxable; labor is the line that varies."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do I need my electrical license number on every invoice?",
+      "a": "Yes — nearly every state requires the electrical contractor license # with state of issue on invoices, contracts, and estimates. It belongs in the business header block, not the line items, and must match the class of work performed."
+    },
+    {
+      "q": "Should permit and inspection fees be marked up?",
+      "a": "No. Pass them through at cost as a separate line item with the permit # noted. Marking up government fees invites client pushback and, in some jurisdictions, violates contracting rules around pass-through charges."
+    },
+    {
+      "q": "When do I use T&M versus a fixed bid?",
+      "a": "Use T&M for service calls and troubleshooting where scope is unknown until you open the wall, with a not-to-exceed cap. Use a fixed bid for rough-ins, panel upgrades, and rewires with a defined scope, and handle any additions through signed change order lines."
+    }
+  ]
+}

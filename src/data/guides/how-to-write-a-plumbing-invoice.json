@@ -1,0 +1,75 @@
+{
+  "slug": "how-to-write-a-plumbing-invoice",
+  "trade": "Plumber",
+  "templateSlug": "plumbing-invoice-template",
+  "title": "How to Write a Plumbing Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing plumbing jobs -- flat-rate vs time-and-materials, emergency call-out fees, permit fees, fixture markup, and sales tax on parts vs labor by state.",
+  "h1": "How to Write a Plumber Invoice",
+  "intro": "A plumbing invoice has to reconcile two pricing worlds -- flat-rate quoted jobs and time-and-materials emergency work -- while tracking permit numbers, fixture markups, and parts that may or may not be sales-taxable depending on your state. This guide walks through every field a compliant plumber invoice needs, with real line-item examples for residential service and commercial rough-ins.",
+  "sections": [
+    {
+      "h2": "What every plumbing invoice must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond the standard invoice fields (business name, client, dates, totals), plumbers should include three trade-specific items that protect against disputes and code-compliance questions:" },
+        { "type": "ul", "items": [
+          "Permit # and inspecting jurisdiction for any work that required a rough-in or final inspection -- clients and homebuyers will ask for this at resale",
+          "Fixture make/model and spec sheet reference (e.g., Moen 87233SRS valve) so warranty claims route to the manufacturer, not you",
+          "After-hours or emergency call-out designation if the visit was outside normal business hours, since it triggers a different rate structure"
+        ]},
+        { "type": "p", "text": "Most jurisdictions require the permit number on the final invoice for any permitted work. Omitting it can void the inspection record and block the homeowner at certificate of occupancy or resale." }
+      ]
+    },
+    {
+      "h2": "Common plumbing line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Rates vary by region, license class (journeyman vs master), and whether the job is residential or commercial. These are national midpoints from 2024 contractor surveys -- adjust to your overhead and local market." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Service call / diagnostic (in-hours)", "$75-$150 flat", "Varies by state"],
+          ["Emergency call-out (after-hours/weekend)", "$150-$300 flat", "No (service)"],
+          ["Drain snaking (main line, up to 100 ft)", "$150-$350 flat", "Varies by state"],
+          ["Water heater swap (40-gal standard)", "$800-$1,400 flat", "Parts yes, labor varies"],
+          ["Toilet install (labor only)", "$150-$250 flat", "Varies by state"],
+          ["Hourly T&M (journeyman)", "$90-$130/hr", "No (service)"],
+          ["Copper pipe and fittings (materials)", "Cost + 25-40% markup", "Usually"],
+          ["Permit fee (pass-through)", "At cost, documented", "No"]
+        ]},
+        { "type": "p", "text": "Mark up fixtures and materials 25-40% over your wholesale cost -- this covers warranty handling, returns, and the time spent sourcing. Clients who see a 2x retail markup on a toilet feel gouged; a documented cost-plus line is defensible." }
+      ]
+    },
+    {
+      "h2": "Flat-rate vs. time-and-materials pricing",
+      "blocks": [
+        { "type": "h3", "text": "Flat-rate (quoted jobs)" },
+        { "type": "p", "text": "Use flat-rate for any job you can scope by sight: fixture swaps, water heater installs, drain clears. Quote a single price, invoice a single line, and itemize only if the client asks. Flat-rate protects the client from run-away labor on a stuck bolt and protects you from eating time on a difficult access." },
+        { "type": "h3", "text": "Time-and-materials (T&M)" },
+        { "type": "p", "text": "Use T&M for emergency calls, leak detection behind walls, and repipes where the scope grows as you open things up. Invoice labor hours, hourly rate, and a separate materials section with per-item cost and markup. Always log a start/stop time on the invoice -- clients dispute rounded-up hours." },
+        { "type": "h3", "text": "When to bundle vs. itemize" },
+        { "type": "p", "text": "Bundle small consumables (pipe dope, flux, solder, tape) into your labor or flat rate -- itemizing a $2.50 tube of Teflon tape erodes trust. Itemize anything over $20 in materials and every fixture, since the client may want the model number for a future warranty claim." }
+      ]
+    },
+    {
+      "h2": "Sales tax on parts vs. labor by state",
+      "blocks": [
+        { "type": "p", "text": "Plumbing sales tax is split: most states tax the parts/fixtures and exempt the labor, but a handful tax the entire service contract. In Texas, both parts and labor are taxable when sold as a single real-property-maintenance contract. In California and New York, labor is exempt but fixtures and materials are taxable. In Florida, residential plumbing repair labor is exempt; commercial is taxable." },
+        { "type": "p", "text": "Set the taxable flag per line item in your invoice template -- don't apply tax globally. A water heater invoice in Texas might tax the heater and the install labor together, while the same job in California taxes only the heater. Check your state DOR by searching your state plus sales tax plumbing repair services." }
+      ]
+    },
+    {
+      "h2": "Permit fees and licensing fields",
+      "blocks": [
+        { "type": "p", "text": "Any plumbing work that touches supply lines, DWV (drain-waste-vent), or gas lines typically requires a permit and inspection. Pass the permit fee through at cost with the permit number on the line -- don't bury it in labor. Include in the business header:" },
+        { "type": "ul", "items": [
+          "Master plumber license # and state of issue (required on invoice/contract in most jurisdictions)",
+          "Journeyman # if the on-site tech is different from the license-of-record",
+          "Permit # and inspection date for each permitted fixture or rough-in"
+        ]},
+        { "type": "p", "text": "Gas line work often requires a separate plumbing/gas permit and a pressure-test record (e.g., 10 psi for 15 min, no drop). Note the test pressure and duration on the invoice so the inspector's sign-off matches your documentation." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Should I charge flat-rate or time-and-materials for a water heater swap?", "a": "Flat-rate. You can scope a standard 40-gallon swap by sight, and a single quoted price protects the client from run-away labor if the old unit is seized. Reserve T&M for repipes and leak detection where scope grows as you open walls." },
+    { "q": "Do I pass the permit fee through or build it into my price?", "a": "Pass it through as a separate line at cost, with the permit number on that line. Burying it in labor hides the permit from the client at resale and can void the inspection record if the invoice is the only documentation." },
+    { "q": "Is plumbing labor sales-taxable?", "a": "Usually no -- most states tax the parts and fixtures and exempt the labor. Exceptions include Texas, which can tax both under a real-property-maintenance contract. Check your state DOR and set the taxable flag per line item rather than globally." }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "how-to-write-an-hvac-invoice",
+  "trade": "HVAC Service",
+  "templateSlug": "hvac-invoice-template",
+  "title": "How to Write an HVAC Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing HVAC jobs — service calls, repairs, and installs, with labor tiers, refrigerant tracking, seasonal surcharges, warranty and maintenance plan billing, and sales tax rules by state.",
+  "h1": "How to Write a HVAC Service Invoice",
+  "intro": "An HVAC invoice has to distinguish a $89 diagnostic service call from a $6,000 equipment install, track refrigerant by type and pounds recovered, and separate apprentice labor from master-tech labor. This guide covers every field a compliant HVAC invoice needs, with real line-item examples for one-time repairs, flat-rate installs, and recurring maintenance agreements.",
+  "sections": [
+    {
+      "h2": "What every HVAC invoice must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond standard invoice fields (business name, client, dates, totals), HVAC contractors should include trade-specific items that protect warranty coverage and satisfy EPA recordkeeping:" },
+        { "type": "ul", "items": [
+          "Equipment make, model, and serial number for any unit installed or serviced — required to validate manufacturer warranty",
+          "Refrigerant type (R-410A, R-454B, R-32) and pounds added or recovered per EPA Section 608 recordkeeping",
+          "Permit number and inspection sign-off for any install or major component replacement requiring a mechanical permit",
+          "Technician name and license/certification number (EPA 608 Universal, state HVAC license)"
+        ]},
+        { "type": "p", "text": "EPA requires technicians to keep refrigerant purchase and recovery records for at least three years. Your invoice is the cleanest place to capture refrigerant pounds and leak-check results, so those fields aren't optional." }
+      ]
+    },
+    {
+      "h2": "Common HVAC line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Rates vary by region, system size (tons), and whether the job is residential or light commercial. These are national midpoints from 2024 contractor pricing surveys — adjust to your overhead and local market." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Diagnostic / service call (residential)", "$89–$150 flat", "Varies by state"],
+          ["System tune-up (cooling or heating)", "$99–$180 flat", "Varies by state"],
+          ["Capacitor replacement (parts + labor)", "$150–$290 flat", "Usually parts only"],
+          ["Refrigerant recharge (R-410A, per lb)", "$75–$130 per lb", "Usually"],
+          ["Evaporator coil replacement", "$600–$1,200 flat", "Usually parts only"],
+          ["Full system install (3-ton residential)", "$5,000–$8,000 flat", "Varies by state"],
+          ["After-hours / weekend surcharge", "+50–100% of labor", "No"]
+        ]},
+        { "type": "p", "text": "Refrigerant pricing swings with supply — R-410A climbed sharply as R-32 and R-454B (low-GWP replacements) phase in. Quote refrigerant as a separate line at per-pound cost rather than burying it in labor, so clients see the pass-through." }
+      ]
+    },
+    {
+      "h2": "Service call vs. repair vs. install invoicing",
+      "blocks": [
+        { "type": "h3", "text": "Service call / diagnostic" },
+        { "type": "p", "text": "Invoice the flat diagnostic fee on the day of visit. If the client approves a repair, most contractors waive or credit the diagnostic fee toward the repair total — show this as a line-item discount, not a silent removal, so the client sees the value." },
+        { "type": "h3", "text": "Repair (time and materials or flat-rate)" },
+        { "type": "p", "text": "For T&M repairs, list labor by tier (apprentice, journeyman, master) with hours and rate, plus parts at cost-plus markup. For flat-rate repairs, quote a single price from your pricebook and itemize only the parts installed — labor is bundled into the flat price." },
+        { "type": "h3", "text": "Equipment install" },
+        { "type": "p", "text": "Invoice the full system price (equipment, labor, permits, refrigerant, misc materials) as one flat quote, then break out each component on separate lines so the client can compare against other bids. Include the AHRI matched-system certificate number for efficiency-rebate eligibility." }
+      ]
+    },
+    {
+      "h2": "Labor tiers, seasonal surcharges, and pricing strategy",
+      "blocks": [
+        { "type": "p", "text": "HVAC labor rates differ sharply by technician level. Charging journeyman rate for apprentice work erodes margin; charging apprentice rate for master-tech work leaves money on the table. Track labor by tier on every T&M invoice." },
+        { "type": "table", "headers": ["Labor tier", "Typical rate (T&M)", "When to bill"], "rows": [
+          ["Apprentice (0–2 yrs)", "$45–$65/hr", "Basic installs, duct runs, material prep"],
+          ["Journeyman (2–5 yrs)", "$75–$110/hr", "Service calls, most repairs, tune-ups"],
+          ["Master tech (5+ yrs)", "$110–$160/hr", "Diagnostics, complex repairs, load calcs"]
+        ]},
+        { "type": "p", "text": "Seasonal surcharges are standard in peak summer and winter. Apply an after-hours or peak-season multiplier as a separate line so it's transparent, not hidden inside an inflated labor rate. Flat-rate pricing (pricebook) wins on installs and common repairs; T&M wins on diagnostics and one-off repairs where scope is unknown until you open the system." }
+      ]
+    },
+    {
+      "h2": "Maintenance plans, warranty, and sales tax",
+      "blocks": [
+        { "type": "h3", "text": "Maintenance agreements (recurring)" },
+        { "type": "p", "text": "Invoice the annual plan up front (typical $150–$300/yr for two tune-ups plus priority dispatch) or bill monthly via auto-charge. Each tune-up visit generates a $0 service invoice showing the plan credit applied, so the customer sees value delivered between renewals." },
+        { "type": "h3", "text": "Warranty and parts tracking" },
+        { "type": "p", "text": "Note the warranty term on every parts line (e.g., \"10-yr parts, 1-yr labor\") and reference the original install invoice number if the repair falls under a prior warranty. Manufacturer warranty claims require the unit serial number and install date — both should already be on your invoice." },
+        { "type": "h3", "text": "Sales tax and licensing" },
+        { "type": "p", "text": "HVAC sales tax is inconsistent: in Texas, HVAC repair labor is taxable; in Florida, labor is exempt but parts are taxable; in many states, residential repair is exempt while commercial is taxable. New installs may qualify for a sales-tax exemption on the equipment if it's part of real-property improvement. Check your state DOR and set the taxable flag per line item, not globally." },
+        { "type": "p", "text": "Include your state HVAC contractor license number and EPA 608 certification number in the business header — most states require the license number on any invoice over a threshold (often $500), and EPA requires certification numbers on any invoice involving refrigerant." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Do I need to list refrigerant pounds on the invoice?", "a": "Yes. EPA Section 608 requires technicians to record refrigerant type, pounds added or recovered, and leak-check results for at least three years. Your invoice is the simplest compliant record, so include refrigerant as its own line item." },
+    { "q": "Should I charge tax on labor or just parts?", "a": "It depends on your state. Texas taxes HVAC repair labor, Florida exempts labor but taxes parts, and many states exempt residential repair entirely while taxing commercial. Check your state DOR and set the taxable flag per line item rather than applying tax globally." },
+    { "q": "How do I invoice a maintenance plan?", "a": "Bill the annual fee up front (typical $150–$300/yr) or monthly via auto-charge, then issue a $0 service invoice at each tune-up showing the plan credit applied. This makes the value visible and simplifies renewal tracking." }
+  ]
+}

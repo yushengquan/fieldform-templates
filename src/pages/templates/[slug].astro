@@ -98,7 +98,7 @@ const howToLd = JSON.stringify({
   })),
 });
 ---
-<BaseLayout title={pageTitle} description={pageDesc}>
+<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <script is:inline type="application/ld+json" set:html={appLd}></script>
@@ -273,7 +273,7 @@ const howToLd = JSON.stringify({
         <a class="card" style="text-decoration:none;color:var(--ink);" href={`/templates/${t.slug}/`}>
           <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">{t.trade} · {t.docType}</span>
           <h3 style="margin-bottom:6px;color:var(--ink);">{t.title.replace(' Template', '')}</h3>
-          <p style="color:var(--muted);font-size:14px;">{t.subtitle.slice(0, 90)}{t.subtitle.length > 90 ? '…' : ''}</p>
+          <p style="color:var(--muted);font-size:14px;">Free {t.docType} template — Excel, Word &amp; PDF. Auto-calculating tax and totals.</p>
         </a>
       ))}
     </div>
