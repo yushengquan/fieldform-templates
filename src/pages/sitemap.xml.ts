@@ -12,7 +12,9 @@ const trades: any[] = Object.values(modules).map((m: any) => m.default);
 // 扫 src/pages/ 下所有顶层 .astro 页面 → 自动进 sitemap
 // index.astro → /，about.astro → /about/，contact.astro → /contact/ ...
 const astroPages = import.meta.glob('../pages/*.astro', { eager: false });
-const staticPaths = Object.keys(astroPages).map((p) => {
+const staticPaths = Object.keys(astroPages)
+  .filter((p) => !p.includes('404.astro')) // 404 页不进 sitemap
+  .map((p) => {
   // glob key 形如 '../pages/about.astro' 或 './../pages/about.astro'，取 basename 再去 .astro
   const file = p.split('/').pop()!.replace(/\.astro$/, '');
   return file === 'index' ? '/' : `/${file}/`;
