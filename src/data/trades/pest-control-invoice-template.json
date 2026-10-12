@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Service Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days. Quarterly service billed on schedule unless canceled.",
   "notes": "Thank you for your business. Treatments guaranteed per label; re-service within 30 days at no charge for covered pests.",
   "lineItems": [
-    {"code": "CALL", "description": "Service Call / Inspection", "defaultQty": 1, "unit": "each", "sampleRate": 85.0, "taxable": true},
-    {"code": "GEN", "description": "General Pest Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
-    {"code": "TERM", "description": "Termite Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true},
-    {"code": "ROD", "description": "Rodent Exclusion / Baiting", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "BED", "description": "Bed Bug Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
-    {"code": "QTR", "description": "Quarterly Service Plan", "defaultQty": 1, "unit": "plan", "sampleRate": 95.0, "taxable": true}
+    {
+      "code": "CALL",
+      "description": "Service Call / Inspection",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "GEN",
+      "description": "General Pest Treatment",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120.0,
+      "taxable": true
+    },
+    {
+      "code": "TERM",
+      "description": "Termite Treatment",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 350.0,
+      "taxable": true
+    },
+    {
+      "code": "ROD",
+      "description": "Rodent Exclusion / Baiting",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "BED",
+      "description": "Bed Bug Treatment",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 250.0,
+      "taxable": true
+    },
+    {
+      "code": "QTR",
+      "description": "Quarterly Service Plan",
+      "defaultQty": 1,
+      "unit": "plan",
+      "sampleRate": 95.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +87,47 @@
     "Guarantee-friendly layout for re-service terms"
   ],
   "faqs": [
-    {"q": "What should I include on a pest control invoice?", "a": "At minimum: your business name and license number, the client and service address, a dated line-item list (inspection, treatment type, plan), tax, and a total due. Note the guarantee and re-service terms so clients know what is covered."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a pest control invoice?",
+      "a": "At minimum: your business name and license number, the client and service address, a dated line-item list (inspection, treatment type, plan), tax, and a total due. Note the guarantee and re-service terms so clients know what is covered."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is there a pest control invoice form I can print?",
+      "a": "Yes. This pest control invoice form is free to download as a PDF - print it and fill it in by hand, or use the Word or Excel version to type your details before printing. The form includes fields for business name, license number, client and service address, line items, tax, and total due."
+    },
+    {
+      "q": "Can I use this as a pest control receipt template?",
+      "a": "Yes. After a treatment is paid, the same pest control invoice template doubles as a receipt - enter the treatment details, mark the payment as received, and print or email a copy to the client. The Excel version auto-calculates the total so the receipt amount is always correct."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
 }

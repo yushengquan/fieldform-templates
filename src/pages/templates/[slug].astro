@@ -31,11 +31,12 @@ const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && t
 const related = [...sameTradeRel, ...sameDocRel].slice(0, 6);
 
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
+const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Excel Format' : '';
 const pageTitle = format
-  ? `${trade.title} (${fmtLabel}) — FieldForm Templates`
+  ? `${trade.title} — Free ${fmtPhrase} Download`
   : `${trade.title} — FieldForm Templates`;
 const pageDesc = format
-  ? `${trade.subtitle} Get the ${fmtLabel} version — free to download, no email required.`
+  ? `Download a free ${trade.trade.toLowerCase()} ${trade.docType} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade.toLowerCase()} line items and auto-calculating totals.`
   : trade.subtitle;
 const firstItem = items[0] ?? { code: 'ITEM', description: 'your first line item' };
 const exampleItem = `${firstItem.description} (${firstItem.code})`;
@@ -113,7 +114,7 @@ const howToLd = JSON.stringify({
     </nav>
     <div class="section-head">
       <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">{trade.trade} · {trade.docType} template{format ? ` · ${fmtLabel} format` : ''}</p>
-      <h1>{pageTitle.split(' — ')[0]}</h1>
+      <h1>{format ? `${trade.title} (${fmtLabel})` : trade.title}</h1>
       <p class="lead">{pageDesc}</p>
     </div>
   </section>

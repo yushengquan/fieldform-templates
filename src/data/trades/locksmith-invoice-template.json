@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Payment due at time of service unless prior credit terms are agreed.",
   "notes": "Thank you for your business. Keys and replacement hardware carry the manufacturer warranty.",
   "lineItems": [
-    {"code": "CALL", "description": "Service Call / Lockout Fee", "defaultQty": 1, "unit": "each", "sampleRate": 85.0, "taxable": true},
-    {"code": "PICK", "description": "Lock Opening / Picking", "defaultQty": 1, "unit": "each", "sampleRate": 60.0, "taxable": true},
-    {"code": "REKEY", "description": "Rekey Locks", "defaultQty": 2, "unit": "lock", "sampleRate": 45.0, "taxable": true},
-    {"code": "REPL", "description": "Lock / Hardware Replacement", "defaultQty": 1, "unit": "lock", "sampleRate": 120.0, "taxable": true},
-    {"code": "KEY", "description": "Keys Cut / Duplicated", "defaultQty": 2, "unit": "key", "sampleRate": 15.0, "taxable": true},
-    {"code": "LABOR", "description": "Labor", "defaultQty": 1, "unit": "hr", "sampleRate": 75.0, "taxable": true}
+    {
+      "code": "CALL",
+      "description": "Service Call / Lockout Fee",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "PICK",
+      "description": "Lock Opening / Picking",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 60.0,
+      "taxable": true
+    },
+    {
+      "code": "REKEY",
+      "description": "Rekey Locks",
+      "defaultQty": 2,
+      "unit": "lock",
+      "sampleRate": 45.0,
+      "taxable": true
+    },
+    {
+      "code": "REPL",
+      "description": "Lock / Hardware Replacement",
+      "defaultQty": 1,
+      "unit": "lock",
+      "sampleRate": 120.0,
+      "taxable": true
+    },
+    {
+      "code": "KEY",
+      "description": "Keys Cut / Duplicated",
+      "defaultQty": 2,
+      "unit": "key",
+      "sampleRate": 15.0,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor",
+      "defaultQty": 1,
+      "unit": "hr",
+      "sampleRate": 75.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +87,43 @@
     "Pay-at-service terms keep emergency callouts simple"
   ],
   "faqs": [
-    {"q": "What should I include on a locksmith invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (lockout, picking, rekeying, replacement, keys), tax, and a total due. Most cities require a locksmith license number on the invoice."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state and city — verify with your licensing authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a locksmith invoice?",
+      "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (lockout, picking, rekeying, replacement, keys), tax, and a total due. Most cities require a locksmith license number on the invoice."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Do you have a free locksmith invoice I can download?",
+      "a": "Yes. This locksmith invoice template is free to download as PDF, Word, or Excel - no email required. It includes pre-filled line items for lockout service, key cutting, rekeying, lock installation, and automotive keys, with fields for your business name and license number."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state and city — verify with your licensing authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state and city — verify with your licensing authority and CPA/attorney."
 }

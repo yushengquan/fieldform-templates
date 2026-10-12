@@ -8,18 +8,78 @@
   "depositPct": 30,
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Payment Terms"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days of acceptance. Financing options available for system replacements.",
   "notes": "Thank you for your business. Estimate valid for 30 days. A 30% deposit is due at signing for equipment replacement; the balance is due upon completion and inspection.",
   "lineItems": [
-    {"code": "SVC", "description": "Service Call / Diagnostic", "defaultQty": 1, "unit": "visit", "sampleRate": 89.0, "taxable": true},
-    {"code": "ACRE", "description": "AC Repair", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true},
-    {"code": "FURN", "description": "Furnace Replacement", "defaultQty": 1, "unit": "system", "sampleRate": 4200.0, "taxable": true},
-    {"code": "DUCT", "description": "Duct Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": true},
-    {"code": "MAIN", "description": "Annual Maintenance Plan", "defaultQty": 1, "unit": "year", "sampleRate": 180.0, "taxable": true},
-    {"code": "THERM", "description": "Thermostat Upgrade", "defaultQty": 1, "unit": "each", "sampleRate": 250.0, "taxable": true}
+    {
+      "code": "SVC",
+      "description": "Service Call / Diagnostic",
+      "defaultQty": 1,
+      "unit": "visit",
+      "sampleRate": 89.0,
+      "taxable": true
+    },
+    {
+      "code": "ACRE",
+      "description": "AC Repair",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 350.0,
+      "taxable": true
+    },
+    {
+      "code": "FURN",
+      "description": "Furnace Replacement",
+      "defaultQty": 1,
+      "unit": "system",
+      "sampleRate": 4200.0,
+      "taxable": true
+    },
+    {
+      "code": "DUCT",
+      "description": "Duct Cleaning",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 450.0,
+      "taxable": true
+    },
+    {
+      "code": "MAIN",
+      "description": "Annual Maintenance Plan",
+      "defaultQty": 1,
+      "unit": "year",
+      "sampleRate": 180.0,
+      "taxable": true
+    },
+    {
+      "code": "THERM",
+      "description": "Thermostat Upgrade",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 250.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals in Excel — subtotal, 30% deposit and balance update automatically",
@@ -28,15 +88,47 @@
     "Valid-until and deposit line built in — standard for equipment quotes"
   ],
   "faqs": [
-    {"q": "What should I include on an HVAC estimate?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items (diagnostic, repair, replacement or maintenance), a valid-until date, deposit terms and exclusions. Most states require an HVAC contractor license on client-facing documents."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 30% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on an HVAC estimate?",
+      "a": "At minimum: your business name and license number, the client and job-site address, dated line items (diagnostic, repair, replacement or maintenance), a valid-until date, deposit terms and exclusions. Most states require an HVAC contractor license on client-facing documents."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit and balance automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, 30% deposit and balance due update automatically."
+    },
+    {
+      "q": "Can I use this as an HVAC quote template?",
+      "a": "Yes. An HVAC quote and an HVAC estimate are the same document - a written price for proposed work before the job starts. This template includes common HVAC line items (installation, equipment, labor, permits) and is valid as a quote. Enter your quantities and rates, total the job, and present it to the client for approval."
+    },
+    {
+      "q": "Is this suitable as an HVAC price list template?",
+      "a": "Yes. The line-item structure of this HVAC estimate template works as a price list - list each service (tune-up, capacitor, refrigerant, installation) with its unit price. Clients can see exactly what each item costs. Use the Excel version so prices auto-total when quantities are entered."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating deposit and balance"
+    }
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing board and CPA/attorney."
 }
