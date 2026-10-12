@@ -1,0 +1,42 @@
+{
+  "slug": "tiling-estimate-template",
+  "trade": "Tile Installer",
+  "docType": "estimate",
+  "title": "Tile Installation Estimate Template",
+  "subtitle": "An estimate pre-filled for tile work — installation, labor, grouting, demo, waterproofing and materials. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the job; balance due on completion.",
+  "notes": "This is an estimate, not a final invoice. Final charges may vary with tile price, substrate condition, and layout complexity.",
+  "lineItems": [
+    {"code": "TILE", "description": "Tile Installation", "defaultQty": 1, "unit": "sq ft", "sampleRate": 8.0, "taxable": true},
+    {"code": "LABOR", "description": "Labor", "defaultQty": 8, "unit": "hr", "sampleRate": 45.0, "taxable": true},
+    {"code": "GROUT", "description": "Grouting & Sealing", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "DEMO", "description": "Tile Removal / Demo", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
+    {"code": "WATER", "description": "Waterproofing / Backer Board", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
+    {"code": "MAT", "description": "Materials & Adhesive", "defaultQty": 1, "unit": "job", "sampleRate": 220.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 25% deposit in Excel",
+    "Pre-filled tile work line items: installation, labor, grouting, demo, waterproofing, materials",
+    "Valid-until date + deposit section standard for tile quotes",
+    "License # field — most states require a contractor license on client-facing estimates"
+  ],
+  "faqs": [
+    {"q": "What should I include on a tile job estimate?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (installation per sq ft, labor, grouting, demo, waterproofing, materials), a validity date, deposit terms, and exclusions. Note that the estimate is not a final invoice — final charges may vary with substrate condition and layout complexity."},
+    {"q": "How do I estimate a tile job?", "a": "Measure the square footage of each surface to be tiled (length × height for walls, length × width for floors). Multiply by your per-sq-ft installation rate, then add labor hours, grouting, demo, waterproofing, and materials. Add 10–15% waste allowance for cuts and breakage. Put each on its own line so the customer can see the breakdown."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
