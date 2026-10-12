@@ -10,6 +10,7 @@
     "gen:files": "python3 scripts/gen_templates.py"
   },
   "dependencies": {
+    "@astrojs/partytown": "^2.1.8",
     "astro": "^5.0.0"
   }
 }
