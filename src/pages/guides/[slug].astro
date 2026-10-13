@@ -76,12 +76,16 @@ const howToLd = JSON.stringify(howToSchemaForGuide(guide, siteUrl));
     <p style="font-size:18px;color:var(--muted);margin-bottom:32px;">{guide.intro}</p>
 
     {linkedTemplate && (
-      <div style="background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-        <div>
+      <div style="background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:40px;">
+        <div style="margin-bottom:14px;">
           <strong style="color:var(--ink);">Need the template?</strong>
           <span style="color:var(--muted);"> Download a free {guide.trade} invoice template — Excel, Word & PDF.</span>
         </div>
-        <a href={`/templates/${linkedTemplate.slug}/`} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Get the template →</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href={`/templates/${linkedTemplate.slug}/`} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">All formats →</a>
+          <a href={`/templates/${linkedTemplate.slug}-word/`} style="background:#fff;color:var(--blue);border:1px solid var(--blue);padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Word version</a>
+          <a href={`/templates/${linkedTemplate.slug}-excel/`} style="background:#fff;color:var(--blue);border:1px solid var(--blue);padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Excel version</a>
+        </div>
       </div>
     )}
 

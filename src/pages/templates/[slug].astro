@@ -30,6 +30,10 @@ const sameTradeRel = allTrades.filter((t: any) => t.trade === trade.trade && t.s
 const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && t.trade !== trade.trade);
 const related = [...sameTradeRel, ...sameDocRel].slice(0, 6);
 
+// 反向查找：是否有对应 guide 页指向此模板
+const allGuides: any[] = Object.values(import.meta.glob('../../data/guides/*.json', { eager: true })).map((m: any) => m.default);
+const linkedGuide = allGuides.find((g: any) => g.templateSlug === trade.slug);
+
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
 const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Excel Format' : '';
 const pageTitle = format
@@ -193,6 +197,18 @@ const howToLd = JSON.stringify({
       ))}
     </div>
   </section>
+
+  {linkedGuide && (
+    <section class="section wrap" id="guide-cta" style="padding-top:40px;">
+      <div style="background:var(--soft);border-radius:12px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-size:22px;margin-bottom:8px;">Complete guide: {linkedGuide.h1}</h2>
+          <p style="color:var(--muted);font-size:15px;margin:0;">Step-by-step instructions, line-item examples, and tax tips for {trade.trade.toLowerCase()} invoicing — written for this template.</p>
+        </div>
+        <a href={`/guides/${linkedGuide.slug}/`} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Read the guide →</a>
+      </div>
+    </section>
+  )}
 
   {format === 'word' && (
     <section class="section wrap" id="word-tips" style="padding-top:40px;">

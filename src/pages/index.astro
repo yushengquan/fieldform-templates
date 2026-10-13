@@ -25,6 +25,14 @@ const websiteLd = JSON.stringify({
   name: "FieldForm Templates",
   url: siteUrl,
   description: "Free invoice and estimate templates for trades — Excel auto-calculates tax and totals.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 });
 
 const orgLd = JSON.stringify({
