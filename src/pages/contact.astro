@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
-const contactLd = JSON.stringify({ "@context":"https://schema.org","@type":"ContactPage",name:"Contact FieldForm Templates",description:"Email or form to reach FieldForm Templates.",url:`${siteUrl}/contact/`,isPartOf:{"@type":"WebSite",name:"FieldForm Templates",url:siteUrl} });
+const contactLd = JSON.stringify({ "@context":"https://schema.org","@type":"ContactPage",name:"Contact FieldForm Templates",description:"Send a message to reach FieldForm Templates.",url:`${siteUrl}/contact/`,isPartOf:{"@type":"WebSite",name:"FieldForm Templates",url:siteUrl} });
 const breadcrumbLd = JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:siteUrl},{"@type":"ListItem",position:2,name:"Contact",item:`${siteUrl}/contact/`}] });
 ---
-<BaseLayout title="Contact — FieldForm Templates" description="Email hello@fieldformtemplates.com or use the contact form for template requests, corrections, or feedback." canonical={`${siteUrl}/contact/`}>
+<BaseLayout title="Contact — FieldForm Templates" description="Send a message for template requests, corrections, or feedback. We reply within a few business days." canonical={`${siteUrl}/contact/`}>
   <script is:inline type="application/ld+json" set:html={contactLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <section class="section wrap" style="padding-top:56px;max-width:760px;">
@@ -12,13 +12,8 @@ const breadcrumbLd = JSON.stringify({ "@context":"https://schema.org","@type":"B
       <a href="/" style="color:var(--muted);">Home</a> › <span style="color:var(--ink);">Contact</span>
     </nav>
     <h1 style="font-size:38px;line-height:1.15;margin-bottom:16px;">Contact</h1>
-    <p style="font-size:18px;color:var(--muted);margin-bottom:32px;">Questions, template requests, or spotted an error in a line item? Reach us directly.</p>
+    <p style="font-size:18px;color:var(--muted);margin-bottom:32px;">Questions, template requests, or spotted an error in a line item? Send a message below.</p>
     <article style="font-size:17px;line-height:1.7;color:var(--ink);">
-      <section style="margin-bottom:36px;">
-        <h2 style="font-size:24px;margin-bottom:12px;">Email</h2>
-        <p style="margin-bottom:16px;"><a href="mailto:hello@fieldformtemplates.com" style="color:var(--blue);font-weight:600;">hello@fieldformtemplates.com</a></p>
-        <p style="margin-bottom:16px;">We reply within a few business days. For a faster response on a specific template, include the trade name (e.g., "plumber invoice template") and what you'd like changed.</p>
-      </section>
       <section style="margin-bottom:36px;">
         <h2 style="font-size:24px;margin-bottom:12px;">What to contact us about</h2>
         <ul style="margin:0 0 16px 0;padding-left:24px;">
@@ -30,8 +25,75 @@ const breadcrumbLd = JSON.stringify({ "@context":"https://schema.org","@type":"B
       </section>
       <section style="margin-bottom:36px;">
         <h2 style="font-size:24px;margin-bottom:12px;">Contact form</h2>
-        <p style="margin-bottom:16px;">Prefer a form? Use the <a href="/about/#contact" style="color:var(--blue);font-weight:600;">contact form on the About page</a> — it sends to the same inbox.</p>
+        <p style="margin-bottom:16px;">We reply within a few business days. For a faster response on a specific template, include the trade name (e.g., "plumber invoice template") and what you'd like changed.</p>
+        <form id="contact-form" class="contact-form" style="max-width:560px;">
+          <input type="hidden" name="_subject" value="FieldForm Templates — new contact form submission">
+          <div class="form-row">
+            <label for="cf-email">Your email<span style="color:var(--muted);font-weight:400;"> (so we can reply)</span></label>
+            <input id="cf-email" name="_replyto" type="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="cf-trade">Trade<span style="color:var(--muted);font-weight:400;"> (e.g. plumber, electrician)</span></label>
+            <input id="cf-trade" name="trade" type="text" placeholder="What trade do you do?">
+          </div>
+          <div class="form-row">
+            <label for="cf-msg">What line items should we add, or what template do you need?</label>
+            <textarea id="cf-msg" name="message" rows="4" required placeholder="e.g. I'm a well pump installer — I need a template with pump replacement, labor, and warranty line items."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send message</button>
+          <p id="cf-status" class="cf-status" aria-live="polite"></p>
+        </form>
       </section>
     </article>
   </section>
+
+  <style>
+    .contact-form{display:flex;flex-direction:column;gap:16px;}
+    .form-row{display:flex;flex-direction:column;gap:6px;}
+    .form-row label{font-size:14px;font-weight:700;}
+    .form-row input,.form-row textarea{
+      font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--line);
+      border-radius:8px;background:var(--surface);color:var(--ink);
+    }
+    .form-row input:focus,.form-row textarea:focus{outline:2px solid var(--blue);border-color:var(--blue);}
+    .cf-status{font-size:14px;margin:0;}
+    .cf-status.ok{color:var(--teal);}
+    .cf-status.err{color:#dc2626;}
+  </style>
+
+  <script is:inline>
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/moejlnya";
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('cf-status');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        status.className = 'cf-status';
+        status.textContent = '';
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form),
+          });
+          if (res.ok) {
+            status.className = 'cf-status ok';
+            status.textContent = 'Thanks — we got your message and will reply within a few days.';
+            form.reset();
+          } else {
+            status.className = 'cf-status err';
+            status.textContent = 'Something went wrong. Please try again.';
+          }
+        } catch (err) {
+          status.className = 'cf-status err';
+          status.textContent = 'Network error. Please check your connection and try again.';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      });
+    }
+  </script>
 </BaseLayout>
