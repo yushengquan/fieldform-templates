@@ -1,0 +1,63 @@
+{
+  "slug": "how-to-write-a-warranty-line-on-invoices",
+  "title": "How to Write a Warranty Line on Contractor Invoices (With Examples)",
+  "description": "A warranty line on your invoice protects you from callbacks and sets clear expectations. Learn what to include, how long warranties typically last by trade, and how to word the disclaimer correctly.",
+  "h1": "How to Write a Warranty Line on Invoices",
+  "category": "Business Practices",
+  "date": "2025-02-15",
+  "intro": "The warranty line is the most overlooked part of a contractor invoice — and the one that saves you the most headaches. Without it, a client can call you six months later claiming the repair should be free. With it, the expectation is set before they pay. Here's how to write a warranty line that protects you without scaring off clients.",
+  "sections": [
+    {
+      "h2": "Why every invoice needs a warranty line",
+      "blocks": [
+        { "type": "p", "text": "A warranty line documents exactly what you guarantee, for how long, and what's excluded. Without it, the default assumption is often 'you guarantee everything forever' — at least from the client's perspective. A clear warranty line converts an implicit assumption into an explicit agreement." },
+        { "type": "p", "text": "The line also protects you legally. If a client claims a failure is covered and sues, the invoice with a clearly stated warranty term is your evidence that the scope of the guarantee was agreed to at the time of payment." }
+      ]
+    },
+    {
+      "h2": "Standard warranty periods by trade",
+      "blocks": [
+        { "type": "table", "headers": ["Trade", "Labor warranty", "Parts warranty"], "rows": [
+          ["Plumbing", "30-90 days", "Per manufacturer (1-10 years)"],
+          ["Electrical", "1 year", "Per manufacturer (1-25 years)"],
+          ["HVAC", "1 year labor", "10 years parts (registered)"],
+          ["Roofing", "2-5 years workmanship", "20-50 years materials"],
+          ["Concrete", "1 year", "N/A (material is the concrete)"],
+          ["Landscaping", "30 days (plants)", "Per nursery guarantee"]
+        ]}
+      ]
+    },
+    {
+      "h2": "The 4 elements of a good warranty line",
+      "blocks": [
+        { "type": "ul", "items": [
+          "Duration — 'Labor guaranteed for 90 days from installation date'",
+          "Scope — 'covers defects in workmanship only, not damage from misuse or normal wear'",
+          "Exclusions — 'does not cover clogs, freeze damage, or issues caused by other trades'",
+          "Claim process — 'call within warranty period for free repair; after period, standard service rates apply'"
+        ]}
+      ]
+    },
+    {
+      "h2": "Example warranty lines you can copy",
+      "blocks": [
+        { "type": "p", "text": "Short version (for small repairs): 'Labor guaranteed 90 days. Parts per manufacturer warranty. Excludes damage from misuse or external causes.'" },
+        { "type": "p", "text": "Full version (for installations): 'Workmanship guaranteed for 1 year from installation date. Parts covered under manufacturer warranty (transferable to customer). This warranty excludes damage from misuse, neglect, freeze, root intrusion, or work performed by others. To make a claim, call within the warranty period. After expiration, standard service rates apply.'" },
+        { "type": "p", "text": "No-warranty version (for diagnostic/service calls): 'Service call fee covers diagnosis only. No warranty on labor for repair recommendations not performed by us.'" }
+      ]
+    },
+    {
+      "h2": "Where to place it on the invoice",
+      "blocks": [
+        { "type": "p", "text": "Put the warranty line below the total but above the signature/payment area. It should be visible when the client reviews the invoice — not buried in fine print at the bottom. A 10-11pt font, full width, clearly separated from the line items." },
+        { "type": "p", "text": "If you use an Excel template, put the warranty text in a merged cell below the totals section with a light gray background. This makes it look like a standard part of the invoice rather than an afterthought." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Do I have to honor a verbal warranty I didn't put in writing?", "a": "If you verbally promised a warranty, the client can enforce it. Always put warranty terms in writing on the invoice — if you don't specify a period, courts often imply a 'reasonable' warranty (usually 1 year for construction work). Written terms are always better than implied ones." },
+    { "q": "Can I charge a trip fee for a warranty call?", "a": "Yes, if your warranty line states it. Standard practice: labor is free during the warranty period, but you can charge a trip/diagnostic fee. State this clearly: 'warranty covers labor only; trip fee of $X applies to warranty service calls.'" },
+    { "q": "Should the warranty transfer to a new homeowner?", "a": "For most residential trade work, yes — but state it explicitly. 'Warranty transfers to subsequent property owner within the warranty period.' This is a selling point for the client when they eventually sell the house, and it costs you nothing if the work was done right." },
+    { "q": "What if the manufacturer warranty is longer than my labor warranty?", "a": "That's normal and fine. Your labor warranty covers your workmanship; the manufacturer warranty covers the product. If a water heater fails in year 5, the manufacturer replaces the unit for free but you can charge labor to install the replacement. State both warranties separately on the invoice." }
+  ]
+}

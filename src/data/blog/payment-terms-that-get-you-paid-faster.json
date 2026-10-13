@@ -1,0 +1,58 @@
+{
+  "slug": "payment-terms-that-get-you-paid-faster",
+  "title": "Payment Terms That Get You Paid Faster (Net 30 vs Due on Receipt vs COD)",
+  "description": "The payment terms on your invoice directly affect how fast you get paid. Learn which terms work best for trades, how to set late fees, and why 'due on receipt' beats 'net 30' for most contractor work.",
+  "h1": "Payment Terms That Get You Paid Faster",
+  "category": "Getting Paid",
+  "date": "2025-02-08",
+  "intro": "The payment terms line on your invoice is not boilerplate — it's the single biggest factor in how quickly you get paid. 'Net 30' sounds professional but means you're floating the client's money for a month. 'Due on receipt' gets you paid in days. Here's how to choose the right terms for each job type and client.",
+  "sections": [
+    {
+      "h2": "The common payment terms, ranked by speed",
+      "blocks": [
+        { "type": "table", "headers": ["Term", "Means", "Typical payment time"], "rows": [
+          ["COD / Due on completion", "Pay when work is done", "Same day"],
+          ["Due on receipt", "Pay when invoice is received", "1-7 days"],
+          ["Net 15", "Pay within 15 days", "10-20 days"],
+          ["Net 30", "Pay within 30 days", "25-40 days"],
+          ["Net 60", "Pay within 60 days", "55-70 days"]
+        ]},
+        { "type": "p", "text": "The gap between 'typical payment time' and the stated term is because clients pay late. Net 30 means net 40 in practice. If you need the money in 30 days, set terms to Net 15." }
+      ]
+    },
+    {
+      "h2": "Which terms to use for trade work",
+      "blocks": [
+        { "type": "p", "text": "Residential service work (plumbing repair, HVAC service call, electrical fix): due on completion or due on receipt. The client is home, the work is done, and there's no reason to extend credit. If they can't pay, don't start the job." },
+        { "type": "p", "text": "Commercial work and larger projects: Net 15 or Net 30 is standard, but always collect a deposit upfront (25-50%). Progress billing — invoicing at milestones — is better than one big invoice at the end. It keeps cash flow positive and reduces the risk of a single large unpaid invoice." }
+      ]
+    },
+    {
+      "h2": "The deposit: your most important term",
+      "blocks": [
+        { "type": "p", "text": "For any job over $1,000, collect a deposit before ordering materials or starting work. 25-50% is standard for trades. The deposit covers your materials cost and commits the client — clients who've paid a deposit don't cancel or dispute the final invoice nearly as often." },
+        { "type": "p", "text": "State the deposit requirement on the estimate, not just the invoice. '50% deposit required to schedule' on the estimate filters out clients who can't or won't pay. It feels awkward to ask, but it's far less awkward than chasing $3,000 six weeks after the job is done." }
+      ]
+    },
+    {
+      "h2": "Late fees: do they work?",
+      "blocks": [
+        { "type": "p", "text": "Late fees (typically 1.5-2% per month) are standard on invoices, but they rarely motivate clients to pay faster. Their real value is legal: if you end up in small claims court, a documented late fee policy shows you had clear terms and the client willfully ignored them." },
+        { "type": "p", "text": "What actually works: a friendly reminder 3 days before the due date ('just a heads up, invoice #104 for $1,200 is due Friday'), a firmer reminder 3 days after, and a pause on scheduling new work for clients with overdue invoices. Relationships, not late fees, get you paid." }
+      ]
+    },
+    {
+      "h2": "Setting up your invoice template",
+      "blocks": [
+        { "type": "p", "text": "Your template should have a prominent payment terms field near the total — not buried in the footer. Include: the due date (calculated from the invoice date + terms), accepted payment methods, and where to send payment. Make it as easy as possible to pay and you'll get paid faster." },
+        { "type": "p", "text": "Add a 'late fee' line in the terms section: 'Invoices past due are subject to a 1.5% monthly late fee.' You don't have to enforce it every time, but having it on the invoice establishes the policy if you ever need to." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Should I offer Net 30 to new clients?", "a": "No. Start with due on receipt or Net 15 for the first 2-3 jobs. Once you've established that the client pays reliably, you can extend terms. Offering Net 30 to an unknown client is an interest-free loan to a stranger." },
+    { "q": "What percentage of contractors get paid late?", "a": "Industry surveys show 60-70% of contractors have at least one overdue invoice at any given time. The most common cause is vague payment terms — 'pay when you can' is not a term. Specific due dates get paid; vague expectations don't." },
+    { "q": "Is it legal to stop work if a client doesn't pay?", "a": "Yes, if your contract includes a 'right to stop work for non-payment' clause. Without it, stopping work mid-job can expose you to breach of contract claims. Include this clause in every contract over $2,000." },
+    { "q": "Should I offer a discount for early payment?", "a": "Terms like '2/10 net 30' (2% discount if paid in 10 days, otherwise net 30) are common in B2B but rare in residential trade work. For residential clients, just set due on receipt — the 2% discount on a $500 invoice is $10, not worth the complexity." }
+  ]
+}

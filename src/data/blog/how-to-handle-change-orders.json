@@ -1,0 +1,55 @@
+{
+  "slug": "how-to-handle-change-orders",
+  "title": "Change Orders: How to Document Scope Changes Without Getting Burned",
+  "description": "A change order is a written agreement to modify the original contract scope and price. Learn how to document change orders properly, get paid for extra work, and avoid the 'we never agreed to that' dispute.",
+  "h1": "How to Handle Change Orders on Contractor Jobs",
+  "category": "Business Practices",
+  "date": "2025-02-01",
+  "intro": "Every contractor knows the scenario: you're halfway through a job and the client asks for something extra. 'While you're here, can you also replace this valve?' If you just do the work and add it to the final invoice, you've set yourself up for a dispute. Change orders exist to prevent exactly this — here's how to use them correctly.",
+  "sections": [
+    {
+      "h2": "What is a change order?",
+      "blocks": [
+        { "type": "p", "text": "A change order is a written document that modifies the original contract: it describes the additional (or reduced) work, the cost impact, and requires the client's signature before work proceeds. It is not a text message saying 'sure, I'll add that for $200' — though many contractors treat it as one." },
+        { "type": "p", "text": "Legally, a change order is an amendment to the contract. Without one, you have no proof the client authorized the extra work, and they can refuse to pay for it. This is the single most common cause of contractor payment disputes." }
+      ]
+    },
+    {
+      "h2": "The 3 fields every change order needs",
+      "blocks": [
+        { "type": "ul", "items": [
+          "Description of the additional work — specific enough that a third party could understand what was done",
+          "Cost impact — the dollar amount added to (or subtracted from) the original contract, with a breakdown of labor and materials",
+          "Client signature or written approval — text/email counts in most states, but a signature is ironclad"
+        ]}
+      ]
+    },
+    {
+      "h2": "Verbal approval: the expensive mistake",
+      "blocks": [
+        { "type": "p", "text": "The client says 'yeah, go ahead and add the extra outlet' while you're standing in their kitchen. You do the work. Three weeks later, they review the invoice and say 'I never agreed to that.' Without written documentation, it's your word against theirs — and contractors lose this argument more often than they should." },
+        { "type": "p", "text": "The fix is simple: after any verbal approval, send a text or email immediately: 'Confirming: additional outlet in kitchen, $85 labor + $15 materials = $100 added to invoice. Reply OK to proceed.' A one-line text message is a legally sufficient change order in most jurisdictions." }
+      ]
+    },
+    {
+      "h2": "How to price change orders fairly",
+      "blocks": [
+        { "type": "p", "text": "Change order pricing should match your original rates — don't discount because it's a small add-on, and don't inflate because you can. The client agreed to your hourly rate and material markup on the original estimate; the change order should use the same rates." },
+        { "type": "p", "text": "The one exception: if the change order requires a separate trip or mobilization, charge for it. A $50 valve replacement added to a $2,000 plumbing job costs you nothing extra. The same valve replacement as a standalone call-out needs a trip fee — otherwise you're subsidizing the client's decision to defer work." }
+      ]
+    },
+    {
+      "h2": "Template approach: change orders on the invoice",
+      "blocks": [
+        { "type": "p", "text": "For small change orders (under $200), many contractors skip a separate document and just add a clearly labeled section to the final invoice: 'Additional work per client request on [date]: [description] — $X.' This works if the client approved it in writing beforehand. For larger changes, use a separate change order form with its own signature line." },
+        { "type": "p", "text": "Your invoice template should have a 'change orders' section separate from the original line items, so the client can see the base scope and the additions distinctly. This transparency prevents the 'why is this more than the estimate?' conversation." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Does a text message count as a written change order?", "a": "In most states, yes. A text or email where the client acknowledges and approves the additional work and cost is sufficient written documentation. Save screenshots. For changes over $500, get a signature on a proper change order form." },
+    { "q": "What if the client refuses to sign a change order?", "a": "Do not proceed with the additional work. If the work is necessary (e.g., you found rot behind a wall), document it with photos, stop work, and present the change order before continuing. Doing unauthorized work and hoping they'll pay is how contractors lose money." },
+    { "q": "Can I charge more for change order work than my original rates?", "a": "You can, but it's bad practice. Change orders should use the same labor rates and material markup as the original estimate. Inflating change order prices is a fast way to lose repeat clients and generate bad reviews." },
+    { "q": "How many change orders is too many?", "a": "If you're issuing more than 3-4 change orders on a single job, the original estimate was incomplete. Consider stopping work, re-estimating the full revised scope, and issuing a new contract rather than stacking change orders indefinitely." }
+  ]
+}

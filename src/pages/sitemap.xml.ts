@@ -13,6 +13,12 @@ const trades: any[] = Object.values(modules).map((m: any) => m.default);
 const guideModules = import.meta.glob('../data/guides/*.json', { eager: true });
 const guides: any[] = Object.values(guideModules).map((m: any) => m.default);
 
+// blog 文章
+const blogModules = import.meta.glob('../data/blog/*.json', { eager: true });
+const blogPosts: any[] = Object.values(blogModules)
+  .map((m: any) => m.default)
+  .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
 // 扫 src/pages/ 下所有顶层 .astro 页面 → 自动进 sitemap
 // index.astro → /，about.astro → /about/，contact.astro → /contact/ ...
 const astroPages = import.meta.glob('../pages/*.astro', { eager: false });
@@ -82,7 +88,18 @@ export const GET: APIRoute = async ({ site }) => {
     })),
   ];
 
-  const urls = [...staticUrls, ...tradeUrls, ...guideUrls];
+  // blog 页：列表 0.6，文章 0.5（信息型，低于 guides 因为更偏顶/中漏斗）
+  const blogUrls = [
+    { loc: `${base}/blog/`, priority: '0.6', changefreq: 'weekly', lastmod: today },
+    ...blogPosts.map((p: any) => ({
+      loc: `${base}/blog/${p.slug}/`,
+      priority: '0.5',
+      changefreq: 'monthly',
+      lastmod: p.date,
+    })),
+  ];
+
+  const urls = [...staticUrls, ...tradeUrls, ...guideUrls, ...blogUrls];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls

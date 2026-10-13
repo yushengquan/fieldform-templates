@@ -1,0 +1,68 @@
+{
+  "slug": "invoice-vs-estimate-difference",
+  "title": "Invoice vs Estimate: What's the Difference and When to Use Each",
+  "description": "An estimate is a quote before work starts; an invoice is a bill after work is done. Learn the legal and practical differences, when each document is required, and how to convert an estimate into an invoice.",
+  "h1": "Invoice vs Estimate: What's the Difference?",
+  "category": "Invoicing Basics",
+  "date": "2025-01-15",
+  "intro": "Contractors confuse estimates and invoices constantly — and it costs them. Sending an invoice when the client expected an estimate, or vice versa, creates disputes, delayed payments, and sometimes legal trouble. This article breaks down exactly what each document is, when you must use each, and how to move from estimate to invoice without double-charging.",
+  "sections": [
+    {
+      "h2": "What is an estimate?",
+      "blocks": [
+        { "type": "p", "text": "An estimate is a good-faith approximation of what a job will cost, provided before work begins. It is not a binding contract — it tells the client roughly what to expect so they can decide whether to hire you. A good estimate includes labor hours, material quantities, your rates, and a contingency line for unknowns." },
+        { "type": "p", "text": "Most states do not require estimates to be itemized, but doing so builds trust and protects you if the client disputes the final bill. A line-itemed estimate that says 'Replace 40-gal water heater — $1,200 (labor $400, unit $700, disposal $100)' is far harder to argue with than a single number." },
+        { "type": "ul", "items": [
+          "Given before work starts",
+          "Non-binding (unless marked 'fixed price' or 'not to exceed')",
+          "Includes anticipated labor + materials + contingency",
+          "No payment is due when an estimate is issued"
+        ]}
+      ]
+    },
+    {
+      "h2": "What is an invoice?",
+      "blocks": [
+        { "type": "p", "text": "An invoice is a formal request for payment after work has been performed (or goods delivered). It is a legally enforceable document — once you send an invoice, the client owes you the stated amount per your payment terms. Invoices must include specific fields to be valid in most jurisdictions." },
+        { "type": "ul", "items": [
+          "Sent after work is completed or milestones are hit",
+          "Legally binding — client owes the amount upon receipt",
+          "Must include invoice number, date, payment terms, and itemized charges",
+          "May differ from the estimate if scope changed"
+        ]}
+      ]
+    },
+    {
+      "h2": "Key differences at a glance",
+      "blocks": [
+        { "type": "table", "headers": ["Aspect", "Estimate", "Invoice"], "rows": [
+          ["Timing", "Before work starts", "After work is done"],
+          ["Legal weight", "Non-binding (usually)", "Legally enforceable"],
+          ["Payment due", "No", "Yes, per terms"],
+          ["Number required", "Optional", "Required for tax records"],
+          ["Can be revised?", "Yes, freely", "Only via credit note"]
+        ]}
+      ]
+    },
+    {
+      "h2": "When to send an estimate vs an invoice",
+      "blocks": [
+        { "type": "p", "text": "Send an estimate when: a new client asks what a job will cost, the scope is not yet fully defined, or you want to set expectations before committing. Send an invoice when: work is complete, a milestone is reached (progress billing), or materials were purchased and need reimbursement." },
+        { "type": "p", "text": "For time-and-materials jobs, many contractors skip the estimate and send the invoice directly — but this is risky for large jobs. A 'not-to-exceed' estimate (a cap) protects both sides: the client knows the worst case, and you have authorization to proceed up to that amount." }
+      ]
+    },
+    {
+      "h2": "How to convert an estimate into an invoice",
+      "blocks": [
+        { "type": "p", "text": "The cleanest workflow: send the estimate, get written approval (text or email counts), do the work, then send an invoice with the same line items adjusted to actual quantities and rates. If the final total exceeds the estimate by more than 10-15%, include a note explaining the difference — most disputes come from surprise overruns, not the number itself." },
+        { "type": "p", "text": "Never send both an estimate and an invoice for the same job without clearly labeling which is which. Clients have paid estimates thinking they were invoices, then refused to pay the actual invoice — creating a mess you'll spend hours untangling." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Can an estimate be legally binding?", "a": "Yes — if it includes language like 'fixed price' or 'not to exceed $X,' it becomes a binding quote. Without that language, an estimate is a good-faith approximation and the final invoice may differ." },
+    { "q": "Do I need to send an estimate before an invoice?", "a": "No law requires it, but it's best practice for jobs over $500. For small or repeat jobs, you can invoice directly. For large jobs, an approved estimate protects you from scope creep and price disputes." },
+    { "q": "What if the final cost is higher than the estimate?", "a": "Communicate before completing the work. Call or text the client, explain the overrun, and get approval. Then note the change on the invoice. Clients rarely dispute overruns they were warned about in advance." },
+    { "q": "Should I number estimates and invoices separately?", "a": "Yes. Use a different prefix (e.g., EST-001 and INV-001) so you and the client can tell them apart at a glance. This prevents the 'paid the estimate' confusion." }
+  ]
+}

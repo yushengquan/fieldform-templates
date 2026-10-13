@@ -1,0 +1,63 @@
+---
+// /blog/ — blog 列表页，展示所有文章
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+
+const modules = import.meta.glob('../../data/blog/*.json', { eager: true });
+const posts: any[] = Object.values(modules)
+  .map((m: any) => m.default)
+  .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog/` },
+  ],
+});
+
+const blogLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "FieldForm Templates Blog",
+  description: "Invoicing tips, tax rules, and business advice for trade contractors.",
+  url: `${siteUrl}/blog/`,
+  blogPost: posts.map((p: any) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    datePublished: p.date,
+    url: `${siteUrl}/blog/${p.slug}/`,
+  })),
+});
+---
+<BaseLayout
+  title="Blog — Invoicing Tips for Contractors | FieldForm Templates"
+  description="Practical articles on invoicing, estimates, sales tax, payment terms, and business practices for plumbers, electricians, HVAC, roofers, and other trades."
+  canonical={`${siteUrl}/blog/`}
+>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <script is:inline type="application/ld+json" set:html={blogLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a> ›
+      <span style="color:var(--ink);">Blog</span>
+    </nav>
+    <h1 style="font-size:38px;margin-bottom:16px;">Invoicing blog for contractors</h1>
+    <p style="font-size:18px;color:var(--muted);margin-bottom:40px;max-width:600px;">
+      Practical articles on invoicing, estimates, sales tax, payment terms, and running a trade business — written for plumbers, electricians, HVAC techs, and other field-service contractors.
+    </p>
+    <div class="grid2">
+      {posts.map((p: any) => (
+        <a class="tpl-card" href={`/blog/${p.slug}/`}>
+          <span class="tag">{p.category}</span>
+          <h3>{p.title}</h3>
+          <p>{p.description.slice(0, 130)}{p.description.length > 130 ? '…' : ''}</p>
+          <span class="go">Read article →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

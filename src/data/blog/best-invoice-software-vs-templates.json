@@ -1,0 +1,65 @@
+{
+  "slug": "best-invoice-software-vs-templates",
+  "title": "Invoice Software vs Free Templates: Which Is Right for Your Trade Business?",
+  "description": "QuickBooks, FreshBooks, and Wave cost $20-80/month. Free Excel templates cost nothing. We compare features, when software wins, and when a template is actually better for small trade businesses.",
+  "h1": "Invoice Software vs Free Templates: Which Wins?",
+  "category": "Tools & Software",
+  "date": "2025-01-25",
+  "intro": "Every contractor faces this decision: pay for invoicing software or use free templates. Software companies spend heavily to convince you their $30/month subscription is essential. For many small trade businesses, it isn't. This article breaks down exactly what you get with each option, when software is worth it, and when a free template is genuinely the better choice.",
+  "sections": [
+    {
+      "h2": "What invoicing software gives you",
+      "blocks": [
+        { "type": "p", "text": "Paid invoicing software (QuickBooks, FreshBooks, Wave, Jobber, Housecall Pro) bundles several features beyond just generating invoices. The value depends on how many of these features you'll actually use." },
+        { "type": "ul", "items": [
+          "Automated recurring invoices and payment reminders",
+          "Online payment processing (Stripe/ACH integration) — usually 2.9% + 30¢ per transaction",
+          "Expense tracking and profit/loss reports",
+          "Client portal where customers view and pay invoices",
+          "Time tracking that feeds directly into invoices",
+          "Tax preparation exports (Schedule C, sales tax reports)"
+        ]}
+      ]
+    },
+    {
+      "h2": "What free templates give you",
+      "blocks": [
+        { "type": "p", "text": "A good Excel or Word template gives you the document itself — line items, calculations, professional layout — without any recurring cost. What it doesn't give you is the surrounding workflow (payment processing, reminders, accounting integration)." },
+        { "type": "ul", "items": [
+          "Full control over layout, branding, and line items",
+          "No monthly fee, no per-transaction cost",
+          "Works offline — no internet needed",
+          "No learning curve if you know Excel/Word",
+          "No data lock-in — your files are yours"
+        ]}
+      ]
+    },
+    {
+      "h2": "When software is worth it",
+      "blocks": [
+        { "type": "p", "text": "Software pays for itself when you're sending 15+ invoices per month and clients want to pay online. The time saved on payment reminders and reconciliation easily covers $30/month. It's also worth it if you need real-time profit tracking across multiple jobs, or if you have employees whose time needs tracking." },
+        { "type": "p", "text": "If you're a solo contractor doing 5-10 jobs a month, getting paid by check or bank transfer, software is overkill. You'll spend more time learning the tool than it saves you." }
+      ]
+    },
+    {
+      "h2": "When a template is better",
+      "blocks": [
+        { "type": "p", "text": "Templates win for businesses that: invoice fewer than 15 times per month, get paid by check or direct deposit, don't need accounting integration, and want full control over the invoice layout. They're also better for trades with highly customized invoicing — plumbing permits, HVAC warranty tracking, electrical code references — that generic software doesn't handle well without expensive add-ons." },
+        { "type": "p", "text": "The break-even math: if software costs $360/year and you invoice 10 times/month, that's $3 per invoice just for the tool. If a free template produces the same professional result and you get paid the same way, the software cost is pure overhead." }
+      ]
+    },
+    {
+      "h2": "The hybrid approach (best of both)",
+      "blocks": [
+        { "type": "p", "text": "Many successful contractors use both: a free template for the invoice document itself, plus a free Stripe or Square account for online payment links. The client gets a professional PDF invoice with a 'Pay online' button, you get paid faster, and your total software cost is just the payment processing fee (which you'd pay with software anyway)." },
+        { "type": "p", "text": "This works because payment processing is the one feature that genuinely requires software — everything else (reminders, tracking, reports) can be done with a spreadsheet and a calendar reminder." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Can I accept online payments with a free template?", "a": "Yes. Create a free Stripe or Square payment link and include it in the invoice email or as a QR code on the PDF. The client pays online; you get the money minus the standard 2.9% + 30¢ processing fee — same fee software charges." },
+    { "q": "Will clients take a free template invoice less seriously?", "a": "No — if the template looks professional. A well-designed Excel or PDF invoice with your logo, proper formatting, and clear line items is indistinguishable from a software-generated one. Clients care about clarity and accuracy, not what tool produced the document." },
+    { "q": "What about tax time — don't I need software for that?", "a": "Not necessarily. Keep a simple spreadsheet of all invoices (date, client, amount, tax collected). At year-end, sort by category and hand the spreadsheet to your accountant. Software's tax exports save 30 minutes per quarter — worth $360/year only if your time is worth $120+/hour." },
+    { "q": "Is Wave really free?", "a": "Wave's invoicing and accounting are free, but payment processing costs 2.9% + 30¢ per transaction (same as everyone else). It's a good middle ground if you want software features without a subscription — though the free tier has been reduced over the years." }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "how-to-calculate-sales-tax-on-services",
+  "title": "How to Calculate Sales Tax on Contractor Services (State-by-State Guide)",
+  "description": "Sales tax rules for contractors vary wildly by state — some tax labor, some only tax materials, some tax the entire contract. Learn how to handle sales tax on plumbing, electrical, HVAC, and general contractor invoices correctly.",
+  "h1": "How to Calculate Sales Tax on Contractor Services",
+  "category": "Tax & Compliance",
+  "date": "2025-01-20",
+  "intro": "Sales tax on contractor services is one of the most common billing mistakes — and one of the most expensive if your state audits. The rules vary by state, by trade, and sometimes by the type of job (residential vs commercial). This guide covers the four main tax models states use, which trades are affected, and how to set up your invoice template to handle them correctly.",
+  "sections": [
+    {
+      "h2": "The four sales tax models states use",
+      "blocks": [
+        { "type": "p", "text": "States generally fall into one of four categories when taxing contractor services. Knowing which model your state uses determines whether you tax the entire invoice, just materials, or nothing at all." },
+        { "type": "table", "headers": ["Model", "What's taxed", "Example states"], "rows": [
+          ["Full tax", "Labor + materials", "WA, NM, HI, SD, WV"],
+          ["Materials only", "Materials at contractor's rate", "Most states (CA, TX, NY, FL)"],
+          ["Installation tax", "Only if installing tangible property", "PA, MA, VA"],
+          ["No service tax", "Neither labor nor materials", "OR, MT, NH, DE (no sales tax)"]
+        ]}
+      ]
+    },
+    {
+      "h2": "Materials-only states (the most common model)",
+      "blocks": [
+        { "type": "p", "text": "In most states, labor is not taxable but materials are. The catch: you charge sales tax on materials at the rate the customer would pay if they bought them retail — not at your wholesale cost. This is called the 'retail selling price' rule." },
+        { "type": "p", "text": "Example: you buy pipe fittings wholesale for $30, mark them up to $60 on the invoice. In a materials-only state with 7% tax, you charge $60 × 7% = $4.20 tax on that line item. Labor lines get $0 tax." }
+      ]
+    },
+    {
+      "h2": "Full-tax states (labor + materials)",
+      "blocks": [
+        { "type": "p", "text": "Washington, New Mexico, Hawaii, South Dakota, and West Virginia tax the entire contractor invoice — labor and materials. If you work in these states, your invoice template should apply tax to every line item by default, with exemptions only for clearly non-taxable items (like permit fees, which are pass-throughs)." },
+        { "type": "p", "text": "These states treat contractors as retailers of 'real property improvement' services. The tax applies to the total contract price, not just the materials portion." }
+      ]
+    },
+    {
+      "h2": "Residential vs commercial: the exemption trap",
+      "blocks": [
+        { "type": "p", "text": "Many states exempt residential new construction from sales tax but tax residential repair/maintenance. Others tax commercial work but not residential. Getting this backwards means either overcharging the client (they'll notice and complain) or underpaying the state (they'll notice on audit and charge penalties)." },
+        { "type": "p", "text": "Rule of thumb: new construction for a homeowner is often exempt; repair and renovation usually is not. Commercial work is almost always taxable. Always check your state's current rules — they change." }
+      ]
+    },
+    {
+      "h2": "Setting up your invoice template for tax",
+      "blocks": [
+        { "type": "p", "text": "Your Excel invoice template should have a tax rate cell that you can set per job, and each line item should have a 'taxable' flag (Y/N). The formula: tax = SUM(taxable_lines) × tax_rate. This lets you handle mixed invoices where some items are taxable and others aren't — which is the normal case for contractors in materials-only states." },
+        { "type": "p", "text": "Leave the tax rate cell blank by default. Forcing yourself to enter it each time prevents the most common error: sending a tax-free invoice because you forgot to set the rate." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Do I charge sales tax on labor?", "a": "Depends on your state. In most states (CA, TX, NY, FL), labor is not taxable — only materials are. But in WA, NM, HI, SD, and WV, labor is taxable. Check your state's department of revenue website for current rules." },
+    { "q": "What if I work in multiple states?", "a": "You charge sales tax based on where the work is performed, not where your business is located. If you're a plumber based in Oregon (no sales tax) but do a job in Washington, you must collect Washington sales tax on the entire invoice." },
+    { "q": "Are permit fees taxable?", "a": "No. Permit fees are pass-through government charges, not taxable goods or services. List them as a separate non-taxable line item on your invoice." },
+    { "q": "Should I include tax in my estimate?", "a": "Yes. Estimates should show the estimated tax so the client sees the full expected cost. If you only show pre-tax amounts, the final invoice will look higher than the estimate even if the work cost exactly what you quoted." }
+  ]
+}

@@ -1,0 +1,145 @@
+---
+// /blog/[slug]/ — blog 文章详情页
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqList from '../../components/FaqList.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+
+const modules = import.meta.glob('../../data/blog/*.json', { eager: true });
+const allPosts: any[] = Object.values(modules)
+  .map((m: any) => m.default)
+  .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+export function getStaticPaths() {
+  const mods = import.meta.glob('../../data/blog/*.json', { eager: true });
+  const posts: any[] = Object.values(mods)
+    .map((m: any) => m.default)
+    .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.map((p: any) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const otherPosts = allPosts.filter((p: any) => p.slug !== post.slug).slice(0, 3);
+
+const formatDate = (d: string) => new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// Article schema
+const articleLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.title,
+  description: post.description,
+  datePublished: post.date,
+  dateModified: post.date,
+  author: { "@type": "Organization", name: "FieldForm Templates" },
+  publisher: {
+    "@type": "Organization",
+    name: "FieldForm Templates",
+    url: siteUrl,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/og-image.png` },
+  },
+  mainEntityOfPage: `${siteUrl}/blog/${post.slug}/`,
+  isPartOf: { "@type": "Blog", name: "FieldForm Templates Blog", url: `${siteUrl}/blog/` },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog/` },
+    { "@type": "ListItem", position: 3, name: post.title, item: `${siteUrl}/blog/${post.slug}/` },
+  ],
+});
+
+const faqLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: (post.faq ?? []).map((f: any) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+});
+---
+<BaseLayout
+  title={`${post.title} | FieldForm Templates`}
+  description={post.description}
+  canonical={`${siteUrl}/blog/${post.slug}/`}
+  ogImage="/og-image.png"
+>
+  <script is:inline type="application/ld+json" set:html={articleLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <script is:inline type="application/ld+json" set:html={faqLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;max-width:760px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a> ›
+      <a href="/blog/" style="color:var(--muted);">Blog</a> ›
+      <span style="color:var(--ink);">{post.category}</span>
+    </nav>
+
+    <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">{post.category} · {formatDate(post.date)}</p>
+    <h1 style="font-size:36px;line-height:1.15;margin-bottom:16px;">{post.h1}</h1>
+    <p style="font-size:18px;color:var(--muted);margin-bottom:32px;">{post.intro}</p>
+
+    <article style="font-size:17px;line-height:1.7;color:var(--ink);">
+      {post.sections.map((sec: any) => (
+        <section style="margin-bottom:40px;">
+          <h2 style="font-size:26px;margin-bottom:16px;">{sec.h2}</h2>
+          {sec.blocks.map((b: any) => (
+            b.type === 'p' ? (
+              <p style="margin-bottom:16px;">{b.text}</p>
+            ) : b.type === 'ul' ? (
+              <ul style="margin:0 0 16px 0;padding-left:24px;">
+                {b.items.map((it: string) => <li style="margin-bottom:8px;">{it}</li>)}
+              </ul>
+            ) : b.type === 'table' ? (
+              <div style="overflow-x:auto;margin-bottom:16px;">
+                <table style="width:100%;border-collapse:collapse;font-size:15px;">
+                  <thead>
+                    <tr>{b.headers.map((h: string) => <th style="text-align:left;padding:10px 12px;background:var(--soft);border-bottom:2px solid var(--blue);">{h}</th>)}</tr>
+                  </thead>
+                  <tbody>
+                    {b.rows.map((row: string[]) => (
+                      <tr>{row.map((cell: string) => <td style="padding:10px 12px;border-bottom:1px solid #eee;">{cell}</td>)}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : null
+          ))}
+        </section>
+      ))}
+    </article>
+
+    {(post.faq ?? []).length > 0 && (
+      <section style="margin-bottom:40px;">
+        <h2 style="font-size:26px;margin-bottom:16px;">Frequently asked questions</h2>
+        <FaqList faqs={post.faq} />
+      </section>
+    )}
+
+    {/* CTA: 链向模板 */}
+    <div style="background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div>
+        <strong style="color:var(--ink);">Need a template?</strong>
+        <span style="color:var(--muted);"> Download free invoice and estimate templates — Excel, Word & PDF.</span>
+      </div>
+      <a href="/invoice-templates/" style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Browse templates →</a>
+    </div>
+
+    {otherPosts.length > 0 && (
+      <section style="margin-bottom:40px;">
+        <h2 style="font-size:22px;margin-bottom:16px;">More from the blog</h2>
+        <ul style="list-style:none;padding:0;">
+          {otherPosts.map((p: any) => (
+            <li style="margin-bottom:10px;">
+              <a href={`/blog/${p.slug}/`} style="color:var(--blue);font-weight:600;">{p.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </section>
+</BaseLayout>

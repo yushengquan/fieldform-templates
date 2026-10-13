@@ -1,5 +1,5 @@
 ---
-// 404 页 — 用户访问不存在的路径时展示热门模板 + 返回入口,避免直接流失
+// 404 页 — 用户访问不存在的路径时展示搜索 + 热门模板 + guides,避免直接流失
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
@@ -13,6 +13,12 @@ const popular = [
   { slug: 'landscaping-invoice-template', title: 'Landscaping Invoice Template', trade: 'Landscaper' },
   { slug: 'concrete-invoice-template', title: 'Concrete Invoice Template', trade: 'Concrete' },
 ];
+
+const guides = [
+  { slug: 'how-to-write-a-plumbing-invoice', title: 'How to Write a Plumbing Invoice' },
+  { slug: 'how-to-write-an-electrician-invoice', title: 'How to Write an Electrician Invoice' },
+  { slug: 'how-to-write-an-hvac-invoice', title: 'How to Write an HVAC Invoice' },
+];
 ---
 <BaseLayout
   title="Page not found — FieldForm Templates"
@@ -22,10 +28,24 @@ const popular = [
   <section class="section wrap" style="padding-top:80px;text-align:center;">
     <p style="font-size:72px;font-weight:800;color:var(--teal);margin-bottom:8px;line-height:1;">404</p>
     <h1 style="margin-bottom:12px;">Page not found</h1>
-    <p class="lead" style="max-width:480px;margin:0 auto 28px;">The page you were looking for doesn't exist or may have moved. Try one of these instead:</p>
+    <p class="lead" style="max-width:480px;margin:0 auto 28px;">The page you were looking for doesn't exist or may have moved. Search for a template or browse below.</p>
   </section>
 
   <section class="section wrap" style="padding-top:0;">
+    {/* 搜索框 */}
+    <div style="max-width:520px;margin:0 auto 40px;">
+      <form action="/search" method="get" style="display:flex;gap:8px;">
+        <input
+          type="search"
+          name="q"
+          placeholder="Search templates by trade…"
+          style="flex:1;padding:12px 16px;font-size:16px;border:1px solid var(--line);border-radius:8px;outline:none;"
+        />
+        <button type="submit" style="background:var(--blue);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-weight:600;cursor:pointer;white-space:nowrap;">Search</button>
+      </form>
+    </div>
+
+    <h2 style="font-size:22px;margin-bottom:16px;">Popular templates</h2>
     <div class="grid2">
       {popular.map((t) => (
         <a class="tpl-card" href={`/templates/${t.slug}/`}>
@@ -38,6 +58,18 @@ const popular = [
     </div>
   </section>
 
+  <section class="section wrap" style="padding-top:32px;">
+    <h2 style="font-size:22px;margin-bottom:16px;">Helpful guides</h2>
+    <div class="grid3">
+      {guides.map((g) => (
+        <a class="card" style="text-decoration:none;color:var(--ink);" href={`/guides/${g.slug}/`}>
+          <h3 style="margin-bottom:6px;">{g.title}</h3>
+          <p style="color:var(--muted);font-size:14px;">Step-by-step with example line items and rates.</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section class="section wrap" style="padding-top:32px;text-align:center;">
     <p>
       <a href="/" style="font-weight:700;color:var(--blue);">← Back to home</a>
@@ -45,6 +77,10 @@ const popular = [
       <a href="/invoice-templates/" style="font-weight:700;color:var(--blue);">All invoice templates</a>
       &nbsp;·&nbsp;
       <a href="/estimate-templates/" style="font-weight:700;color:var(--blue);">All estimate templates</a>
+      &nbsp;·&nbsp;
+      <a href="/guides/" style="font-weight:700;color:var(--blue);">All guides</a>
+      &nbsp;·&nbsp;
+      <a href="/blog/" style="font-weight:700;color:var(--blue);">Blog</a>
     </p>
   </section>
 </BaseLayout>
