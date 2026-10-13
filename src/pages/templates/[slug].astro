@@ -69,6 +69,7 @@ const appLd = JSON.stringify({
   name: trade.title,
   description: trade.subtitle,
   category: "Business Template",
+  image: `${siteUrl}og/${trade.slug}.png`,
   isAccessibleForFree: true,
   offers: {
     "@type": "Offer",
@@ -76,6 +77,41 @@ const appLd = JSON.stringify({
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",
     url: `${siteUrl}templates/${trade.slug}/`,
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "US",
+      returnPolicyCategory: "https://schema.org/NonRefundableFee",
+      merchantReturnDays: 0,
+      description: "Free digital download — no physical item shipped, no return applicable.",
+    },
+    shippingDetails: {
+      "@type": "OfferShippingDetails",
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: "0",
+        currency: "USD",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressCountry: "US",
+      },
+      deliveryTime: {
+        "@type": "ShippingDeliveryTime",
+        handlingTime: {
+          "@type": "QuantitativeValue",
+          minValue: 0,
+          maxValue: 0,
+          unitCode: "DAY",
+        },
+        transitTime: {
+          "@type": "QuantitativeValue",
+          minValue: 0,
+          maxValue: 0,
+          unitCode: "DAY",
+        },
+      },
+      description: "Instant digital download — no shipping required.",
+    },
   },
   brand: { "@type": "Brand", name: "FieldForm Templates" },
 });
