@@ -2,6 +2,7 @@
 // 长尾信息型 guide 页: /guides/how-to-write-a-{trade}-invoice/
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqList from '../../components/FaqList.astro';
+import { howToSchemaForGuide } from '../../lib/guide-howto';
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
 
@@ -50,6 +51,8 @@ const faqLd = JSON.stringify({
     acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
 });
+
+const howToLd = JSON.stringify(howToSchemaForGuide(guide, siteUrl));
 ---
 <BaseLayout
   title={guide.title}
@@ -60,6 +63,7 @@ const faqLd = JSON.stringify({
   <script is:inline type="application/ld+json" set:html={articleLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <script is:inline type="application/ld+json" set:html={faqLd}></script>
+  <script is:inline type="application/ld+json" set:html={howToLd}></script>
 
   <section class="section wrap" style="padding-top:56px;max-width:760px;">
     <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">

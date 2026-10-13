@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const contactLd = JSON.stringify({ "@context":"https://schema.org","@type":"ContactPage",name:"Contact FieldForm Templates",description:"Email or form to reach FieldForm Templates.",url:`${siteUrl}/contact/`,isPartOf:{"@type":"WebSite",name:"FieldForm Templates",url:siteUrl} });
+const breadcrumbLd = JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:siteUrl},{"@type":"ListItem",position:2,name:"Contact",item:`${siteUrl}/contact/`}] });
+---
+<BaseLayout title="Contact — FieldForm Templates" description="Email hello@fieldformtemplates.com or use the contact form for template requests, corrections, or feedback." canonical={`${siteUrl}/contact/`}>
+  <script is:inline type="application/ld+json" set:html={contactLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <section class="section wrap" style="padding-top:56px;max-width:760px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a> › <span style="color:var(--ink);">Contact</span>
+    </nav>
+    <h1 style="font-size:38px;line-height:1.15;margin-bottom:16px;">Contact</h1>
+    <p style="font-size:18px;color:var(--muted);margin-bottom:32px;">Questions, template requests, or spotted an error in a line item? Reach us directly.</p>
+    <article style="font-size:17px;line-height:1.7;color:var(--ink);">
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Email</h2>
+        <p style="margin-bottom:16px;"><a href="mailto:hello@fieldformtemplates.com" style="color:var(--blue);font-weight:600;">hello@fieldformtemplates.com</a></p>
+        <p style="margin-bottom:16px;">We reply within a few business days. For a faster response on a specific template, include the trade name (e.g., "plumber invoice template") and what you'd like changed.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">What to contact us about</h2>
+        <ul style="margin:0 0 16px 0;padding-left:24px;">
+          <li style="margin-bottom:8px;"><strong>Template requests</strong> — a trade we don't cover yet. We add new trades based on demand.</li>
+          <li style="margin-bottom:8px;"><strong>Corrections</strong> — a line item, sample rate, or tax hint that's wrong for your state.</li>
+          <li style="margin-bottom:8px;"><strong>Feedback</strong> — what would make the template more useful for your workflow.</li>
+          <li style="margin-bottom:8px;"><strong>Broken download</strong> — a file link that 404s or opens corrupted.</li>
+        </ul>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Contact form</h2>
+        <p style="margin-bottom:16px;">Prefer a form? Use the <a href="/about/#contact" style="color:var(--blue);font-weight:600;">contact form on the About page</a> — it sends to the same inbox.</p>
+      </section>
+    </article>
+  </section>
+</BaseLayout>

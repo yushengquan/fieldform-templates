@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const lastUpdated = '2025-01-15';
+const termsLd = JSON.stringify({ "@context":"https://schema.org","@type":"WebPage",name:"Terms of Service",description:"Terms for downloading and using FieldForm Templates.",url:`${siteUrl}/terms/`,isPartOf:{"@type":"WebSite",name:"FieldForm Templates",url:siteUrl} });
+const breadcrumbLd = JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:siteUrl},{"@type":"ListItem",position:2,name:"Terms of Service",item:`${siteUrl}/terms/`}] });
+---
+<BaseLayout title="Terms of Service — FieldForm Templates" description="Free invoice and estimate templates for commercial use. No warranty; verify line items and tax for your jurisdiction." canonical={`${siteUrl}/terms/`}>
+  <script is:inline type="application/ld+json" set:html={termsLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <section class="section wrap" style="padding-top:56px;max-width:760px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a> › <span style="color:var(--ink);">Terms</span>
+    </nav>
+    <h1 style="font-size:38px;line-height:1.15;margin-bottom:16px;">Terms of Service</h1>
+    <p style="font-size:15px;color:var(--muted);margin-bottom:32px;">Last updated: {lastUpdated}</p>
+    <article style="font-size:17px;line-height:1.7;color:var(--ink);">
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">License to use templates</h2>
+        <p style="margin-bottom:16px;">The invoice and estimate templates on this site are free to download and use for commercial and personal purposes. You may edit, print, and distribute filled-out invoices to your clients. You may not resell the blank template files themselves or rebrand them for redistribution as your own template product.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">No warranty</h2>
+        <p style="margin-bottom:16px;">Templates are provided "as is" without warranty of any kind. Line items, sample rates, and tax hints are illustrative — they reflect common practice for each trade but are not legal, tax, or accounting advice. You are responsible for verifying that the line items, pricing, and sales tax treatment are correct for your jurisdiction and job.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Tax and legal compliance</h2>
+        <p style="margin-bottom:16px;">Sales tax rules vary by state and trade. The tax hints in each template are a starting point, not a definitive answer. Consult your state Department of Revenue or a CPA to confirm whether labor, materials, or both are taxable in your jurisdiction. FieldForm Templates is not liable for tax errors on invoices generated from these templates.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Excel formulas</h2>
+        <p style="margin-bottom:16px;">The Excel (.xlsx) variants include formulas for subtotal, tax, and total. We test these formulas before publishing, but spreadsheet software and versions behave differently. Open the file and confirm the formulas calculate correctly before sending the invoice to a client.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Limitation of liability</h2>
+        <p style="margin-bottom:16px;">FieldForm Templates is not liable for any damages arising from the use of these templates, including lost revenue, tax penalties, or client disputes. The templates are a convenience tool, not a substitute for professional invoicing software or accounting advice.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Third-party links</h2>
+        <p style="margin-bottom:16px;">Some pages link to external resources (state DOR sites, manufacturer spec sheets). We are not responsible for the content or availability of external sites.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Contact</h2>
+        <p style="margin-bottom:16px;">Questions about these terms? Email <a href="mailto:hello@fieldformtemplates.com" style="color:var(--blue);">hello@fieldformtemplates.com</a>.</p>
+      </section>
+    </article>
+  </section>
+</BaseLayout>

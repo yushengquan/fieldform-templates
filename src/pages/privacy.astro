@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const lastUpdated = '2025-01-15';
+const privacyLd = JSON.stringify({ "@context":"https://schema.org","@type":"WebPage",name:"Privacy Policy",description:"How FieldForm Templates handles data, cookies, and analytics.",url:`${siteUrl}/privacy/`,isPartOf:{"@type":"WebSite",name:"FieldForm Templates",url:siteUrl} });
+const breadcrumbLd = JSON.stringify({ "@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:siteUrl},{"@type":"ListItem",position:2,name:"Privacy Policy",item:`${siteUrl}/privacy/`}] });
+---
+<BaseLayout title="Privacy Policy — FieldForm Templates" description="FieldForm Templates does not collect personal data. Downloads are direct file links with no sign-up. Analytics is privacy-friendly and aggregated only." canonical={`${siteUrl}/privacy/`}>
+  <script is:inline type="application/ld+json" set:html={privacyLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+  <section class="section wrap" style="padding-top:56px;max-width:760px;">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <a href="/" style="color:var(--muted);">Home</a> › <span style="color:var(--ink);">Privacy</span>
+    </nav>
+    <h1 style="font-size:38px;line-height:1.15;margin-bottom:16px;">Privacy Policy</h1>
+    <p style="font-size:15px;color:var(--muted);margin-bottom:32px;">Last updated: {lastUpdated}</p>
+    <article style="font-size:17px;line-height:1.7;color:var(--ink);">
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">The short version</h2>
+        <p style="margin-bottom:16px;">We do not ask for your name, email, or business details. Every template downloads directly — no sign-up, no email gate, no account. We do not track which template you downloaded or link a download to your identity.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Analytics</h2>
+        <p style="margin-bottom:16px;">We use Google Analytics 4 to understand aggregate traffic — which pages are visited, roughly where visitors come from, and how the site is used. Analytics runs through Partytown in a web worker so it does not slow down the page. We do not send personally identifiable information to Google Analytics, and no cross-site tracking is enabled.</p>
+        <p style="margin-bottom:16px;">You can block analytics with a content blocker or by disabling JavaScript. The site works fully without JavaScript — every template page and download is accessible.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Cookies</h2>
+        <p style="margin-bottom:16px;">Google Analytics may set first-party cookies (<code>_ga</code>, <code>_ga_*</code>) to distinguish unique visitors. These cookies store a random client ID, not your name or email. No third-party advertising cookies are set. No cookies are required to download a template.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Downloads</h2>
+        <p style="margin-bottom:16px;">Template files (.docx, .xlsx, .pdf) are served as direct static links from the same domain. Downloading a file does not send any data to us — your browser requests the file and that is it. We do not require an email address before download.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Contact form</h2>
+        <p style="margin-bottom:16px;">If you use the contact form on the About page, your email address and message are sent to us via Formspree so we can reply. We do not store these submissions in a database, add you to a mailing list, or share your email with third parties.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">What we do not do</h2>
+        <ul style="margin:0 0 16px 0;padding-left:24px;">
+          <li style="margin-bottom:8px;">We do not sell or share data with advertisers.</li>
+          <li style="margin-bottom:8px;">We do not use tracking pixels or cross-site advertising identifiers.</li>
+          <li style="margin-bottom:8px;">We do not require an account or email to download any template.</li>
+          <li style="margin-bottom:8px;">We do not embed third-party social media widgets that track you.</li>
+        </ul>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Children's privacy</h2>
+        <p style="margin-bottom:16px;">The site is intended for trades contractors and small business owners. We do not knowingly collect information from children under 13, and the site does not ask for age or birthdate.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Changes to this policy</h2>
+        <p style="margin-bottom:16px;">If we change how data is handled, this page will be updated with a new "last updated" date. We will not retroactively change the policy to share data we previously promised not to share.</p>
+      </section>
+      <section style="margin-bottom:36px;">
+        <h2 style="font-size:24px;margin-bottom:12px;">Contact</h2>
+        <p style="margin-bottom:16px;">Questions about this policy? Email <a href="mailto:hello@fieldformtemplates.com" style="color:var(--blue);">hello@fieldformtemplates.com</a> or use the <a href="/about/#contact" style="color:var(--blue);">contact form</a>.</p>
+      </section>
+    </article>
+  </section>
+</BaseLayout>
