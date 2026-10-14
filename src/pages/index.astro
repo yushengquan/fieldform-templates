@@ -82,11 +82,54 @@ const itemListLd = JSON.stringify({
 
   <section class="section wrap" style="padding-top:0;">
     <p class="how-to-use-body">
-      Every template on this site is free to download — no email, no signup, no watermark. Pick your trade, pick your format (PDF, Word, or Excel), and you have a professional invoice or estimate in under five minutes. The <strong>Excel versions</strong> ship with live formulas for subtotal, tax, and total — just enter your quantities and rates, and the math updates itself. The <strong>Word versions</strong> are fully editable: drop in your logo, change the accent color, swap fonts to match your brand. Every template is pre-filled with the line items that trade actually uses — a plumber's invoice has call-out fee, labor, parts, and warranty; an electrician's has panels, fixtures, and permits — so you start from something realistic, not a blank table. All templates include fields for your business name, license number, client details, payment terms, and due date. Download as many as you need, for as many trades as you work in.
+      Every template on this site is free to download — no email, no signup, no watermark. Pick your trade, pick your format (PDF, Word, or Excel), and you have a professional invoice or estimate in under five minutes. The <strong>Excel versions</strong> ship with live formulas for subtotal, tax, and total — just enter your quantities and rates, and the math updates itself. The <strong>Word versions</strong> are fully editable: drop in your logo, change the accent color, swap fonts to match your brand. Every template is pre-filled with the line items that trade actually uses — a plumber's invoice has call-out fee, labor, parts, and warranty; an electrician's has panels, fixtures, and permits; a <a href="/templates/tiling-estimate-template/" style="color:var(--blue);font-weight:600;">tile job estimate</a> has installation per sq ft, grouting, demo, and waterproofing — so you start from something realistic, not a blank table. All templates include fields for your business name, license number, client details, payment terms, and due date. Download as many as you need, for as many trades as you work in.
     </p>
   </section>
 
+  <section class="section wrap" id="popular" style="padding-top:8px;">
+    <div class="section-head">
+      <h2>Most searched templates</h2>
+      <p>The templates trades are looking for right now — pre-filled, free to download.</p>
+    </div>
+    <div class="grid3">
+      <a class="card" style="text-decoration:none;color:var(--ink);" href="/templates/pest-control-invoice-template/">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">invoice</span>
+        <h3 style="margin-bottom:6px;">Pest Control Invoice</h3>
+        <p style="color:var(--muted);font-size:14px;">Service call, treatment, chemicals, warranty — pre-filled for pest control billing.</p>
+      </a>
+      <a class="card" style="text-decoration:none;color:var(--ink);" href="/templates/electrician-invoice-template/">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">invoice</span>
+        <h3 style="margin-bottom:6px;">Electrician Invoice</h3>
+        <p style="color:var(--muted);font-size:14px;">Panels, fixtures, permits, labor — pre-filled for how electricians actually bill.</p>
+      </a>
+      <a class="card" style="text-decoration:none;color:var(--ink);" href="/templates/tiling-estimate-template/">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">estimate</span>
+        <h3 style="margin-bottom:6px;">Tile Job Estimate</h3>
+        <p style="color:var(--muted);font-size:14px;">Installation per sq ft, labor, grouting, demo, waterproofing — quote a tile job in minutes.</p>
+      </a>
+      <a class="card" style="text-decoration:none;color:var(--ink);" href="/templates/hvac-invoice-template/">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">invoice</span>
+        <h3 style="margin-bottom:6px;">HVAC Invoice</h3>
+        <p style="color:var(--muted);font-size:14px;">System install, service call, parts, labor — pre-filled for HVAC billing.</p>
+      </a>
+      <a class="card" style="text-decoration:none;color:var(--ink);" href="/templates/locksmith-invoice-template/">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">invoice</span>
+        <h3 style="margin-bottom:6px;">Locksmith Invoice</h3>
+        <p style="color:var(--muted);font-size:14px;">Service call, rekey, lock install, emergency call-out — pre-filled for locksmiths.</p>
+      </a>
+      <a class="card" style="text-decoration:none;color:var(--ink);" href="/templates/electrician-estimate-template/">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">estimate</span>
+        <h3 style="margin-bottom:6px;">Electrical Estimate</h3>
+        <p style="color:var(--muted);font-size:14px;">Panels, wiring, fixtures, permits — quote electrical work with deposit terms.</p>
+      </a>
+    </div>
+  </section>
+
   <section class="section wrap" id="templates" style="padding-top:8px;">
+    <div class="section-head">
+      <h2>All templates</h2>
+      <p>Browse the full library — {trades.length} templates across every trade.</p>
+    </div>
     <div class="grid2">
       {trades.map((t: any) => (
         <a class="tpl-card" href={`/templates/${t.slug}/`}
