@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.8",
-    "agent-browser": "^0.39.0",
     "astro": "^5.0.0"
   },
   "allowScripts": {
