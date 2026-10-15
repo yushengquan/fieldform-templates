@@ -40,11 +40,14 @@ const linkedGuide = allGuides.find((g: any) => g.templateSlug === trade.slug);
 
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
 const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Excel Format' : '';
+// Word/Excel 变体页 title 加入 "Bill Format" 同义词 — 用户高频搜 "bill format" 而非 "invoice template"
+const billSynonym = trade.docType === 'invoice' ? ' (Bill Format)' : '';
 const pageTitle = format
-  ? `${trade.title} — Free ${fmtPhrase} Download`
+  ? `${trade.title}${billSynonym} — Free ${fmtLabel} Download`
   : `${trade.title} — FieldForm Templates`;
+const docSynonym = trade.docType === 'invoice' ? 'invoice (bill)' : trade.docType;
 const pageDesc = format
-  ? `Download a free ${trade.trade.toLowerCase()} ${trade.docType} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade.toLowerCase()} line items and auto-calculating totals.`
+  ? `Download a free ${trade.trade.toLowerCase()} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade.toLowerCase()} line items and auto-calculating totals.`
   : trade.subtitle;
 const firstItem = items[0] ?? { code: 'ITEM', description: 'your first line item' };
 const exampleItem = `${firstItem.description} (${firstItem.code})`;
@@ -234,6 +237,14 @@ const howToLd = JSON.stringify({
           <p>After editing, use File → Save As → PDF to send a polished invoice or estimate that the client cannot accidentally alter.</p>
         </div>
       </div>
+      {trade.docType === 'invoice' && (
+        <p style="margin-top:24px;font-size:15px;color:var(--muted);line-height:1.7;">
+          This Word file works as a ready-made <strong>{trade.trade.toLowerCase()} bill format</strong> — the same
+          fields, layout, and line items as a printed bill, but fully editable. Many {trade.trade.toLowerCase()}s
+          call it a bill, others an invoice; in Word the document is identical. Save a copy as your master
+          bill template and reuse it for every job.
+        </p>
+      )}
     </section>
   )}
 
@@ -265,6 +276,20 @@ const howToLd = JSON.stringify({
       <h2>What the file looks like</h2>
       <p>Every field maps to data — swap the content, keep the structure.</p>
     </div>
+    <figure class="preview-figure" style="margin:0;">
+      <img
+        src={`/previews/${trade.slug}.png`}
+        srcset={`/previews/${trade.slug}.png 1000w, /previews/${trade.slug}@2x.png 2000w`}
+        sizes="(max-width: 760px) 100vw, 760px"
+        width="1000"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+        alt={`${trade.title} preview — pre-filled ${trade.trade.toLowerCase()} ${trade.docType} with auto-calculating totals`}
+        style="width:100%;max-width:760px;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(22,40,59,.08);display:block;margin:0 auto;"
+      />
+      <figcaption style="text-align:center;font-size:13px;color:var(--muted);margin-top:10px;">Preview of the {trade.docType} layout — actual file is editable in Excel, Word &amp; PDF.</figcaption>
+    </figure>
     <InvoicePreview trade={trade} />
   </section>
 
