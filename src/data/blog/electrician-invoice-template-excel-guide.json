@@ -1,0 +1,62 @@
+{
+  "slug": "electrician-invoice-template-excel-guide",
+  "title": "Electrician Invoice Template Excel Guide: Wiring Labor, Travel & Materials",
+  "description": "Step-by-step guide to using an electrician invoice template in Excel — how to line-item labor hours, travel time, conduit, fixtures, and panel upgrades so your invoice is clear and gets paid fast.",
+  "h1": "How to Invoice as an Electrician (Excel Template Walkthrough)",
+  "category": "Trade Guides",
+  "date": "2025-02-20",
+  "intro": "Electricians lose money on invoices that lump 'labor + materials' into one number. Clients can't tell what they're paying for, disputes follow, and you eat the difference. This walkthrough shows exactly how to structure an electrician invoice in Excel — line by line, with the formulas that auto-calculate tax and totals — so every charge is defensible and every invoice gets paid without a fight.",
+  "sections": [
+    {
+      "h2": "Why electricians need a line-itemed invoice (not a lump sum)",
+      "blocks": [
+        { "type": "p", "text": "A lump-sum invoice — 'Rewired kitchen: $1,200' — invites questions. Was that 8 hours of labor? How much was the wire? Did you charge for the breaker? Clients trust an invoice that shows the work, not just the total. Line-itemed invoices get paid faster because the client can match each charge to the work they saw you do." },
+        { "type": "ul", "items": [
+          "Labor hours × hourly rate (separate from materials)",
+          "Travel / service call fee (if applicable)",
+          "Materials with per-unit pricing (conduit per foot, breakers each)",
+          "Fixture cost passed through at cost or with markup — your choice, but be consistent",
+          "Permit fee if you pulled one"
+        ]}
+      ]
+    },
+    {
+      "h2": "The 5 line items every electrician invoice should have",
+      "blocks": [
+        { "type": "p", "text": "Not every job needs all five, but these are the categories that cover 90% of residential and light commercial electrical work. The Excel template has these pre-filled — you adjust quantities and rates." },
+        { "type": "table", "headers": ["Line item", "Typical unit", "Sample rate"], "rows": [
+          ["Service call / diagnostic", "each", "$75–$120"],
+          ["Labor (licensed electrician)", "hour", "$75–$125/hr"],
+          ["Apprentice labor", "hour", "$35–$55/hr"],
+          ["Conduit / wire / fittings", "foot or each", "varies by gauge"],
+          ["Breakers, panels, fixtures", "each", "pass-through + markup"]
+        ]}
+      ]
+    },
+    {
+      "h2": "How the Excel formulas work",
+      "blocks": [
+        { "type": "p", "text": "The template has three formula cells: Subtotal = SUM of all line amounts, Tax = Subtotal × your state rate, Total = Subtotal + Tax. You enter the tax rate once (in the labeled cell) and every line updates. Leave the tax rate cell blank if your state doesn't tax labor — some states tax only materials, not labor, and the template handles both." },
+        { "type": "p", "text": "For travel time: add it as a line item ('Travel — 1.5 hrs @ $60/hr') rather than hiding it in the labor rate. Clients accept a travel line more readily than a higher hourly rate, because they can see it's proportional to distance." }
+      ]
+    },
+    {
+      "h2": "Marking materials vs labor for tax",
+      "blocks": [
+        { "type": "p", "text": "Some states (like Washington, Pennsylvania) tax materials but not labor. Others (like Texas) tax neither for real-property improvements. The Excel template has a 'taxable' flag per line — set it false for non-taxable lines and the tax formula skips them. Check your state's DOR publication before assuming; the rules change and some have labor-specific exemptions only for new construction, not repairs." }
+      ]
+    },
+    {
+      "h2": "Download the template and plug in your numbers",
+      "blocks": [
+        { "type": "p", "text": "The free electrician invoice template comes in Excel, Word, and PDF. The Excel version has the tax and total formulas pre-wired — just enter your quantities and rates. The Word version is easiest to brand with your logo. The PDF is print-ready for hand-filled invoices on the truck." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Should I charge travel time on my electrician invoice?", "a": "Yes, as a separate line item. Most clients accept a transparent travel charge more readily than a padded hourly rate. Charge your hourly rate or a flat service-call fee — pick one and be consistent across all jobs." },
+    { "q": "How do I handle permit fees on the invoice?", "a": "List the permit as a separate line item at cost (pass-through). Don't bury it in materials — clients who see 'Permit: $85' don't question it; clients who see a higher total do." },
+    { "q": "Can I mark up materials I buy for the job?", "a": "Yes, and most electricians do (10–20% is common). Be consistent — if you mark up conduit, mark up breakers too. Some states require you to disclose the markup on the invoice; check your contractor licensing rules." },
+    { "q": "Is there a free electrician invoice template for Excel?", "a": "Yes — download the free electrician invoice template on this site. The Excel version auto-calculates subtotal, tax, and total. No email required; just download and start typing." }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "plumbing-invoice-template-word-guide",
+  "title": "Plumbing Invoice Template Word Guide: Line-Iteming Labor, Fixtures & Trip Fees",
+  "description": "Step-by-step guide to using a plumbing invoice template in Word — line-item labor, trip fees, fixtures, and fittings so your invoice is clear, defensible, and gets paid without a dispute.",
+  "h1": "How to Invoice a Plumbing Job in Word (Template Walkthrough)",
+  "category": "Trade Guides",
+  "date": "2025-03-04",
+  "intro": "Plumbers lose money on invoices that lump everything into one number. This walkthrough shows how to structure a plumbing invoice in Word, line by line, using the free template.",
+  "sections": [
+    {
+      "h2": "Why a line-itemed plumbing invoice beats a lump sum",
+      "blocks": [
+        { "type": "p", "text": "A lump-sum invoice hides your pricing. The client can't tell what was labor, what was the fixture, what was the trip — and a vague invoice is the one that gets disputed. A line-itemed invoice shows each charge separately, so the client can match every dollar to the work they watched you do." },
+        { "type": "p", "text": "Line-itemed invoices also protect you in a dispute. Your itemized trip fee, labor hours, and fixture cost are your record of what was billed. A lump sum gives you nothing to point to." }
+      ]
+    },
+    {
+      "h2": "The 6 line items a plumbing invoice should have",
+      "blocks": [
+        { "type": "p", "text": "Not every job needs all six, but these cover most residential service calls. The Word template has these as pre-filled rows — edit the description, quantity, and rate, and delete the rows you don't need." },
+        { "type": "table", "headers": ["Line item", "Typical unit", "Sample rate"], "rows": [
+          ["Trip / service call fee", "each", "$75-$150"],
+          ["Diagnostic time", "hour", "$75-$125/hr"],
+          ["Labor (licensed plumber)", "hour", "$90-$150/hr"],
+          ["Apprentice labor", "hour", "$40-$60/hr"],
+          ["Fixtures (faucet, valve, toilet)", "each", "cost + markup"],
+          ["Pipe, fittings, consumables", "foot or each", "cost + markup"]
+        ]}
+      ]
+    },
+    {
+      "h2": "How to handle the trip fee in Word",
+      "blocks": [
+        { "type": "p", "text": "The trip fee is the most disputed charge in plumbing invoicing — because plumbers hide it. Some roll it into a higher hourly rate; some add it silently to materials. Pick one method and be consistent, then show it as its own line on every invoice." },
+        { "type": "p", "text": "In the Word template, the trip fee is the first row: 'Trip / service call — 1 each @ $95.' State it upfront when you book the job and it never surprises anyone on the invoice." }
+      ]
+    },
+    {
+      "h2": "Marking up fixtures vs passing through at cost",
+      "blocks": [
+        { "type": "p", "text": "Pass the fixture through at your exact cost, or mark it up 15-25% to cover sourcing, pickup, and warranty handling. Both are legitimate — the mistake is being inconsistent or hiding the markup." },
+        { "type": "p", "text": "If you mark up, show one line: 'Kitchen faucet (Moen 87233) — 1 @ $145.' If you pass through at cost, show the same line at your cost and add a separate 'Materials handling — 15%' line so the charge is visible." }
+      ]
+    },
+    {
+      "h2": "Editing the Word template: the 4 things to change first",
+      "blocks": [
+        { "type": "ul", "items": [
+          "Business name, license number, and phone in the header — clients check the license number on every plumbing invoice",
+          "Tax rate cell — look up your state's rule (some tax labor, some tax only materials, some exempt residential repairs)",
+          "Line-item rows — delete unused rows, edit quantities and rates on the ones you did use",
+          "Payment terms line — Net 15 vs Due on receipt vs COD"
+        ]}
+      ]
+    },
+    {
+      "h2": "Download the plumbing invoice template (Word, Excel, PDF)",
+      "blocks": [
+        { "type": "p", "text": "The free plumbing invoice template comes in three formats. The Word version is easiest to edit and brand with your logo. The Excel version auto-calculates tax and totals. The PDF is print-ready for hand-filled invoices on the truck. All three are pre-filled with plumbing line items." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Should I charge a trip fee on every plumbing invoice?", "a": "Yes, as a visible line item. The trip fee covers travel time and fuel. Hiding it in a padded hourly rate causes disputes. Show it as 'Trip / service call — 1 @ $95' and state it when you book the job." },
+    { "q": "Do I need my plumbing license number on the invoice?", "a": "In most states, yes. Put it in the header next to your business name." }
+  ]
+}

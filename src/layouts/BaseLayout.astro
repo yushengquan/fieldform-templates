@@ -21,6 +21,8 @@ const imageUrl = new URL(ogImage ?? '/og-image.png', site).toString();
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>
+  <link rel="alternate" hreflang="en-US" href={canonicalUrl}>
+  <link rel="alternate" hreflang="x-default" href={canonicalUrl}>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/archivo-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/archivo-800.woff2" as="font" type="font/woff2" crossorigin>
@@ -38,7 +40,7 @@ const imageUrl = new URL(ogImage ?? '/og-image.png', site).toString();
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={imageUrl}>
-  <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-FWVBSQTZVH"></script>
+  <script type="text/partytown" defer src="https://www.googletagmanager.com/gtag/js?id=G-FWVBSQTZVH"></script>
   <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
