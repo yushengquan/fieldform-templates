@@ -1,0 +1,215 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Invoice Calculator — Free Online Tool for Trades & Contractors';
+const description = 'Free invoice calculator for contractors and trades. Enter labor hours, hourly rate, materials, and tax — get instant subtotal, tax, and total. No signup. Works on phone. Bookmark for repeat use.';
+const canonical = 'https://fieldformtemplates.com/invoice-calculator/';
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:40px;">
+    <div class="section-head">
+      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Free Tool</p>
+      <h1>Invoice Calculator</h1>
+      <p class="lead">Enter your labor, materials, and tax rate — get an instant, accurate total. Built for contractors, trades, and freelancers. No signup, no email, works offline.</p>
+    </div>
+    <div class="grid2" style="margin-top:30px;gap:32px;align-items:start;">
+      <div class="card" style="padding:28px;">
+        <h2 style="font-size:20px;margin-bottom:20px;">Your costs</h2>
+        <div style="margin-bottom:24px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Labor</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="hours" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Hours worked</label>
+              <input id="hours" type="number" min="0" step="0.5" value="8" class="calc-input" />
+            </div>
+            <div>
+              <label for="rate" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Hourly rate ($)</label>
+              <input id="rate" type="number" min="0" step="5" value="65" class="calc-input" />
+            </div>
+          </div>
+          <p id="labor-line" style="font-size:13px;color:var(--muted);margin-top:8px;">8 hrs × $65/hr = $520.00</p>
+        </div>        <div style="margin-bottom:24px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Materials &amp; parts</p>
+          <div id="materials-list">
+            <div class="mat-row" style="display:grid;grid-template-columns:1fr 100px 32px;gap:8px;margin-bottom:8px;align-items:end;">
+              <input type="text" class="mat-name calc-input" placeholder="Item (e.g. Copper pipe)" style="font-size:14px;" />
+              <input type="number" class="mat-cost calc-input" min="0" step="0.01" placeholder="Cost $" style="font-size:14px;text-align:right;" />
+              <button class="mat-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>
+            </div>
+          </div>
+          <button id="add-mat" style="font-size:14px;color:var(--accent);background:none;border:none;cursor:pointer;font-weight:600;padding:4px 0;">+ Add material line</button>
+        </div>
+        <div style="margin-bottom:24px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Other costs</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="trip" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Trip / call-out fee ($)</label>
+              <input id="trip" type="number" min="0" step="5" value="0" class="calc-input" />
+            </div>
+            <div>
+              <label for="misc" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Misc / other ($)</label>
+              <input id="misc" type="number" min="0" step="0.01" value="0" class="calc-input" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Tax</p>
+          <label for="tax" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Sales tax rate (%)</label>
+          <input id="tax" type="number" min="0" max="100" step="0.1" value="0" class="calc-input" />
+          <p style="font-size:12px;color:var(--muted);margin-top:6px;">Leave 0 if your services are tax-exempt in your state.</p>
+        </div>
+      </div>      <div class="card" style="padding:28px;background:linear-gradient(135deg,#f0f7ff,#e8f4fe);border-color:#b8d8f5;position:sticky;top:80px;">
+        <h2 style="font-size:20px;margin-bottom:20px;">Invoice total</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Labor</span>
+            <span id="r-labor" style="font-weight:600;">$520.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Materials</span>
+            <span id="r-materials" style="font-weight:600;">$0.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Other costs</span>
+            <span id="r-other" style="font-weight:600;">$0.00</span>
+          </div>
+          <div style="border-top:1px solid var(--line);padding-top:14px;margin-top:4px;display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Subtotal</span>
+            <span id="r-subtotal" style="font-weight:600;">$520.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);" id="tax-label">Tax (0%)</span>
+            <span id="r-tax" style="font-weight:600;">$0.00</span>
+          </div>
+          <div style="border-top:2px solid var(--accent);padding-top:14px;margin-top:4px;display:flex;justify-content:space-between;align-items:baseline;">
+            <span style="font-size:18px;font-weight:700;">Total</span>
+            <span id="r-total" style="font-size:28px;font-weight:800;color:var(--accent);">$520.00</span>
+          </div>
+        </div>
+        <button id="copy-btn" class="btn btn-primary btn-block" style="margin-top:24px;">Copy breakdown to clipboard</button>
+        <p id="copy-msg" style="font-size:13px;color:var(--teal);text-align:center;margin-top:8px;display:none;">Copied! Paste into your invoice or notes.</p>
+      </div>
+    </div>
+  </section>  <section class="section wrap" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>How invoice math works</h2>
+    </div>
+    <div class="grid3" style="margin-top:24px;">
+      <div class="card">
+        <h3>Labor cost</h3>
+        <p>Hours worked × your hourly rate. For a plumber charging $65/hr on an 8-hour job: 8 × 65 = $520. Track partial hours as decimals (1.5 hrs = 90 min).</p>
+      </div>
+      <div class="card">
+        <h3>Materials markup</h3>
+        <p>Charge the actual cost of parts, or add a 15-20% markup to cover pickup time and warranty risk. Enter the final amount you charge the customer, not your wholesale cost.</p>
+      </div>
+      <div class="card">
+        <h3>Sales tax</h3>
+        <p>Most states tax materials but not labor for services. Check your state rules — if labor is exempt, calculate tax on materials only, not the full subtotal.</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:20px 24px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:15px;line-height:1.6;"><strong>Need a template to put this in?</strong> Grab a free <a href="/invoice-templates/" style="color:var(--accent);font-weight:600;">invoice template</a> or <a href="/estimate-templates/" style="color:var(--accent);font-weight:600;">estimate template</a> — pre-filled for your trade, downloads as Word, Excel, or PDF. No signup.</p>
+    </div>
+  </section>
+  <section class="section wrap" style="padding-top:20px;">
+    <div class="section-head">
+      <h2>FAQ</h2>
+    </div>
+    <div style="margin-top:20px;">
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">Should I charge tax on labor?</summary>
+        <p style="margin-top:10px;color:var(--muted);">In most US states, labor for services (repair, installation) is tax-exempt, while materials are taxable. But rules vary — some states tax labor for new construction, others for repairs. Check your state Department of Revenue or ask your accountant.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">What hourly rate should I charge?</summary>
+        <p style="margin-top:10px;color:var(--muted);">Trades typically charge $50-$120/hr depending on specialty and region. Plumbers and electricians average $75-$130. General handyman $50-$80. Factor in your overhead (truck, insurance, tools) — not just what you want to take home.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">How do I add a trip fee?</summary>
+        <p style="margin-top:10px;color:var(--muted);">Use the "Trip / call-out fee" field. Common practice: charge a flat $25-$75 for coming to the site, sometimes waived if the job exceeds a minimum amount. Some trades call this a "service call fee" — same thing.</p>
+      </details>
+    </div>
+  </section>  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Invoice Calculator",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any (web browser)",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    description: "Free online invoice calculator for contractors and trades. Calculate labor, materials, tax, and total instantly.",
+    url: "https://fieldformtemplates.com/invoice-calculator/"
+  })} />
+  <style>
+    .calc-input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:16px;font-family:inherit;background:var(--surface);color:var(--ink);}
+    .calc-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,104,212,.12);}
+    @media(max-width:720px){.grid2{grid-template-columns:1fr !important;}}
+  </style>  <script is:inline>
+    (function(){
+      var D = function(id){ return document.getElementById(id); };
+      var fmt = function(n){ return '$' + n.toFixed(2); };
+      function num(id){ var v = parseFloat(D(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+      function matSum(){
+        var s = 0;
+        document.querySelectorAll('.mat-cost').forEach(function(el){
+          var v = parseFloat(el.value); if(!isNaN(v) && v > 0) s += v;
+        });
+        return s;
+      }
+      function calc(){
+        var h = num('hours'), r = num('rate');
+        var labor = h * r;
+        var mats = matSum();
+        var other = num('trip') + num('misc');
+        var sub = labor + mats + other;
+        var taxRate = num('tax');
+        var tax = sub * taxRate / 100;
+        var total = sub + tax;
+        D('labor-line').textContent = h + ' hrs × $' + r + '/hr = ' + fmt(labor);
+        D('r-labor').textContent = fmt(labor);
+        D('r-materials').textContent = fmt(mats);
+        D('r-other').textContent = fmt(other);
+        D('r-subtotal').textContent = fmt(sub);
+        D('r-tax').textContent = fmt(tax);
+        D('tax-label').textContent = 'Tax (' + taxRate + '%)';
+        D('r-total').textContent = fmt(total);
+      }
+      D('add-mat').addEventListener('click', function(){
+        var list = D('materials-list');
+        var row = document.createElement('div');
+        row.className = 'mat-row';
+        row.style.cssText = 'display:grid;grid-template-columns:1fr 100px 32px;gap:8px;margin-bottom:8px;align-items:end;';
+        row.innerHTML = '<input type="text" class="mat-name calc-input" placeholder="Item" style="font-size:14px;" />' +
+          '<input type="number" class="mat-cost calc-input" min="0" step="0.01" placeholder="Cost $" style="font-size:14px;text-align:right;" />' +
+          '<button class="mat-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>';
+        list.appendChild(row);
+        row.querySelectorAll('input').forEach(function(el){ el.addEventListener('input', calc); });
+        row.querySelector('.mat-del').addEventListener('click', function(){ row.remove(); calc(); });
+        calc();
+      });
+      document.querySelectorAll('.mat-del').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var row = btn.closest('.mat-row');
+          if(row && document.querySelectorAll('.mat-row').length > 1){ row.remove(); calc(); }
+        });
+      });
+      document.querySelectorAll('.calc-input').forEach(function(el){ el.addEventListener('input', calc); });
+      D('copy-btn').addEventListener('click', function(){
+        var lines = [];
+        lines.push('Labor: ' + D('r-labor').textContent);
+        lines.push('Materials: ' + D('r-materials').textContent);
+        lines.push('Other: ' + D('r-other').textContent);
+        lines.push('Subtotal: ' + D('r-subtotal').textContent);
+        lines.push(D('tax-label').textContent + ': ' + D('r-tax').textContent);
+        lines.push('TOTAL: ' + D('r-total').textContent);
+        var text = lines.join('\n');
+        if(navigator.clipboard){
+          navigator.clipboard.writeText(text).then(function(){
+            var msg = D('copy-msg'); msg.style.display = 'block';
+            setTimeout(function(){ msg.style.display = 'none'; }, 2500);
+          });
+        }
+      });
+      calc();
+    })();
+  </script>
+</BaseLayout>
