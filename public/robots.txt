@@ -17,7 +17,9 @@ Disallow: /*?filter=
 Disallow: /*?page=
 Disallow: /*?q=
 
-# 不允许爬取下载文件本身(HTML 才是要索引的内容)
-Disallow: /downloads/
+# 屏蔽可编辑源文件(与 HTML 页内容重复,PDF 保留索引作为额外搜索入口:
+# 用户直接搜 "[trade] invoice template pdf" 时 PDF 能单独出现在结果里)
+Disallow: /downloads/*.xlsx$
+Disallow: /downloads/*.docx$
 
 Sitemap: https://fieldformtemplates.com/sitemap.xml
