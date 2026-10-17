@@ -1,0 +1,61 @@
+{
+  "slug": "hvac-invoice-template-excel-guide",
+  "title": "HVAC Invoice Template Excel Guide: Auto-Calculating Labor, Parts & Seasonal Work",
+  "description": "How to use an HVAC invoice template in Excel — formulas that calculate labor, parts markup, and tax automatically, plus line items for service calls, tune-ups, and seasonal maintenance.",
+  "h1": "How to Invoice HVAC Work in Excel (Template Walkthrough)",
+  "category": "Trade Guides",
+  "date": "2025-03-06",
+  "intro": "HVAC billing mixes hourly labor, flat-rate services, parts with markup, and seasonal maintenance plans — the Excel template calculates all of it automatically so you never hand-total an invoice again.",
+  "sections": [
+    {
+      "h2": "Why Excel beats Word for HVAC invoices",
+      "blocks": [
+        { "type": "p", "text": "An HVAC invoice changes on the truck: the diagnostic finds a bad capacitor, you add the part, the labor runs longer than quoted. In Word you retype numbers and re-add totals by hand. In Excel, you edit quantities and rates — subtotal, tax, and total recalculate instantly." },
+        { "type": "p", "text": "The Excel template also keeps a pricing record. When a client calls back asking what you charged for the blower motor last summer, you reopen the file and every line is still there with its formula." }
+      ]
+    },
+    {
+      "h2": "The line items HVAC invoices actually need",
+      "blocks": [
+        { "type": "p", "text": "HVAC work splits into service calls, repairs, and maintenance plans — each bills differently. The template pre-fills the rows that cover all three, so you delete what you did not use." },
+        { "type": "table", "headers": ["Line item", "Typical unit", "Sample rate"], "rows": [
+          ["Service call / diagnostic", "each", "$75-$125"],
+          ["Labor (certified tech)", "hour", "$85-$140/hr"],
+          ["Refrigerant (R-410A)", "pound", "$70-$120/lb"],
+          ["Parts (capacitor, contactor, motor)", "each", "cost + 20-30%"],
+          ["Seasonal tune-up", "each", "$99-$189"],
+          ["Maintenance plan (annual)", "year", "$150-$350"]
+        ]}
+      ]
+    },
+    {
+      "h2": "How the formulas work in the template",
+      "blocks": [
+        { "type": "p", "text": "Each line multiplies quantity by rate — =D12*E12 in the amount column. The subtotal sums the amounts, tax applies your rate to the taxed rows only, and the total adds them. If your state taxes parts but not labor, the tax column flags each row as taxable or exempt, so the formula only picks up what it should." },
+        { "type": "p", "text": "Parts markup is one edit: type your cost in the cost column, set the markup cell to 25%, and the rate cell shows cost times 1.25. Change the markup once and every part line updates." }
+      ]
+    },    {
+      "h2": "Billing refrigerant correctly",
+      "blocks": [
+        { "type": "p", "text": "Refrigerant is the most mispriced line in HVAC invoicing. Bill it by the pound, weighed — 'R-410A — 3.5 lb @ $95/lb' — not as a flat add-on. Keep the recovery and vacuum time in the labor line, not hidden in the refrigerant price, so each charge is defensible." },
+        { "type": "p", "text": "The Excel template has refrigerant pre-built as a per-pound row. Change the unit price to your supplier rate plus handling, and edit the pounds to two decimals from your scale ticket." }
+      ]
+    },
+    {
+      "h2": "Maintenance plans: invoice once, bill yearly",
+      "blocks": [
+        { "type": "p", "text": "Annual maintenance plans bill best as a single line at the start of the plan year: 'Precision tune-up plan (2 visits) — 1 year @ $249.' When you perform each tune-up, leave the invoice amount at zero and note 'Covered under plan' — the visit is logged in your file without confusing the client with a zero-dollar bill." }
+      ]
+    },
+    {
+      "h2": "Download the HVAC invoice template (Excel, Word, PDF)",
+      "blocks": [
+        { "type": "p", "text": "The free HVAC invoice template comes in three formats. Excel auto-calculates labor, parts markup, and tax. Word is easiest to brand with your logo. PDF is print-ready for clipboards. All three pre-fill the HVAC line items from this guide." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Should HVAC labor be billed hourly or flat-rate?", "a": "Both work if you show them honestly. Hourly fits diagnostics and repairs; flat-rate fits known jobs like tune-ups and install upgrades. Whatever you pick, keep the method visible on the invoice line — never blend labor into a parts price." },
+    { "q": "How much should I mark up HVAC parts?", "a": "Most shops mark up 20-30% over cost to cover sourcing, truck stock, and warranty handling. The key is consistency — one markup policy applied to every part on every invoice." }
+  ]
+}

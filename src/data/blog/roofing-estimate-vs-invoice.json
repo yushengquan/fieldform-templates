@@ -1,0 +1,74 @@
+{
+  "slug": "roofing-estimate-vs-invoice",
+  "title": "Roofing Estimate vs Invoice: When to Send Which (Free Templates)",
+  "description": "Roofers need both documents: the estimate wins the job and the invoice gets you paid. Here is when to send each, how to convert one to the other, and how to handle change orders and deposits.",
+  "h1": "Roofing Estimate vs Invoice: Which One, When",
+  "category": "Trade Guides",
+  "date": "2025-03-08",
+  "intro": "A roofing estimate is a price you might charge; an invoice is a bill for work done. Roofers who blur the two get disputes, scope creep, and slow payments — this guide keeps them straight.",
+  "sections": [
+    {
+      "h2": "The difference in one table",
+      "blocks": [
+        { "type": "table", "headers": ["", "Estimate", "Invoice"], "rows": [
+          ["When sent", "Before work starts", "After work completes (or at milestones)"],
+          ["What it is", "A priced proposal — a quote", "A bill — a request for payment"],
+          ["Legally", "Usually not a demand for payment", "A payable document (often a contract once signed)"],
+          ["Numbers", "Expected quantities and prices", "Actual quantities and final prices"],
+          ["Best format", "PDF or printed, for signature", "PDF by email, due date on it"]
+        ]},
+        { "type": "p", "text": "Same numbers, different jobs. The estimate sets expectations; the invoice collects on them. Sending an invoice before work starts confuses clients; sending an estimate after the work is done confuses accountants." }
+      ]
+    },
+    {
+      "h2": "The roofing workflow: estimate, deposit, then invoice",
+      "blocks": [
+        { "type": "p", "text": "The standard flow for a re-roof or major repair: inspect, send the estimate with a signature line, collect the agreed deposit (typically 10-30% where legal), order materials, do the work, then send a final invoice that shows the deposit already paid and the balance due." },
+        { "type": "p", "text": "The final invoice should reference the estimate — 'Per signed estimate dated March 4' — and itemize any changes. That one line converts an argument about price into a comparison of documents." }
+      ]
+    },
+    {
+      "h2": "What a roofing estimate must include",
+      "blocks": [
+        { "type": "ul", "items": [
+          "Squares of shingles and the shingle type and color",
+          "Tear-off and disposal (dumpster or trailer) as its own line",
+          "Underlayment, ice-and-water shield, and drip edge by the linear foot",
+          "Flashing work — new vs re-use, valley vs chimney vs vent",
+          "Labor rate and estimated hours or the flat labor price",
+          "Validity window — prices good for 30 days, material costs move",
+          "Signature and date lines for both parties"
+        ]}
+      ]
+    },    {
+      "h2": "Converting the estimate to the invoice (without retyping)",
+      "blocks": [
+        { "type": "p", "text": "Open your estimate file, copy the line items into the invoice template, and adjust three things: actual quantities (the tear-off found two more sheets of decking), actual prices (lumber moved), and the deposit line. Everything else — client details, line structure, terms — carries over, which is why using estimate and invoice templates from the same family pays off." },
+        { "type": "p", "text": "Show the deposit as its own line near the total: 'Deposit received March 12 — ($2,400).' The client sees the remaining balance immediately and payment gets faster." }
+      ]
+    },
+    {
+      "h2": "Change orders: the estimate's amendment",
+      "blocks": [
+        { "type": "p", "text": "When the tear-off reveals rotten decking, do not silently absorb it and do not surprise the client on the final invoice. Write a short change order — what was found, the fix, the price — and get a signature before proceeding. Attach it to the final invoice as a line: 'Decking replacement, per change order #1 — 6 sheets @ $85.'" },
+        { "type": "p", "text": "Roofers who paper every change order get paid in full. Roofers who mention surprise charges for the first time on the final invoice get disputes, holdbacks, and reviews that mention both." }
+      ]
+    },
+    {
+      "h2": "Deposits and progress payments, done legally",
+      "blocks": [
+        { "type": "p", "text": "Some states cap roofing deposits (California caps them at the lesser of 10% or $1,000) or require registration before taking any money. Check your state contractor board before setting deposit policy — the invoice template has a deposit line that works with any rule." }
+      ]
+    },
+    {
+      "h2": "Download the free templates",
+      "blocks": [
+        { "type": "p", "text": "The roofing estimate template and roofing invoice template are free in Word, Excel, and PDF. Use the same line items in both so converting an estimate to an invoice is copy-and-adjust, not a rewrite. No signup, no email gate." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Can an estimate be used as an invoice?", "a": "No — but a signed estimate plus a payment request can function like one in a pinch. For anything beyond small repairs, send a proper invoice: it has a due date, payment instructions, and a number for your records." },
+    { "q": "What if the final cost exceeds the estimate?", "a": "If the scope changed, document it with a signed change order and bill it as its own line. If your estimate was simply wrong on quantities, honor the signed number and fix your estimating for the next job — that is the cost of learning." }
+  ]
+}
