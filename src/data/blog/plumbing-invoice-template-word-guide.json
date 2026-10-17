@@ -56,10 +56,16 @@
     {
       "h2": "Download the plumbing invoice template (Word, Excel, PDF)",
       "blocks": [
-        { "type": "p", "text": "The free plumbing invoice template comes in three formats. The Word version is easiest to edit and brand with your logo. The Excel version auto-calculates tax and totals. The PDF is print-ready for hand-filled invoices on the truck. All three are pre-filled with plumbing line items." }
+        { "type": "p", "text": "The free [plumbing invoice template](/templates/plumbing-invoice-template/) comes in three formats. The Word version is easiest to edit and brand with your logo. The Excel version auto-calculates tax and totals. The PDF is print-ready for hand-filled invoices on the truck. All three are pre-filled with plumbing line items. To double-check your totals before sending, try the free [invoice calculator](/invoice-calculator/) — it handles trip fees, labor, and materials in one pass." }
       ]
     }
   ],
+  "cta": {
+    "title": "Need the plumbing invoice template?",
+    "text": " Free Word, Excel & PDF — trip fee, diagnostic, fixtures pre-filled.",
+    "href": "/templates/plumbing-invoice-template/",
+    "label": "Get the plumbing template →"
+  },
   "faq": [
     { "q": "Should I charge a trip fee on every plumbing invoice?", "a": "Yes, as a visible line item. The trip fee covers travel time and fuel. Hiding it in a padded hourly rate causes disputes. Show it as 'Trip / service call — 1 @ $95' and state it when you book the job." },
     { "q": "Do I need my plumbing license number on the invoice?", "a": "In most states, yes. Put it in the header next to your business name." }

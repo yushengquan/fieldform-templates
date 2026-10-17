@@ -31,7 +31,7 @@
     {
       "h2": "How the formulas work in the template",
       "blocks": [
-        { "type": "p", "text": "Each line multiplies quantity by rate — =D12*E12 in the amount column. The subtotal sums the amounts, tax applies your rate to the taxed rows only, and the total adds them. If your state taxes parts but not labor, the tax column flags each row as taxable or exempt, so the formula only picks up what it should." },
+        { "type": "p", "text": "Each line multiplies quantity by rate — =D12*E12 in the amount column. The subtotal sums the amounts, tax applies your rate to the taxed rows only, and the total adds them. If your state taxes parts but not labor, the tax column flags each row as taxable or exempt, so the formula only picks up what it should. To sanity-check your numbers before invoicing, the free [invoice calculator](/invoice-calculator/) runs the same labor + parts + tax math in your browser." },
         { "type": "p", "text": "Parts markup is one edit: type your cost in the cost column, set the markup cell to 25%, and the rate cell shows cost times 1.25. Change the markup once and every part line updates." }
       ]
     },    {
@@ -50,10 +50,16 @@
     {
       "h2": "Download the HVAC invoice template (Excel, Word, PDF)",
       "blocks": [
-        { "type": "p", "text": "The free HVAC invoice template comes in three formats. Excel auto-calculates labor, parts markup, and tax. Word is easiest to brand with your logo. PDF is print-ready for clipboards. All three pre-fill the HVAC line items from this guide." }
+        { "type": "p", "text": "The free [HVAC invoice template](/templates/hvac-invoice-template/) comes in three formats. Excel auto-calculates labor, parts markup, and tax. Word is easiest to brand with your logo. PDF is print-ready for clipboards. All three pre-fill the HVAC line items from this guide. There is also an [HVAC estimate template](/templates/hvac-estimate-template/) for quoting installs before you invoice." }
       ]
     }
   ],
+  "cta": {
+    "title": "Need the HVAC invoice template?",
+    "text": " Free Excel, Word & PDF — pre-filled with service calls, refrigerant, and parts lines.",
+    "href": "/templates/hvac-invoice-template/",
+    "label": "Get the HVAC template →"
+  },
   "faq": [
     { "q": "Should HVAC labor be billed hourly or flat-rate?", "a": "Both work if you show them honestly. Hourly fits diagnostics and repairs; flat-rate fits known jobs like tune-ups and install upgrades. Whatever you pick, keep the method visible on the invoice line — never blend labor into a parts price." },
     { "q": "How much should I mark up HVAC parts?", "a": "Most shops mark up 20-30% over cost to cover sourcing, truck stock, and warranty handling. The key is consistency — one markup policy applied to every part on every invoice." }

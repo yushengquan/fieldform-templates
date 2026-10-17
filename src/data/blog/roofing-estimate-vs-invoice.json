@@ -63,10 +63,16 @@
     {
       "h2": "Download the free templates",
       "blocks": [
-        { "type": "p", "text": "The roofing estimate template and roofing invoice template are free in Word, Excel, and PDF. Use the same line items in both so converting an estimate to an invoice is copy-and-adjust, not a rewrite. No signup, no email gate." }
+        { "type": "p", "text": "The [roofing estimate template](/templates/roofer-estimate-template/) and [roofing invoice template](/templates/roofer-invoice-template/) are free in Word, Excel, and PDF. Use the same line items in both so converting an estimate to an invoice is copy-and-adjust, not a rewrite. No signup, no email gate." }
       ]
     }
   ],
+  "cta": {
+    "title": "Quoting a roofing job?",
+    "text": " Free estimate and invoice templates built for roofers — squares, tear-off, flashing, deposit lines.",
+    "href": "/templates/roofer-estimate-template/",
+    "label": "Get the roofing templates →"
+  },
   "faq": [
     { "q": "Can an estimate be used as an invoice?", "a": "No — but a signed estimate plus a payment request can function like one in a pinch. For anything beyond small repairs, send a proper invoice: it has a due date, payment instructions, and a number for your records." },
     { "q": "What if the final cost exceeds the estimate?", "a": "If the scope changed, document it with a signed change order and bill it as its own line. If your estimate was simply wrong on quantities, honor the signed number and fix your estimating for the next job — that is the cost of learning." }

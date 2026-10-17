@@ -23,6 +23,20 @@ const otherPosts = allPosts.filter((p: any) => p.slug !== post.slug).slice(0, 3)
 
 const formatDate = (d: string) => new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
+// markdown 内链支持:文本块里的 [label](url) 渲染成 <a>。先转义 HTML 再替换,安全。
+const linkify = (raw: string): string =>
+  raw
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" style="color:var(--blue);font-weight:600;">$1</a>');
+
+// 每篇文章专属 CTA(可选 post.cta),没有时回退到通用模板页
+const cta = post.cta ?? {
+  title: 'Need a template?',
+  text: ' Download free invoice and estimate templates — Excel, Word & PDF.',
+  href: '/invoice-templates/',
+  label: 'Browse templates →',
+};
+
 // Article schema
 const articleLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -89,10 +103,10 @@ const faqLd = JSON.stringify({
           <h2 style="font-size:26px;margin-bottom:16px;">{sec.h2}</h2>
           {sec.blocks.map((b: any) => (
             b.type === 'p' ? (
-              <p style="margin-bottom:16px;">{b.text}</p>
+              <p style="margin-bottom:16px;" set:html={linkify(b.text)} />
             ) : b.type === 'ul' ? (
               <ul style="margin:0 0 16px 0;padding-left:24px;">
-                {b.items.map((it: string) => <li style="margin-bottom:8px;">{it}</li>)}
+                {b.items.map((it: string) => <li style="margin-bottom:8px;" set:html={linkify(it)} />)}
               </ul>
             ) : b.type === 'table' ? (
               <div style="overflow-x:auto;margin-bottom:16px;">
@@ -120,13 +134,13 @@ const faqLd = JSON.stringify({
       </section>
     )}
 
-    {/* CTA: 链向模板 */}
+    {/* CTA: 每篇文章专属模板链接(post.cta),回退通用模板页 */}
     <div style="background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
       <div>
-        <strong style="color:var(--ink);">Need a template?</strong>
-        <span style="color:var(--muted);"> Download free invoice and estimate templates — Excel, Word & PDF.</span>
+        <strong style="color:var(--ink);">{cta.title}</strong>
+        <span style="color:var(--muted);">{cta.text}</span>
       </div>
-      <a href="/invoice-templates/" style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Browse templates →</a>
+      <a href={cta.href} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">{cta.label}</a>
     </div>
 
     {otherPosts.length > 0 && (

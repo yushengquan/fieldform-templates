@@ -49,10 +49,16 @@
     {
       "h2": "Download the template and plug in your numbers",
       "blocks": [
-        { "type": "p", "text": "The free electrician invoice template comes in Excel, Word, and PDF. The Excel version has the tax and total formulas pre-wired — just enter your quantities and rates. The Word version is easiest to brand with your logo. The PDF is print-ready for hand-filled invoices on the truck." }
+        { "type": "p", "text": "The free [electrician invoice template](/templates/electrician-invoice-template/) comes in Excel, Word, and PDF. The Excel version has the tax and total formulas pre-wired — just enter your quantities and rates. The Word version is easiest to brand with your logo. The PDF is print-ready for hand-filled invoices on the truck. To verify your totals before sending, the free [invoice calculator](/invoice-calculator/) handles labor, materials, and tax in one pass." }
       ]
     }
   ],
+  "cta": {
+    "title": "Need the electrician invoice template?",
+    "text": " Free Excel, Word & PDF — service call, labor, materials, and permit lines pre-filled.",
+    "href": "/templates/electrician-invoice-template/",
+    "label": "Get the electrician template →"
+  },
   "faq": [
     { "q": "Should I charge travel time on my electrician invoice?", "a": "Yes, as a separate line item. Most clients accept a transparent travel charge more readily than a padded hourly rate. Charge your hourly rate or a flat service-call fee — pick one and be consistent across all jobs." },
     { "q": "How do I handle permit fees on the invoice?", "a": "List the permit as a separate line item at cost (pass-through). Don't bury it in materials — clients who see 'Permit: $85' don't question it; clients who see a higher total do." },
