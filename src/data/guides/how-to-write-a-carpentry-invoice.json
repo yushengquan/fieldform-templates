@@ -1,0 +1,74 @@
+{
+  "slug": "how-to-write-a-carpentry-invoice",
+  "trade": "Carpenter",
+  "templateSlug": "carpenter-invoice-template",
+  "title": "How to Write a Carpentry Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing carpentry work — how to bill framing, finish work and cabinetry, markup on lumber, retainers, and sales tax on materials.",
+  "h1": "How to Write a Carpentry Invoice",
+  "intro": "Carpentry jobs mix three billable things — labor hours, materials with markup, and fixed-price scopes like a deck or a set of cabinets. A good carpentry invoice keeps those separate so the client sees exactly what they're paying for, and so sales tax lands only on the lines where your state actually requires it. This guide covers every field, with real line-item examples for framing, finish, and cabinetry work.",
+  "sections": [
+    {
+      "h2": "What every carpentry invoice must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond the standard invoice fields (business name, client, dates, totals), carpenters should include four trade-specific items:" },
+        { "type": "ul", "items": [
+          "Material markup shown or implied per line — lumber billed at cost + 15–25% so price changes don't eat your margin",
+          "Contractor license number — required on invoices in most states for jobs above the handyman exemption ($500–$3,000 depending on state)",
+          "Warranty terms split between your labor (typically 1 year) and manufacturer warranties on hardware and finishes",
+          "Draw or retainer accounting — \"less deposit received $X\" so progress payments reduce the balance instead of double-billing"
+        ]},
+        { "type": "p", "text": "If you pull permits for the job, list the permit number and jurisdiction on the invoice too — it proves the work was permitted, which matters when the client sells the house." }
+      ]
+    },
+    {
+      "h2": "Common carpentry line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Framing is usually billed per square foot or per hour; finish work and cabinetry per unit or per day. These are national midpoints — adjust for your region and overhead." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Framing labor (new construction)", "$4–$10 per sq ft", "Labor — usually exempt"],
+          ["Trim and finish carpentry", "$45–$90 per hour", "Labor — usually exempt"],
+          ["Interior door install (labor)", "$80–$180 per door", "Labor — usually exempt"],
+          ["Deck build (labor + materials)", "$35–$65 per sq ft installed", "Materials taxable; labor exempt in most states"],
+          ["Lumber and materials", "Cost + 15–25% markup", "Usually taxable"],
+          ["Cabinet install (per cabinet)", "$60–$150 per cabinet", "Labor — usually exempt"],
+          ["Custom built-in (shop-built)", "$500–$5,000+ per unit", "Split shop labor vs. materials"]
+        ]},
+        { "type": "p", "text": "Never bill lumber as one lump sum at the bottom. List material lines with quantities (e.g., \"2×10 PT joists — 24 LF × $9.50\") so the client can reconcile against the delivery ticket and you can defend the markup." }
+      ]
+    },
+    {
+      "h2": "Fixed-price jobs vs. time and materials",
+      "blocks": [
+        { "type": "h3", "text": "Fixed price (deck, pergola, built-in)" },
+        { "type": "p", "text": "Invoice by milestone: deposit at signing (typically 30%), balance at completion. Keep the contract scope on file and reference it on the invoice (\"per contract dated 10/14\"). Change orders get their own line — \"CO-2: extend deck railing 4 LF — $180\" — never silently absorbed into the total." },
+        { "type": "h3", "text": "Time and materials (repairs, punch lists)" },
+        { "type": "p", "text": "Log hours per day with a short description (\"8 hr — demo old deck boards, install new joist hangers\"). Bill materials at cost-plus with the receipts' totals shown. T&M invoices get paid fastest when the client can see the day-by-day work they're paying for." }
+      ]
+    },
+    {
+      "h2": "Sales tax on carpentry work",
+      "blocks": [
+        { "type": "p", "text": "Most states treat construction labor as exempt real-property improvement and tax only the materials. But the rules twist: some states (like Washington) tax the entire contractor price; others tax materials only if you itemize, and treat a lump-sum fixed price as exempt labor. Resale certificates let you buy lumber tax-free and collect tax from the client instead — but only if you're actually collecting it." },
+        { "type": "p", "text": "The safe pattern for a small shop: itemize labor and materials on separate lines, buy materials with your resale certificate, and mark the taxable flag on material lines only. Search \"[your state] sales tax construction contractors\" and set the tax rate once in your template." }
+      ]
+    },
+    {
+      "h2": "Deposits, draws, and final invoices",
+      "blocks": [
+        { "type": "p", "text": "For multi-week jobs, invoice progress draws instead of one final bill. A clean structure:" },
+        { "type": "ul", "items": [
+          "Deposit invoice at signing — 20–30%, credited against the contract total",
+          "Progress draws at milestones — framing complete, millwork installed, with \"less prior payments\" on each",
+          "Final invoice — retainage (5–10%) billed after punch-list signoff",
+          "Late fee terms — 1.5% per month is the industry standard and enforceable in most states"
+        ]},
+        { "type": "p", "text": "Every invoice in the sequence should show the contract total, amount previously billed, and the current balance. Clients stop paying when the running math gets confusing — don't give them that excuse." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "What markup should I charge on lumber and materials?", "a": "Industry standard is cost plus 15–25%. Below 15% a single price spike at the supplier erases your margin; above 30% clients start comparison-shopping your material lines. Show quantities and unit costs so the markup reads as a service, not padding." },
+    { "q": "Do I charge sales tax on my labor?", "a": "In most states, construction labor on real property is exempt and only materials are taxable. A few states (notably Washington) treat the whole contract as taxable. Check your state DOR's construction-contractor rules and set the taxable flag per line item." },
+    { "q": "Should a carpentry invoice show the deposit already paid?", "a": "Yes. Every invoice should show \"less deposit/prior payments received\" and the current balance due. Omitting it double-bills the deposit and is the #1 trigger for payment disputes on fixed-price jobs." }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "how-to-write-a-locksmith-invoice",
+  "trade": "Locksmith",
+  "templateSlug": "locksmith-invoice-template",
+  "title": "How to Write a Locksmith Invoice (with Example Line Items)",
+  "description": "Step-by-step guide to invoicing locksmith jobs — what line items to include, how to price lockouts, rekeys and car keys, and what your state requires on the invoice.",
+  "h1": "How to Write a Locksmith Invoice",
+  "intro": "Locksmith work is mostly emergency, on-site, and pay-at-service — which makes a clear invoice the difference between getting paid on the spot and chasing a customer who was locked out at 2 AM and remembers the price differently. This guide walks through every field a professional locksmith invoice needs, with real line-item examples for lockouts, rekeys, and automotive work.",
+  "sections": [
+    {
+      "h2": "What every locksmith invoice must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond the standard invoice fields (business name, client, dates, totals), locksmiths should include four trade-specific items:" },
+        { "type": "ul", "items": [
+          "Your state or city locksmith license number — required on invoices and ads in the 15+ states that license locksmiths",
+          "Key codes or bitting information for keys cut — so you can reproduce a lost key without re-pinning the lock",
+          "Vehicle year, make, model, and VIN for automotive work — proves the job was for the owner's car and protects you in disputes",
+          "Hardware warranty terms — keys and locks typically carry the manufacturer warranty, not your labor warranty"
+        ]},
+        { "type": "p", "text": "Most states that license locksmiths (California, Texas, Illinois, Oklahoma, Louisiana, Alabama, and others) require the license number on any invoice, estimate, or advertisement. Leaving it off is a licensing violation, not just a formality." }
+      ]
+    },
+    {
+      "h2": "Common locksmith line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Locksmith pricing varies by market, time of day, and job type. These are national midpoints — emergency and after-hours work runs 1.5–2× these rates." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Service call / lockout (business hours)", "$75–$150 flat", "Varies by state"],
+          ["After-hours or holiday lockout", "$150–$250 flat", "Varies by state"],
+          ["Rekey a lock (per lock)", "$20–$45 per lock", "Usually labor — often exempt"],
+          ["House key duplication", "$5–$25 per key", "Usually"],
+          ["Car key with transponder chip", "$120–$350 per key", "Usually"],
+          ["Lock replacement (hardware + labor)", "$80–$250 per lock", "Hardware usually; labor varies"],
+          ["Safe opening (non-destructive)", "$150–$500 flat", "Usually labor — often exempt"]
+        ]},
+        { "type": "p", "text": "Split hardware and labor on the invoice even when you quote a flat price. Most states tax the parts and exempt the labor, so a single bundled line forces you to either over-tax or under-tax the job." }
+      ]
+    },
+    {
+      "h2": "Pricing emergency vs. scheduled work",
+      "blocks": [
+        { "type": "h3", "text": "Emergency callouts" },
+        { "type": "p", "text": "Quote the service call and the expected job price before you open the lock, and put both on the invoice. Customers locked out of their home or car are the most common source of fee disputes — a written line-item invoice that matches the quoted price is your best defense. Collect payment at the service; net terms on emergency work rarely end well." },
+        { "type": "h3", "text": "Scheduled work (rekeys, hardware installs)" },
+        { "type": "p", "text": "For landlord rekey batches and hardware replacements, invoice the same day as the job with per-lock quantities (e.g., \"Rekey locks — 6 × $35\"). Property managers often pay net 30, so include a PO or work-order number field — many won't process an invoice without one." }
+      ]
+    },
+    {
+      "h2": "Sales tax on locksmith services",
+      "blocks": [
+        { "type": "p", "text": "Locksmith sales tax is split between labor and parts in most states: the service call and rekey labor are often exempt, while keys, locks, and hardware are taxable. Texas is stricter — locksmith services themselves are generally taxable there. New York taxes the parts but not the labor if you itemize them." },
+        { "type": "p", "text": "The safe pattern: itemize hardware and labor as separate lines, mark the taxable flag per line in your invoice template, and check your state DOR's rules for \"locksmith services\" specifically." }
+      ]
+    },
+    {
+      "h2": "Licensing and invoice requirements",
+      "blocks": [
+        { "type": "p", "text": "Licensed-state locksmiths must treat the invoice as a licensing document. Include:" },
+        { "type": "ul", "items": [
+          "State locksmith license number in the business header (required in CA, TX, IL, OK, LA, AL, VA, MD, NC and others)",
+          "Technician name or ID if it differs from the business license",
+          "Proof-of-ownership notation for automotive work — \"ownership verified via registration\" protects you against stolen-vehicle calls",
+          "Non-destructive entry method noted (picked vs. drilled) — drilling usually means hardware replacement you should bill separately"
+        ]},
+        { "type": "p", "text": "These go in the header block and notes field, not the line items — they identify you and the job conditions, not the work performed." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "Can I write a locksmith invoice by hand?", "a": "Yes. Print a blank locksmith invoice form (PDF from our template) and fill it in on-site — the client signs at the bottom. Handwritten invoices are legal everywhere; typed ones are just easier to read and total." },
+    { "q": "Should I charge tax on a lockout service call?", "a": "In most states the service-call labor is exempt and only parts you install are taxable. Texas taxes locksmith services more broadly. Check your state DOR and set the taxable flag per line item." },
+    { "q": "How do I price a car key with a chip?", "a": "Separate the key cost from programming labor: typically $50–$150 for the transponder key and $60–$120 for programming. Itemizing both lets you apply tax correctly — the key is taxable almost everywhere, the programming labor often isn't." }
+  ]
+}

@@ -31,7 +31,10 @@ const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && t
 const related = [...sameTradeRel, ...sameDocRel].slice(0, 6);
 
 // 跨工種熱門推薦 — 把高流量頁面（含 tiling-estimate）從每個模板頁面串起來
-const popularSlugs = ['pest-control-invoice-template', 'electrician-invoice-template', 'tiling-estimate-template', 'hvac-invoice-template', 'locksmith-invoice-template'];
+// GSC 数据驱动：pest-control-invoice(57 impr)、locksmith-invoice(54)、electrical-estimate(41)、
+// carpentry-invoice(32)、hvac-invoice(27)、hvac-estimate(17)、pressure-washing-estimate(14)、
+// plumbing-invoice(12)、contractor-estimate(12) — 全部进全站内链池
+const popularSlugs = ['pest-control-invoice-template', 'electrician-invoice-template', 'tiling-estimate-template', 'hvac-invoice-template', 'locksmith-invoice-template', 'electrician-estimate-template', 'carpenter-invoice-template', 'hvac-estimate-template', 'plumbing-invoice-template', 'pressure-washing-estimate-template', 'general-contractor-estimate-template'];
 const popular = allTrades.filter((t: any) => popularSlugs.includes(t.slug) && t.slug !== trade.slug);
 
 // 反向查找：是否有对应 guide 页指向此模板
@@ -44,7 +47,7 @@ const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Exce
 const billSynonym = trade.docType === 'invoice' ? ' (Bill Format)' : '';
 const pageTitle = format
   ? `${trade.title}${billSynonym} — Free ${fmtLabel} Download`
-  : `${trade.title} — FieldForm Templates`;
+  : `${trade.title} — Free PDF, Word & Excel`;
 const docSynonym = trade.docType === 'invoice' ? 'invoice (bill)' : trade.docType;
 const pageDesc = format
   ? `Download a free ${trade.trade.toLowerCase()} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade.toLowerCase()} line items and auto-calculating totals.`
