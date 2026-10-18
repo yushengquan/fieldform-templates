@@ -79,7 +79,7 @@ const howToLd = JSON.stringify(howToSchemaForGuide(guide, siteUrl));
       <div style="background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:40px;">
         <div style="margin-bottom:14px;">
           <strong style="color:var(--ink);">Need the template?</strong>
-          <span style="color:var(--muted);"> Download a free {guide.trade} invoice template — Excel, Word & PDF.</span>
+          <span style="color:var(--muted);"> Download a free {guide.trade} {guide.docType ?? 'invoice'} template — Excel, Word & PDF.</span>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <a href={`/templates/${linkedTemplate.slug}/`} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">All formats →</a>

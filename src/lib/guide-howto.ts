@@ -50,6 +50,8 @@ function tradeSpecificFields(guide: Guide): string[] {
 // 生成 5-6 个 HowToStep,前两步引用该工种特有字段,后面是通用发送/记录步骤
 export function howToStepsForGuide(guide: Guide): { name: string; text: string }[] {
   const tl = tradeLower(guide.trade);
+  // estimate/quote 类 guide 的步骤文案用对应单据类型（默认 invoice，兼容旧 guide）
+  const doc = ((guide as any).docType ?? 'invoice') as string;
   const fields = tradeSpecificFields(guide);
   const fieldPhrase =
     fields.length > 0
@@ -58,8 +60,8 @@ export function howToStepsForGuide(guide: Guide): { name: string; text: string }
 
   const steps: { name: string; text: string }[] = [
     {
-      name: `Open the ${tl} invoice template`,
-      text: `Download the free ${tl} invoice template (Excel, Word, or PDF) and open it in your editor. Save a copy named with the client and date so you can find it later.`,
+      name: `Open the ${tl} ${doc} template`,
+      text: `Download the free ${tl} ${doc} template (Excel, Word, or PDF) and open it in your editor. Save a copy named with the client and date so you can find it later.`,
     },
     {
       name: `Fill in your business header and license`,

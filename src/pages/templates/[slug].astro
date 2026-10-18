@@ -26,20 +26,25 @@ for (const it of items) subtotal += (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
 
 // 内部链接：同工种其他单据 + 同类型单据的其他工种（pSEO 权重流动 + 全站爬取）
 const allTrades: any[] = Object.values(import.meta.glob('../../data/trades/*.json', { eager: true })).map((m: any) => m.default);
-const sameTradeRel = allTrades.filter((t: any) => t.trade === trade.trade && t.slug !== trade.slug);
-const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && t.trade !== trade.trade);
-const related = [...sameTradeRel, ...sameDocRel].slice(0, 6);
+// 工种家族归一 — "Welder" 与 "Welding" 是同一用户意图，4 个主页面组成完整集群互链
+const fam = (t: any) => (t.trade === 'Welder' ? 'Welding' : t.trade);
+const sameTradeRel = allTrades.filter((t: any) => fam(t) === fam(trade) && t.slug !== trade.slug);
+const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && fam(t) !== fam(trade));
+// 确定性轮转：按页面 slug 哈希偏移同类型工种列表 — 55 个工种都能分到内链，而不是全站都链字母序前 6 个
+const rotOff = [...trade.slug].reduce((a, c) => a + c.charCodeAt(0), 0) % Math.max(sameDocRel.length, 1);
+const docRotated = sameDocRel.length ? [...sameDocRel.slice(rotOff), ...sameDocRel.slice(0, rotOff)] : [];
+const related = [...sameTradeRel, ...docRotated].slice(0, 6);
 
 // 跨工種熱門推薦 — 把高流量頁面（含 tiling-estimate）從每個模板頁面串起來
 // GSC 数据驱动：pest-control-invoice(57 impr)、locksmith-invoice(54)、electrical-estimate(41)、
 // carpentry-invoice(32)、hvac-invoice(27)、hvac-estimate(17)、pressure-washing-estimate(14)、
 // plumbing-invoice(12)、contractor-estimate(12) — 全部进全站内链池
-const popularSlugs = ['pest-control-invoice-template', 'electrician-invoice-template', 'tiling-estimate-template', 'hvac-invoice-template', 'locksmith-invoice-template', 'electrician-estimate-template', 'carpenter-invoice-template', 'hvac-estimate-template', 'plumbing-invoice-template', 'pressure-washing-estimate-template', 'general-contractor-estimate-template'];
+const popularSlugs = ['pest-control-invoice-template', 'electrician-invoice-template', 'tiling-estimate-template', 'hvac-invoice-template', 'locksmith-invoice-template', 'electrician-estimate-template', 'carpenter-invoice-template', 'hvac-estimate-template', 'plumbing-invoice-template', 'pressure-washing-estimate-template', 'general-contractor-estimate-template', 'welding-estimate-template', 'welding-quote-template'];
 const popular = allTrades.filter((t: any) => popularSlugs.includes(t.slug) && t.slug !== trade.slug);
 
-// 反向查找：是否有对应 guide 页指向此模板
+// 反向查找：是否有对应 guide 页指向此模板（含 altTemplateSlugs — 一个 guide 服务多个同族模板页）
 const allGuides: any[] = Object.values(import.meta.glob('../../data/guides/*.json', { eager: true })).map((m: any) => m.default);
-const linkedGuide = allGuides.find((g: any) => g.templateSlug === trade.slug);
+const linkedGuide = allGuides.find((g: any) => g.templateSlug === trade.slug || (g.altTemplateSlugs ?? []).includes(trade.slug));
 
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
 const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Excel Format' : '';

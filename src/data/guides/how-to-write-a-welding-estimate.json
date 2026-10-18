@@ -1,0 +1,101 @@
+{
+  "slug": "how-to-write-a-welding-estimate",
+  "trade": "Welding",
+  "docType": "estimate",
+  "templateSlug": "welding-estimate-template",
+  "altTemplateSlugs": ["welding-quote-template", "welder-estimate-template", "welder-invoice-template"],
+  "title": "How to Write a Welding Estimate (with Example Line Items)",
+  "description": "Step-by-step guide to writing welding estimates — process rates for stick, MIG, TIG and flux-core, steel and consumables markup, hour-estimating methods, deposit and payment terms, with example line items.",
+  "h1": "How to Write a Welding Estimate",
+  "intro": "A welding estimate has to price four different things at once — arc time by process, steel and consumables at markup, prep hours that nobody sees, and the deposit that protects you on fabrication work. This guide walks through every field a complete welding estimate needs, with real line-item examples for repair work, shop fabrication, and mobile on-site jobs.",
+  "sections": [
+    {
+      "h2": "What every welding estimate must include",
+      "blocks": [
+        { "type": "p", "text": "Beyond the standard fields (business name, client, date, totals), a welding estimate should carry trade-specific details that prevent disputes and protect both warranty and pricing:" },
+        { "type": "ul", "items": [
+          "Weld process per task — SMAW (stick), FCAW (flux-core), GMAW (MIG), or GTAW (TIG) — because hourly rates differ by process and skill required",
+          "Material spec and grade — e.g. A36 mild steel, 304/316 stainless, 6061-T6 aluminum — priced at cost plus 20–30% markup",
+          "Consumables and shielding gas as a separate line — electrode (E7018, ER70S-6), wire, argon/CO₂ mixes — so the client sees the pass-through",
+          "Prep and finishing hours — cutting, beveling, fit-up, grinding, and paint or coating — often 30–50% of total labor",
+          "Mobilization fee for field work — truck, rig, and travel time, with a minimum call-out",
+          "Valid-until date (30 days is standard — steel prices move), deposit terms, and workmanship warranty period on welded joints"
+        ]},
+        { "type": "p", "text": "Listing the process per line matters more than most welders expect: a client who sees \"TIG on 304 stainless\" as its own line understands why that task costs twice what a stick weld on mild steel does. It also documents exactly what work the estimate covers if the scope is questioned later." }
+      ]
+    },
+    {
+      "h2": "Common welding line items (with sample rates)",
+      "blocks": [
+        { "type": "p", "text": "Rates vary by region, certification, and whether the work is shop or field. These are national midpoints from 2024–2025 contractor pricing surveys — adjust to your overhead and local market." },
+        { "type": "table", "headers": ["Line item", "Typical pricing", "Taxable?"], "rows": [
+          ["Stick welding labor (SMAW)", "$50–$75 per hour", "Varies by state"],
+          ["Flux-core welding labor (FCAW)", "$60–$85 per hour", "Varies by state"],
+          ["MIG welding labor (GMAW)", "$60–$90 per hour", "Varies by state"],
+          ["TIG labor — stainless / aluminum (GTAW)", "$75–$125 per hour", "Varies by state"],
+          ["Cutting & bevel prep", "$45–$60 per hour", "Varies by state"],
+          ["Grinding & finishing", "$45–$60 per hour", "Varies by state"],
+          ["Steel stock / plate", "Cost + 20–30% markup", "Usually yes"],
+          ["Shielding gas & consumables", "Cost + 15–25% markup", "Usually yes"],
+          ["Mobilization (field work)", "$75–$150 call-out + travel", "Usually no"]
+        ]},
+        { "type": "p", "text": "Certified welders command the top of each range — AWS D1.1 (structural), ASME Section IX (pressure vessel), and API 1104 (pipe) certifications justify 15–30% premiums because the work is inspectable and code-bound. If you hold a code certification, say so on the estimate itself; it is the cheapest price-justification you will ever write." }
+      ]
+    },
+    {
+      "h2": "How to estimate welding hours",
+      "blocks": [
+        { "type": "p", "text": "Most underpriced welding jobs come from guessing arc time instead of calculating it. Two methods cover most shop and field work:" },
+        { "type": "ul", "items": [
+          "Pound-of-deposit method — figure the weld deposit weight, then divide by your deposition rate. A 1/4\" fillet weld deposits roughly 0.75 lb of steel per foot; a field welder running stick deposits 3–5 lb/hr, a shop MIG setup 8–10 lb/hr. A 40-foot 1/4\" fillet is ~30 lb ≈ 3–10 arc hours depending on process and position.",
+          "Footage method — measure joint length from the drawing and apply your measured feet-per-hour for the same joint type and position. Horizontal flat 1/4\" fillets run far faster than overhead or vertical-up; price position work at 60–70% of flat speed.",
+          "Prep and fit-up — add 30–50% of arc time for cutting, beveling, tacking, and clamping. Repair work on rusty or painted steel runs higher — grinding to clean metal is billable time.",
+          "Contingency — for anything you cannot fully see (repairs, unknown base metal), add 15–25% and label the estimate as subject to inspection."
+        ]},
+        { "type": "p", "text": "Track actual hours against estimated hours on every job for a few months. Most shops find their real deposition rates are 20–30% below the handbook numbers once positioning, electrode changes, and cleanup are counted — that gap is exactly the margin you are currently giving away." }
+      ]
+    },
+    {
+      "h2": "Shop rate vs. field rate",
+      "blocks": [
+        { "type": "h3", "text": "Shop fabrication" },
+        { "type": "p", "text": "Shop work prices at a lower hourly rate ($50–$85) because the welder controls position, prep equipment, and throughput — but quote it as a firm price where possible. Drawings let you calculate footage exactly, so a shop estimate can usually be converted to a fixed quote the client can sign." },
+        { "type": "h3", "text": "Mobile / on-site welding" },
+        { "type": "p", "text": "Field work carries a higher rate ($75–$125) plus mobilization: the truck, engine drive, and travel are real costs. Most mobile welders set a minimum call-out of $150–$300 and bill travel beyond a set radius at an hourly rate. State the minimum clearly on the estimate — it filters non-serious calls before you burn a trip." }
+      ]
+    },
+    {
+      "h2": "Estimate vs. quote vs. bid — which to send",
+      "blocks": [
+        { "type": "p", "text": "An estimate is a good-faith price range that can move with actual hours and materials — right for repair work where you cannot see the full damage until you grind into it. A quote is a fixed price held for a stated period (usually 30 days) — right for shop fabrication off a drawing. A bid is a formal proposal, usually against other bidders, on larger or contract work — right for structural and code-inspected projects." },
+        { "type": "p", "text": "In practice: send an estimate with a firm materials figure and a labor range for repairs; convert to a quote the moment the scope is defined; use a bid package with WPS (welding procedure specification) references when the job is code-inspected. The same template works for all three — change the title and how firm you make the numbers." }
+      ]
+    },
+    {
+      "h2": "Deposits and payment terms for fabrication work",
+      "blocks": [
+        { "type": "p", "text": "Welding carries real up-front cost — steel and consumables are bought before the first arc strikes. Standard terms that protect the shop:" },
+        { "type": "ul", "items": [
+          "50% deposit at signing for fabrication and material purchases — enough to cover steel, gas, and consumables in full",
+          "Net 10–30 on the balance, with the warranty period starting at final payment",
+          "Progress billing on multi-week jobs — bill at milestones (materials delivered, fit-up complete, final pass) instead of one lump sum",
+          "Retainage of 5–10% on contract work, released after inspection sign-off — quote it into the price, not after",
+          "Workmanship warranty of 90 days on welded joints is standard; longer warranties only where you control the coating and environment"
+        ]},
+        { "type": "p", "text": "Put the deposit line on the estimate itself, shown as a separate amount — \"50% deposit due at signing: $612.50\" converts far better than a percentage buried in the terms. Clients decide on the deposit while they are deciding on the job, not after." }
+      ]
+    },
+    {
+      "h2": "Sales tax on welding and fabrication",
+      "blocks": [
+        { "type": "p", "text": "Sales tax on welding is genuinely inconsistent across states, and it turns on whether the work is classified as fabrication of tangible goods (usually taxable), a repair to real property (varies), or new construction (often exempt). Texas, for example, taxes fabricated items and repair labor on tangible personal property; many states exempt repair labor on real property but tax the materials. The practical rule: set the taxable flag per line item — materials and consumables taxable in most states, labor taxable in some — rather than applying one rate to the total, and check your state DOR before your first job in a new classification." }
+      ]
+    }
+  ],
+  "faq": [
+    { "q": "How do I estimate a welding job cost?", "a": "Break the job into weld processes (stick, MIG, TIG, flux-core), estimate hours for each from joint footage and deposition rate, then add prep time (cutting, beveling, fit-up) at 30–50% of arc time, materials at cost plus 20–30%, consumables and gas, and mobilization if on-site. Multiply hours by your shop or field rate, add a 50% deposit line for fabrication, and set a 30-day valid-until date." },
+    { "q": "How much should I charge per hour for welding?", "a": "Typical US ranges: stick/SMAW $50–$75/hr, flux-core $60–$85/hr, MIG $60–$90/hr, and TIG on stainless or aluminum $75–$125/hr. Shop rates run lower than field rates, which should cover travel and equipment. Certified welders (AWS D1.1, ASME IX, API 1104) command the top of each range — and can justify a 15–30% premium on code work." },
+    { "q": "Should I send an estimate or a quote?", "a": "Send an estimate when you cannot see the full scope — repairs, rusted or painted steel, unknown base metal. Send a fixed quote when a drawing lets you calculate joint footage exactly, typically shop fabrication. For code-inspected or contract work, submit a formal bid with WPS references. The same template covers all three — adjust the title and how firm the numbers are." },
+    { "q": "How much deposit should I ask for on welding work?", "a": "50% at signing is standard for fabrication, because it covers steel, gas, and consumables bought before work starts. For pure repair labor with minimal materials, 25–30% or a minimum call-out is common. On multi-week jobs, switch to progress billing at milestones instead of one deposit." }
+  ]
+}
