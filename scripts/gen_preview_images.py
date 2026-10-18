@@ -23,7 +23,7 @@ def rt(d,x,y,t,f,c): d.text((x-d.textlength(t,font=f),y),t,fill=c,font=f)
 
 def gen_one(tr):
     slug=tr["slug"]; title=tr["title"]; dt=tr.get("docType","invoice")
-    isest=dt in ("estimate","quote"); items=tr.get("lineItems",[])[:6]
+    isest=dt in ("estimate","quote"); dep=tr.get("depositPct",25); items=tr.get("lineItems",[])[:6]
     sub=0; rows=[]
     for it in items:
         q=it.get("defaultQty",0) or 0; r=it.get("sampleRate",0) or 0; a=q*r; sub+=a
@@ -37,7 +37,7 @@ def gen_one(tr):
     bc=GOLD if isest else BLUE
     d.rounded_rectangle((px,py,px+pw,py+10),radius=12,fill=bc); d.rectangle((px,py+5,px+pw,py+10),fill=bc)
     d.text((cx,y),title.upper(),fill=INK,font=ft); y+=52
-    dl="ESTIMATE #  EST-0001" if isest else "INVOICE #  INV-0001"
+    dl="QUOTE #  QUOTE-0001" if dt=="quote" else ("ESTIMATE #  EST-0001" if isest else "INVOICE #  INV-0001")
     d.text((cx,y),dl,fill=MUTED,font=fl); rt(d,cx+cw,y,"Date  2025-01-15",fl,MUTED); y+=30
     cwi=(cw-30)//2
     d.text((cx,y),"FROM",fill=MUTED,font=fl); d.text((cx,y+22),"Your Business Name",fill=INK,font=fb)
@@ -56,9 +56,9 @@ def gen_one(tr):
     y+=16; tw=280; tx=xa-tw; d.line((tx,y,xa,y),fill=INK,width=2); y+=12
     d.text((tx,y),"SUBTOTAL",fill=INK,font=ftd); rt(d,xa,y,M(sub),ftd,INK); y+=28
     if isest:
-        d.text((tx,y),"DEPOSIT (25%)",fill=MUTED,font=ftd); rt(d,xa,y,M(sub*0.25),ftd,INK); y+=28
+        d.text((tx,y),f"DEPOSIT ({dep}%)",fill=MUTED,font=ftd); rt(d,xa,y,M(sub*dep/100),ftd,INK); y+=28
         d.line((tx,y,xa,y),fill=INK,width=2); y+=8
-        d.text((tx,y),"BALANCE DUE",fill=INK,font=F(16,True)); rt(d,xa,y,M(sub*0.75),ftd,INK)
+        d.text((tx,y),"BALANCE DUE",fill=INK,font=F(16,True)); rt(d,xa,y,M(sub*(100-dep)/100),ftd,INK)
     else:
         d.text((tx,y),"TAX (enter rate)",fill=MUTED,font=ftd); rt(d,xa,y,"—",ftd,MUTED); y+=28
         d.line((tx,y,xa,y),fill=INK,width=2); y+=8

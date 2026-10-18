@@ -25,6 +25,7 @@ const rows = items.map((it: any, i: number) => {
   return { ...it, i: i + 1, amount };
 });
 const fmt = (n: number) => "$" + n.toFixed(2);
+const depPct = trade.depositPct ?? 25;
 ---
 <div class="preview-band">
   <div class="paper">
@@ -62,8 +63,8 @@ const fmt = (n: number) => "$" + n.toFixed(2);
       {isEst ? (
         <>
           <span>SUBTOTAL</span><span class="num">{fmt(subtotal)}</span>
-          <span>DEPOSIT DUE (25%)</span><span class="num">{fmt(subtotal * 0.25)}</span>
-          <span class="big">BALANCE DUE</span><span class="big num">{fmt(subtotal * 0.75)}</span>
+          <span>DEPOSIT DUE ({depPct}%)</span><span class="num">{fmt(subtotal * depPct / 100)}</span>
+          <span class="big">BALANCE DUE</span><span class="big num">{fmt(subtotal * (100 - depPct) / 100)}</span>
         </>
       ) : (
         <>

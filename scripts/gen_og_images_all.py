@@ -48,11 +48,11 @@ def draw_doc_icon(img, draw, doc_type):
     od = ImageDraw.Draw(overlay)
     od.rounded_rectangle((10, 10, 10 + w, 10 + h), radius=18,
                          fill=(255, 255, 255, 38), outline=(255, 255, 255, 90), width=2)
-    bar_color = (255, 215, 0, 230) if doc_type == "estimate" else (255, 255, 255, 230)
+    bar_color = (255, 215, 0, 230) if doc_type in ("estimate", "quote") else (255, 255, 255, 230)
     od.rounded_rectangle((10, 10, 10 + w, 60), radius=18, fill=bar_color)
     od.rectangle((10, 40, 10 + w, 60), fill=bar_color)
     f_lbl = font(34, bold=True)
-    lbl = "ESTIMATE" if doc_type == "estimate" else "INVOICE"
+    lbl = {"estimate": "ESTIMATE", "quote": "QUOTE"}.get(doc_type, "INVOICE")
     od.text((40, 18), lbl, fill=(20, 60, 110, 255), font=f_lbl)
     for yy in [90, 130, 170, 210, 250]:
         od.rounded_rectangle((40, yy, 40 + 160, yy + 16), radius=4, fill=(255, 255, 255, 70))
