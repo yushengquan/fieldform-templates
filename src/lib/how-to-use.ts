@@ -34,6 +34,16 @@ function tradeLower(trade: string): string {
   return (trade || 'trade').toLowerCase();
 }
 
+// -ing 结尾的工种名(Welding/Plumbing/Cleaning)指"从事该工种的人"时转成 welder/plumber/cleaner;
+// 其余工种名本身指人(Electrician),复数直接加 s。
+export function tradePerson(tradeName: string, plural = true): string {
+  const lower = tradeLower(tradeName);
+  if (lower.endsWith('ing') && lower.length > 5) {
+    return lower.slice(0, -3) + (plural ? 'ers' : 'er'); // welding→welders, plumbing→plumbers
+  }
+  return plural ? lower + 's' : lower;
+}
+
 // 取前 3 个 line item 描述,用于在段落中具体提及
 function topItems(lineItems?: TradeLineItem[]): TradeLineItem[] {
   if (!lineItems || lineItems.length === 0) return [];
@@ -65,8 +75,10 @@ export function howToUseParagraph(trade: Trade): string {
     ? ` Most states require a contractor license number on any client-facing ${noun}, so fill in the License # field before sending — leaving it blank can delay payment or violate state board rules.`
     : '';
 
+  // estimate 和 quote 都是开工前的单据;invoice 是完工后的账单
+  const preJob = noun !== 'invoice';
   const opening =
-    noun === 'estimate'
+    preJob
       ? `Use this ${tl} ${noun} template when a customer asks for a price before you start the job.`
       : `Use this ${tl} ${noun} template after you complete the work and are ready to ${verb} the customer.`;
 
@@ -91,10 +103,10 @@ export function howToUseCards(trade: Trade): { title: string; body: string }[] {
       body: `The template ships with ${items.length} pre-filled rows starting with ${firstItem}. Change the quantity and rate to match this job, add rows for anything extra, and delete rows you did not use. The structure stays aligned.`,
     },
     {
-      title: noun === 'estimate' ? `Send it and track the job` : `Set terms and send`,
-      body: noun === 'estimate'
-        ? `Email the ${noun} as a PDF (Word → Save As → PDF) so the customer cannot edit it. When they approve, convert it to an invoice by changing the title and adding an invoice number.`
-        : `Enter your payment terms and due date, then email the ${noun} as a PDF (Word → Save As → PDF). Keep a copy per client for your records and tax filing.`,
+      title: noun === 'invoice' ? `Set terms and send` : `Send it and track the job`,
+      body: noun === 'invoice'
+        ? `Enter your payment terms and due date, then email the ${noun} as a PDF (Word → Save As → PDF). Keep a copy per client for your records and tax filing.`
+        : `Email the ${noun} as a PDF (Word → Save As → PDF) so the customer cannot edit it. When they approve, convert it to an invoice by changing the title and adding an invoice number.`,
     },
   ];
 }
@@ -117,7 +129,7 @@ export function billingContext(trade: Trade): string {
   parts.push(`Most ${tl} businesses ${verb} a job using a combination of fixed fees and time-and-materials pricing.`);
 
   if (hasCallOut) {
-    parts.push(`A service call-out fee covers the cost of traveling to the job site and the first hour of diagnosis — it is typically a flat charge ($50–$150 depending on your market and whether the job is after hours). Some ${tl}s waive the call-out fee if the customer approves the repair on the spot; others always charge it. Put it on its own line so the customer sees it itemized.`);
+    parts.push(`A service call-out fee covers the cost of traveling to the job site and the first hour of diagnosis — it is typically a flat charge ($50–$150 depending on your market and whether the job is after hours). Some ${tradePerson(trade.trade)} waive the call-out fee if the customer approves the repair on the spot; others always charge it. Put it on its own line so the customer sees it itemized.`);
   }
   if (hasLabor) {
     parts.push(`Labor is usually billed at an hourly rate ($75–$150/hr for skilled trades in most US markets). Track time from arrival to completion, including any time spent picking up parts. If you have a minimum charge (e.g. 1 hour even for a 20-minute fix), note it in the line item description.`);
@@ -129,10 +141,10 @@ export function billingContext(trade: Trade): string {
     parts.push(`Permits and inspection fees, if required by your city or county, are usually passed through at cost. List them as a separate line so the customer understands they are a government fee, not your markup.`);
   }
   if (hasWarranty) {
-    parts.push(`A warranty line — typically 30 to 90 days on parts and labor — tells the customer you stand behind the work. Most ${tl}s offer it at no charge as a line item marked $0.00; some sell extended warranties as an upsell. Check whether your state requires a written warranty by law for ${tl} work.`);
+    parts.push(`A warranty line — typically 30 to 90 days on parts and labor — tells the customer you stand behind the work. Most ${tradePerson(trade.trade)} offer it at no charge as a line item marked $0.00; some sell extended warranties as an upsell. Check whether your state requires a written warranty by law for ${tl} work.`);
   }
   if (hasLicense) {
-    parts.push(`In most US states, a ${tl} must include their contractor license number on every client-facing ${noun}. Leaving it off can result in fines from the state board and gives the customer grounds to dispute the charge. Enter it in the License # field before sending.`);
+    parts.push(`In most US states, a ${tradePerson(trade.trade, false)} must include their contractor license number on every client-facing ${noun}. Leaving it off can result in fines from the state board and gives the customer grounds to dispute the charge. Enter it in the License # field before sending.`);
   }
 
   parts.push(`Tax treatment varies by state — some states tax ${tl} labor, others only tax materials, and a few tax nothing. Look up your state's rule or ask your CPA, then set the tax rate cell accordingly. When in doubt, tax the materials and leave labor untaxed, which is the most common treatment.`);

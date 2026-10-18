@@ -1,0 +1,42 @@
+{
+  "slug": "welding-estimate-template",
+  "trade": "Welding",
+  "docType": "estimate",
+  "title": "Welding Estimate Template",
+  "subtitle": "A professional estimate pre-filled for welding work — stick and flux-core labor, steel stock, prep and grinding, consumables and gas. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "depositPct": 50,
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 10 — payment due within 10 days of acceptance. Workmanship guaranteed for 90 days on welded joints.",
+  "notes": "Thank you for your business. Estimate valid for 30 days. A 50% deposit is due at signing for fabrication and material purchases; the balance is due upon completion.",
+  "lineItems": [
+    {"code": "STK", "description": "Stick Welding Labor (SMAW)", "defaultQty": 6, "unit": "hour", "sampleRate": 60.0, "taxable": true},
+    {"code": "FLX", "description": "Flux-Core Welding Labor (FCAW)", "defaultQty": 3, "unit": "hour", "sampleRate": 75.0, "taxable": true},
+    {"code": "STL", "description": "Steel Stock / Plate", "defaultQty": 1, "unit": "job", "sampleRate": 240.0, "taxable": true},
+    {"code": "CUT", "description": "Cutting & Bevel Prep", "defaultQty": 2, "unit": "hour", "sampleRate": 55.0, "taxable": true},
+    {"code": "GAS", "description": "Shielding Gas & Consumables", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
+    {"code": "FIN", "description": "Grinding & Finishing", "defaultQty": 2, "unit": "hour", "sampleRate": 50.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 50% deposit and balance update automatically",
+    "Pre-filled welding line items: SMAW and FCAW labor, steel stock, prep, gas and finishing",
+    "Separate process lines (stick vs flux-core) so customers see exactly what they pay for",
+    "Valid-until and deposit terms built in — standard for fabrication estimates"
+  ],
+  "faqs": [
+    {"q": "How do I estimate a welding job?", "a": "Break the job into weld processes (stick, MIG, TIG, flux-core), estimate hours for each, then add prep time (cutting, beveling, fit-up), materials at cost plus 20-30% markup, consumables and gas, mobilization if on-site, and finishing. Multiply hours by your shop or field rate, add a 50% deposit line for fabrication work, and set a 30-day valid-until date."},
+    {"q": "What's the difference between a welding estimate, a quote, and a bid?", "a": "An estimate is a good-faith price range that can move with actual hours and materials. A quote is a fixed price held for a stated period (usually 30 days). A bid is a formal proposal, usually against other bidders, on larger or contract work. This template works for all three — adjust the title and how firm you make the numbers."},
+    {"q": "How much should I charge per hour for welding?", "a": "Typical US ranges: stick/SMAW $50-$75/hr, flux-core $60-$85/hr, MIG $60-$90/hr, and TIG on stainless or aluminum $75-$125/hr. Shop rates run lower than field/on-site rates, which should cover travel and equipment. Certified welders (AWS D1.1, pipe codes) command the top of each range."},
+    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 50% deposit and balance due update automatically. The tax rate cell is left blank — enter your state's rate only if your services are taxable."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+}

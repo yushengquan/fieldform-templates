@@ -14,8 +14,9 @@ interface Props {
   ogImage?: string;
 }
 const { docType, title, h1, description, intro, trades, ogImage } = Astro.props;
+// estimate hub 同时收录 quote 类型（estimate/quote 都是开工前单据，搜索意图一致）
 const filtered = trades
-  .filter((t: any) => t.docType === docType)
+  .filter((t: any) => t.docType === docType || (docType === 'estimate' && t.docType === 'quote'))
   .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';

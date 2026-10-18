@@ -1,0 +1,307 @@
+---
+// /welding-estimate-calculator/ — 焊工估价计算器（免费工具页）
+// 与 /invoice-calculator/ 同构,但按焊接行业定价模型定制:
+// 分工序工价(MIG/TIG/Stick) + 钢材耗材加价 + 动员费 + 50% 定金(匹配模板 depositPct)
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Welding Estimate Calculator — Price a Welding Job Free | FieldForm';
+const description = 'Free welding estimate calculator. Enter MIG, TIG and stick hours, steel and consumables, mobilization and tax — get subtotal, 50% deposit and balance instantly. No signup, works on your phone.';
+const canonical = 'https://fieldformtemplates.com/welding-estimate-calculator/';
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:40px;">
+    <div class="section-head">
+      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Free Tool</p>
+      <h1>Welding Estimate Calculator</h1>
+      <p class="lead">Price a welding job in two minutes — labor by process (MIG, TIG, stick), steel and consumables with markup, mobilization, tax, and the 50% deposit to ask for at signing. No signup, no email, works offline.</p>
+    </div>
+    <div class="grid2" style="margin-top:30px;gap:32px;align-items:start;">
+      <div class="card" style="padding:28px;">
+        <h2 style="font-size:20px;margin-bottom:20px;">Your costs</h2>
+        <div style="margin-bottom:24px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Welding labor — by process</p>
+          <div id="labor-list">
+            <div class="labor-row" style="display:grid;grid-template-columns:1fr 90px 100px 32px;gap:8px;margin-bottom:8px;align-items:end;">
+              <input type="text" class="labor-name calc-input" value="MIG / flux-core" style="font-size:14px;" />
+              <input type="number" class="labor-hrs calc-input" min="0" step="0.5" value="4" placeholder="Hrs" style="font-size:14px;text-align:right;" />
+              <input type="number" class="labor-rate calc-input" min="0" step="5" value="70" placeholder="$/hr" style="font-size:14px;text-align:right;" />
+              <button class="labor-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>
+            </div>
+            <div class="labor-row" style="display:grid;grid-template-columns:1fr 90px 100px 32px;gap:8px;margin-bottom:8px;align-items:end;">
+              <input type="text" class="labor-name calc-input" value="TIG (stainless / aluminum)" style="font-size:14px;" />
+              <input type="number" class="labor-hrs calc-input" min="0" step="0.5" value="2" placeholder="Hrs" style="font-size:14px;text-align:right;" />
+              <input type="number" class="labor-rate calc-input" min="0" step="5" value="95" placeholder="$/hr" style="font-size:14px;text-align:right;" />
+              <button class="labor-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>
+            </div>
+            <div class="labor-row" style="display:grid;grid-template-columns:1fr 90px 100px 32px;gap:8px;margin-bottom:8px;align-items:end;">
+              <input type="text" class="labor-name calc-input" value="Stick (SMAW)" style="font-size:14px;" />
+              <input type="number" class="labor-hrs calc-input" min="0" step="0.5" value="6" placeholder="Hrs" style="font-size:14px;text-align:right;" />
+              <input type="number" class="labor-rate calc-input" min="0" step="5" value="60" placeholder="$/hr" style="font-size:14px;text-align:right;" />
+              <button class="labor-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>
+            </div>
+          </div>
+          <p id="labor-line" style="font-size:13px;color:var(--muted);margin-top:8px;">12 hrs across 3 processes = $610.00</p>
+          <button id="add-labor" style="font-size:14px;color:var(--accent);background:none;border:none;cursor:pointer;font-weight:600;padding:4px 0;">+ Add process line</button>
+        </div>
+        <div style="margin-bottom:24px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Materials &amp; consumables</p>
+          <div id="materials-list">
+            <div class="mat-row" style="display:grid;grid-template-columns:1fr 100px 32px;gap:8px;margin-bottom:8px;align-items:end;">
+              <input type="text" class="mat-name calc-input" placeholder="Item (e.g. Steel plate 3/8&quot;)" value="Steel stock / plate" style="font-size:14px;" />
+              <input type="number" class="mat-cost calc-input" min="0" step="0.01" value="240" placeholder="Cost $" style="font-size:14px;text-align:right;" />
+              <button class="mat-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>
+            </div>
+            <div class="mat-row" style="display:grid;grid-template-columns:1fr 100px 32px;gap:8px;margin-bottom:8px;align-items:end;">
+              <input type="text" class="mat-name calc-input" placeholder="Item (e.g. Rod / wire / gas)" value="Rod, wire &amp; shielding gas" style="font-size:14px;" />
+              <input type="number" class="mat-cost calc-input" min="0" step="0.01" value="85" placeholder="Cost $" style="font-size:14px;text-align:right;" />
+              <button class="mat-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>
+            </div>
+          </div>
+          <button id="add-mat" style="font-size:14px;color:var(--accent);background:none;border:none;cursor:pointer;font-weight:600;padding:4px 0;">+ Add material line</button>
+          <div style="margin-top:14px;">
+            <label for="markup" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Markup on materials (%) — covers pickup time and stock risk</label>
+            <input id="markup" type="number" min="0" max="200" step="5" value="20" class="calc-input" style="max-width:140px;" />
+          </div>
+        </div>
+        <div style="margin-bottom:24px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Other costs</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="mob" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Mobilization / travel ($)</label>
+              <input id="mob" type="number" min="0" step="5" value="75" class="calc-input" />
+            </div>
+            <div>
+              <label for="misc" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Prep &amp; finishing ($)</label>
+              <input id="misc" type="number" min="0" step="0.01" value="105" class="calc-input" />
+            </div>
+          </div>
+        </div>
+        <div style="margin-bottom:8px;">
+          <p style="font-size:14px;font-weight:700;margin-bottom:12px;">Deposit &amp; tax</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="deposit" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Deposit at signing (%)</label>
+              <input id="deposit" type="number" min="0" max="100" step="5" value="50" class="calc-input" />
+            </div>
+            <div>
+              <label for="tax" style="font-size:13px;color:var(--muted);display:block;margin-bottom:4px;">Sales tax rate (%)</label>
+              <input id="tax" type="number" min="0" max="100" step="0.1" value="0" class="calc-input" />
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-top:6px;">Tax applies to the full subtotal here — if your state taxes materials but not labor, calculate tax on materials only.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:28px;background:linear-gradient(135deg,#f0f7ff,#e8f4fe);border-color:#b8d8f5;position:sticky;top:80px;">
+        <h2 style="font-size:20px;margin-bottom:20px;">Welding job estimate</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Welding labor</span>
+            <span id="r-labor" style="font-weight:600;">$610.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);" id="mat-label">Materials (incl. 20% markup)</span>
+            <span id="r-materials" style="font-weight:600;">$390.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Mobilization &amp; prep</span>
+            <span id="r-other" style="font-weight:600;">$180.00</span>
+          </div>
+          <div style="border-top:1px solid var(--line);padding-top:14px;margin-top:4px;display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Subtotal</span>
+            <span id="r-subtotal" style="font-weight:600;">$1,180.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);" id="tax-label">Tax (0%)</span>
+            <span id="r-tax" style="font-weight:600;">$0.00</span>
+          </div>
+          <div style="border-top:2px solid var(--accent);padding-top:14px;margin-top:4px;display:flex;justify-content:space-between;align-items:baseline;">
+            <span style="font-size:18px;font-weight:700;">Total</span>
+            <span id="r-total" style="font-size:28px;font-weight:800;color:var(--accent);">$1,180.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;background:#fff;border:1px dashed var(--line);border-radius:8px;padding:10px 14px;">
+            <span style="color:var(--muted);" id="deposit-label">Deposit at signing (50%)</span>
+            <span id="r-deposit" style="font-weight:700;">$590.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;">
+            <span style="color:var(--muted);">Balance on completion</span>
+            <span id="r-balance" style="font-weight:600;">$590.00</span>
+          </div>
+        </div>
+        <button id="copy-btn" class="btn btn-primary btn-block" style="margin-top:24px;">Copy breakdown to clipboard</button>
+        <p id="copy-msg" style="font-size:13px;color:var(--teal);text-align:center;margin-top:8px;display:none;">Copied! Paste into your estimate or notes.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section wrap" style="padding-top:40px;">
+    <div class="section-head">
+      <h2>How to price a welding job</h2>
+    </div>
+    <div class="grid3" style="margin-top:24px;">
+      <div class="card">
+        <h3>Labor by process</h3>
+        <p>Not all arcs bill the same. Typical US rates: stick $50-$75/hr, MIG and flux-core $60-$90/hr, TIG on stainless or aluminum $75-$125/hr. Field work adds 20-40% over shop rate. Estimate hours per process, not one blended number — customers accept the price faster when they see the split.</p>
+      </div>
+      <div class="card">
+        <h3>Materials &amp; markup</h3>
+        <p>Steel stock, filler rod, wire, and shielding gas are billed at cost plus 20-30% — the markup covers pickup time, cutting waste, and the risk of mis-ordered stock. Keep receipts; list anything over $50 as its own line on the estimate so the customer can see what drives the price.</p>
+      </div>
+      <div class="card">
+        <h3>Deposit &amp; terms</h3>
+        <p>Ask 30-50% at signing — the higher end whenever you must buy steel or specialty filler upfront, so you never finance the client's project. Hold the quote for 30 days, set Net 10 on the balance, and add a workmanship guarantee (90 days on welded joints is standard) to close the deal.</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:20px 24px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:15px;line-height:1.6;"><strong>Put these numbers on paper.</strong> Grab a free <a href="/templates/welder-estimate-template/" style="color:var(--accent);font-weight:600;">welder estimate template</a>, the matching <a href="/templates/welding-estimate-template/" style="color:var(--accent);font-weight:600;">welding estimate template</a>, or a firm-price <a href="/templates/welding-quote-template/" style="color:var(--accent);font-weight:600;">welding quote template</a> — pre-filled with MIG/TIG/stick line items, downloads as Word, Excel, or PDF. No email required. For other trades, the general <a href="/invoice-calculator/" style="color:var(--accent);font-weight:600;">invoice calculator</a> and the full <a href="/estimate-templates/" style="color:var(--accent);font-weight:600;">estimate template library</a> are also free.</p>
+    </div>
+  </section>
+  <section class="section wrap" style="padding-top:20px;">
+    <div class="section-head">
+      <h2>Welding pricing FAQ</h2>
+    </div>
+    <div style="margin-top:20px;">
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">What should I charge per hour for welding?</summary>
+        <p style="margin-top:10px;color:var(--muted);">Typical US ranges: stick/SMAW $50-$75/hr, MIG and flux-core $60-$90/hr, TIG $75-$125/hr. Mobile/on-site welding runs $80-$120/hr because travel and equipment are built in. Certified welders (AWS D1.1, ASME pipe) price at the top of each range. Your rate must cover machine payments, gas, consumables, insurance, and non-billable shop time — not just take-home pay.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">Should I price by the hour or by the inch of weld?</summary>
+        <p style="margin-top:10px;color:var(--muted);">Hourly suits repair and one-off work — it's predictable and fair when scope is unclear. Production and fabrication work is usually priced per inch of weld, per joint, or per pound of deposited metal once you know your deposition rates. Start hourly with a not-to-exceed cap, track actual hours per joint, and move to per-joint pricing once you have data.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">How much deposit should a welder ask for?</summary>
+        <p style="margin-top:10px;color:var(--muted);">30-50% at signing is standard. Use 50% when the job requires buying steel stock, plate, or specialty filler upfront — the deposit should cover your material outlay. For pure repair labor with no materials, 25-30% is enough to hold the calendar slot. Always put the deposit amount and balance terms in writing on the estimate.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">Why does TIG cost more than stick or MIG?</summary>
+        <p style="margin-top:10px;color:var(--muted);">TIG is slower, more skill-dependent, and needs both hands plus a foot pedal — but it produces the cleanest, strongest welds on stainless and aluminum. A TIG hour produces fewer inches of weld than MIG, so the rate must be higher to earn the same. Charge the premium: customers shopping for aluminum or stainless work expect it.</p>
+      </details>
+    </div>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Welding Estimate Calculator",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any (web browser)",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    description: "Free online welding estimate calculator. Price welding jobs by process (MIG, TIG, stick), with materials markup, mobilization, deposit and tax calculated instantly.",
+    url: "https://fieldformtemplates.com/welding-estimate-calculator/"
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "What should I charge per hour for welding?", acceptedAnswer: { "@type": "Answer", text: "Typical US ranges: stick/SMAW $50-$75/hr, MIG and flux-core $60-$90/hr, TIG $75-$125/hr. Mobile/on-site welding runs $80-$120/hr. Certified welders (AWS D1.1, ASME pipe) price at the top of each range." } },
+      { "@type": "Question", name: "Should I price by the hour or by the inch of weld?", acceptedAnswer: { "@type": "Answer", text: "Hourly suits repair and one-off work. Production work is priced per inch of weld, per joint, or per pound of deposited metal. Start hourly with a not-to-exceed cap and move to per-joint pricing once you have data." } },
+      { "@type": "Question", name: "How much deposit should a welder ask for?", acceptedAnswer: { "@type": "Answer", text: "30-50% at signing is standard. Use 50% when the job requires buying steel stock or specialty filler upfront, so the deposit covers your material outlay." } },
+      { "@type": "Question", name: "Why does TIG cost more than stick or MIG?", acceptedAnswer: { "@type": "Answer", text: "TIG is slower and more skill-dependent but produces the cleanest, strongest welds on stainless and aluminum. A TIG hour produces fewer inches of weld than MIG, so the rate must be higher to earn the same." } },
+    ],
+  })} />
+  <style>
+    .calc-input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:16px;font-family:inherit;background:var(--surface);color:var(--ink);}
+    .calc-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,104,212,.12);}
+    @media(max-width:720px){.grid2{grid-template-columns:1fr !important;}}
+  </style>
+  <script is:inline>
+    (function(){
+      var D = function(id){ return document.getElementById(id); };
+      var fmt = function(n){ return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+      function num(id){ var v = parseFloat(D(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+      function laborSum(){
+        var total = 0, hrs = 0, rows = 0;
+        document.querySelectorAll('.labor-row').forEach(function(row){
+          var h = parseFloat(row.querySelector('.labor-hrs').value) || 0;
+          var r = parseFloat(row.querySelector('.labor-rate').value) || 0;
+          if (h > 0 && r > 0) { total += h * r; hrs += h; rows++; }
+        });
+        return { total: total, hrs: hrs, rows: rows };
+      }
+      function matCost(){
+        var s = 0;
+        document.querySelectorAll('.mat-cost').forEach(function(el){
+          var v = parseFloat(el.value); if(!isNaN(v) && v > 0) s += v;
+        });
+        return s;
+      }
+      function calc(){
+        var L = laborSum();
+        var matsCost = matCost();
+        var mk = num('markup');
+        var mats = matsCost * (1 + mk / 100);
+        var other = num('mob') + num('misc');
+        var sub = L.total + mats + other;
+        var taxRate = num('tax');
+        var tax = sub * taxRate / 100;
+        var total = sub + tax;
+        var depPct = num('deposit');
+        var dep = total * depPct / 100;
+        D('labor-line').textContent = L.hrs + ' hrs across ' + L.rows + ' process' + (L.rows === 1 ? '' : 'es') + ' = ' + fmt(L.total);
+        D('r-labor').textContent = fmt(L.total);
+        D('mat-label').textContent = 'Materials (incl. ' + mk + '% markup)';
+        D('r-materials').textContent = fmt(mats);
+        D('r-other').textContent = fmt(other);
+        D('r-subtotal').textContent = fmt(sub);
+        D('r-tax').textContent = fmt(tax);
+        D('tax-label').textContent = 'Tax (' + taxRate + '%)';
+        D('r-total').textContent = fmt(total);
+        D('deposit-label').textContent = 'Deposit at signing (' + depPct + '%)';
+        D('r-deposit').textContent = fmt(dep);
+        D('r-balance').textContent = fmt(total - dep);
+      }
+      D('add-labor').addEventListener('click', function(){
+        var list = D('labor-list');
+        var row = document.createElement('div');
+        row.className = 'labor-row';
+        row.style.cssText = 'display:grid;grid-template-columns:1fr 90px 100px 32px;gap:8px;margin-bottom:8px;align-items:end;';
+        row.innerHTML = '<input type="text" class="labor-name calc-input" placeholder="Process (e.g. Flux-core)" style="font-size:14px;" />' +
+          '<input type="number" class="labor-hrs calc-input" min="0" step="0.5" placeholder="Hrs" style="font-size:14px;text-align:right;" />' +
+          '<input type="number" class="labor-rate calc-input" min="0" step="5" placeholder="$/hr" style="font-size:14px;text-align:right;" />' +
+          '<button class="labor-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>';
+        list.appendChild(row);
+        row.querySelectorAll('input').forEach(function(el){ el.addEventListener('input', calc); });
+        row.querySelector('.labor-del').addEventListener('click', function(){ row.remove(); calc(); });
+        calc();
+      });
+      D('add-mat').addEventListener('click', function(){
+        var list = D('materials-list');
+        var row = document.createElement('div');
+        row.className = 'mat-row';
+        row.style.cssText = 'display:grid;grid-template-columns:1fr 100px 32px;gap:8px;margin-bottom:8px;align-items:end;';
+        row.innerHTML = '<input type="text" class="mat-name calc-input" placeholder="Item" style="font-size:14px;" />' +
+          '<input type="number" class="mat-cost calc-input" min="0" step="0.01" placeholder="Cost $" style="font-size:14px;text-align:right;" />' +
+          '<button class="mat-del" style="padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;color:var(--muted);font-size:16px;">×</button>';
+        list.appendChild(row);
+        row.querySelectorAll('input').forEach(function(el){ el.addEventListener('input', calc); });
+        row.querySelector('.mat-del').addEventListener('click', function(){ row.remove(); calc(); });
+        calc();
+      });
+      document.querySelectorAll('.labor-del,.mat-del').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var row = btn.closest('.labor-row,.mat-row');
+          var cls = row.classList.contains('labor-row') ? '.labor-row' : '.mat-row';
+          if(row && document.querySelectorAll(cls).length > 1){ row.remove(); calc(); }
+        });
+      });
+      document.querySelectorAll('.calc-input').forEach(function(el){ el.addEventListener('input', calc); });
+      D('copy-btn').addEventListener('click', function(){
+        if (window.gtag) gtag('event', 'welding_calc_copy');
+        var lines = [];
+        lines.push('Welding labor: ' + D('r-labor').textContent);
+        lines.push(D('mat-label').textContent + ': ' + D('r-materials').textContent);
+        lines.push('Mobilization & prep: ' + D('r-other').textContent);
+        lines.push('Subtotal: ' + D('r-subtotal').textContent);
+        lines.push(D('tax-label').textContent + ': ' + D('r-tax').textContent);
+        lines.push('TOTAL: ' + D('r-total').textContent);
+        lines.push(D('deposit-label').textContent + ': ' + D('r-deposit').textContent);
+        lines.push('Balance on completion: ' + D('r-balance').textContent);
+        var text = lines.join('\n');
+        if(navigator.clipboard){
+          navigator.clipboard.writeText(text).then(function(){
+            var msg = D('copy-msg'); msg.style.display = 'block';
+            setTimeout(function(){ msg.style.display = 'none'; }, 2500);
+          });
+        }
+      });
+      calc();
+    })();
+  </script>
+</BaseLayout>

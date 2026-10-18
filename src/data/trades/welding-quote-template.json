@@ -1,0 +1,42 @@
+{
+  "slug": "welding-quote-template",
+  "trade": "Welding",
+  "docType": "quote",
+  "title": "Welding Quote Template",
+  "subtitle": "A professional quote pre-filled for welding work — shop and field labor, TIG on stainless and aluminum, consumables, mobilization and fit-up. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "depositPct": 50,
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Quote #", "Date", "Valid Until", "Payment Terms"],
+  "paymentTerms": "Net 10 — payment due within 10 days of acceptance. Workmanship guaranteed for 90 days on welded joints.",
+  "notes": "Thank you for your business. Quote valid for 30 days. A 50% deposit is due at signing and covers material purchases; the balance is due upon completion. Pricing assumes access to both sides of the joint unless noted.",
+  "lineItems": [
+    {"code": "SHOP", "description": "Shop Welding Labor", "defaultQty": 4, "unit": "hour", "sampleRate": 65.0, "taxable": true},
+    {"code": "FLD", "description": "Field / On-Site Welding", "defaultQty": 3, "unit": "hour", "sampleRate": 90.0, "taxable": true},
+    {"code": "TIGS", "description": "TIG Welding (stainless / aluminum)", "defaultQty": 2, "unit": "hour", "sampleRate": 95.0, "taxable": true},
+    {"code": "CONS", "description": "Consumables (rod / wire / gas)", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
+    {"code": "MOB", "description": "Mobilization & Equipment", "defaultQty": 1, "unit": "visit", "sampleRate": 75.0, "taxable": true},
+    {"code": "FIT", "description": "Fit-Up & Inspection", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals in Excel — subtotal, 50% deposit and balance update automatically",
+    "Pre-filled quote line items: shop vs field labor, TIG on stainless, consumables, mobilization",
+    "Valid-until date and 30-day pricing hold — standard for welding quotes and bids",
+    "Not-an-invoice notice built in, so clients know the price is firm but not yet billed"
+  ],
+  "faqs": [
+    {"q": "How do I write a welding quote?", "a": "List your business details, the client and job site, then line items by process and location (shop vs field): labor hours and rate, materials at cost plus 20-30%, consumables, mobilization, and fit-up or inspection. Add a valid-until date (30 days is standard), deposit terms (30-50% for fabrication), exclusions (access, hidden repairs, code work), and your workmanship guarantee."},
+    {"q": "How do I price a welding job — by the hour or by the inch?", "a": "Hourly pricing (shop $60-$85/hr, field $80-$120/hr, TIG $75-$125/hr) suits repair and one-off work. Production work is often priced per inch of weld, per joint, or per pound of deposited weld metal once you know your deposition rate. For a first quote, estimate hours carefully, quote by the hour with a not-to-exceed cap, and track actuals so you can switch to per-joint pricing later."},
+    {"q": "What deposit should a welding quote ask for?", "a": "30-50% at signing is standard practice. Use the higher end when the job requires buying steel stock or specialty filler upfront — the deposit should cover your material outlay so you're never financing the client's project. This template calculates a 50% deposit line automatically."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required. The Excel version auto-calculates subtotal, deposit and balance."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+}
