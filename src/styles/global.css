@@ -59,6 +59,13 @@ a:hover{text-decoration:underline;}
 .tpl-card p{font-size:14px;color:var(--muted);flex:1;margin-bottom:16px;}
 .tpl-card .go{font-weight:700;font-size:14px;color:var(--accent);}
 
+/* 卡片单元：卡片本体 + 格式直链行（内链优化，变体页直接可从首页/hub 到达） */
+.tpl-cell{display:flex;flex-direction:column;}
+.tpl-cell .tpl-card{flex:1;}
+.fmt-links{font-size:12px;color:var(--muted);margin:6px 2px 0;padding:0 6px;}
+.fmt-links a{color:var(--accent);font-weight:600;text-decoration:none;}
+.fmt-links a:hover{text-decoration:underline;}
+
 /* 发票预览 */
 .preview-band{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(22,40,59,.05);}
 .paper{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px 30px;max-width:760px;margin:0 auto;font-size:13px;}
