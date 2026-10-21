@@ -1,0 +1,32 @@
+---
+// /business-form-templates/ — 通用商业单据聚合页（混合 docType：发票格式 + 工单 + 贷记单 + 送货单）
+// GSC 依据：service invoice format (p=2)、blank invoice (p=6/8)、tax invoice (p=6)、
+// credit note format (p=7)、hourly invoice (p=7)、work order format (p=8)、delivery note (p=9)
+import CategoryList from '../components/CategoryList.astro';
+
+const modules = import.meta.glob('../data/trades/*.json', { eager: true });
+const trades = Object.values(modules).map((m: any) => m.default);
+---
+<CategoryList
+  docType="business-form"
+  title="Free Business Form Templates — Invoice, Work Order, Delivery Note — FieldForm Templates"
+  h1="Free business form templates"
+  description="Free generic business form templates — service invoice, blank invoice, tax invoice, hourly invoice, credit note, work order and delivery note. Excel auto-calculates tax and totals. Download as PDF, Word, or Excel."
+  intro="Generic business forms for any trade or service business — the invoice formats, work orders, credit notes and delivery notes that don't belong to one trade. Each comes pre-filled with the fields that document expects, in PDF, Word, and Excel."
+  trades={trades}
+  slugs={[
+    'service-invoice-template',
+    'blank-invoice-template',
+    'tax-invoice-template',
+    'credit-note-template',
+    'hourly-invoice-template',
+    'work-order-template',
+    'delivery-note-template',
+  ]}
+  countNote="7 templates — generic business forms, one page. Every format is free."
+  faqs={[
+    { q: "What business form templates are available?", a: "Seven generic business forms: a service invoice, a blank invoice, a tax invoice, an hourly invoice, a credit note, a work order and a delivery note. Each comes in PDF, Word, and Excel formats — 21 downloadable files in total." },
+    { q: "Are these business form templates free?", a: "Yes. Every template is free for commercial use — download as PDF, Word, or Excel with no email required and no attribution needed." },
+    { q: "Which form should I use?", a: "Invoicing a service job? Use the service invoice — or the hourly invoice if you bill by the hour. Need a plain sheet you fill in anywhere? Use the blank invoice. Charging sales tax? The tax invoice keeps taxable and non-taxable lines separate. Authorizing work before you start? That's a work order. Reducing a bill you already sent? That's a credit note. Shipping goods? Attach a delivery note for the receiver to sign." },
+  ]}
+/>

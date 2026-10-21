@@ -72,7 +72,7 @@ def gen_xlsx(cfg, out_path):
 
     wb = Workbook()
     ws = wb.active
-    ws.title = "Invoice"
+    ws.title = {"credit-note": "Credit Note", "work-order": "Work Order", "delivery-note": "Delivery Note"}.get(cfg.get("docType", "invoice"), "Invoice")
     ws.sheet_view.showGridLines = False
     for col, w in zip("ABCDEFG", (6, 40, 8, 16, 14, 14, 10)):
         ws.column_dimensions[col].width = w
@@ -104,6 +104,10 @@ def gen_xlsx(cfg, out_path):
         ws.row_dimensions[r].height = 17
 
     is_est = cfg.get("docType") in ("estimate", "quote")
+    dt = cfg.get("docType", "invoice")
+    is_credit = dt == "credit-note"
+    is_work_order = dt == "work-order"
+    is_delivery = dt == "delivery-note"
     est_label = "QUOTE #:" if cfg.get("docType") == "quote" else "ESTIMATE #:"
     est_no = "QUOTE-0001" if cfg.get("docType") == "quote" else "EST-0001"
     est_notice = ("This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary."
@@ -118,6 +122,33 @@ def gen_xlsx(cfg, out_path):
         fill("E6", "=E5+30", base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
         fill("D7", "PAYMENT TERMS:", label_font)
         fill("E7", term_short(cfg), base_font)
+    elif is_credit:
+        fill("D4", "CREDIT NOTE #:", label_font)
+        fill("E4", "CN-0001", base_font)
+        fill("D5", "DATE:", label_font)
+        fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+        fill("D6", "ORIGINAL INVOICE #:", label_font)
+        fill("E6", "INV-______", base_font)
+        fill("D7", "PAYMENT TERMS:", label_font)
+        fill("E7", term_short(cfg), base_font)
+    elif is_work_order:
+        fill("D4", "WORK ORDER #:", label_font)
+        fill("E4", "WO-0001", base_font)
+        fill("D5", "DATE:", label_font)
+        fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+        fill("D6", "SERVICE DATE:", label_font)
+        fill("E6", "________", base_font)
+        fill("D7", "PAYMENT TERMS:", label_font)
+        fill("E7", term_short(cfg), base_font)
+    elif is_delivery:
+        fill("D4", "DELIVERY NOTE #:", label_font)
+        fill("E4", "DN-0001", base_font)
+        fill("D5", "DATE:", label_font)
+        fill("E5", SAMPLE_DATE, base_font, Alignment(horizontal="center", vertical="center"), date_fmt)
+        fill("D6", "PO #:", label_font)
+        fill("E6", "________", base_font)
+        fill("D7", "DELIVERED BY:", label_font)
+        fill("E7", "________", base_font)
     else:
         fill("D4", "INVOICE #:", label_font)
         fill("E4", "INV-0001", base_font)
@@ -162,7 +193,38 @@ def gen_xlsx(cfg, out_path):
          Alignment(horizontal="right", vertical="center"), money_fmt)
     ws[f"F{sub_row}"].border = Border(top=top_line)
 
-    if is_est:
+    if is_credit:
+        tax_rate_row = sub_row + 1
+        fill(f"D{tax_rate_row}", "TAX RATE", label_font)
+        fill(f"E{tax_rate_row}", None, base_font, Alignment(horizontal="right", vertical="center"), "0.00%")
+        fill(f"B{tax_rate_row}", "look up your state rate", small_gray, Alignment(horizontal="left", vertical="center"))
+        tax_row = sub_row + 2
+        fill(f"D{tax_row}", "TAX", label_font)
+        fill(f"F{tax_row}",
+             f'=IF(E{tax_rate_row}="","",ROUND(SUMPRODUCT(($G${data_start}:$G${last}=TRUE)*F{data_start}:F{last})*E{tax_rate_row},2))',
+             base_font, Alignment(horizontal="right", vertical="center"), money_fmt)
+        credit_total_row = sub_row + 3
+        fill(f"D{credit_total_row}", "TOTAL CREDIT", Font(name="Arial", bold=True, size=11, color="17365D"))
+        fill(f"F{credit_total_row}", f"=F{sub_row}+IF(ISNUMBER(F{tax_row}),F{tax_row},0)",
+             Font(name="Arial", bold=True, size=11, color="17365D"),
+             Alignment(horizontal="right", vertical="center"), money_fmt)
+        ws[f"F{credit_total_row}"].border = Border(top=top_line, bottom=top_line)
+        note_start = credit_total_row + 2
+    elif is_delivery:
+        ti_row = sub_row + 1
+        fill(f"D{ti_row}", "TOTAL ITEMS", label_font)
+        fill(f"F{ti_row}", f"=SUM(C{data_start}:C{last})", base_font, Alignment(horizontal="right", vertical="center"), "0")
+        goods_row = sub_row + 2
+        fill(f"D{goods_row}", "GOODS VALUE", label_font)
+        fill(f"F{goods_row}", f"=F{sub_row}", bold_font, Alignment(horizontal="right", vertical="center"), money_fmt)
+        recv_row = sub_row + 3
+        fill(f"D{recv_row}", "RECEIVED BY", Font(name="Arial", bold=True, size=11, color="17365D"))
+        fill(f"F{recv_row}", "________________", base_font, Alignment(horizontal="right", vertical="center"))
+        sig_row = sub_row + 4
+        fill(f"D{sig_row}", "SIGNATURE", label_font)
+        fill(f"F{sig_row}", "________________", base_font, Alignment(horizontal="right", vertical="center"))
+        note_start = sig_row + 2
+    elif is_est or is_work_order:
         deposit_row = sub_row + 1
         fill(f"D{deposit_row}", f"DEPOSIT ({deposit_pct}%)", label_font)
         fill(f"F{deposit_row}", f"=ROUND(F{sub_row}*{deposit_pct/100},2)", bold_font,
@@ -207,25 +269,49 @@ def gen_xlsx(cfg, out_path):
         ws[f"F{balance_row}"].border = Border(top=top_line, bottom=top_line)
         note_start = balance_row + 2
 
-    fill(f"A{note_start}", "PAYMENT TERMS:", label_font)
-    fill(f"B{note_start}", cfg.get("paymentTerms", ""), base_font)
-    ws.row_dimensions[note_start].height = 30
-    fill(f"A{note_start+1}", "NOTES:", label_font)
-    fill(f"B{note_start+1}", cfg.get("notes", ""), base_font)
-    pay_start = note_start + 2
-    fill(f"A{pay_start}", "PAYMENT:", label_font)
-    for i, m in enumerate(payment_methods(cfg)):
-        fill(f"B{pay_start+i}", m, base_font)
-    pay_after = pay_start + len(payment_methods(cfg))
-
-    if is_est:
-        est_row = pay_after + 1
-        fill(f"A{est_row}", "NOTICE:", label_font)
-        fill(f"B{est_row}", est_notice, base_font)
-        ws.row_dimensions[est_row].height = 30
-        disc = est_row + 2
+    if is_delivery:
+        fill(f"A{note_start}", "NOTES:", label_font)
+        fill(f"B{note_start}", cfg.get("notes", ""), base_font)
+        ws.row_dimensions[note_start].height = 30
+        fill(f"A{note_start+2}", "RECEIVED BY:", label_font)
+        fill(f"B{note_start+2}", "________________", base_font)
+        fill(f"A{note_start+3}", "SIGNATURE:", label_font)
+        fill(f"B{note_start+3}", "________________", base_font)
+        fill(f"A{note_start+4}", "DATE:", label_font)
+        fill(f"B{note_start+4}", "________________", base_font)
+        disc = note_start + 6
     else:
-        disc = pay_after + 1
+        fill(f"A{note_start}", "PAYMENT TERMS:", label_font)
+        fill(f"B{note_start}", cfg.get("paymentTerms", ""), base_font)
+        ws.row_dimensions[note_start].height = 30
+        fill(f"A{note_start+1}", "NOTES:", label_font)
+        fill(f"B{note_start+1}", cfg.get("notes", ""), base_font)
+        pay_start = note_start + 2
+        fill(f"A{pay_start}", "PAYMENT:", label_font)
+        for i, m in enumerate(payment_methods(cfg)):
+            fill(f"B{pay_start+i}", m, base_font)
+        pay_after = pay_start + len(payment_methods(cfg))
+
+        if is_est:
+            est_row = pay_after + 1
+            fill(f"A{est_row}", "NOTICE:", label_font)
+            fill(f"B{est_row}", est_notice, base_font)
+            ws.row_dimensions[est_row].height = 30
+            disc = est_row + 2
+        elif is_credit:
+            cn_row = pay_after + 1
+            fill(f"A{cn_row}", "NOTICE:", label_font)
+            fill(f"B{cn_row}", "This credit note reduces the balance of the original invoice. Issue it for refunds, discounts, or returned work.", base_font)
+            ws.row_dimensions[cn_row].height = 30
+            disc = cn_row + 2
+        elif is_work_order:
+            wo_row = pay_after + 1
+            fill(f"A{wo_row}", "NOTICE:", label_font)
+            fill(f"B{wo_row}", "This is a signed work order — authorization to perform the work. Final totals are billed on completion.", base_font)
+            ws.row_dimensions[wo_row].height = 30
+            disc = wo_row + 2
+        else:
+            disc = pay_after + 1
 
     ws.merge_cells(f"A{disc}:F{disc+2}")
     fill(f"A{disc}", cfg.get("disclaimer", ""), small_gray, Alignment(vertical="top", wrap_text=True))
@@ -269,6 +355,12 @@ def gen_docx(cfg, out_path):
         doc.add_paragraph(f"Quote #: QUOTE-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: {term_short(cfg)}")
     elif cfg.get("docType") == "estimate":
         doc.add_paragraph(f"Estimate #: EST-0001    |    Date: 2026-09-29    |    Valid Until: 2026-10-29    |    Payment Terms: {term_short(cfg)}")
+    elif cfg.get("docType") == "credit-note":
+        doc.add_paragraph(f"Credit Note #: CN-0001    |    Date: 2026-09-29    |    Original Invoice #: INV-______    |    Payment Terms: {term_short(cfg)}")
+    elif cfg.get("docType") == "work-order":
+        doc.add_paragraph(f"Work Order #: WO-0001    |    Date: 2026-09-29    |    Service Date: ________    |    Payment Terms: {term_short(cfg)}")
+    elif cfg.get("docType") == "delivery-note":
+        doc.add_paragraph(f"Delivery Note #: DN-0001    |    Date: 2026-09-29    |    PO #: ________    |    Delivered By: ________")
     else:
         doc.add_paragraph(f"Invoice #: INV-0001    |    Date: 2026-09-29    |    Payment Terms: {term_short(cfg)}    |    Due: 2026-10-13")
     bt = doc.add_paragraph()
@@ -300,13 +392,29 @@ def gen_docx(cfg, out_path):
     sum_row = table.add_row().cells
     sum_row[0].text = "SUBTOTAL"
     sum_row[4].text = f"${subtotal:.2f}"
-    if cfg.get("docType") in ("estimate", "quote"):
+    if cfg.get("docType") in ("estimate", "quote", "work-order"):
         dep_row = table.add_row().cells
         dep_row[0].text = f"DEPOSIT ({deposit_pct}%)"
         dep_row[4].text = f"${subtotal * deposit_pct / 100:.2f}"
         bal_row = table.add_row().cells
         bal_row[0].text = "BALANCE DUE"
         bal_row[4].text = f"${subtotal * (100 - deposit_pct) / 100:.2f}"
+    elif cfg.get("docType") == "credit-note":
+        tax_row = table.add_row().cells
+        tax_row[0].text = "TAX (enter your state rate)"
+        credit_total_row = table.add_row().cells
+        credit_total_row[0].text = "TOTAL CREDIT"
+        credit_total_row[4].text = f"${subtotal:.2f}"
+    elif cfg.get("docType") == "delivery-note":
+        ti_row = table.add_row().cells
+        ti_row[0].text = "TOTAL ITEMS"
+        ti_row[4].text = str(sum(it.get("defaultQty", 0) for it in cfg["lineItems"]))
+        gv_row = table.add_row().cells
+        gv_row[0].text = "GOODS VALUE"
+        gv_row[4].text = f"${subtotal:.2f}"
+        rb_row = table.add_row().cells
+        rb_row[0].text = "RECEIVED BY"
+        rb_row[4].text = "________________"
     else:
         tax_row = table.add_row().cells
         tax_row[0].text = "TAX (enter your state rate)"
@@ -324,16 +432,28 @@ def gen_docx(cfg, out_path):
         bal_row[4].text = f"${subtotal - subtotal * deposit_pct / 100:.2f}"
 
     doc.add_paragraph()
-    doc.add_paragraph(f"Payment terms: {cfg.get('paymentTerms', '')}")
-    doc.add_paragraph(f"Notes: {cfg.get('notes', '')}")
-    pmp = doc.add_paragraph()
-    pmp.add_run("PAYMENT").bold = True
-    for line in payment_methods(cfg):
-        doc.add_paragraph(line).paragraph_format.space_after = Pt(0)
+    if cfg.get("docType") == "delivery-note":
+        doc.add_paragraph(f"Notes: {cfg.get('notes', '')}")
+        doc.add_paragraph("Received By: ________________________")
+        doc.add_paragraph("Signature: ________________________")
+        doc.add_paragraph("Date: ________________________")
+    else:
+        doc.add_paragraph(f"Payment terms: {cfg.get('paymentTerms', '')}")
+        doc.add_paragraph(f"Notes: {cfg.get('notes', '')}")
+        pmp = doc.add_paragraph()
+        pmp.add_run("PAYMENT").bold = True
+        for line in payment_methods(cfg):
+            doc.add_paragraph(line).paragraph_format.space_after = Pt(0)
     if cfg.get("docType") == "quote":
         doc.add_paragraph("Notice: This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary.")
     elif cfg.get("docType") == "estimate":
         doc.add_paragraph("Notice: This is an estimate, not a final invoice. Final charges may vary based on actual work performed.")
+    elif cfg.get("docType") == "credit-note":
+        doc.add_paragraph("Notice: This credit note reduces the balance of the original invoice. Issue it for refunds, discounts, or returned work.")
+    elif cfg.get("docType") == "work-order":
+        doc.add_paragraph("Notice: This is a signed work order — authorization to perform the work. Final totals are billed on completion.")
+    elif cfg.get("docType") == "delivery-note":
+        doc.add_paragraph("Notice: This is a delivery note — proof of delivery only, not a bill for payment.")
     doc.add_paragraph(cfg.get("disclaimer", ""))
     doc.save(out_path)
 
@@ -392,6 +512,21 @@ def gen_pdf(cfg, out_path):
         pdf.drawString(400, H - 112, "Date: 2026-09-29")
         pdf.drawString(400, H - 129, "Valid Until: 2026-10-29")
         pdf.drawString(400, H - 146, f"Payment Terms: {term_short(cfg)}")
+    elif cfg.get("docType") == "credit-note":
+        pdf.drawString(400, H - 95, "Credit Note #: CN-0001")
+        pdf.drawString(400, H - 112, "Date: 2026-09-29")
+        pdf.drawString(400, H - 129, "Original Invoice #: INV-______")
+        pdf.drawString(400, H - 146, f"Payment Terms: {term_short(cfg)}")
+    elif cfg.get("docType") == "work-order":
+        pdf.drawString(400, H - 95, "Work Order #: WO-0001")
+        pdf.drawString(400, H - 112, "Date: 2026-09-29")
+        pdf.drawString(400, H - 129, "Service Date: ________")
+        pdf.drawString(400, H - 146, f"Payment Terms: {term_short(cfg)}")
+    elif cfg.get("docType") == "delivery-note":
+        pdf.drawString(400, H - 95, "Delivery Note #: DN-0001")
+        pdf.drawString(400, H - 112, "Date: 2026-09-29")
+        pdf.drawString(400, H - 129, "PO #: ________")
+        pdf.drawString(400, H - 146, "Delivered By: ________")
     else:
         pdf.drawString(400, H - 95, "Invoice #: INV-0001")
         pdf.drawString(400, H - 112, "Date: 2026-09-29")
@@ -435,7 +570,7 @@ def gen_pdf(cfg, out_path):
     pdf.setFont("Helvetica-Bold", 10)
     pdf.drawString(400, ry, "SUBTOTAL")
     pdf.drawString(485, ry, f"${subtotal:.2f}")
-    if cfg.get("docType") in ("estimate", "quote"):
+    if cfg.get("docType") in ("estimate", "quote", "work-order"):
         ry -= 16
         pdf.setFont("Helvetica", 10)
         pdf.drawString(400, ry, f"DEPOSIT ({deposit_pct}%)")
@@ -444,6 +579,26 @@ def gen_pdf(cfg, out_path):
         pdf.setFont("Helvetica-Bold", 11)
         pdf.drawString(400, ry, "BALANCE DUE")
         pdf.drawString(485, ry, f"${subtotal * (100 - deposit_pct) / 100:.2f}")
+    elif cfg.get("docType") == "credit-note":
+        ry -= 16
+        pdf.setFont("Helvetica", 10)
+        pdf.drawString(400, ry, "TAX (enter state rate)")
+        ry -= 20
+        pdf.setFont("Helvetica-Bold", 11)
+        pdf.drawString(400, ry, "TOTAL CREDIT")
+        pdf.drawString(485, ry, f"${subtotal:.2f}")
+    elif cfg.get("docType") == "delivery-note":
+        ry -= 16
+        pdf.setFont("Helvetica", 10)
+        pdf.drawString(400, ry, "TOTAL ITEMS")
+        pdf.drawString(485, ry, str(sum(it.get("defaultQty", 0) for it in cfg["lineItems"])))
+        ry -= 16
+        pdf.drawString(400, ry, "GOODS VALUE")
+        pdf.drawString(485, ry, f"${subtotal:.2f}")
+        ry -= 20
+        pdf.setFont("Helvetica-Bold", 11)
+        pdf.drawString(400, ry, "RECEIVED BY")
+        pdf.drawString(485, ry, "________________")
     else:
         ry -= 16
         pdf.setFont("Helvetica", 10)
@@ -467,15 +622,27 @@ def gen_pdf(cfg, out_path):
     ry -= 40
     pdf.setFillColor(gray)
     fy = ry
-    fy = draw_wrapped(pdf, 60, fy, f"Payment terms: {cfg.get('paymentTerms', '')}", "Helvetica", 8, W - 120, 12)
-    fy = draw_wrapped(pdf, 60, fy, f"Notes: {cfg.get('notes', '')}", "Helvetica", 8, W - 120, 12)
-    fy = draw_wrapped(pdf, 60, fy, "PAYMENT:", "Helvetica-Bold", 8, W - 120, 12)
-    for line in payment_methods(cfg):
-        fy = draw_wrapped(pdf, 60, fy, "  " + line, "Helvetica", 8, W - 120, 12)
+    if cfg.get("docType") == "delivery-note":
+        fy = draw_wrapped(pdf, 60, fy, f"Notes: {cfg.get('notes', '')}", "Helvetica", 8, W - 120, 12)
+        fy = draw_wrapped(pdf, 60, fy, "Received By: ________________________", "Helvetica", 8, W - 120, 12)
+        fy = draw_wrapped(pdf, 60, fy, "Signature: ________________________", "Helvetica", 8, W - 120, 12)
+        fy = draw_wrapped(pdf, 60, fy, "Date: ________________________", "Helvetica", 8, W - 120, 12)
+    else:
+        fy = draw_wrapped(pdf, 60, fy, f"Payment terms: {cfg.get('paymentTerms', '')}", "Helvetica", 8, W - 120, 12)
+        fy = draw_wrapped(pdf, 60, fy, f"Notes: {cfg.get('notes', '')}", "Helvetica", 8, W - 120, 12)
+        fy = draw_wrapped(pdf, 60, fy, "PAYMENT:", "Helvetica-Bold", 8, W - 120, 12)
+        for line in payment_methods(cfg):
+            fy = draw_wrapped(pdf, 60, fy, "  " + line, "Helvetica", 8, W - 120, 12)
     if cfg.get("docType") == "quote":
         fy = draw_wrapped(pdf, 60, fy, "Notice: This is a quote, not an invoice. Pricing valid for 30 days; final charges may vary.", "Helvetica", 8, W - 120, 12)
     elif cfg.get("docType") == "estimate":
         fy = draw_wrapped(pdf, 60, fy, "Notice: This is an estimate, not a final invoice. Final charges may vary based on actual work performed.", "Helvetica", 8, W - 120, 12)
+    elif cfg.get("docType") == "credit-note":
+        fy = draw_wrapped(pdf, 60, fy, "Notice: This credit note reduces the balance of the original invoice. Issue it for refunds, discounts, or returned work.", "Helvetica", 8, W - 120, 12)
+    elif cfg.get("docType") == "work-order":
+        fy = draw_wrapped(pdf, 60, fy, "Notice: This is a signed work order — authorization to perform the work. Final totals are billed on completion.", "Helvetica", 8, W - 120, 12)
+    elif cfg.get("docType") == "delivery-note":
+        fy = draw_wrapped(pdf, 60, fy, "Notice: This is a delivery note — proof of delivery only, not a bill for payment.", "Helvetica", 8, W - 120, 12)
     draw_wrapped(pdf, 60, fy, cfg.get("disclaimer", ""), "Helvetica", 8, W - 120, 12)
     pdf.save()
 

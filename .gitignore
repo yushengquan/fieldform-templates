@@ -3,4 +3,4 @@ dist/
 .astro/
 .preview/
 _shots/
-public/previews/
+__pycache__/

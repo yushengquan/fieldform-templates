@@ -5,19 +5,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqList from './FaqList.astro';
 
 interface Props {
-  docType: 'invoice' | 'estimate';
+  docType: string;
   title: string;
   h1: string;
   description: string;
   intro: string;
   trades: any[];
   ogImage?: string;
+  slugs?: string[];
+  faqs?: any[];
+  countNote?: string;
 }
-const { docType, title, h1, description, intro, trades, ogImage } = Astro.props;
+const { docType, title, h1, description, intro, trades, ogImage, slugs, faqs, countNote } = Astro.props;
 // estimate hub 同时收录 quote 类型（estimate/quote 都是开工前单据，搜索意图一致）
-const filtered = trades
-  .filter((t: any) => t.docType === docType || (docType === 'estimate' && t.docType === 'quote'))
-  .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
+// 混合 docType 的聚合页（如 business-form）传 slugs 显式指定列表，跳过 docType 筛选
+const filtered = slugs
+  ? trades.filter((t: any) => (slugs as string[]).includes(t.slug))
+      .sort((a: any, b: any) => (slugs as string[]).indexOf(a.slug) - (slugs as string[]).indexOf(b.slug))
+  : trades
+      .filter((t: any) => t.docType === docType || (docType === 'estimate' && t.docType === 'quote'))
+      .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
 const categoryPath = `/${docType}-templates/`;
@@ -46,11 +53,12 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
-const faqs = [
+const defaultFaqs = [
   { q: `How many ${docType} templates are available?`, a: `${filtered.length} ${docType} templates covering trades from plumbing and electrical to HVAC, roofing, concrete, landscaping and more. Each comes in PDF, Word, and Excel formats — ${filtered.length * 3} downloadable files in total.` },
   { q: `Are these ${docType} templates free?`, a: "Yes. Every template is free for commercial use — download as PDF, Word, or Excel with no email required and no attribution needed." },
   { q: `What's the difference between the PDF, Word, and Excel versions?`, a: "PDF is print-ready and locked — send it as-is. Word is fully editable text — best for adding your branding. Excel has live formulas — type quantities and rates, and subtotal, tax, and total recalculate automatically." },
 ];
+const pageFaqs = faqs ?? defaultFaqs;
 ---
 <BaseLayout title={title} description={description} canonical={`${siteUrl}${categoryPath}`} ogImage={ogImage}>
   <script is:inline type="application/ld+json" set:html={itemListLd}></script>
@@ -64,7 +72,7 @@ const faqs = [
   </section>
 
   <section class="section wrap" id="templates" style="padding-top:8px;">
-    <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">{filtered.length} templates — pre-filled for how each trade actually bills.</p>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">{countNote ?? `${filtered.length} templates — pre-filled for how each trade actually bills.`}</p>
     <div class="grid2">
       {filtered.map((t: any) => (
         <div class="tpl-cell">
@@ -85,6 +93,6 @@ const faqs = [
     <div class="section-head">
       <h2>Questions</h2>
     </div>
-    <FaqList faqs={faqs} />
+    <FaqList faqs={pageFaqs} />
   </section>
 </BaseLayout>

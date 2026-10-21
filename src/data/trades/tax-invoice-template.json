@@ -1,0 +1,58 @@
+{
+  "slug": "tax-invoice-template",
+  "trade": "Tax",
+  "docType": "invoice",
+  "title": "Tax Invoice Template",
+  "subtitle": "A tax invoice template with the fields sales-tax compliance expects — tax rate, taxable and non-taxable lines, and a clear tax total. Free download in Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Enter your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days of the invoice date. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. This invoice shows sales tax as a separate line — keep a copy for your tax records.",
+  "lineItems": [
+    {"code": "LAB", "description": "Labor (taxable in some states)", "defaultQty": 4, "unit": "hour", "sampleRate": 85.0, "taxable": true},
+    {"code": "PART", "description": "Parts & materials (taxable)", "defaultQty": 1, "unit": "lot", "sampleRate": 120.0, "taxable": true},
+    {"code": "SHIP", "description": "Delivery / freight (non-taxable)", "defaultQty": 1, "unit": "trip", "sampleRate": 40.0, "taxable": false},
+    {"code": "FEE", "description": "Handling fee (non-taxable)", "defaultQty": 1, "unit": "job", "sampleRate": 15.0, "taxable": false}
+  ],
+  "features": [
+    "Tax shown the way auditors expect — rate, taxable base and tax total on separate lines",
+    "Taxable and non-taxable items in one table — labor, parts, freight handled correctly",
+    "Excel version computes the tax automatically — enter your state rate once",
+    "EIN / Tax ID field in the header — the detail business buyers need for their records"
+  ],
+  "faqs": [
+    {"q": "What is a tax invoice?", "a": "A tax invoice is an invoice that documents the sales tax charged on a sale — the tax rate applied, the taxable amount, and the total tax collected, shown as separate lines rather than buried in the total. In the US, any invoice where you collect state sales tax should show these fields so both you and your customer can account for the tax."},
+    {"q": "What should a tax invoice include?", "a": "Beyond a normal invoice (business details, client details, itemized lines, total, payment terms), a tax invoice should show: your EIN or state tax ID, the tax rate applied, which line items are taxable, the taxable subtotal, and the tax charged as its own line adding to the grand total."},
+    {"q": "Does the Excel version calculate the tax automatically?", "a": "Yes. Mark each line item taxable or non-taxable, enter your state's sales tax rate in the tax cell, and the spreadsheet computes the taxable subtotal and the tax amount automatically. Leave the rate blank if the sale carries no tax."},
+    {"q": "How do I know which items are taxable?", "a": "Rules differ by state and by item type — many states tax goods but exempt services, and freight or handling may be taxable only under conditions. This template marks the common cases; confirm your specific situation with your state's department of revenue or a CPA."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Sales tax rules vary by state — verify with your tax authority and CPA/attorney.",
+  "overrides": {
+    "eyebrow": "Sales-tax ready · tax invoice format",
+    "hubHref": "/business-form-templates/",
+    "hubLabel": "Business Form Templates",
+    "previewAlt": "Tax invoice template preview — taxable and non-taxable line items with a separate tax rate, tax amount and grand total",
+    "featuresSub": "Tax visibility built in — rate, taxable base and tax total on separate lines.",
+    "billingHeading": "Getting sales tax right on invoices",
+    "billingSub": "Which lines are taxable, how to show the rate, and what to keep for your records.",
+    "relatedSub": "More generic business forms — pick the document that fits the job.",
+    "relatedSlugs": ["service-invoice-template", "blank-invoice-template", "hourly-invoice-template", "credit-note-template", "work-order-template", "delivery-note-template"],
+    "howToUseText": "Use this tax invoice template whenever you collect sales tax on a sale and need the paperwork to show it clearly. Open the file and fill in your business details — including the EIN / Tax ID field, which many business customers need for their own tax records. On each line item, set the taxable flag to match your state's rules for that kind of charge: goods and materials are usually taxable, services often are not, and freight and handling fees sit somewhere in between depending on the state. Enter your state's sales tax rate in the tax cell and the Excel version computes the taxable subtotal and the tax amount automatically — the tax then adds to the non-taxable lines to produce the grand total. Keep every tax invoice you issue: they are your evidence of tax collected when you file your state sales tax return, and the customer's evidence if they reclaim or account for the tax later.",
+    "howToUseSteps": [
+      {"title": "Fill in your business details", "body": "Replace the placeholder name and address with your own, and complete the EIN / Tax ID field — business buyers and auditors look for it in the header."},
+      {"title": "Mark each line taxable or not", "body": "Set the taxable flag per line item to match your state's rules — goods and materials usually taxable, services and freight often exempt. The spreadsheet handles the rest."},
+      {"title": "Enter your rate and send", "body": "Type your state's sales tax rate into the tax cell; the tax and grand total update automatically. Email the invoice as a PDF and file a copy for your sales tax return."}
+    ],
+    "billingText": "Sales tax on an invoice is a bookkeeping field, not a markup — so the layout matters as much as the math. Show the tax rate, the taxable subtotal, and the tax charged as separate lines, with the grand total below; burying tax inside line prices leaves both you and your customer unable to account for it at filing time. The hard part is which lines carry tax. In the US there is no single rule: 45 states plus DC levy a sales tax, but each defines its own base. Goods are taxed nearly everywhere. Services are exempt in many states and taxable in others — and the same state can tax one service while exempting another. Freight is its own trap: shipping a taxable item is often taxable itself, while shipping an exempt item is not. The practical approach for a small business: look up your state's rules for each category you sell (your department of revenue publishes the lists), set the taxable flag per line once, and reuse the template. If you sell across state lines, note that economic nexus thresholds (commonly $100,000 in sales or 200 transactions in a state) can obligate you to collect that state's tax too — a question worth asking a CPA once your out-of-state sales grow. This template is informational only and not tax advice; verify your rates and taxable base with your state's department of revenue.",
+    "wordBillNote": "This Word file gives you a fully editable tax invoice format — the same taxable / non-taxable line structure as the Excel version, just without the live formulas. Open it in Word or Google Docs, type your amounts, compute the tax once, and Save As → PDF for a clean, uneditable copy for the client. Keep the filled file as your record of tax charged on the sale."
+  }
+}

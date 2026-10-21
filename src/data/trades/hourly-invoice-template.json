@@ -1,0 +1,58 @@
+{
+  "slug": "hourly-invoice-template",
+  "trade": "Hourly",
+  "docType": "invoice",
+  "title": "Hourly Invoice Template",
+  "subtitle": "An hourly invoice template for time-based billing — hours worked, hourly rate, and an auto-calculating total. Free download in Excel, Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days of the invoice date. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Hours above are as tracked on site — query any line within 7 days.",
+  "lineItems": [
+    {"code": "HR1", "description": "Labor — regular hours", "defaultQty": 6, "unit": "hour", "sampleRate": 75.0, "taxable": true},
+    {"code": "HR2", "description": "Labor — overtime / after-hours", "defaultQty": 2, "unit": "hour", "sampleRate": 112.5, "taxable": true},
+    {"code": "HR3", "description": "Labor — weekend rate", "defaultQty": 0, "unit": "hour", "sampleRate": 112.5, "taxable": true},
+    {"code": "TRIP", "description": "Travel time (billed at half rate)", "defaultQty": 2, "unit": "hour", "sampleRate": 37.5, "taxable": false}
+  ],
+  "features": [
+    "Hours × rate on every line — the arithmetic the customer can check at a glance",
+    "Regular, overtime, weekend and travel-time rows built in — common hourly-billing cases",
+    "Excel version multiplies and totals automatically — type hours, get the invoice",
+    "Works for tutors, consultants, contractors, repair techs, freelancers — any hourly work"
+  ],
+  "faqs": [
+    {"q": "What is an hourly invoice?", "a": "An hourly invoice bills for time worked rather than a fixed price: each line shows the type of labor, the number of hours, and the hourly rate, and the total is the sum of hours × rate across lines, plus any tax."},
+    {"q": "How do I bill for hours worked?", "a": "Track hours per day as you work — start and end times, not estimates. On the invoice, group them by rate type (regular, overtime, weekend, travel) so each line reads hours × rate, and the customer can verify the math line by line."},
+    {"q": "Should overtime and weekend hours cost more?", "a": "Many hourly businesses charge a premium — commonly 1.5× the regular rate for overtime, after-hours or weekend work — and bill travel time at half the normal rate. State your premiums up front in your quote so the invoice never surprises the client."},
+    {"q": "Is this hourly invoice template free?", "a": "Yes. The Excel, Word and PDF versions are free with no email required. The Excel version calculates each line's amount and the totals automatically."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating hours and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "overrides": {
+    "eyebrow": "Time-based billing · hourly invoice format",
+    "hubHref": "/business-form-templates/",
+    "hubLabel": "Business Form Templates",
+    "previewAlt": "Hourly invoice template preview — regular, overtime, weekend and travel hours with rate and auto-calculated totals",
+    "featuresSub": "Built for billing by the hour — hours, rates and premiums laid out clearly.",
+    "billingHeading": "How hourly billing usually works",
+    "billingSub": "Tracking hours, setting premiums and invoicing so the client can verify every line.",
+    "relatedSub": "More generic business forms — pick the document that fits the job.",
+    "relatedSlugs": ["service-invoice-template", "blank-invoice-template", "tax-invoice-template", "credit-note-template", "work-order-template", "delivery-note-template"],
+    "howToUseText": "Use this hourly invoice template when you charge for time rather than a fixed price — consulting, tutoring, repairs, freelance work, contracted labor. Fill in your business details first, then record hours by rate type: regular hours, overtime or after-hours at a premium (1.5× is common), weekend work, and travel time, which many businesses bill at half the normal rate. Type the hours and your rates into the Excel version and each line's amount plus the subtotal, tax and total calculate automatically. In Word or PDF, write or type the same fields and compute the total once. Add your payment terms and due date, then email the invoice as a PDF. Because hourly bills are the ones clients most often query, the layout keeps every line checkable — hours, rate and amount side by side, with travel and premium rates shown explicitly rather than rolled into a single number.",
+    "howToUseSteps": [
+      {"title": "Fill in your business details", "body": "Replace the placeholder name, address and contact fields with your own. Add your EIN if the client's bookkeeper asks for it."},
+      {"title": "Enter hours by rate type", "body": "Put regular, overtime, weekend and travel hours on separate lines with the matching rate. The Excel version multiplies and totals each line as you type."},
+      {"title": "Set terms and send", "body": "Add payment terms and the due date, then email the invoice as a PDF (Word → Save As → PDF). Keep a copy per client for your records."}
+    ],
+    "billingText": "Hourly billing lives or dies on the hours being believable. Track them as they happen — a notes-app timer or a notebook entry at the end of each day beats reconstructing the week on Friday. When you invoice, group the hours by rate type instead of lumping them: \"6 regular hours × $75\" and \"2 after-hours × $112.50\" read as honest math, while a single \"8 hours × $90\" invites the question of why the blended rate moved. Premiums are normal — most time-based businesses charge 1.5× for overtime, after-hours or weekend work, and many bill travel time at half rate or fold it into a trip fee — but state them in the quote before the work starts so the invoice is never the first place the client sees them. Round sensibly: nearest quarter-hour is the standard for trades and repair work; consultants more often bill in half-day or day units. On tax, remember many states exempt pure services — if yours does, leave the tax rate cell blank; if it taxes your kind of work, enter the rate once. And for clients with recurring hourly work, invoice on a fixed cadence (weekly or bi-weekly): small, frequent, verifiable invoices get paid faster than large surprise ones.",
+    "wordBillNote": "This Word file is a ready hourly bill format — hours, rate and amount columns laid out for time-based work, fully editable. Open it in Word or Google Docs, type the hours for the billing period, compute the line amounts and total once, and Save As → PDF for the client. Keep the blank original as your master; every billing period starts clean."
+  }
+}

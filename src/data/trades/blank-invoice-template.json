@@ -1,0 +1,58 @@
+{
+  "slug": "blank-invoice-template",
+  "trade": "Blank",
+  "docType": "invoice",
+  "title": "Blank Invoice Template",
+  "subtitle": "A blank invoice template with empty, fill-anywhere fields — print it, type in it, or use the Excel version with live tax and total formulas. Free download, no email required.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Tax row included — enter your rate or leave blank",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email"],
+  "billToFields": ["Client Name", "Client Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days. Edit these terms before sending.",
+  "notes": "Type your own notes here before sending — payment details, thank-you message, or job reference.",
+  "lineItems": [
+    {"code": "ITEM1", "description": "Description of service or item", "defaultQty": 1, "unit": "each", "sampleRate": 0, "taxable": true},
+    {"code": "ITEM2", "description": "Description of service or item", "defaultQty": 1, "unit": "each", "sampleRate": 0, "taxable": true},
+    {"code": "ITEM3", "description": "Description of service or item", "defaultQty": 1, "unit": "each", "sampleRate": 0, "taxable": true},
+    {"code": "ITEM4", "description": "Description of service or item", "defaultQty": 1, "unit": "each", "sampleRate": 0, "taxable": true}
+  ],
+  "features": [
+    "Nothing to delete first — empty description, qty and rate fields on every line",
+    "Excel version keeps the formulas — type amounts and tax, totals update themselves",
+    "Print-ready PDF — blank rows sized for handwriting invoices on the job",
+    "Works as a generic bill format — any trade, any service business, any client"
+  ],
+  "faqs": [
+    {"q": "What is a blank invoice template?", "a": "A blank invoice template is a ready-to-fill invoice layout — header, bill-to block, line-item table, tax and total rows — with all content fields left empty. You add your business details and the job's charges each time, on paper or on screen."},
+    {"q": "Can I download a blank invoice in Excel?", "a": "Yes. The free Excel version keeps the formulas: type quantities and rates and the subtotal, tax and total recalculate automatically. The Word and PDF versions are blank layouts you type into or print."},
+    {"q": "Can I print blank invoices and fill them in by hand?", "a": "Yes. The PDF version prints a clean invoice sheet with empty rows — many trades keep a stack in the van and write invoices on site, then enter them into the spreadsheet later."},
+    {"q": "Is this template really free?", "a": "Yes. The PDF, Word and Excel versions are free with no email required and no watermark."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Blank layout, easy to type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Empty rows, live formulas"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "overrides": {
+    "eyebrow": "Fill-anywhere · blank invoice format",
+    "hubHref": "/business-form-templates/",
+    "hubLabel": "Business Form Templates",
+    "previewAlt": "Blank invoice template preview — empty printable layout with blank amount fields and live total formulas",
+    "featuresSub": "A clean, empty invoice layout — type or print, nothing to delete first.",
+    "billingHeading": "When a blank invoice is the right tool",
+    "billingSub": "Paper, PDF and spreadsheet workflows — and when a pre-filled template saves time.",
+    "relatedSub": "More generic business forms — pick the document that fits the job.",
+    "relatedSlugs": ["service-invoice-template", "tax-invoice-template", "hourly-invoice-template", "credit-note-template", "work-order-template", "delivery-note-template"],
+    "howToUseText": "Use this blank invoice template whenever you need a clean, empty invoice to fill in — by hand on a clipboard, by typing in Word, or in Excel where the totals still calculate. Open the file and replace the placeholder business name and address with your own; every field below is deliberately blank, so there is no sample text to delete before you can use it. Type or write each service or product on its own line with a quantity, unit and rate — the Excel version multiplies them and updates the subtotal, tax and total as you go. If you charge sales tax, enter your state rate in the tax cell; if not, leave it blank and the total equals the subtotal. Add your payment terms and due date, then print or email the finished bill. Keep a copy per client so you have a record of what you charged and when.",
+    "howToUseSteps": [
+      {"title": "Fill in your business details", "body": "Type your business name, address, phone and email at the top — or stamp the printed copy. Everything below is blank, ready for this job's details."},
+      {"title": "Write one line per item", "body": "Each row takes a description, quantity, unit and rate. The Excel version multiplies them and recalculates the subtotal, tax and total as you type."},
+      {"title": "Set terms and send", "body": "Add your payment terms and due date, then email the invoice as a PDF or hand over a printed copy. Keep one for your records."}
+    ],
+    "billingText": "A blank invoice is the most flexible bill format you can keep in the truck — but it pays to know when a pre-filled template is the faster choice. If you invoice the same services week after week, a template pre-filled with your line items saves typing and cuts mistakes. If every job is different — odd jobs, one-off repairs, mixed goods and services — a blank invoice keeps the sheet honest: one line per item, a quantity and a rate, and a total at the bottom. Whatever you fill in, keep three habits that get blank invoices paid. Always include an invoice number and date — clients' bookkeepers route unnamed bills to the bottom of the pile. State the payment terms on the invoice itself rather than verbally. And charge sales tax only on what your state actually taxes — many states exempt services while taxing goods, and the rate cell in the Excel version is left blank on purpose so you only fill it when required. File every copy you send; come tax season, your blank invoices are your revenue record.",
+    "wordBillNote": "This Word file is a true blank bill format — empty lines, empty totals, ready to type into. Open it in Word or Google Docs, fill the fields for the job in front of you, and File → Save As → PDF gives the client an uneditable copy. Keep the blank original as your master and every invoice starts clean."
+  }
+}

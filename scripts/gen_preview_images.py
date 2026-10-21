@@ -23,7 +23,8 @@ def rt(d,x,y,t,f,c): d.text((x-d.textlength(t,font=f),y),t,fill=c,font=f)
 
 def gen_one(tr):
     slug=tr["slug"]; title=tr["title"]; dt=tr.get("docType","invoice")
-    isest=dt in ("estimate","quote"); dep=tr.get("depositPct",25); items=tr.get("lineItems",[])[:6]
+    isest=dt in ("estimate","quote"); iswo=dt=="work-order"; iscn=dt=="credit-note"; isdl=dt=="delivery-note"
+    dep=tr.get("depositPct",25); items=tr.get("lineItems",[])[:6]
     sub=0; rows=[]
     for it in items:
         q=it.get("defaultQty",0) or 0; r=it.get("sampleRate",0) or 0; a=q*r; sub+=a
@@ -34,11 +35,15 @@ def gen_one(tr):
     d.rounded_rectangle((px-4,py-4,px+pw+4,py+ph+4),radius=14,fill=(220,226,234))
     d.rounded_rectangle((px,py,px+pw,py+ph),radius=12,fill=PAPER,outline=LINE,width=1)
     cx=px+40; cw=pw-80; y=py+36
-    bc=GOLD if isest else BLUE
+    bc=GOLD if (isest or iswo) else BLUE
     d.rounded_rectangle((px,py,px+pw,py+10),radius=12,fill=bc); d.rectangle((px,py+5,px+pw,py+10),fill=bc)
     d.text((cx,y),title.upper(),fill=INK,font=ft); y+=52
-    dl="QUOTE #  QUOTE-0001" if dt=="quote" else ("ESTIMATE #  EST-0001" if isest else "INVOICE #  INV-0001")
-    d.text((cx,y),dl,fill=MUTED,font=fl); rt(d,cx+cw,y,"Date  2025-01-15",fl,MUTED); y+=30
+    dl=("QUOTE #  QUOTE-0001" if dt=="quote" else "ESTIMATE #  EST-0001") if isest else (
+        "CREDIT NOTE #  CN-0001" if iscn else "WORK ORDER #  WO-0001" if iswo else
+        "DELIVERY NOTE #  DN-0001" if isdl else "INVOICE #  INV-0001")
+    dr=("Orig Invoice  INV-______" if iscn else "Service Date  ________" if iswo else
+        "PO #  ________" if isdl else "Date  2025-01-15")
+    d.text((cx,y),dl,fill=MUTED,font=fl); rt(d,cx+cw,y,dr,fl,MUTED); y+=30
     cwi=(cw-30)//2
     d.text((cx,y),"FROM",fill=MUTED,font=fl); d.text((cx,y+22),"Your Business Name",fill=INK,font=fb)
     d.text((cx,y+44),"Street, City, State ZIP",fill=MUTED,font=fs); d.text((cx,y+62),"Phone | Email",fill=MUTED,font=fs)
@@ -55,10 +60,20 @@ def gen_one(tr):
         rt(d,xr+50,y,rate,ftd,INK); rt(d,xa,y,amt,ftd,INK); y+=28; d.line((cx,y,cx+cw,y),fill=LINE,width=1); y+=4
     y+=16; tw=280; tx=xa-tw; d.line((tx,y,xa,y),fill=INK,width=2); y+=12
     d.text((tx,y),"SUBTOTAL",fill=INK,font=ftd); rt(d,xa,y,M(sub),ftd,INK); y+=28
-    if isest:
+    if isest or iswo:
         d.text((tx,y),f"DEPOSIT ({dep}%)",fill=MUTED,font=ftd); rt(d,xa,y,M(sub*dep/100),ftd,INK); y+=28
         d.line((tx,y,xa,y),fill=INK,width=2); y+=8
         d.text((tx,y),"BALANCE DUE",fill=INK,font=F(16,True)); rt(d,xa,y,M(sub*(100-dep)/100),ftd,INK)
+    elif iscn:
+        d.text((tx,y),"TAX (enter rate)",fill=MUTED,font=ftd); rt(d,xa,y,"—",ftd,MUTED); y+=28
+        d.line((tx,y,xa,y),fill=INK,width=2); y+=8
+        d.text((tx,y),"TOTAL CREDIT",fill=INK,font=F(16,True)); rt(d,xa,y,M(sub),ftd,INK)
+    elif isdl:
+        tq=sum((it.get("defaultQty",0) or 0) for it in items)
+        d.text((tx,y),"TOTAL ITEMS",fill=MUTED,font=ftd); rt(d,xa,y,str(tq),ftd,INK); y+=28
+        d.text((tx,y),"GOODS VALUE",fill=MUTED,font=ftd); rt(d,xa,y,M(sub),ftd,INK); y+=28
+        d.line((tx,y,xa,y),fill=INK,width=2); y+=8
+        d.text((tx,y),"RECEIVED BY",fill=INK,font=F(16,True)); rt(d,xa,y,"________",ftd,INK)
     else:
         d.text((tx,y),"TAX (enter rate)",fill=MUTED,font=ftd); rt(d,xa,y,"—",ftd,MUTED); y+=28
         d.line((tx,y,xa,y),fill=INK,width=2); y+=8

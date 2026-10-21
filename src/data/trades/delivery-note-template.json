@@ -1,0 +1,60 @@
+{
+  "slug": "delivery-note-template",
+  "trade": "Shipping",
+  "docType": "delivery-note",
+  "title": "Delivery Note Template",
+  "subtitle": "A delivery note template for goods shipments — item list, quantities, PO reference and a signature on receipt. Free download in Excel (auto-counting), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Goods value shown for reference — tax is billed on the invoice",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Delivery Address", "Phone", "Email"],
+  "invoiceFields": ["Delivery Note #", "Date", "PO #", "Delivered By"],
+  "paymentTerms": "",
+  "notes": "Please check all items at delivery. Note any shortages or damage on this sheet before signing. Report issues within 48 hours.",
+  "lineItems": [
+    {"code": "WDG-A", "description": "Widget — model A", "defaultQty": 12, "unit": "box", "sampleRate": 8.5, "taxable": true},
+    {"code": "SPARE", "description": "Spare part kit", "defaultQty": 3, "unit": "kit", "sampleRate": 24.0, "taxable": true},
+    {"code": "TOOL", "description": "Tool set", "defaultQty": 2, "unit": "each", "sampleRate": 45.0, "taxable": true},
+    {"code": "CONS", "description": "Consumables", "defaultQty": 10, "unit": "pack", "sampleRate": 6.0, "taxable": false}
+  ],
+  "features": [
+    "The fields receiving desks look for — PO reference, item list, quantity totals and a signature on receipt",
+    "Excel version counts total items automatically — the number the receiver checks against the load",
+    "Signed copy is your proof of delivery — settles disputes and backs up your payment terms",
+    "Works for any business that ships — wholesalers, suppliers, couriers and field distributors alike"
+  ],
+  "faqs": [
+    {"q": "What is a delivery note?", "a": "A delivery note is a document that accompanies a shipment of goods: it lists the items and quantities being delivered, references the customer's purchase order, and is signed by the person receiving the goods. The signed copy becomes proof that the delivery happened and what was in it."},
+    {"q": "What is the difference between a delivery note and an invoice?", "a": "The delivery note travels with the goods and asks for a signature, not payment; the invoice follows (or arrives separately) and asks for payment. Quantities on the two should agree — the delivery note is often the evidence behind the invoice's line items."},
+    {"q": "Does a delivery note show prices?", "a": "Many businesses leave prices off so the driver never carries commercial data; others include a goods value so the receiver can check the shipment against the order. This template shows a goods value in the totals — delete that row if you prefer the price-free format."},
+    {"q": "What should I do with the signed copy?", "a": "File it with the customer's order. If an invoice is disputed, a shipment goes missing, or damage is claimed later, the signed delivery note — with any shortages noted at the time of signing — is your primary evidence."},
+    {"q": "Is this delivery note template free?", "a": "Yes. The Excel, Word and PDF versions are free with no email required. The Excel version counts the total items as you enter quantities."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-counting total items"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "overrides": {
+    "eyebrow": "Proof of delivery · delivery note format",
+    "docSynonym": "delivery note (delivery docket)",
+    "hubHref": "/business-form-templates/",
+    "hubLabel": "Business Form Templates",
+    "previewAlt": "Delivery note template preview — item list with quantities, PO reference, total items and received-by signature line",
+    "featuresSub": "The paperwork that travels with the goods — items, quantities and a signature on receipt.",
+    "billingHeading": "How delivery notes fit the order-to-cash flow",
+    "billingSub": "Proof of delivery, shortages and damage — the evidence layer under your invoices.",
+    "relatedSub": "More generic business forms — pick the document that fits the job.",
+    "relatedSlugs": ["service-invoice-template", "blank-invoice-template", "tax-invoice-template", "hourly-invoice-template", "credit-note-template", "work-order-template"],
+    "howToUseText": "Use this delivery note template whenever you ship or hand over goods and want proof of what was delivered. Fill in your business details and the delivery address (which often differs from the customer's billing address), then reference the customer's purchase order number — it is what their receiving desk matches against. List every item in the shipment with its quantity; the Excel version counts the total items automatically, giving the receiver a single number to check against the load. Print two copies: one travels with the goods, the receiver checks the items, notes any shortages or damage on the sheet, and signs; the driver brings the signed copy back. File it with the customer's order — the signed note is your proof of delivery when an invoice is questioned or a shipment is disputed. Send the invoice separately: the delivery note records what moved, the invoice asks for the money.",
+    "howToUseSteps": [
+      {"title": "Reference the purchase order", "body": "Fill in your business details, the delivery address, and the customer's PO # — receiving desks match deliveries to POs before they sign anything."},
+      {"title": "List the items and quantities", "body": "One line per item with the quantity shipped. The Excel version totals the item count automatically — the number the receiver checks against the load."},
+      {"title": "Print two, get one signed", "body": "The receiver checks the items, notes shortages or damage on the sheet, and signs. The signed copy comes back with the driver and gets filed with the order — it is your proof of delivery."}
+    ],
+    "billingText": "A delivery note is the evidence layer of order-to-cash: the purchase order says what the customer wants, the delivery note says what actually arrived, and the invoice asks to be paid for the difference. The signed copy matters more than it looks. \"Proof of delivery\" is the first thing a factoring company or a card processor asks for when a customer disputes a charge, and it is what turns \"we never received it\" into a claim with a date, a count and a name on it. Make the receiver's job easy and the document stays honest: quantities grouped per item with a total-items count they can verify in one glance, space to note shortages or damage before signing, and a driver name so the chain of custody is traceable. The classic failure mode is a receiver signing blind for an unchecked load — once signed clean, claiming damage later becomes their word against the sheet, and you hold the winning document. Two practical habits: print two copies (one for the receiver to keep, one signed to return), and if you ship freight, note that the bill of lading serves a similar function with legal weight in transit — the delivery note covers the handoff at the door. Prices are optional: plenty of businesses strip them so drivers carry no commercial data. This template shows a goods value in the totals for order-checking; delete that row if you run the price-free format. Either way, quantities on the delivery note should match the invoice that follows — that agreement is what makes both documents credible.",
+    "wordBillNote": "This Word file is a ready delivery note format — item lines, quantity totals, PO reference and a received-by signature block, fully editable. Open it in Word or Google Docs, type the shipment's details, print two copies, and the signed one comes back as your proof of delivery. Keep the blank original as your master for every shipment."
+  }
+}

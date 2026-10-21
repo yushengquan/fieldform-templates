@@ -1,0 +1,58 @@
+{
+  "slug": "service-invoice-template",
+  "trade": "Service",
+  "docType": "invoice",
+  "title": "Service Invoice Template",
+  "subtitle": "A general service invoice template for any service business — call-out fees, labor hours, parts and sales tax on one sheet. Free download in Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
+  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "paymentTerms": "Net 14 — payment due within 14 days of the invoice date. Late payments accrue 1.5% per month.",
+  "notes": "Thank you for your business. Pay by check, bank transfer, or card — details below.",
+  "lineItems": [
+    {"code": "SRV", "description": "Service call-out (first hour)", "defaultQty": 1, "unit": "visit", "sampleRate": 89.0, "taxable": true},
+    {"code": "LAB", "description": "Additional labor", "defaultQty": 3, "unit": "hour", "sampleRate": 75.0, "taxable": true},
+    {"code": "PART", "description": "Parts & materials", "defaultQty": 1, "unit": "lot", "sampleRate": 60.0, "taxable": true},
+    {"code": "TRIP", "description": "Trip / travel charge", "defaultQty": 1, "unit": "trip", "sampleRate": 25.0, "taxable": false}
+  ],
+  "features": [
+    "Works for any service business — cleaners, tutors, IT support, repairs, salons, consultants",
+    "Call-out fee, labor hours, parts and travel on separate lines — the layout service clients expect",
+    "Auto-calculating tax formulas in Excel — enter your state rate once",
+    "Printable PDF and editable Word versions — handwrite it on site or type it up in the office"
+  ],
+  "faqs": [
+    {"q": "What is a service invoice?", "a": "A service invoice is a bill for work performed rather than goods sold — labor, call-out fees, parts used and travel, each on its own line, plus tax and payment terms. It carries your business details, the client and service address, an invoice number and a due date."},
+    {"q": "What should a service invoice include?", "a": "At minimum: your business name and contact details, the client's details and the address where the work was done, a dated line-item list of services performed, the sales tax you are required to charge, and the total due with payment terms."},
+    {"q": "Is this service invoice template free?", "a": "Yes. All three formats — Excel, Word and PDF — are free to download with no email required. The Excel version calculates subtotal, tax and total automatically."},
+    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantities and rates per line, type your state's sales tax rate into the tax cell once, and the total updates automatically. Leave the rate blank if your state does not tax services."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "overrides": {
+    "eyebrow": "Field service & general services · invoice format",
+    "hubHref": "/business-form-templates/",
+    "hubLabel": "Business Form Templates",
+    "previewAlt": "Service invoice template preview — call-out fee, labor hours, parts and travel on separate lines with auto-calculating totals",
+    "featuresSub": "Built for service businesses that bill labor, parts and call-out fees on one sheet.",
+    "billingHeading": "How service businesses typically bill",
+    "billingSub": "Line-item conventions for service invoices — so your numbers look right to the customer.",
+    "relatedSub": "More generic business forms — pick the document that fits the job.",
+    "relatedSlugs": ["blank-invoice-template", "tax-invoice-template", "hourly-invoice-template", "credit-note-template", "work-order-template", "delivery-note-template"],
+    "howToUseText": "Use this service invoice template after you complete the work and are ready to bill the customer. Open the file and replace the placeholder business name, address and contact fields with your own — the layout is deliberately generic so it works for any service business, from cleaning and repairs to tutoring and IT support. The line items are pre-filled with the four charges most service invoices carry: a call-out or first-hour fee, additional labor, parts and materials, and a travel charge — delete the rows you do not use and add your own. If your state taxes services, enter your sales tax rate in the tax cell and the total recalculates automatically; if it does not, leave the rate blank. Set your payment terms — the template ships with Net 14, a sensible default for small service businesses — then email the finished invoice as a PDF and keep a copy per client so you have a record of what you charged and when.",
+    "howToUseSteps": [
+      {"title": "Fill in your business details", "body": "Replace the placeholder name, address, phone and email at the top with your own. Add your EIN if the client's bookkeeper asks for it — it appears on every copy once set."},
+      {"title": "Adjust the line items", "body": "Start from the four standard service rows — call-out, labor, parts, travel — and edit the descriptions, quantities and rates to match the job. Delete rows you did not use."},
+      {"title": "Set terms and send", "body": "Enter your payment terms and due date, then email the invoice as a PDF (Word → Save As → PDF). Keep a copy per client for your records and tax filing."}
+    ],
+    "billingText": "Most service businesses bill a job using a combination of fixed fees and time-and-materials pricing. A service call-out fee covers the cost of traveling to the customer and the first hour of diagnosis or work — it is typically a flat charge ($50–$150 depending on your market and whether the job is after hours). Some service businesses waive the call-out fee if the customer approves the work on the spot; others always charge it. Put it on its own line so the customer sees it itemized. Labor beyond the first hour is billed at an hourly rate — $75–$150/hr is common for skilled services in most US markets. Track time from arrival to completion, including time spent picking up parts, and note any minimum charge (for example, one hour even for a 20-minute fix) in the line item description. Parts and materials are billed at cost plus a markup — 20% to 30% is common. List each part over $50 as a separate line, or group small items under \"Materials\" with a single total. Tax treatment varies by state — some tax services, others only tax goods, and a few tax nothing. Look up your state's rule, then set the tax rate cell accordingly; when in doubt, ask your CPA.",
+    "wordBillNote": "This Word file works as a ready-made service invoice format — the same fields, layout and line items as a printed bill, but fully editable. Open it in Word or Google Docs, type over the placeholders, and File → Save As → PDF produces a clean copy the client cannot accidentally edit. Save your filled-in version as a master and every future service invoice takes under a minute."
+  }
+}

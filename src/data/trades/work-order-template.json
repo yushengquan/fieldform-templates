@@ -1,0 +1,60 @@
+{
+  "slug": "work-order-template",
+  "trade": "Service",
+  "docType": "work-order",
+  "title": "Work Order Template",
+  "subtitle": "A work order template for authorizing jobs before you start — scope of work, parts, labor and deposit on one signed sheet. Free download in Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
+  "invoiceFields": ["Work Order #", "Date", "Service Date", "PO #"],
+  "paymentTerms": "Deposit of 25% due on approval. Balance due within 14 days of completion. Changes to the scope below require a signed change order.",
+  "notes": "Work to be performed as described above. Pricing is an authorization estimate for the listed scope — the final invoice reflects actual hours, parts and any approved changes.",
+  "lineItems": [
+    {"code": "CALL", "description": "Service call-out (first hour)", "defaultQty": 1, "unit": "visit", "sampleRate": 89.0, "taxable": true},
+    {"code": "LAB", "description": "Labor — diagnostic & repair", "defaultQty": 3, "unit": "hour", "sampleRate": 85.0, "taxable": true},
+    {"code": "PART", "description": "Parts & materials", "defaultQty": 1, "unit": "lot", "sampleRate": 140.0, "taxable": true},
+    {"code": "DISP", "description": "Disposal / recycling fee", "defaultQty": 1, "unit": "job", "sampleRate": 25.0, "taxable": false}
+  ],
+  "features": [
+    "Authorization built in — scope, price and terms on one sheet the client signs before work starts",
+    "Deposit and balance totals — both calculate automatically in the Excel version",
+    "Work order numbering — WO-0001 style IDs keep jobs traceable from authorization to final invoice",
+    "Works for any field service — repairs, installations, maintenance and inspections of every kind"
+  ],
+  "faqs": [
+    {"q": "What is a work order?", "a": "A work order is a document that defines and authorizes a job before it starts: the scope of work, the parts and labor involved, the price, and the terms — signed by the customer. The business keeps a copy as its instruction to proceed and the client's proof of what was agreed."},
+    {"q": "What is the difference between a work order and an invoice?", "a": "A work order comes first and authorizes the work; an invoice comes after and requests payment. The work order defines scope and price up front, and changes usually need a signed change order. When the job is done, you bill with an invoice that reflects the actual hours, parts and approved changes."},
+    {"q": "Should a work order show the price?", "a": "Usually yes — a priced work order doubles as the customer's authorization to charge, and disputes are far rarer when the number was signed before work began. Some maintenance shops keep internal work orders unpriced and quote separately; either works, as long as the billing path is clear."},
+    {"q": "What is a change order?", "a": "A change order is a short addendum signed when the scope changes mid-job — extra parts, newly found damage, added labor. Getting it signed at discovery time keeps the final invoice from exceeding what the customer believes they authorized."},
+    {"q": "Is this work order template free?", "a": "Yes. The Excel, Word and PDF versions are free with no email required. The Excel version calculates the deposit, balance and tax automatically."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "overrides": {
+    "eyebrow": "Job authorization · work order format",
+    "docSynonym": "work order (job sheet)",
+    "hubHref": "/business-form-templates/",
+    "hubLabel": "Business Form Templates",
+    "previewAlt": "Work order template preview — scope of work, labor and parts with deposit, balance and signature line",
+    "featuresSub": "Authorize the job before you start — scope, price and deposit on one signed sheet.",
+    "billingHeading": "How work orders fit the billing flow",
+    "billingSub": "Authorization, deposits and change orders — the paperwork that prevents payment disputes.",
+    "relatedSub": "More generic business forms — pick the document that fits the job.",
+    "relatedSlugs": ["service-invoice-template", "blank-invoice-template", "tax-invoice-template", "hourly-invoice-template", "credit-note-template", "delivery-note-template"],
+    "howToUseText": "Use this work order template when a job needs written authorization before you begin — repairs, installations, maintenance, any work where scope and price should be agreed up front. Fill in your business details and the customer's, plus the service address where the work happens. Describe the scope as line items: the call-out, the labor hours you expect, the parts you plan to use, and any disposal or permit fees — the more specific the descriptions, the fewer disputes later. The Excel version calculates the subtotal, the deposit (25% by default) and the balance automatically; add your sales tax rate if your state taxes the work. Set the service date and payment terms, then print two copies or email one for e-signature: the customer signs to authorize, you keep the signed copy and schedule the job. When the work is finished, the signed work order and any change orders become the backup for your final invoice.",
+    "howToUseSteps": [
+      {"title": "Define the scope as line items", "body": "List the call-out, expected labor hours, parts and fees — specific descriptions protect both sides. The Excel version totals them as you type."},
+      {"title": "Set deposit and terms", "body": "The sheet computes the deposit (25% default — change it to your norm) and the balance. Add your payment terms and the service date."},
+      {"title": "Get it signed before work starts", "body": "Print two copies or email for e-signature. The customer's signature authorizes the scope and price; you keep the signed copy and bill against it when the job is done."}
+    ],
+    "billingText": "The sequence that gets service businesses paid is: quote or work order → signed authorization → work → invoice. Skipping the middle step is where payment disputes are born — a verbal \"yes, go ahead\" is worth exactly nothing when the bill arrives at 1.5× the number the customer had in mind. A signed work order fixes scope (what exactly will be done), price (what it will cost), and terms (deposit, balance, payment window) in one document — and it changes the psychology of the job: the customer has agreed in writing before you touch a tool. Deposits are standard on work orders for exactly this reason: 25%–50% up front filters out non-payers and funds your parts. Charge the deposit on approval, not on completion of paperwork. The middle of the job is where scope changes surface — rotten subfloor under the tile, a seized bolt, a part that costs triple the estimate. Handle each one with a change order: a short signed addendum describing the extra work and its price, appended to the work order. Ten seconds of signature at discovery time converts a \"why is your bill so high?\" conversation into a \"here's what you approved\" one. Number work orders in their own sequence (WO-0001…) and file the signed copy with the eventual invoice — at tax time and in any dispute, the signed set reads as a complete story.",
+    "wordBillNote": "This Word file is a ready work order format — scope lines, deposit, balance and a signature block, fully editable. Open it in Word or Google Docs, type the job's details, and print two copies for signatures (or email it for e-signature). Keep the blank original as your master; every authorized job starts from a clean sheet."
+  }
+}

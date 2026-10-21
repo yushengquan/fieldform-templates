@@ -48,11 +48,16 @@ def draw_doc_icon(img, draw, doc_type):
     od = ImageDraw.Draw(overlay)
     od.rounded_rectangle((10, 10, 10 + w, 10 + h), radius=18,
                          fill=(255, 255, 255, 38), outline=(255, 255, 255, 90), width=2)
-    bar_color = (255, 215, 0, 230) if doc_type in ("estimate", "quote") else (255, 255, 255, 230)
+    bar_color = (255, 215, 0, 230) if doc_type in ("estimate", "quote", "work-order") else (255, 255, 255, 230)
     od.rounded_rectangle((10, 10, 10 + w, 60), radius=18, fill=bar_color)
     od.rectangle((10, 40, 10 + w, 60), fill=bar_color)
-    f_lbl = font(34, bold=True)
-    lbl = {"estimate": "ESTIMATE", "quote": "QUOTE"}.get(doc_type, "INVOICE")
+    lbl = {"estimate": "ESTIMATE", "quote": "QUOTE", "credit-note": "CREDIT NOTE",
+           "work-order": "WORK ORDER", "delivery-note": "DELIVERY NOTE"}.get(doc_type, "INVOICE")
+    f_sz = 34
+    f_lbl = font(f_sz, bold=True)
+    while od.textlength(lbl, font=f_lbl) > 196 and f_sz > 18:
+        f_sz -= 2
+        f_lbl = font(f_sz, bold=True)
     od.text((40, 18), lbl, fill=(20, 60, 110, 255), font=f_lbl)
     for yy in [90, 130, 170, 210, 250]:
         od.rounded_rectangle((40, yy, 40 + 160, yy + 16), radius=4, fill=(255, 255, 255, 70))
@@ -76,9 +81,13 @@ def wrap_title(draw, text, f_big, max_w):
     return lines
 
 
+DOC_NAMES = {"invoice": "Invoice", "estimate": "Estimate", "quote": "Quote",
+             "credit-note": "Credit Note", "work-order": "Work Order", "delivery-note": "Delivery Note"}
+
+
 def gen_one(trade):
     slug = trade["slug"]
-    title = f"{trade['trade']} {trade['docType'].capitalize()} Template"
+    title = f"{trade['trade']} {DOC_NAMES.get(trade['docType'], trade['docType'].capitalize())} Template"
     img, draw = make_bg()
     f_big = font(64, bold=True)
     f_mid = font(40, bold=True)
