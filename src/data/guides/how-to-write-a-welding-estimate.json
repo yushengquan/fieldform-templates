@@ -3,6 +3,7 @@
   "trade": "Welding",
   "docType": "estimate",
   "templateSlug": "welding-estimate-template",
+  "calculatorSlug": "welding-estimate-calculator",
   "altTemplateSlugs": ["welding-quote-template", "welder-estimate-template", "welder-invoice-template"],
   "title": "How to Write a Welding Estimate (with Example Line Items)",
   "description": "Step-by-step guide to writing welding estimates — process rates for stick, MIG, TIG and flux-core, steel and consumables markup, hour-estimating methods, deposit and payment terms, with example line items.",

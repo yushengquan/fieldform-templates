@@ -13,4 +13,14 @@ const trades = Object.values(modules).map((m: any) => m.default);
   intro="Professional estimate templates pre-filled for how each trade actually quotes a job — line items, materials, labor and deposit terms. Excel versions auto-calculate tax and totals."
   trades={trades}
   ogImage="/og-estimate.png"
-/>
+>
+  <section class="section wrap" style="padding-top:0;">
+    <div style="background:linear-gradient(135deg,#f0f7ff,#e8f4fe);border:1px solid #b8d8f5;border-radius:12px;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div style="max-width:640px;">
+        <h2 style="font-size:20px;margin-bottom:6px;">Not sure what to charge yet?</h2>
+        <p style="color:var(--muted);font-size:15px;margin:0;line-height:1.6;">Run your hours and materials through the free <strong>welding estimate calculator</strong> — labor by process (MIG, TIG, stick), steel markup, deposit and tax, all in your browser. Works for other trades with the general invoice calculator too.</p>
+      </div>
+      <a href="/welding-estimate-calculator/" style="background:var(--blue);color:#fff;padding:11px 22px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Open the welding estimator →</a>
+    </div>
+  </section>
+</CategoryList>

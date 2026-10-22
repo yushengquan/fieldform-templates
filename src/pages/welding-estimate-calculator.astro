@@ -3,8 +3,8 @@
 // 与 /invoice-calculator/ 同构,但按焊接行业定价模型定制:
 // 分工序工价(MIG/TIG/Stick) + 钢材耗材加价 + 动员费 + 50% 定金(匹配模板 depositPct)
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'Welding Estimate Calculator — Price a Welding Job Free | FieldForm';
-const description = 'Free welding estimate calculator. Enter MIG, TIG and stick hours, steel and consumables, mobilization and tax — get subtotal, 50% deposit and balance instantly. No signup, works on your phone.';
+const title = 'Welding Estimate Calculator — Free Welding Estimator | FieldForm';
+const description = 'Free welding estimator & estimate calculator. Enter MIG, TIG and stick hours, steel and consumables, mobilization and tax — get subtotal, 50% deposit and balance instantly. Rate cheat sheet and worked examples included. No signup.';
 const canonical = 'https://fieldformtemplates.com/welding-estimate-calculator/';
 ---
 <BaseLayout title={title} description={description} canonical={canonical}>
@@ -12,7 +12,7 @@ const canonical = 'https://fieldformtemplates.com/welding-estimate-calculator/';
     <div class="section-head">
       <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Free Tool</p>
       <h1>Welding Estimate Calculator</h1>
-      <p class="lead">Price a welding job in two minutes — labor by process (MIG, TIG, stick), steel and consumables with markup, mobilization, tax, and the 50% deposit to ask for at signing. No signup, no email, works offline.</p>
+      <p class="lead">A free welding estimator for small shops and mobile welders — price a job in two minutes with labor by process (MIG, TIG, stick), steel and consumables with markup, mobilization, tax, and the 50% deposit to ask for at signing. No signup, no email, works offline.</p>
     </div>
     <div class="grid2" style="margin-top:30px;gap:32px;align-items:start;">
       <div class="card" style="padding:28px;">
@@ -149,8 +149,58 @@ const canonical = 'https://fieldformtemplates.com/welding-estimate-calculator/';
         <p>Ask 30-50% at signing — the higher end whenever you must buy steel or specialty filler upfront, so you never finance the client's project. Hold the quote for 30 days, set Net 10 on the balance, and add a workmanship guarantee (90 days on welded joints is standard) to close the deal.</p>
       </div>
     </div>
+    <div style="margin-top:40px;">
+      <h2 style="font-size:22px;margin-bottom:6px;">Welding rate cheat sheet (2024–2025 US midpoints)</h2>
+      <p style="color:var(--muted);font-size:15px;margin-bottom:16px;">Type these rates straight into the estimator above. Field/on-site rates run 20–40% over shop rates; certified welders (AWS D1.1, ASME IX, API 1104) price at the top of each range.</p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:12px;">
+          <thead>
+            <tr>{['Cost line', 'Shop rate', 'Field / mobile rate', 'Deposition rate'].map((h) => <th style="text-align:left;padding:12px 14px;background:var(--soft);border-bottom:2px solid var(--blue);white-space:nowrap;">{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {[
+              ['Stick welding (SMAW)', '$50–$75/hr', '$75–$100/hr', '2–4 lb/hr'],
+              ['MIG welding (GMAW)', '$60–$90/hr', '$80–$110/hr', '6–12 lb/hr'],
+              ['Flux-core (FCAW)', '$60–$85/hr', '$80–$105/hr', '5–9 lb/hr'],
+              ['TIG — stainless / aluminum (GTAW)', '$75–$125/hr', '$100–$150/hr', '1–3 lb/hr'],
+              ['Cutting & bevel prep', '$45–$60/hr', '$55–$75/hr', '—'],
+              ['Grinding & finishing', '$45–$60/hr', '$55–$75/hr', '—'],
+            ].map((row) => (
+              <tr>{row.map((cell) => <td style="padding:12px 14px;border-bottom:1px solid #eee;white-space:nowrap;">{cell}</td>)}</tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin-top:12px;">Materials: steel stock at cost +20–30% markup · shielding gas and consumables roughly $0.50–$2.00 per deposited pound · mobile call-out minimums of $150–$300 before the clock starts.</p>
+    </div>
+    <div style="margin-top:40px;">
+      <h2 style="font-size:22px;margin-bottom:6px;">Three real welding jobs, priced with this estimator</h2>
+      <p style="color:var(--muted);font-size:15px;margin-bottom:16px;">Each example uses the default rates from the cheat sheet — copy the numbers into the calculator above and check the total for yourself.</p>
+      <div class="grid3">
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Handrail repair (mobile)</h3>
+          <p style="font-size:14px;color:var(--muted);">Stick 1.5 hr × $85 field + prep/finish 0.5 hr × $60 + $30 consumables marked up 20% + $75 mobilization.</p>
+          <p style="font-size:16px;font-weight:700;margin-top:8px;">≈ $270 total · $135 deposit</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Trailer floor repair (flux-core)</h3>
+          <p style="font-size:14px;color:var(--muted);">Flux-core 3 hr × $90 + cutting/prep 1.5 hr × $65 + $180 steel &amp; $45 consumables at +20% + $100 mobilization.</p>
+          <p style="font-size:16px;font-weight:700;margin-top:8px;">≈ $740 total · $370 deposit</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:8px;">Shop fabrication (TIG, stainless)</h3>
+          <p style="font-size:14px;color:var(--muted);">TIG 6 hr × $110 + fit-up 3 hr × $55 + $400 stainless stock &amp; $90 filler/gas at +20% (shop — no mobilization).</p>
+          <p style="font-size:16px;font-weight:700;margin-top:8px;">≈ $1,410 total · $705 deposit</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:40px;">
+      <h2 style="font-size:22px;margin-bottom:6px;">Pricing per inch or per pound instead of hourly</h2>
+      <p style="font-size:15px;line-height:1.7;color:var(--ink);">Once you know your deposition rates, fabrication work prices out faster by the inch of weld or pound of deposited metal: a ¼″ fillet lays down about 0.75 lb of weld per foot, so 40 ft of fillet needs roughly 30 lb of deposit — 3–5 arc-hours on MIG, 15+ on TIG. Multiply by your labor rate, add filler and gas at $0.50–$2.00 per deposited pound, then check the number against your hourly estimate. The two methods should land within 15% of each other; if they don't, your hours estimate is off. The full method with tables is in our <a href="/guides/how-to-write-a-welding-estimate/" style="color:var(--accent);font-weight:600;">guide to writing welding estimates</a>.</p>
+    </div>
     <div style="margin-top:32px;padding:20px 24px;background:var(--soft);border-radius:12px;">
       <p style="font-size:15px;line-height:1.6;"><strong>Put these numbers on paper.</strong> Grab a free <a href="/templates/welder-estimate-template/" style="color:var(--accent);font-weight:600;">welder estimate template</a>, the matching <a href="/templates/welding-estimate-template/" style="color:var(--accent);font-weight:600;">welding estimate template</a>, or a firm-price <a href="/templates/welding-quote-template/" style="color:var(--accent);font-weight:600;">welding quote template</a> — pre-filled with MIG/TIG/stick line items, downloads as Word, Excel, or PDF. No email required. For other trades, the general <a href="/invoice-calculator/" style="color:var(--accent);font-weight:600;">invoice calculator</a> and the full <a href="/estimate-templates/" style="color:var(--accent);font-weight:600;">estimate template library</a> are also free.</p>
+      <p style="font-size:15px;line-height:1.6;margin-top:10px;">New to pricing welding work? The step-by-step <a href="/guides/how-to-write-a-welding-estimate/" style="color:var(--accent);font-weight:600;">welding estimate guide</a> covers hour-estimating methods, process rate tables, and deposit terms in depth.</p>
     </div>
   </section>
   <section class="section wrap" style="padding-top:20px;">
@@ -174,16 +224,33 @@ const canonical = 'https://fieldformtemplates.com/welding-estimate-calculator/';
         <summary style="font-weight:700;cursor:pointer;">Why does TIG cost more than stick or MIG?</summary>
         <p style="margin-top:10px;color:var(--muted);">TIG is slower, more skill-dependent, and needs both hands plus a foot pedal — but it produces the cleanest, strongest welds on stainless and aluminum. A TIG hour produces fewer inches of weld than MIG, so the rate must be higher to earn the same. Charge the premium: customers shopping for aluminum or stainless work expect it.</p>
       </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">How much does it cost to weld a handrail?</summary>
+        <p style="margin-top:10px;color:var(--muted);">A typical steel handrail repair — re-weld a loose post or cracked joint, on-site — runs $150–$350. Most of it is the mobile call-out minimum plus 1–2 stick hours; new powder-coated rail sections add material cost at 20–30% markup. A full custom indoor staircase rail fabrication is a different job: $65–$125 per linear foot installed depending on region and material.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">How much is a mobile welder's minimum call-out?</summary>
+        <p style="margin-top:10px;color:var(--muted);">$150–$300 for the first hour or two is the national norm, with $1–$2 per loaded mile beyond a 20–30 mile radius. Roadside and emergency call-outs (trailer, gate, equipment breakdowns) run 50–100% over shop rates — often weekend and after-hours multipliers too. Always quote the minimum before dispatching; it filters non-serious callers and covers your travel.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">How do I calculate welding cost per pound of weld?</summary>
+        <p style="margin-top:10px;color:var(--muted);">Weigh the deposit: for a ¼″ fillet that's about 0.75 lb per foot of weld. Divide by your process's deposition rate (MIG 6–12 lb/hr, stick 2–4 lb/hr, TIG 1–3 lb/hr) to get arc-hours, multiply by your labor rate, then add filler metal and gas at $0.50–$2.00 per deposited pound. Add fit-up, prep and finishing hours at their own rate. The estimator above does the same math in hourly form — both routes should agree within ~15%.</p>
+      </details>
+      <details style="margin-bottom:12px;border:1px solid var(--line);border-radius:8px;padding:16px 20px;background:var(--surface);">
+        <summary style="font-weight:700;cursor:pointer;">What's the difference between a welding estimate, a quote, and a bid?</summary>
+        <p style="margin-top:10px;color:var(--muted);">An estimate is a good-faith range that can move with actual hours and materials — right for repairs with unknown scope. A quote is a fixed price held for a stated window (30 days is standard because steel moves). A bid is a formal proposal against other bidders on contract or code work. The same line items power all three; change the title and how firm the numbers are. Grab the <a href="/templates/welding-quote-template/" style="color:var(--accent);font-weight:600;">welding quote template</a> when you need to commit to a number.</p>
+      </details>
     </div>
   </section>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "Welding Estimate Calculator",
+    alternateName: ["Welding Estimator", "Welding Cost Calculator"],
     applicationCategory: "BusinessApplication",
     operatingSystem: "Any (web browser)",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description: "Free online welding estimate calculator. Price welding jobs by process (MIG, TIG, stick), with materials markup, mobilization, deposit and tax calculated instantly.",
+    description: "Free online welding estimator. Price welding jobs by process (MIG, TIG, stick), with materials markup, mobilization, deposit and tax calculated instantly. Includes 2024-2025 welding rate cheat sheet and worked example jobs.",
     url: "https://fieldformtemplates.com/welding-estimate-calculator/"
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -193,7 +260,11 @@ const canonical = 'https://fieldformtemplates.com/welding-estimate-calculator/';
       { "@type": "Question", name: "What should I charge per hour for welding?", acceptedAnswer: { "@type": "Answer", text: "Typical US ranges: stick/SMAW $50-$75/hr, MIG and flux-core $60-$90/hr, TIG $75-$125/hr. Mobile/on-site welding runs $80-$120/hr. Certified welders (AWS D1.1, ASME pipe) price at the top of each range." } },
       { "@type": "Question", name: "Should I price by the hour or by the inch of weld?", acceptedAnswer: { "@type": "Answer", text: "Hourly suits repair and one-off work. Production work is priced per inch of weld, per joint, or per pound of deposited metal. Start hourly with a not-to-exceed cap and move to per-joint pricing once you have data." } },
       { "@type": "Question", name: "How much deposit should a welder ask for?", acceptedAnswer: { "@type": "Answer", text: "30-50% at signing is standard. Use 50% when the job requires buying steel stock or specialty filler upfront, so the deposit covers your material outlay." } },
-      { "@type": "Question", name: "Why does TIG cost more than stick or MIG?", acceptedAnswer: { "@type": "Answer", text: "TIG is slower and more skill-dependent but produces the cleanest, strongest welds on stainless and aluminum. A TIG hour produces fewer inches of weld than MIG, so the rate must be higher to earn the same." } },
+      { "@type": "Question", name: "Why does TIG cost more than stick or MIG?", acceptedAnswer: { "@type": "Answer", text: "TIG is slower, more skill-dependent, and needs both hands plus a foot pedal — but produces the cleanest, strongest welds on stainless and aluminum. A TIG hour produces fewer inches of weld than MIG, so the rate must be higher to earn the same." } },
+      { "@type": "Question", name: "How much does it cost to weld a handrail?", acceptedAnswer: { "@type": "Answer", text: "A typical steel handrail repair — re-weld a loose post or cracked joint, on-site — runs $150-$350. Most of it is the mobile call-out minimum plus 1-2 stick hours. A full custom indoor staircase rail fabrication runs $65-$125 per linear foot installed." } },
+      { "@type": "Question", name: "How much is a mobile welder's minimum call-out?", acceptedAnswer: { "@type": "Answer", text: "$150-$300 for the first hour or two is the national norm, with $1-$2 per loaded mile beyond a 20-30 mile radius. Roadside and emergency call-outs run 50-100% over shop rates. Quote the minimum before dispatching." } },
+      { "@type": "Question", name: "How do I calculate welding cost per pound of weld?", acceptedAnswer: { "@type": "Answer", text: "A 1/4 inch filet lays down about 0.75 lb of weld per foot. Divide total deposit weight by your process deposition rate (MIG 6-12 lb/hr, stick 2-4 lb/hr, TIG 1-3 lb/hr) to get arc-hours, multiply by your labor rate, then add filler and gas at $0.50-$2.00 per deposited pound plus prep and finishing hours." } },
+      { "@type": "Question", name: "What's the difference between a welding estimate, a quote, and a bid?", acceptedAnswer: { "@type": "Answer", text: "An estimate is a good-faith range that can move with actual hours and materials — right for repairs with unknown scope. A quote is a fixed price held for a stated window, usually 30 days. A bid is a formal proposal against other bidders on contract or code work. The same line items power all three." } },
     ],
   })} />
   <style>

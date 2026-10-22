@@ -89,6 +89,16 @@ const howToLd = JSON.stringify(howToSchemaForGuide(guide, siteUrl));
       </div>
     )}
 
+    {guide.calculatorSlug && (
+      <div style="background:linear-gradient(135deg,#f0f7ff,#e8f4fe);border:1px solid #b8d8f5;border-radius:12px;padding:18px 22px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <div style="max-width:560px;">
+          <strong style="color:var(--ink);">Want the numbers done for you?</strong>
+          <span style="color:var(--muted);"> Run your hours, materials and deposit through the free {guide.trade.toLowerCase()} estimate calculator — it prices MIG, TIG and stick labor by process and works out the deposit automatically.</span>
+        </div>
+        <a href={`/${guide.calculatorSlug}/`} style="background:var(--blue);color:#fff;padding:11px 22px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Open the calculator →</a>
+      </div>
+    )}
+
     <article style="font-size:17px;line-height:1.7;color:var(--ink);">
       {guide.sections.map((sec: any) => (
         <section style="margin-bottom:40px;">
