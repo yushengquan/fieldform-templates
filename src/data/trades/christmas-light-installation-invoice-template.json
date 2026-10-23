@@ -1,0 +1,133 @@
+{
+  "slug": "christmas-light-installation-invoice-template",
+  "trade": "Christmas Light Installer",
+  "docType": "invoice",
+  "title": "Christmas Light Installation Invoice Template",
+  "subtitle": "An invoice pre-filled for holiday lighting jobs — roofline lighting, wreaths, garland, timers, takedown, and rental programs. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
+  "notes": "Thank you for your business. Takedown scheduled for early January — weather may shift the date by a few days.",
+  "lineItems": [
+    {
+      "code": "ROOFLINE",
+      "description": "Roofline / Eave Lighting (per linear ft)",
+      "defaultQty": 150,
+      "unit": "lf",
+      "sampleRate": 9,
+      "taxable": true
+    },
+    {
+      "code": "WREATHS",
+      "description": "Wreaths & Garland",
+      "defaultQty": 3,
+      "unit": "each",
+      "sampleRate": 45,
+      "taxable": true
+    },
+    {
+      "code": "TIMERS",
+      "description": "Timer / Controller Setup",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 35,
+      "taxable": true
+    },
+    {
+      "code": "EXTENSIONS",
+      "description": "Extension Cords & Clips (materials)",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 60,
+      "taxable": true
+    },
+    {
+      "code": "TAKEDOWN",
+      "description": "Season Takedown & Storage Prep",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Installation Labor (crew hours)",
+      "defaultQty": 6,
+      "unit": "hr",
+      "sampleRate": 75,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel (just enter your state rate)",
+    "Pre-filled holiday lighting line items: roofline lighting, wreaths, timers, takedown, labor",
+    "Takedown billed on the same invoice — so clients see the full season price up front",
+    "License # and EIN / Tax ID fields — required on client-facing invoices in most states"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a Christmas light installation invoice?",
+      "a": "At minimum: your business and contractor license number, the client and job-site address, a dated line-item list (roofline lighting by the foot, wreaths and garland, timers, labor, takedown), tax, and total due. Note the takedown window — most companies schedule removal for early January."
+    },
+    {
+      "q": "How do I price Christmas light installation?",
+      "a": "The most common model is $8–$12 per linear foot for roofline lighting, installed, with materials included. Wreaths, garland, and tree wraps are priced per item, and takedown is either bundled into the per-foot rate or listed as its own line. A 150 ft roofline typically bills $1,350–$1,800 for the full season."
+    },
+    {
+      "q": "Should takedown be on the same invoice?",
+      "a": "Yes — billing install, materials, and takedown on one invoice avoids disputes in January. If you run a rental program (you own the lights), list the season as a single package line instead and note that the lights remain your property."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}

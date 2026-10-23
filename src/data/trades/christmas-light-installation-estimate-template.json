@@ -1,0 +1,44 @@
+{
+  "slug": "christmas-light-installation-estimate-template",
+  "trade": "Christmas Light Installer",
+  "docType": "estimate",
+  "title": "Christmas Light Installation Estimate Template",
+  "subtitle": "Free Christmas light installation estimate template — roofline runs, wreaths, garland, timers, takedown, and deposit pre-filled. Excel, Word & PDF. No signup required.",
+  "currency": "USD",
+  "licenseField": false,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
+  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
+  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "paymentTerms": "Estimate valid for 30 days. A 50% deposit secures the season; balance due on completion of installation.",
+  "depositPct": 50,
+  "notes": "This is an estimate, not a final invoice. Final price may vary with roof pitch, story height, and custom runs.",
+  "lineItems": [
+    {"code": "ROOFLINE", "description": "Roofline / Eave Lighting (per linear ft)", "defaultQty": 150, "unit": "lf", "sampleRate": 9, "taxable": true},
+    {"code": "WREATHS", "description": "Wreaths & Garland", "defaultQty": 3, "unit": "each", "sampleRate": 45, "taxable": true},
+    {"code": "TIMERS", "description": "Timer / Controller Setup", "defaultQty": 1, "unit": "each", "sampleRate": 35, "taxable": true},
+    {"code": "EXTENSIONS", "description": "Extension Cords & Clips (materials)", "defaultQty": 1, "unit": "lot", "sampleRate": 60, "taxable": true},
+    {"code": "TAKEDOWN", "description": "Season Takedown & Storage Prep", "defaultQty": 1, "unit": "job", "sampleRate": 120, "taxable": true},
+    {"code": "LABOR", "description": "Installation Labor (crew hours)", "defaultQty": 6, "unit": "hr", "sampleRate": 75, "taxable": true}
+  ],
+  "features": [
+    "Auto-calculating totals and 50% deposit in Excel",
+    "Pre-filled holiday lighting line items: roofline runs, wreaths, timers, takedown, labor",
+    "Valid-until date + 50% deposit section standard for seasonal lighting quotes",
+    "Notes field covers roof pitch and story height variables that move the final price"
+  ],
+  "faqs": [
+    {"q": "What should I include on a Christmas light installation estimate?", "a": "At minimum: your business name, the client and job-site address, a dated line-item list (roofline lighting by the linear foot, wreaths, garland, timers, takedown, labor), a validity date, deposit terms, and a note that it is not a final invoice."},
+    {"q": "How much does Christmas light installation cost?", "a": "Most US companies charge $8–$12 per linear foot of roofline lighting with materials and labor included, so a 150 ft single-story roofline runs $1,350–$1,800 for the season. Wreaths and garland run $30–$60 per piece, timers $25–$50, and takedown is often bundled into the per-foot rate."},
+    {"q": "How much deposit should I collect?", "a": "50% is the industry standard for holiday lighting — it covers the lights and materials you buy before install day. The balance is due once the display is up and the client has signed off."},
+    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
+    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 50% deposit and balance due update automatically."},
+    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+  ],
+  "downloads": {
+    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
+    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
+    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+}
