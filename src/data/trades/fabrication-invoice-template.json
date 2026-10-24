@@ -1,0 +1,149 @@
+{
+  "slug": "fabrication-invoice-template",
+  "trade": "Metal Fabrication Shop",
+  "docType": "invoice",
+  "title": "Metal Fabrication Invoice Template",
+  "subtitle": "An invoice pre-filled for metal fabrication shops — shop hours, CAD design time, steel stock with markup, CNC plasma cutting, press-brake bends, machining, and delivery. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job / Drawing #",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "50% deposit before material purchase; balance due on pickup or delivery. Repeat commercial accounts: Net 30 with approved credit.",
+  "notes": "Thank you for your business. Dimensions, material grade, and tolerances per approved drawing. Tolerances ±1/16 in. unless noted. Repeat runs skip design fees — ask about second-run pricing.",
+  "lineItems": [
+    {
+      "code": "FAB-HRS",
+      "description": "Fabrication Shop Hours — Cut, Fit, Weld, Grind (per hour)",
+      "defaultQty": 14,
+      "unit": "hr",
+      "sampleRate": 85,
+      "taxable": true
+    },
+    {
+      "code": "DESIGN",
+      "description": "CAD Design & Drafting — Layout, Nesting, Drawings (per hour)",
+      "defaultQty": 2,
+      "unit": "hr",
+      "sampleRate": 95,
+      "taxable": true
+    },
+    {
+      "code": "MATERIAL",
+      "description": "Steel Stock — Plate, Tube & Angle (cost + 25% handling)",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 480,
+      "taxable": true
+    },
+    {
+      "code": "PLASMA",
+      "description": "CNC Plasma / Laser Cutting (per part)",
+      "defaultQty": 12,
+      "unit": "each",
+      "sampleRate": 6,
+      "taxable": true
+    },
+    {
+      "code": "BRAKE",
+      "description": "Press-Brake Bends & Forming (per bend)",
+      "defaultQty": 8,
+      "unit": "each",
+      "sampleRate": 9,
+      "taxable": true
+    },
+    {
+      "code": "MACHINING",
+      "description": "Drilling, Tapping & Machined Features (per hole / feature)",
+      "defaultQty": 24,
+      "unit": "each",
+      "sampleRate": 3.5,
+      "taxable": true
+    },
+    {
+      "code": "FINISH",
+      "description": "Deburr, Grinding & Paint-Ready Finish (per hour)",
+      "defaultQty": 1.5,
+      "unit": "hr",
+      "sampleRate": 65,
+      "taxable": true
+    },
+    {
+      "code": "DELIVERY",
+      "description": "Delivery / Site Unloading",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 90,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel — just enter your state rate",
+    "Pre-filled fab-shop line items — shop hours, design time, steel with markup, plasma cuts, bends, machining",
+    "Material listed with its markup as its own line — customers see steel cost and shop labor separately",
+    "Deposit terms built in — 50% up front covers steel before you ever cut it"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a metal fabrication invoice?",
+      "a": "Your business details, the client, and a job or drawing number that ties the invoice to the approved prints. Break the work into its real steps: shop hours, design time, material with its grade (A36, 304 stainless, 5052 aluminum) and thickness, plasma or laser cutting by the part, bends by the bend, machining by the hole, finishing, and delivery. Note tolerances and finish spec in the notes, then tax and total."
+    },
+    {
+      "q": "How much does metal fabrication cost?",
+      "a": "Shop labor runs $60–$120 per hour depending on region and process (design/CAD $75–$125/hr, welding $75–$125/hr). Steel passes through at cost plus 20–30% handling. CNC cutting bills $4–$10 per part plus setup, press-brake work $5–$15 per bend, and drilled or tapped features $2–$5 each. Typical jobs: a custom trailer gate $250–$600, welded handrails $65–$125 per linear foot, a small production run of brackets $8–$20 each."
+    },
+    {
+      "q": "Should I mark up material on the invoice?",
+      "a": "Yes — 20–30% on steel stock is the industry norm, and it should be its own line. The markup covers sourcing, handling, cut-off scrap, and the risk of steel price moves between quote and build. List the material as 'cost + 25% handling' so the customer understands the number; shops that bury material inside an hourly rate end up eating price spikes."
+    },
+    {
+      "q": "Why take a deposit on fabrication work?",
+      "a": "Because the steel gets bought before the first cut. A 50% deposit on material and setup protects you when a customer changes their mind mid-build — metal cut to a drawing has almost no resale value. Collect the deposit against a written quote or work order, then invoice the balance on pickup or delivery."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if fabrication services are not taxable in your state."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney before use."
+}

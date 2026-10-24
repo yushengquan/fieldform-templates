@@ -2,6 +2,7 @@
 // 每个 guide 都是 "how to write a X invoice" 的深度内容,
 // 步骤从 guide 的 sections[0] (必填字段列表) + 通用写发票流程推导,
 // 保证步骤既贴合该工种又有动作性(HowToStep 要求 name 是动作短语)。
+import { lowerKeepProper } from './how-to-use';
 
 export interface GuideSectionBlock {
   type: string;
@@ -29,7 +30,8 @@ export interface Guide {
 }
 
 function tradeLower(trade: string): string {
-  return (trade || 'trade').toLowerCase();
+  // 小写化但保留专有词/缩写(HVAC Service → HVAC service)
+  return lowerKeepProper(trade || 'Trade');
 }
 
 // 从 guide.sections[0] 的 ul 列表提取该工种特有的必填字段

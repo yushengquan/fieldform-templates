@@ -28,20 +28,30 @@ for (const it of items) subtotal += (it.defaultQty ?? 0) * (it.sampleRate ?? 0);
 // 新 docType（credit-note / work-order / delivery-note 等）或非工种页面，lib 自动文案不适配时，
 // 在 trade JSON 里加 "overrides": {...} 改写对应文案；旧 JSON 无该字段 → 全部回退原逻辑，输出不变。
 const ov = trade.overrides ?? {};
-const eyebrowText = ov.eyebrow ?? `${trade.trade} · ${trade.docType} template`;
+// 眉题源文本词组首字母大写（视觉层由 CSS uppercase 覆盖，此改动惠及复制/读屏器/无 CSS 场景）
+const capWords = (s: string) => s.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+const eyebrowText = ov.eyebrow ?? `${trade.trade} · ${capWords(trade.docType)} Template`;
 const docSynonym = ov.docSynonym ?? (trade.docType === 'invoice' ? 'invoice (bill)' : trade.docType);
 const hubHref = ov.hubHref ?? `/${trade.docType === 'invoice' ? 'invoice' : 'estimate'}-templates/`;
 const hubLabel = ov.hubLabel ?? (trade.docType === 'invoice' ? 'Invoice Templates' : 'Estimate Templates');
-const previewAlt = ov.previewAlt ?? `${trade.title} preview — pre-filled ${trade.trade.toLowerCase()} ${trade.docType} with auto-calculating totals`;
-const featuresSub = ov.featuresSub ?? `Built for the way a ${trade.trade.toLowerCase()} business bills a job.`;
+const previewAlt = ov.previewAlt ?? `${trade.title} preview — pre-filled ${trade.trade} ${trade.docType} with auto-calculating totals`;
+const featuresSub = ov.featuresSub ?? `Built for the way a ${trade.trade} business bills a job.`;
 const billingHeading = ov.billingHeading ?? `How ${tradePerson(trade.trade)} typically bill`;
 const billingSub = ov.billingSub ?? `Industry norms for pricing ${trade.docType === 'invoice' ? 'a job' : 'a quote'} — so your numbers look right to the customer.`;
 const relatedSub = ov.relatedSub ?? 'Same trade, same paperwork — pick the document that fits the job.';
 
 // 内部链接：同工种其他单据 + 同类型单据的其他工种（pSEO 权重流动 + 全站爬取）
 const allTrades: any[] = Object.values(import.meta.glob('../../data/trades/*.json', { eager: true })).map((m: any) => m.default);
-// 工种家族归一 — "Welder" 与 "Welding" 是同一用户意图，4 个主页面组成完整集群互链
-const fam = (t: any) => (t.trade === 'Welder' ? 'Welding' : t.trade);
+// 工种家族归一 — 同一用户意图的工种合并成一个集群，同族页面互链：
+// Welder/Welding 4 页老集群；Metal Fabrication Shop 归入焊接集群（fabrication ↔ welding 互链）；
+// Window Tinting Installer 与 Boat Detailing Service 归入 Auto Detailing 集群（汽车美容 ↔ 贴膜/船舶美化互链）
+const famMap: Record<string, string> = {
+  'Welder': 'Welding',
+  'Metal Fabrication Shop': 'Welding',
+  'Window Tinting Installer': 'Auto Detailing',
+  'Boat Detailing Service': 'Auto Detailing',
+};
+const fam = (t: any) => famMap[t.trade] ?? t.trade;
 const sameTradeRel = allTrades.filter((t: any) => fam(t) === fam(trade) && t.slug !== trade.slug);
 const sameDocRel = allTrades.filter((t: any) => t.docType === trade.docType && fam(t) !== fam(trade));
 // 确定性轮转：按页面 slug 哈希偏移同类型工种列表 — 55 个工种都能分到内链，而不是全站都链字母序前 6 个
@@ -72,7 +82,7 @@ const pageTitle = format
   ? `${trade.title}${billSynonym} — Free ${fmtLabel} Download`
   : `${trade.title} — Free PDF, Word & Excel`;
 const pageDesc = format
-  ? `Download a free ${trade.trade.toLowerCase()} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade.toLowerCase()} line items and auto-calculating totals.`
+  ? `Download a free ${trade.trade} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade} line items and auto-calculating totals.`
   : trade.subtitle;
 const firstItem = items[0] ?? { code: 'ITEM', description: 'your first line item' };
 const exampleItem = `${firstItem.description} (${firstItem.code})`;
@@ -162,7 +172,7 @@ const billingText = ov.billingText ?? billingContext(trade);
 const howToLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: `How to use ${trade.title.toLowerCase()}`,
+  name: `How to use ${trade.title}`,
   description: howToUseText.slice(0, 200),
   step: howToUseSteps.map((s: any) => ({
     "@type": "HowToStep",
@@ -194,7 +204,7 @@ const howToLd = JSON.stringify({
     {!format && sameTradeRel.length > 0 && (
       <div style="margin-top:20px;padding:14px 20px;background:linear-gradient(135deg,#f0f7ff,#e8f4fe);border:1px solid #b8d8f5;border-radius:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-size:16px;">💡</span>
-        <span style="font-size:15px;color:var(--ink);">Looking for a <strong>{trade.trade.toLowerCase()} {sameTradeRel[0].docType}</strong> instead?</span>
+        <span style="font-size:15px;color:var(--ink);">Looking for a <strong>{trade.trade} {sameTradeRel[0].docType}</strong> instead?</span>
         <a href={`/templates/${sameTradeRel[0].slug}/`} style="font-size:15px;font-weight:700;color:var(--blue);text-decoration:underline;">→ {sameTradeRel[0].title}</a>
       </div>
     )}
@@ -257,7 +267,7 @@ const howToLd = JSON.stringify({
       <div style="background:var(--soft);border-radius:12px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <div>
           <h2 style="font-size:22px;margin-bottom:8px;">Complete guide: {linkedGuide.h1}</h2>
-          <p style="color:var(--muted);font-size:15px;margin:0;">Step-by-step instructions, line-item examples, and tax tips for {trade.trade.toLowerCase()} invoicing — written for this template.</p>
+          <p style="color:var(--muted);font-size:15px;margin:0;">Step-by-step instructions, line-item examples, and tax tips for {trade.trade} invoicing — written for this template.</p>
         </div>
         <a href={`/guides/${linkedGuide.slug}/`} style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;white-space:nowrap;">Read the guide →</a>
       </div>
@@ -286,8 +296,8 @@ const howToLd = JSON.stringify({
       </div>
       {trade.docType === 'invoice' && !ov.wordBillNote && (
         <p style="margin-top:24px;font-size:15px;color:var(--muted);line-height:1.7;">
-          This Word file works as a ready-made <strong>{trade.trade.toLowerCase()} bill format</strong> — the same
-          fields, layout, and line items as a printed bill, but fully editable. Many {trade.trade.toLowerCase()}s
+          This Word file works as a ready-made <strong>{trade.trade} bill format</strong> — the same
+          fields, layout, and line items as a printed bill, but fully editable. Many {trade.trade}s
           call it a bill, others an invoice; in Word the document is identical. Save a copy as your master
           bill template and reuse it for every job.
         </p>

@@ -30,8 +30,19 @@ function docNoun(docType: string): { noun: string; verb: string } {
   return { noun: 'invoice', verb: 'bill' };
 }
 
+// 专有名词(Christmas)与行业缩写(HVAC)在任何语境下都保持原大写
+const PROPER_WORDS = new Set(['christmas', 'hvac']);
+
+// 小写化字符串,但保留专有词/缩写(HVAC Technician → HVAC technician)
+export function lowerKeepProper(s: string): string {
+  return (s || '')
+    .split(' ')
+    .map((w) => (PROPER_WORDS.has(w.toLowerCase()) ? w : w.toLowerCase()))
+    .join(' ');
+}
+
 function tradeLower(trade: string): string {
-  return (trade || 'trade').toLowerCase();
+  return lowerKeepProper(trade || 'Trade');
 }
 
 // -ing 结尾的工种名(Welding/Plumbing/Cleaning)指"从事该工种的人"时转成 welder/plumber/cleaner;
@@ -52,7 +63,7 @@ function topItems(lineItems?: TradeLineItem[]): TradeLineItem[] {
 
 function itemsPhrase(items: TradeLineItem[]): string {
   if (items.length === 0) return 'your line items';
-  const names = items.map(i => i.description.toLowerCase());
+  const names = items.map(i => lowerKeepProper(i.description));
   if (names.length === 1) return names[0];
   if (names.length === 2) return `${names[0]} and ${names[1]}`;
   return `${names[0]}, ${names[1]}, and ${names[2]}`;
@@ -61,7 +72,7 @@ function itemsPhrase(items: TradeLineItem[]): string {
 // 主段落:150-200 词,针对该工种
 export function howToUseParagraph(trade: Trade): string {
   const { noun, verb } = docNoun(trade.docType);
-  const tl = tradeLower(trade.trade);
+  const tl = trade.trade;
   const items = topItems(trade.lineItems);
   const ip = itemsPhrase(items);
   const hasLicense = trade.licenseField === true;
@@ -88,9 +99,9 @@ export function howToUseParagraph(trade: Trade): string {
 // 三张卡片的小标题 + 正文(针对该工种)
 export function howToUseCards(trade: Trade): { title: string; body: string }[] {
   const { noun } = docNoun(trade.docType);
-  const tl = tradeLower(trade.trade);
+  const tl = trade.trade;
   const items = topItems(trade.lineItems);
-  const firstItem = items[0]?.description?.toLowerCase() ?? 'your first line item';
+  const firstItem = items[0]?.description ? lowerKeepProper(items[0].description) : 'your first line item';
   const hasLicense = trade.licenseField === true;
 
   return [
@@ -115,7 +126,7 @@ export function howToUseCards(trade: Trade): { title: string; body: string }[] {
 // 从 lineItems 推导,解释 call-out fee / labor / materials / warranty 的行业惯例
 export function billingContext(trade: Trade): string {
   const { noun, verb } = docNoun(trade.docType);
-  const tl = tradeLower(trade.trade);
+  const tl = trade.trade;
   const items = trade.lineItems ?? [];
   const hasCallOut = items.some(i => /call.?out|service.?fee|trip/i.test(i.description));
   const hasLabor = items.some(i => /labor/i.test(i.description));

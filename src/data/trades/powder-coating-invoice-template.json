@@ -1,0 +1,141 @@
+{
+  "slug": "powder-coating-invoice-template",
+  "trade": "Powder Coating Shop",
+  "docType": "invoice",
+  "title": "Powder Coating Invoice Template",
+  "subtitle": "An invoice pre-filled for powder coating shops — media blasting, per-wheel and batch sq-ft pricing, masking, rack fees, specialty powders, and color changes. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Phone",
+    "Email",
+    "PO # (commercial accounts)"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "50% deposit at drop-off (covers media and powder); balance due on pickup. Commercial accounts: Net 14.",
+  "notes": "Thank you for your business. Parts cured at 400°F. Avoid solvents and pressure washing for the first week. Touch-up bottles available for small chips — ask at the counter.",
+  "lineItems": [
+    {
+      "code": "SANDBLAST",
+      "description": "Media Blasting — Strip to Bare Metal (per hour)",
+      "defaultQty": 2,
+      "unit": "hr",
+      "sampleRate": 85,
+      "taxable": true
+    },
+    {
+      "code": "WHEELS",
+      "description": "Powder Coat Wheels — Standard Color (per wheel)",
+      "defaultQty": 4,
+      "unit": "each",
+      "sampleRate": 95,
+      "taxable": true
+    },
+    {
+      "code": "BATCH",
+      "description": "Batch Run — Large Parts (per sq ft)",
+      "defaultQty": 60,
+      "unit": "sq ft",
+      "sampleRate": 3.25,
+      "taxable": true
+    },
+    {
+      "code": "MASKING",
+      "description": "Masking Threads, Bores & Machined Surfaces (per feature)",
+      "defaultQty": 12,
+      "unit": "each",
+      "sampleRate": 4,
+      "taxable": true
+    },
+    {
+      "code": "SPECIALTY",
+      "description": "Specialty Powder Upcharge — Candy / Metallic / Textured (per part)",
+      "defaultQty": 4,
+      "unit": "each",
+      "sampleRate": 35,
+      "taxable": true
+    },
+    {
+      "code": "RACKFEE",
+      "description": "Racking, Hanging & Part Marks (per batch)",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 45,
+      "taxable": true
+    },
+    {
+      "code": "COLORCHG",
+      "description": "Custom Color Change — Oven Purge & Spray-Out (per change)",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 40,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel — just enter your state rate",
+    "Pre-filled powder shop line items — blasting, per-wheel pricing, batch sq-ft runs, masking, rack fees",
+    "Rack and color-change fees billed as visible lines — customers see why small lots cost more per part",
+    "Deposit terms built in — 50% at drop-off covers powder and media before you start"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a powder coating invoice?",
+      "a": "List each part with its quantity and how it was priced — per part (wheels, calipers) or per square foot (batch runs). Note the prep method (media blasting, chemical strip), the powder type and color with the manufacturer's code (e.g. 'RAL 9005 gloss black'), the number of masked features, rack fees, and any color-change or specialty upcharge. Finish with tax, total, and your pickup deadline — shops typically hold finished parts for 30 days."
+    },
+    {
+      "q": "How much does powder coating cost?",
+      "a": "Wheels run $75–$150 each in a standard color ($300–$500 for a set of four). Batch production work prices at $1.50–$4.00 per square foot with a $100–$150 lot minimum. Media blasting bills $50–$100 per hour, brake calipers $60–$100 each, and specialty powders (candy, chrome-look, textured) add 50–100% over standard colors."
+    },
+    {
+      "q": "Why do powder coaters charge a minimum or rack fee?",
+      "a": "Because the oven costs the same to run whether it holds one bracket or fifty. Cleaning the booth, loading racks, and purging the gun for a color change takes 30–45 minutes of paid time regardless of part count. A lot minimum ($100–$150 is typical) and a per-batch rack fee pass that fixed cost to small jobs instead of burying it in your per-part price."
+    },
+    {
+      "q": "Should I upcharge specialty powders on the invoice?",
+      "a": "Yes, and as its own line. Candy, transparent, metallic, and chrome-look powders cost 2–4× more per pound, need a clear topcoat, and often require a second cure cycle. A per-part upcharge (commonly $25–$50 per wheel) keeps your standard pricing clean and shows the customer exactly what the premium finish cost."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if coating services are not taxable in your state."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your environmental agency (powder and solvent rules), contractor board, and CPA/attorney."
+}

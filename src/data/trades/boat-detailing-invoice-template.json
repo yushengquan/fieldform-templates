@@ -1,0 +1,141 @@
+{
+  "slug": "boat-detailing-invoice-template",
+  "trade": "Boat Detailing Service",
+  "docType": "invoice",
+  "title": "Boat Detailing Invoice Template",
+  "subtitle": "An invoice pre-filled for boat detailers — wash and full-detail packages by the foot, compound and wax, teak refinishing, canvas and isenglass care, plus marina travel and haul-out fees. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Boat (Year / Make / Length)",
+    "Marina & Slip #",
+    "Phone / Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Due on completion at the dock. Seasonal wash-plan customers: invoiced monthly, Net 14.",
+  "notes": "Thank you for your business. Weekly and bi-weekly wash plans available — seasonal rates quoted at the dock. Haul-out, lift, and yard fees billed at pass-through cost. Ask about ceramic coating for a full-season gloss.",
+  "lineItems": [
+    {
+      "code": "BASICWASH",
+      "description": "Boat Wash & Dry — Hull Sides, Deck, Cockpit (per ft of LOA)",
+      "defaultQty": 24,
+      "unit": "ft",
+      "sampleRate": 4.5,
+      "taxable": true
+    },
+    {
+      "code": "FULLDETAIL",
+      "description": "Full Detail Package — Hull, Deck & Interior (per ft of LOA)",
+      "defaultQty": 24,
+      "unit": "ft",
+      "sampleRate": 22,
+      "taxable": true
+    },
+    {
+      "code": "COMPOUND",
+      "description": "Compound & Wax — Hull Sides Oxidation Removal (per ft of LOA)",
+      "defaultQty": 24,
+      "unit": "ft",
+      "sampleRate": 12,
+      "taxable": true
+    },
+    {
+      "code": "TEAK",
+      "description": "Teak Cleaning & Sealing (per linear ft)",
+      "defaultQty": 30,
+      "unit": "lf",
+      "sampleRate": 28,
+      "taxable": true
+    },
+    {
+      "code": "CANVAS",
+      "description": "Canvas & Isenglass Cleaning / Treatment (per piece)",
+      "defaultQty": 3,
+      "unit": "each",
+      "sampleRate": 65,
+      "taxable": true
+    },
+    {
+      "code": "MARINA",
+      "description": "Marina Travel / Field Service Fee",
+      "defaultQty": 1,
+      "unit": "trip",
+      "sampleRate": 60,
+      "taxable": true
+    },
+    {
+      "code": "HAULOUT",
+      "description": "Haul-Out & Blocking Coordination (pass-through yard fee)",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 150,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel — just enter your state rate",
+    "Pre-filled marine line items — per-foot packages, teak by the foot, canvas by the piece, haul-out pass-through",
+    "Boat and slip fields in the bill-to section — the right 24 ft Formula in a marina of 300 slips, every time",
+    "Travel and haul-out as visible lines — on-site work costs more than shop work, and the invoice shows why"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a boat detailing invoice?",
+      "a": "Your business details, the client's name, and enough boat identification to pick it out of a crowded marina: year, make, length overall (LOA), and slip number. Break the work into hull, deck, and interior lines priced by the foot, list specialty work (teak, canvas, isenglass) separately with units, and note the products used — compound versus polish versus ceramic — plus cure times. Marina travel and any haul-out yard fee go on their own pass-through lines."
+    },
+    {
+      "q": "How much should I charge for boat detailing?",
+      "a": "A basic wash runs $2–$5 per foot of LOA ($50–$120 for a typical 24 ft boat). Full details price at $15–$30 per foot — a 20 ft bowrider lands around $300–$600 and a 30 ft cruiser $600–$1,200. Compounding and waxing adds $8–$15 per foot, teak refinishing runs $25–$50 per linear foot, and canvas or isenglass cleaning is $50–$150 per piece. Monthly hull cleaning by a diver runs $3–$5 per foot."
+    },
+    {
+      "q": "Do boat detailers charge by the foot or by the job?",
+      "a": "By the foot for recurring work — washes, bottom details, seasonal packages — because LOA predicts labor almost perfectly. Flat 'by the job' pricing makes sense only after seeing the boat: a salt-caked fishing boat with three years of oxidation is a different job than a freshwater cabin cruiser of the same length. Most detailers quote per foot with a $150–$250 minimum, then upcharge for heavy oxidation or neglected interiors."
+    },
+    {
+      "q": "Should I charge extra to work at the marina or haul-out?",
+      "a": "Yes — as separate lines. Travel to the marina bills as a field-service trip ($50–$100 typical), and any haul-out, lift, or blocking fee the yard charges should pass through at cost with 'pass-through' written next to it. Customers accept these charges when they see them quoted up front; they dispute them when they appear as a lump sum after the work is done."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if detailing services are not taxable in your state."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Marine services rules vary by state — verify with your contractor board and CPA/attorney."
+}

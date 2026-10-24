@@ -1,0 +1,141 @@
+{
+  "slug": "window-tinting-invoice-template",
+  "trade": "Window Tinting Installer",
+  "docType": "invoice",
+  "title": "Window Tinting Invoice Template",
+  "subtitle": "An invoice pre-filled for tint shops — full-vehicle ceramic packages, per-window film, windshield strips, old-film removal, flat-glass work, and mobile call-outs. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Vehicle (Year / Make / Model)",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Net 7 — payment due on completion. Ceramic film orders over $500 require a 50% deposit before film is cut.",
+  "notes": "Thank you for your business. Film carries a lifetime manufacturer warranty against bubbling, peeling, and discoloration. Allow 7–10 days for full cure — please keep windows up and do not clean the film during curing.",
+  "lineItems": [
+    {
+      "code": "CERAMIC-FULL",
+      "description": "Full Vehicle Ceramic Tint Package (sedan / coupe)",
+      "defaultQty": 1,
+      "unit": "vehicle",
+      "sampleRate": 550,
+      "taxable": true
+    },
+    {
+      "code": "REAR-DEF",
+      "description": "Rear Window — One-Piece Heat Shrink",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 95,
+      "taxable": true
+    },
+    {
+      "code": "DOOR-PAIR",
+      "description": "Front Door Windows — Ceramic Film (per pair)",
+      "defaultQty": 1,
+      "unit": "pair",
+      "sampleRate": 130,
+      "taxable": true
+    },
+    {
+      "code": "WINDSHIELD",
+      "description": "Windshield Visor Strip",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 60,
+      "taxable": true
+    },
+    {
+      "code": "REMOVAL",
+      "description": "Old Film Removal & Adhesive Cleanup (per window)",
+      "defaultQty": 4,
+      "unit": "each",
+      "sampleRate": 25,
+      "taxable": true
+    },
+    {
+      "code": "FLATGLASS",
+      "description": "Residential Flat-Glass Solar Film (per sq ft)",
+      "defaultQty": 80,
+      "unit": "sq ft",
+      "sampleRate": 7,
+      "taxable": true
+    },
+    {
+      "code": "MOBILE",
+      "description": "Mobile Service Call / Travel to Client",
+      "defaultQty": 1,
+      "unit": "trip",
+      "sampleRate": 75,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel — just enter your state rate",
+    "Pre-filled tint line items — full-vehicle packages, per-window film, strips, removal, flat glass",
+    "Vehicle fields in the bill-to section — year / make / model so warranty claims trace back to the right car",
+    "Removal billed as its own line — adhesive cleanup is real work and deserves its own charge"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a window tinting invoice?",
+      "a": "Your business details and license number, the client's name, and the vehicle (year, make, model — and VIN or plate if you want an airtight record). List each service on its own line: full-vehicle package or per-window film, the film brand and VLT % installed (e.g. 'ceramic 35% front doors'), old-film removal, and any mobile fee. Add your state sales tax, the total, and your cure instructions in the notes."
+    },
+    {
+      "q": "How much should I charge for window tinting?",
+      "a": "Full-vehicle packages run $150–$300 for dyed film, $250–$500 for carbon, and $400–$800+ for ceramic on a sedan (SUVs and trucks add $50–$150). Individual windows bill $60–$120 each, a windshield visor strip is $50–$100, and old-film removal adds $25–$50 per window ($100–$200 per vehicle). Residential flat-glass work runs $5–$10 per square foot installed."
+    },
+    {
+      "q": "Should old film removal be a separate line item?",
+      "a": "Yes — always. Removal is slow, messy work (steamer, scraper, adhesive solvent) that customers underestimate. Billing it as its own line at $25–$50 per window sets expectations before you start, and lets you quote tint-only pricing cleanly for new vehicles that need no removal."
+    },
+    {
+      "q": "Do tint laws affect the invoice?",
+      "a": "They affect the paperwork. Most states regulate windshield strip height and minimum VLT for front doors, and several (California, Texas, Florida among them) actively cite illegal film. Writing the film type and VLT % on the invoice documents what you installed — useful if the customer later claims you put on an illegal shade. Never invoice for a shade you know violates the state's law."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if your state does not tax tinting services."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Tint laws and tax rules vary by state — verify with your state DMV, contractor board, and CPA/attorney."
+}

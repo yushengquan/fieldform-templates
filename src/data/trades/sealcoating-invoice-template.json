@@ -1,0 +1,141 @@
+{
+  "slug": "sealcoating-invoice-template",
+  "trade": "Sealcoating Contractor",
+  "docType": "invoice",
+  "title": "Sealcoating Invoice Template",
+  "subtitle": "An invoice pre-filled for driveway sealing crews — two-coat sealcoat by the square foot, hot-rubberized crack filling, patching, oil-spot priming, and striping. Download as Excel (auto-calculating), Word, or PDF.",
+  "currency": "USD",
+  "licenseField": true,
+  "taxHint": "Look up your state's sales tax rate",
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
+  "paymentTerms": "Payment due on completion — crews collect before leaving the site whenever possible. Commercial property accounts: Net 30.",
+  "notes": "Thank you for your business. Sealcoat needs 24–48 hours to fully cure: keep vehicles off for at least 24 hours (48 in humid or cool weather) and sprinklers off for the first night. Rain within 6 hours of application may require a free touch-up — call us.",
+  "lineItems": [
+    {
+      "code": "SEALCOAT",
+      "description": "Sealcoat — 2 Coats, Coal Tar or Asphalt Emulsion (per sq ft)",
+      "defaultQty": 900,
+      "unit": "sq ft",
+      "sampleRate": 0.22,
+      "taxable": true
+    },
+    {
+      "code": "CRACKFILL",
+      "description": "Hot-Rubberized Crack Filling (per linear ft)",
+      "defaultQty": 60,
+      "unit": "lf",
+      "sampleRate": 1.25,
+      "taxable": true
+    },
+    {
+      "code": "PATCH",
+      "description": "Cold-Patch Asphalt Repair — Potholes (per sq ft)",
+      "defaultQty": 24,
+      "unit": "sq ft",
+      "sampleRate": 4,
+      "taxable": true
+    },
+    {
+      "code": "OILSPOT",
+      "description": "Oil Spot Primer & Burn Treatment (per spot)",
+      "defaultQty": 3,
+      "unit": "each",
+      "sampleRate": 18,
+      "taxable": true
+    },
+    {
+      "code": "STRIPING",
+      "description": "Line Striping & Stencil Work (per linear ft)",
+      "defaultQty": 120,
+      "unit": "lf",
+      "sampleRate": 0.35,
+      "taxable": true
+    },
+    {
+      "code": "EDGING",
+      "description": "Power Edging & Weed Trimming — Perimeter Prep (per linear ft)",
+      "defaultQty": 100,
+      "unit": "lf",
+      "sampleRate": 0.15,
+      "taxable": true
+    },
+    {
+      "code": "CLEANING",
+      "description": "Surface Cleaning & Blowing — Prep Before Coating",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 45,
+      "taxable": true
+    }
+  ],
+  "features": [
+    "Auto-calculating tax formulas in Excel — just enter your state rate",
+    "Pre-filled sealcoating line items — two-coat coverage by the sq ft, crack filling by the foot, patching, striping",
+    "Actual measured quantities on every line — 900 sq ft billed, not the number guessed over the phone",
+    "Cure-window notes built in — sets customer expectations before the first tire track complaint"
+  ],
+  "faqs": [
+    {
+      "q": "What should I include on a sealcoating invoice?",
+      "a": "Your business details and license number, the job-site address (not just the billing address), and a line for each service with the measured quantity: sealcoat in square feet (noting two coats), crack filling in linear feet, patching, oil-spot priming, and striping. Note the product used (coal tar or asphalt emulsion), the cure window in the notes, tax, and the total. Crews that leave a paper invoice at the door get paid weeks faster than ones that mail it."
+    },
+    {
+      "q": "How much should I charge for driveway sealing?",
+      "a": "Sealcoating runs $0.15–$0.30 per square foot for a two-coat application — a typical 600 sq ft driveway bills $150–$250. Crack filling adds $0.50–$1.50 per linear foot, pothole patching $2–$5 per square foot, and parking-lot striping $0.20–$0.40 per linear foot. Most crews enforce a $150–$250 minimum job charge to cover truck, tank, and drive time."
+    },
+    {
+      "q": "Should I bill by measured square feet or by the estimate?",
+      "a": "Bill what you actually measured. Walk the driveway, multiply length × width for each section, and put the measured number on the invoice. Customers dispute round-number guesses ('he said 800, invoiced 1,100') but rarely dispute a tape-measure figure. If the measurement grew from the phone quote, a line showing 'measured 1,050 sq ft' explains the difference before they call."
+    },
+    {
+      "q": "How do I price crack filling and patching on the same invoice?",
+      "a": "Keep them as separate lines, never bundled into the per-foot sealcoat price. Crack filling is priced per linear foot after routing and cleaning the cracks — $0.50–$1.50/lf covers hot rubber and the melter's fuel. Patching goes per square foot of repaired area. When every fix is its own visible line, the homeowner can see exactly what the extra $180 bought, and you stop giving away repair work inside a flat seal price."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if paving services are not taxable in your state."
+    }
+  ],
+  "downloads": {
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
+  },
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Some states restrict coal-tar sealants — verify product rules and tax treatment with your state environmental agency, contractor board, and CPA/attorney."
+}
