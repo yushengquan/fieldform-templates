@@ -2,6 +2,7 @@
   "slug": "how-to-write-an-electrician-invoice",
   "trade": "Electrician",
   "templateSlug": "electrician-invoice-template",
+  "altTemplateSlugs": ["electrician-estimate-template"],
   "title": "How to Write an Electrician Invoice (with Example Line Items)",
   "description": "Step-by-step guide to invoicing electrical work — permit and inspection fees, T&M vs fixed bid, material markup on fixtures and panels, and license number requirements by state.",
   "h1": "How to Write a Electrician Invoice",

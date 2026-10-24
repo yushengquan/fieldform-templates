@@ -2,6 +2,7 @@
   "slug": "how-to-write-a-locksmith-invoice",
   "trade": "Locksmith",
   "templateSlug": "locksmith-invoice-template",
+  "altTemplateSlugs": ["locksmith-estimate-template"],
   "title": "How to Write a Locksmith Invoice (with Example Line Items)",
   "description": "Step-by-step guide to invoicing locksmith jobs — what line items to include, how to price lockouts, rekeys and car keys, and what your state requires on the invoice.",
   "h1": "How to Write a Locksmith Invoice",

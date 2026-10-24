@@ -2,6 +2,7 @@
   "slug": "how-to-write-a-landscaping-invoice",
   "trade": "Landscaper",
   "templateSlug": "landscaping-invoice-template",
+  "altTemplateSlugs": ["landscaping-estimate-template"],
   "title": "How to Write a Landscaping Invoice (with Example Line Items)",
   "description": "Step-by-step guide to invoicing landscaping jobs — how to bill design, install, and maintenance work, mark up plants and materials, handle seasonal contracts, and apply sales tax correctly on labor vs plants.",
   "h1": "How to Write a Landscaper Invoice",

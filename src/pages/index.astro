@@ -16,6 +16,12 @@ const blogPosts: any[] = Object.values(blogModules)
   .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
   .slice(0, 3);
 
+// Guides — 首页直链全部指南（最高权重发现路径：多站内链接 → 爬取优先级）
+const guideModules = import.meta.glob('../data/guides/*.json', { eager: true });
+const guides: any[] = Object.values(guideModules)
+  .map((m: any) => m.default)
+  .sort((a: any, b: any) => a.slug.localeCompare(b.slug));
+
 const faqs = [
   { q: "How many templates are available?", a: `Over ${trades.length} templates covering 25+ trades — plumbing, electrical, HVAC, roofing, concrete, landscaping, painting, welding and more. Each comes in PDF, Word, and Excel formats, so there are over ${trades.length * 3} downloadable files in total.` },
   { q: "Do you update the templates?", a: "Yes. When trade billing practices change (new permit requirements, common line items, tax rules), we update the corresponding template and redeploy. The Excel formulas and line items reflect how each trade actually bills today." },
@@ -175,10 +181,13 @@ const itemListLd = JSON.stringify({
       <p>How to write a proper invoice for your trade — line items, pricing, and tax rules.</p>
     </div>
     <div class="grid3">
-      <a class="card" style="text-decoration:none;color:var(--ink);" href="/guides/">
-        <h3 style="margin-bottom:6px;">Browse all guides →</h3>
-        <p style="color:var(--muted);font-size:14px;">Step-by-step invoicing guides for plumbers, HVAC, electricians, roofers, pest control and more.</p>
-      </a>
+      {guides.map((g: any) => (
+        <a class="card" style="text-decoration:none;color:var(--ink);" href={`/guides/${g.slug}/`}>
+          <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;">{g.trade} guide</span>
+          <h3 style="margin-bottom:6px;">{g.h1}</h3>
+          <p style="color:var(--muted);font-size:14px;">{g.description.slice(0, 90)}{g.description.length > 90 ? '…' : ''}</p>
+        </a>
+      ))}
       <a class="card" style="text-decoration:none;color:var(--ink);" href="/invoice-calculator/">
         <span class="tag">Free tool</span>
         <h3 style="margin-bottom:6px;">Invoice calculator →</h3>
@@ -190,6 +199,7 @@ const itemListLd = JSON.stringify({
         <p style="color:var(--muted);font-size:14px;">MIG, TIG and stick hours, steel markup, and the deposit to ask for — priced for welding jobs.</p>
       </a>
     </div>
+    <p style="margin-top:16px;"><a href="/guides/" style="font-weight:700;color:var(--blue);">Browse all guides →</a></p>
   </section>
 
   <section class="section wrap" id="blog" style="padding-top:8px;">

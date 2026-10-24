@@ -2,6 +2,7 @@
   "slug": "how-to-write-a-carpentry-invoice",
   "trade": "Carpenter",
   "templateSlug": "carpenter-invoice-template",
+  "altTemplateSlugs": ["carpenter-estimate-template"],
   "title": "How to Write a Carpentry Invoice (with Example Line Items)",
   "description": "Step-by-step guide to invoicing carpentry work — how to bill framing, finish work and cabinetry, markup on lumber, retainers, and sales tax on materials.",
   "h1": "How to Write a Carpentry Invoice",

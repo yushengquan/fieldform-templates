@@ -2,6 +2,7 @@
   "slug": "how-to-write-an-hvac-invoice",
   "trade": "HVAC Service",
   "templateSlug": "hvac-invoice-template",
+  "altTemplateSlugs": ["hvac-estimate-template"],
   "title": "How to Write an HVAC Invoice (with Example Line Items)",
   "description": "Step-by-step guide to invoicing HVAC jobs — service calls, repairs, and installs, with labor tiers, refrigerant tracking, seasonal surcharges, warranty and maintenance plan billing, and sales tax rules by state.",
   "h1": "How to Write a HVAC Service Invoice",

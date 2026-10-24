@@ -2,6 +2,7 @@
   "slug": "how-to-write-a-roofing-invoice",
   "trade": "Roofer",
   "templateSlug": "roofer-invoice-template",
+  "altTemplateSlugs": ["roofer-estimate-template"],
   "title": "How to Write a Roofing Invoice (with Example Line Items)",
   "description": "Learn how to write a roofing invoice with example line items for tear-off, overlay, shingle and metal material, underlayment, squares and waste factor, deposit and progress draws, warranty registration, and sales tax. Includes 2024 national midpoint rates and a sample invoice layout for roofers.",
   "h1": "How to Write a Roofer Invoice",
