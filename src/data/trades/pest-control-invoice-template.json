@@ -108,6 +108,18 @@
       "a": "Yes. After a treatment is paid, the same pest control invoice template doubles as a receipt - enter the treatment details, mark the payment as received, and print or email a copy to the client. The Excel version auto-calculates the total so the receipt amount is always correct."
     },
     {
+      "q": "Do I need my pest control license number on the invoice?",
+      "a": "In most states, yes. Pest control is a licensed trade, and regulators typically expect your applicator or operator license number on service documents left with the customer. It also lets homeowners verify you against the state registry. This template includes a License # field in the header for exactly this reason — set it once in your master copy and every invoice carries it."
+    },
+    {
+      "q": "How do I invoice a quarterly pest control plan?",
+      "a": "Reference the plan name, the visit number in the cycle, and the recurring price on each invoice, and print the next scheduled visit date so the customer knows when to expect you. Bill per visit or in advance per quarter — either works — but keep the same line item (for example 'Quarterly Service Plan') across the whole contract so the customer's payment history reads as one continuous plan rather than unrelated charges."
+    },
+    {
+      "q": "Is pest control taxable in my state?",
+      "a": "It varies widely: Texas generally taxes pest control services, Florida taxes commercial but not residential work, California generally exempts pesticide application to property, and New Jersey has its own exterior-treatment exemption. Look up your state's rule before charging tax — the Excel version of this template leaves the tax rate blank so you can enter your state's rate or leave it empty where the service is exempt."
+    },
+    {
       "q": "Is this legal or tax advice?",
       "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."
     }
@@ -129,5 +141,50 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Pest control invoicing in practice: licenses, plans and tax",
+    "sub": "The details that separate a professional pest control invoice from a generic one — based on how licensed operators actually bill.",
+    "blocks": [
+      {
+        "h3": "License numbers belong on every pest control invoice",
+        "paras": [
+          "Pest control is a licensed trade in nearly every U.S. state, and most regulators expect your license number to appear on the invoices you leave at a customer's property. A California Structural Pest Control Board licensee, a Texas SPCS applicator, or a Florida pest control operator each carries a number the customer can verify against the state registry. Printing it on the invoice does two things at once: it satisfies the paperwork habit inspectors look for during audits, and it signals to homeowners that a credentialed applicator — not a moonlighter with a spray rig — performed the treatment.",
+          "This template ships with a License # field in the header block for exactly that reason. Fill it once in your master copy and every future invoice carries it automatically."
+        ]
+      },
+      {
+        "h3": "One-time treatments vs. quarterly plans: bill them differently",
+        "paras": [
+          "The two dominant pest control billing models produce different-looking invoices, and customers notice when the layout matches the promise made on the sales call."
+        ],
+        "list": [
+          "One-time treatment (ants, wasps, a single bed bug follow-up): a short invoice with the service call, the treatment performed, product used, and the guarantee window. Payment is typically due on completion.",
+          "Quarterly or monthly plan: the invoice should reference the plan name, the visit number in the cycle, and the recurring price. Many operators attach the next scheduled visit date directly on the invoice — it cuts down 'when are you coming back?' phone calls.",
+          "Termite work: usually a larger contract with a WDIIR (Wood Destroying Insect Inspection Report) attached. The invoice should reference the contract or report number so the customer's records tie together at closing or resale."
+        ]
+      },
+      {
+        "h3": "Sales tax on pest control services varies by state",
+        "paras": [
+          "Whether your treatment is taxable depends on where you operate. In Texas, pest control services are generally subject to sales tax; in California, pesticide application to property is generally exempt, but related merchandise sales can be taxable. Florida taxes pest control services on commercial property but not residential. New Jersey treats pest control as a taxable service unless it qualifies as an exterior property treatment.",
+          "The safe pattern used by most operators: charge tax on the full service amount in states that tax pest control, and keep a one-line note on file explaining your state's rule for the ones that don't. The Excel version of this template leaves the tax rate cell blank by default so you can enter your own state rate — or leave it empty where the service is exempt."
+        ]
+      },
+      {
+        "h3": "The re-service guarantee: put it in writing on the invoice",
+        "paras": [
+          "Almost every pest control company offers some form of re-service guarantee — if the pests come back within a window, the follow-up visit is free. The invoice is where that promise becomes enforceable and memorable. A single line in the notes field ('Re-service within 30 days at no charge for covered pests') does three jobs: it sets customer expectations, it protects you from unpaid callback disputes, and it quietly sells the quarterly plan when the customer sees the coverage has an expiry.",
+          "This template's default notes field ships with exactly that wording. Adjust the window — 7, 14, or 30 days are all common — to match what your chemical labels and service agreements actually promise."
+        ]
+      },
+      {
+        "h3": "What product records should accompany the invoice",
+        "paras": [
+          "Regulated applicators keep treatment records that go beyond the invoice itself: EPA registration numbers of products applied, dilution rates, target pest, and application method. Several states require a copy of the treatment notice to be left with the customer at the time of service — California's Business and Professions Code sets this out for structural work, and other states have equivalent rules.",
+          "The practical workflow: leave the invoice, attach the state-mandated treatment notice where required, and file the full application record in your own system. The invoice references the treatment; the notice documents it. Using the same service address field on both documents keeps them matched in the customer's file."
+        ]
+      }
+    ]
+  }
 }

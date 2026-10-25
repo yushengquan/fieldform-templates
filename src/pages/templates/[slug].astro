@@ -377,6 +377,27 @@ const howToLd = JSON.stringify({
     <p class="how-to-use-body">{billingText}</p>
   </section>
 
+  {/* 深度内容区块 — JSON 提供 deepDive 时渲染（GSC 数据驱动的内容增强，无字段页面输出不变） */}
+  {trade.deepDive && (
+    <section class="section wrap" id="deep-dive" style="padding-top:40px;">
+      <div class="section-head">
+        <h2>{trade.deepDive.heading}</h2>
+        <p>{trade.deepDive.sub}</p>
+      </div>
+      {trade.deepDive.blocks.map((b: any) => (
+        <div style="margin-top:28px;">
+          <h3 style="font-size:19px;margin-bottom:10px;">{b.h3}</h3>
+          {b.paras.map((p: string) => <p style="font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:12px;">{p}</p>)}
+          {b.list && (
+            <ul style="font-size:15px;line-height:1.9;color:var(--ink);padding-left:22px;margin:6px 0 12px;">
+              {b.list.map((li: string) => <li>{li}</li>)}
+            </ul>
+          )}
+        </div>
+      ))}
+    </section>
+  )}
+
   <section class="section wrap" id="whats-included" style="padding-top:40px;">
     <div class="section-head">
       <h2>What's included in this template</h2>

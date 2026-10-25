@@ -129,5 +129,50 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "HVAC invoicing in practice: licenses, refrigerant rules and the parts-labor tax split",
+    "sub": "How working HVAC contractors structure invoices so they pass board scrutiny, warranty claims and sales tax audits at the same time.",
+    "blocks": [
+      {
+        "h3": "Contractor license and EPA numbers on the invoice",
+        "paras": [
+          "HVAC work sits under state contractor boards — CSLT license numbers in California, TACLA in Texas, MHIC in Maryland, and equivalents elsewhere — and most boards expect the license number on any document you hand a customer that requests payment. Beyond the state license, refrigerant handling falls under EPA Section 608: any technician opening a charged system should be 608-certified, and many companies print the company's EPA registration alongside the state license on invoices that include refrigerant work.",
+          "This template's header carries both a License # and an EIN / Tax ID field. Operators who do refrigerant work commonly add a line for the EPA cert in the notes field of their master copy."
+        ]
+      },
+      {
+        "h3": "Split labor and parts — the tax and warranty both depend on it",
+        "paras": [
+          "A single 'AC repair — $425' line is the weakest way to bill HVAC work. Most states tax parts and materials differently from labor: Texas taxes parts but generally not residential repair labor; New York exempts commercial installation labor but not parts; many states tax everything on a residential repair invoice. When labor and parts share one line, you cannot apply the correct rate to each — and at audit time you have no record of which portion was which.",
+          "Splitting them also keeps warranties clean. Manufacturer parts warranties typically run 1–10 years while the installing contractor's labor warranty is usually 90 days to 1 year. Separate lines let the customer see exactly what falls under which guarantee — this template's default notes field ('Labor guaranteed for 90 days; manufacturer warranty applies to parts and equipment') references that split directly."
+        ]
+      },
+      {
+        "h3": "Billing the service call fee, tune-ups and maintenance plans",
+        "paras": [
+          "The three most common HVAC billing patterns each get their own line treatment:"
+        ],
+        "list": [
+          "Diagnostic / service call fee: a flat charge for coming out and finding the problem. Some companies waive it when the customer approves the repair on the spot — if that's your policy, show the fee with a matching discount line so the customer sees the value instead of wondering if they were never charged.",
+          "Tune-up / seasonal maintenance: flat-rate per system, usually billed at completion. Two-system households get two lines — customers dispute combined 'multi-system' charges far more often.",
+          "Maintenance plan invoicing: reference the plan name and visit number, like a subscription. Most plans bill annually or semi-annually in advance; the invoice should show the coverage window (e.g., 'two precision tune-ups, priority scheduling, 15% off repairs') so renewals sell themselves."
+        ]
+      },
+      {
+        "h3": "Invoicing refrigerant correctly after the 2025 transition",
+        "paras": [
+          "Refrigerant line items deserve precision. Since the R-410A phase-down began under the AIM Act, per-pound pricing moved to a new R-454B and R-32 era on new equipment, and recovery/recharge work on older R-22 and R-410A systems still appears on plenty of invoices. Best practice is to bill refrigerant by the pound with the type spelled out ('R-410A recharge, 2.5 lb'), because the per-pound rates differ sharply by type and customers compare invoices across companies.",
+          "Also note: several states tax refrigerant as tangible parts while treating the recharge labor as a service. Keeping the pounds on their own line lets you apply the right rate to the material and the right rate to the labor."
+        ]
+      },
+      {
+        "h3": "Warranty and callback work still needs an invoice",
+        "paras": [
+          "Zero-dollar invoices for warranty callbacks are worth issuing, not skipping. A $0 invoice documents what failed, what was replaced, and that no charge applied under the labor guarantee — which matters when the customer later disputes a related repair or asks for the service history at home-sale time. Print the original invoice number in the reference field so the callback ties to the job it answers.",
+          "For manufacturer-warranty parts claims you will typically need the model and serial numbers of both the failed and replacement components on paperwork — adding those to the line item description ('Condenser fan motor — Trane 4TTR6036, S/N 24192K1LF → replacement OEM motor') makes claim filing painless."
+        ]
+      }
+    ]
+  }
 }
