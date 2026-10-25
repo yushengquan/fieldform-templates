@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+
+const badges = [
+  {
+    name: 'DanielLaunches',
+    url: 'https://daniellaunches.com',
+    img: 'https://daniellaunches.com/badge-light.svg',
+    w: 220,
+    h: 48,
+    note: 'Product launch platform for indie makers and SaaS founders.',
+  },
+  {
+    name: 'Huzzler',
+    url: 'https://huzzler.so/products/ykhAQqH3hN/fieldform-templates',
+    img: 'https://huzzler.so/assets/images/embeddable-badges/featured-light.png',
+    w: 159,
+    h: 55,
+    note: 'Community for discovering and promoting new startup products.',
+  },
+  {
+    name: 'First Look',
+    url: 'https://firstlook.tools',
+    img: 'https://firstlook.tools/badge/badge_light.svg',
+    w: 200,
+    h: 54,
+    note: 'Directory of new and upcoming tools with AI-assisted listings.',
+  },
+  {
+    name: 'EasyLaunch',
+    url: 'https://easylaunch.dev/saas/fieldform-templates',
+    img: 'https://easylaunch.dev/badge/easylaunch-badge-light.svg',
+    w: 188,
+    h: 56,
+    note: 'Launch platform for SaaS and software products.',
+  },
+  {
+    name: 'LemonLaunch',
+    url: 'https://lemonlaunch.dev/productivity/fieldform-templates',
+    img: 'https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg',
+    w: 188,
+    h: 56,
+    note: 'Product launch directory for makers shipping new tools.',
+  },
+  {
+    name: 'Smol Launch',
+    url: 'https://smollaunch.com',
+    img: 'https://smollaunch.com/badges/featured.svg',
+    w: 250,
+    h: 60,
+    note: 'Launch platform for small, independent software projects.',
+  },
+  {
+    name: 'Twelve Tools',
+    url: 'https://twelve.tools',
+    img: 'https://twelve.tools/badge0-white.svg',
+    w: 148,
+    h: 40,
+    note: 'A hand-picked selection of twelve useful tools.',
+  },
+  {
+    name: 'Brick Launch',
+    url: 'https://bricklaun.ch/productivity/fieldform-templates',
+    img: 'https://bricklaun.ch/badge/brick-launch-badge-a-light.svg',
+    w: 140,
+    h: 54,
+    note: 'Daily product launch board for new software.',
+  },
+  {
+    name: 'Wall of Tools',
+    url: 'https://wallof.tools/productivity/fieldform-templates',
+    img: 'https://wallof.tools/badge/toolwall-badge-light.svg',
+    w: 188,
+    h: 56,
+    note: 'Curated wall of software tools by category.',
+  },
+  {
+    name: 'Sky Launch',
+    url: 'https://skylaun.ch/productivity/fieldform-templates',
+    img: 'https://skylaun.ch/badge/skylaunch-badge-light.svg',
+    w: 188,
+    h: 56,
+    note: 'Launch platform and directory for new products.',
+  },
+  {
+    name: 'IndieLaunch',
+    url: 'https://indielaunch.dev/products/fieldform-templates',
+    img: 'https://indielaunch.dev/badges/indielaunch-light.svg',
+    w: 200,
+    h: 54,
+    note: 'Directory built for independent makers and their products.',
+  },
+  {
+    name: 'Tool List',
+    url: 'https://tool-list.dev/productivity/fieldform-templates',
+    img: 'https://tool-list.dev/badge/toolwall-badge-light.svg',
+    w: 188,
+    h: 56,
+    note: 'Directory of tools organised by category.',
+  },
+  {
+    name: 'EasyDoFollow',
+    url: 'https://easydofollow.dev/productivity/fieldform-templates',
+    img: 'https://easydofollow.dev/badge/easydofollow-badge-light.svg',
+    w: 188,
+    h: 56,
+    note: 'Directory focused on giving listed products a followable link.',
+  },
+  {
+    name: 'SaaSBison',
+    url: 'https://saasbison.com',
+    img: 'https://saasbison.com/badge.png',
+    w: 200,
+    h: 54,
+    note: 'Software directory with filters and reviews for SaaS products.',
+  },
+  {
+    name: 'DodoDirectory',
+    url: 'https://dododirectory.com',
+    img: 'https://dododirectory.com/badge-light.png',
+    w: 200,
+    h: 54,
+    note: 'Software and startup directory with editorial review.',
+  },
+  {
+    name: 'Startup Fast',
+    url: 'https://www.startupfa.st/projects/fieldform-templates',
+    img: 'https://startupfa.st/images/badges/powered-by-light.svg',
+    w: 150,
+    h: 44,
+    note: 'Open-source product launch platform.',
+  },
+];
+
+const listLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  url: `${siteUrl}/featured-on/`,
+  name: "Where FieldForm Templates is featured",
+  description:
+    "Directories, launch platforms and tool catalogues where FieldForm Templates has been listed.",
+  isPartOf: { "@type": "WebSite", name: "FieldForm Templates", url: siteUrl },
+});
+
+const breadcrumbLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Featured on", item: `${siteUrl}/featured-on/` },
+  ],
+});
+---
+<BaseLayout
+  title="Where FieldForm Templates Is Featured — Directories & Launch Platforms"
+  description="Directories, launch platforms and tool catalogues where FieldForm Templates, the free library of trade-specific invoice and estimate templates, has been listed."
+  canonical={`${siteUrl}/featured-on/`}
+>
+  <script is:inline type="application/ld+json" set:html={listLd}></script>
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
+
+  <section class="section wrap" style="padding-top:56px;">
+    <div class="section-head">
+      <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Featured on</p>
+      <h1>Where FieldForm Templates is listed</h1>
+      <p class="lead">
+        FieldForm Templates is a free library of trade-specific invoice, estimate and business-form
+        templates for contractors and service businesses. Below are the directories, launch platforms
+        and tool catalogues where it has been listed.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:8px;">
+    <div class="grid3">
+      {
+        badges.map((b) => (
+          <div class="card">
+            <h3 style="margin-bottom:6px;">{b.name}</h3>
+            <p style="margin-bottom:12px;">{b.note}</p>
+            <a href={b.url} target="_blank" rel="noopener" aria-label={`View ${b.name} listing`}>
+              <img
+                src={b.img}
+                alt={`Featured on ${b.name}`}
+                width={b.w}
+                height={b.h}
+                loading="lazy"
+              />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap" style="padding-top:8px;padding-bottom:48px;">
+    <div class="card">
+      <h3 style="margin-bottom:8px;">About FieldForm Templates</h3>
+      <p>
+        FieldForm Templates publishes free, downloadable invoice and estimate templates for more than
+        50 trades, including plumbing, HVAC, electrical, roofing, cleaning, landscaping, concrete and
+        welding. Every template is available as a print-ready PDF, an editable Word file and an Excel
+        workbook with live formulas for subtotal, tax and total. No email address, signup or watermark
+        is required.
+      </p>
+      <p style="margin-top:12px;">
+        Start browsing: <a href="/invoice-templates/">invoice templates</a> ·
+        <a href="/estimate-templates/">estimate templates</a> ·
+        <a href="/business-form-templates/">business forms</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
