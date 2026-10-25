@@ -5,6 +5,15 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformt
 
 const badges = [
   {
+    name: 'SumoDir',
+    url: 'https://sumodir.com',
+    img: 'https://sumodir.com/badge.png',
+    w: 200,
+    h: 54,
+    note: 'Business directory for startups and SaaS with dofollow listings.',
+    dofollow: true,
+  },
+  {
     name: 'amaze.directory',
     url: 'https://amaze.directory/tools/fieldform-templates',
     img: 'https://amaze.directory/badge/dark.svg',
@@ -196,7 +205,7 @@ const breadcrumbLd = JSON.stringify({
           <div class="card">
             <h3 style="margin-bottom:6px;">{b.name}</h3>
             <p style="margin-bottom:12px;">{b.note}</p>
-            <a href={b.url} target="_blank" rel="noopener" aria-label={`View ${b.name} listing`}>
+            <a href={b.url} target="_blank" rel={b.dofollow ? 'dofollow noopener' : 'noopener'} aria-label={`View ${b.name} listing`}>
               <img
                 src={b.img}
                 alt={`Featured on ${b.name}`}
