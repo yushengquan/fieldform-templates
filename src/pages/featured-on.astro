@@ -157,6 +157,16 @@ const badges = [
     h: 44,
     note: 'Open-source product launch platform.',
   },
+  {
+    name: 'AI Toolz Dir',
+    url: 'https://www.aitoolzdir.com',
+    img: '',
+    text: 'AI Toolz Dir',
+    w: 0,
+    h: 0,
+    note: 'Hand-picked AI tools directory (DR 63) with do-follow listings.',
+    dofollow: true,
+  },
 ];
 
 const listLd = JSON.stringify({
@@ -206,13 +216,19 @@ const breadcrumbLd = JSON.stringify({
             <h3 style="margin-bottom:6px;">{b.name}</h3>
             <p style="margin-bottom:12px;">{b.note}</p>
             <a href={b.url} target="_blank" rel={b.dofollow ? 'dofollow noopener' : 'noopener'} aria-label={`View ${b.name} listing`}>
-              <img
-                src={b.img}
-                alt={`Featured on ${b.name}`}
-                width={b.w}
-                height={b.h}
-                loading="lazy"
-              />
+              {b.img ? (
+                <img
+                  src={b.img}
+                  alt={`Featured on ${b.name}`}
+                  width={b.w}
+                  height={b.h}
+                  loading="lazy"
+                />
+              ) : (
+                <span style={{ display: 'inline-block', fontWeight: 700, fontSize: '16px', color: 'var(--blue)', padding: '10px 18px', border: '2px solid var(--line)', borderRadius: '8px' }}>
+                  {b.text}
+                </span>
+              )}
             </a>
           </div>
         ))
