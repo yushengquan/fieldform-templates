@@ -38,5 +38,50 @@
     "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
     "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Welding quotations in practice: unit pricing, steel volatility and code work",
+    "sub": "How working fabricators write quotes that survive contact with the job — from per-inch pricing to AWS references.",
+    "blocks": [
+      {
+        "h3": "Quote vs. estimate in welding: which document binds you",
+        "paras": [
+          "Welding shops live on the distinction. An estimate is a forecast — 'approximately 40 hours at $85' — and the final invoice can move with the actuals. A quotation is an offer: a fixed price for a fixed scope, valid until the date printed on it, that becomes binding when the client accepts and pays the deposit. Structural and architectural clients expect quotes; repair walk-ins often accept estimates.",
+          "The document's own wording is what a court or arbitrator reads. This template's title block says quotation, the not-an-invoice notice states the price is firm but not yet billed, and the valid-until line keeps steel-price exposure bounded. If you intend flexibility instead, change the wording to estimate and add 'final charges confirmed after fit-up' — do not print 'quote' on a document you plan to renegotiate."
+        ]
+      },
+      {
+        "h3": "Per-inch, per-joint, per-pound: production welding math",
+        "paras": [
+          "Hourly billing dominates repair work, but production fabrication prices by the unit once a shop knows its deposition rates. The three conventions:"
+        ],
+        "list": [
+          "Per inch of weld: the classic shop-rate basis for long production seams. Quote databases in most regions cluster structural fillet welds in the $3-$8/inch range depending on position and process — overhead and vertical positions price at the top because deposition drops and rework rises.",
+          "Per joint: a fixed figure per completed weld joint (a pipe butt weld, a beam splice). Suits repeated identical joints — the estimate line simply says '24 × pipe butt weld @ $38'.",
+          "Per pound of deposited metal or per pound of finished assembly: the fabrication norm for structural steel. The quote prices the assembly by weight, and the shop's deposition-rate tables make the margin predictable."
+        ]
+      },
+      {
+        "h3": "Steel price volatility: why every welding quote needs a valid-until date",
+        "paras": [
+          "Structural tube, plate and rebar prices can move enough in a quarter to erase a fabrication margin, and shops that quote without an expiry absorb that risk blind. Thirty days is the standard validity on welding quotations; some shops drop to 14 days when the mill notices are moving, or quote materials as an allowance that reconciles at invoice against actual mill receipts.",
+          "The other half of the defense is the deposit line: 30-50% at signing, sized to cover the material outlay. A quote that bundles steel at today's price, a 30-day expiry, and a deposit covering the stock order is effectively hedged — the client locks their price for a month, and you never finance their project's metal."
+        ]
+      },
+      {
+        "h3": "Code work: AWS references and WPS/PQR on the quote",
+        "paras": [
+          "When the job touches structural steel (AWS D1.1), sheet metal (D1.3), or reinforced concrete connections (D1.4), the specification belongs on the quotation. Naming the code on the quote does three things: it prices correctly, because code work carries fit-up tolerances and inspection time that DIY-grade welding does not; it qualifies you, since clients and general contractors screen for shops with certified welders and tested procedures; and it heads off disputes, because the acceptance criteria were agreed before the arc was struck.",
+          "For certified work, reference your Welding Procedure Specification (WPS) and the procedure qualification record behind it, and note welder certification where the contract demands it. On the paperwork side, the inspection line does the heavy lifting: 'all welds visual per AWS D1.6; NDT (VT/PT) by others' tells everyone who inspects what and when — and prices accordingly."
+        ]
+      },
+      {
+        "h3": "Field welding quotes: mobilization, access and hot-work permits",
+        "paras": [
+          "Field welding is a different pricing universe from shop work, and quotes that treat them as equal lose money on travel alone. Mobilization (truck, rig, generator, consumables) bills as its own line — commonly a flat $150-$450 depending on distance and equipment. Then the quote must state access assumptions: work at height above a threshold, confined-space entry, or lifts each add cost, and the exclusions line is where 'client provides access and surface prep' lives.",
+          "Hot-work paperwork rides with the quote too. On any occupied site, fire-watch and a hot-work permit are the norm; permits are usually the GC's to pull, but the welding quote should acknowledge the constraint — 'field work per site hot-work permit; 30-minute fire watch included' — so the clock and the cost are both visible. Shops that skip these lines end up donating the fire-watch hours or eating the standdown when the permit is late."
+        ]
+      }
+    ]
+  }
 }

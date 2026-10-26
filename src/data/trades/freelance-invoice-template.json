@@ -36,5 +36,50 @@
     "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
     "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with a CPA or attorney before use."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with a CPA or attorney before use.",
+  "deepDive": {
+    "heading": "Freelance invoicing in practice: 1099 work, late fees and international clients",
+    "sub": "The details that make a freelance invoice hold up — as proof of self-employment, in payment disputes, and across borders.",
+    "blocks": [
+      {
+        "h3": "Your invoice is proof you are a business, not an employee",
+        "paras": [
+          "Freelancers live in the 1099 economy: the client classifies you as an independent contractor, and the paper trail you produce is what sustains that classification. A professional invoice — numbered, dated, line-itemed, with your business name and EIN — is the single strongest document on your side of the ledger. It shows you market services to multiple clients, set your rates, and bill for outcomes rather than hours supervised: exactly the factors the IRS common-law test and state ABC tests weigh.",
+          "The inverse also matters. Vague invoices ('consulting — October — $4,000') give auditors ammunition to reclassify the relationship as employment, which lands back-dated payroll taxes on the client and unemployment claims exposure on you. One line per deliverable, your EIN in the header, and a business bank account receiving the payment — that combination is what a defensible independent-contractor file looks like."
+        ]
+      },
+      {
+        "h3": "No sales tax — usually",
+        "paras": [
+          "Most freelance services — writing, design, development, consulting — are not subject to state sales tax, because most states tax tangible goods and a short list of enumerated services rather than professional services generally. The practical default for a freelancer invoicing from most states is: leave the tax row empty. The Excel version of this template treats an empty rate as zero for exactly that reason.",
+          "The exceptions are worth knowing because they surprise people. Some states tax specific digital deliverables: New York taxes certain website work and graphic design when delivered electronically in some cases, Texas taxes some data processing, Washington's service list is broad enough to catch several categories, and freelancers selling to the EU or UK face reverse-charge VAT rules where the client self-accounts. If your service lands on an enumerated list, the tax row fills; otherwise it stays blank, and the invoice total equals the subtotal plus expenses."
+        ]
+      },
+      {
+        "h3": "Late fee clauses that actually work",
+        "paras": [
+          "Freelance invoices go unpaid at roughly twice the rate of small-business trade invoices, and the freelancers who get paid are the ones whose invoices said what happens next. The customary structure is a late fee of 1.5% per month on balances past due (18% annually — enforceable in most states) stated directly in the payment-terms line, plus a follow-up cadence you actually run: reminder at 7 days past due, second notice at 14, final notice before small-claims filing at 30.",
+          "Two details make the clause real rather than decorative. First, the fee must be on the invoice before it is late — adding it after default reads as a penalty and gets struck. Second, usury caps vary: a handful of states cap late fees below 18% annualized for certain transaction types, so if you invoice locally, check yours. The notes field on this template takes the whole clause in one sentence: 'Balances past due accrue a 1.5% monthly late fee; disputed items must be raised within 10 days.'"
+        ]
+      },
+      {
+        "h3": "Deposits, kill fees and milestone billing",
+        "paras": [
+          "Flat-fee freelance projects have a payment-shape problem: a client who owes everything at delivery has every incentive to slow-walk review. The standard defenses are all visible on the invoice itself."
+        ],
+        "list": [
+          "50/50 split: half on signing, half on delivery. The default for small projects; the deposit line on this template prints it as a due-now amount with the balance-due-on-delivery line below.",
+          "Milestone billing: payment tied to deliverables — discovery, first draft, revisions, final. Each invoice in the sequence references the milestone and the overall project number, so the client's AP clerk sees one project, four invoices.",
+          "Kill fee: a percentage owed if the client cancels mid-project — 25-50% of the remaining fee is customary in editorial and design contracts. State it on the estimate or SOW; the invoice then bills it like any other line item if cancellation happens."
+        ]
+      },
+      {
+        "h3": "International clients: currency, fees and reverse-charge VAT",
+        "paras": [
+          "Invoicing across borders adds three fields worth having. Currency: state it explicitly (USD) so the total is unambiguous — this template's currency field is there for exactly that. Payment rails: name the method on the invoice (Wise, Payoneer, SWIFT) because the client's accounting needs it, and note who eats transfer fees — 'intermediary bank fees borne by payer' is the freelancer-friendly default. Tax: for EU and UK business clients, the reverse-charge mechanism applies — you invoice with a zero VAT line and the notation 'reverse charge applies', and the client accounts for their own VAT.",
+          "One more habit pays for itself at tax time: file every international invoice with its payment advice attached. Foreign payment processors' descriptors ('WISE TRANSFER 4839...') are meaningless at year end, and matching deposit-to-invoice by number is what turns a messy Stripe/Wise statement into a clean revenue ledger."
+        ]
+      }
+    ]
+  }
 }

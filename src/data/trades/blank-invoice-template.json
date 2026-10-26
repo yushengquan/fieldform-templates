@@ -36,6 +36,51 @@
     "excel": {"label": "Excel", "gate": "none", "note": "Empty rows, live formulas"}
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Using blank invoices correctly: numbering, tax rows and record-keeping",
+    "sub": "A blank invoice is only as good as the habits around it — here is how sole traders and small shops fill them in so they hold up at tax time and in payment disputes.",
+    "blocks": [
+      {
+        "h3": "Invoice numbers: sequential, never restarting",
+        "paras": [
+          "A blank invoice tempts you into the one habit that causes trouble later: issuing invoices with no number, or restarting numbering every month. Bookkeepers and courts treat an unnumbered invoice as an informal note, not a bill — and if a client disputes payment, your numbering sequence is the evidence that the document was issued, when, and in what order. Start at 1001 or 0001 and increment every invoice by one, whether it is printed, typed or spreadsheet-generated.",
+          "The Excel version of this template numbers itself if you keep one file per client and save-as per job — 1024-save becomes 1025, and the paper stack in the van stays in the same sequence. Skip codes, keep the sequence: 1004, 1005, 1006. Gaps invite questions; restarts break your own audit trail."
+        ]
+      },
+      {
+        "h3": "The tax row: fill it only when your state taxes what you sold",
+        "paras": [
+          "The tax rate cell is blank on purpose, because what goes in it depends on what you sold and where. Most states tax tangible goods but not labor-only services; some tax services tied to goods (a repair with parts), and a handful tax most services outright. Washington, New Mexico and Hawaii tax broadly; most others do not. If you invoice only labor in a state that does not tax labor, the correct entry in the tax row is nothing at all — leave it empty and the total equals the subtotal.",
+          "The line-level taxable flag in this template exists for the mixed case: mark the parts rows taxable and the labor rows exempt, enter your combined state + local rate once, and the formula applies tax to the right lines only. That single distinction — which rows carry tax — is the most common error on hand-filled invoices, and it is the one state auditors look for first."
+        ]
+      },
+      {
+        "h3": "Handwritten invoices are legal — if the record survives",
+        "paras": [
+          "A blank invoice you print and fill in with a pen is a perfectly valid commercial document in every U.S. state. What matters is what happens after the client takes their copy: the copy you keep must survive until tax season and beyond. The working patterns that last:"
+        ],
+        "list": [
+          "Carbonless duplicate pads (2- or 3-part NCR paper): the client gets the top sheet, you keep the yellow copy in the truck, and the pink copy files at the office. No scanner needed.",
+          "Photograph-and-file: snap the signed invoice before leaving the driveway, and file the photo by client name and date. At year end the photo folder is your revenue ledger.",
+          "Type-in-later: hand-write on site, then transcribe into the Excel version that evening. The typed file becomes the record; the paper is the source document. This is the pattern most solo trades land on eventually."
+        ]
+      },
+      {
+        "h3": "What a client's bookkeeper looks for (and routes to the bottom of the pile)",
+        "paras": [
+          "Accounts-payable clerks process hundreds of invoices a week, and the ones that get paid on the next check run share the same four traits: a sequential invoice number, a clear due date, payment terms written on the document, and a total that matches the agreed quote. An invoice missing any of these waits for a phone call, and the phone call waits for the clerk's mood.",
+          "This blank layout ships with all four fields positioned where AP software and human clerks expect to scan for them: number and date at the top right, terms and due date directly under the table, total at the bottom right. Fill them every time, even on the handwritten copies, and blank invoices stop being a payment-risk format."
+        ]
+      },
+      {
+        "h3": "Year-end: your blank invoices are your revenue record",
+        "paras": [
+          "For sole proprietors and single-member LLCs, the invoice file is the primary evidence of gross receipts — Schedule C starts from what you invoiced, not what the bank deposited, when the two differ (deposits lag, checks bounce, cash gets spent). The record-keeping standard that satisfies an IRS inquiry is contemporaneous and complete: every invoice numbered, dated, and reconcilable to the sum your tax return claims.",
+          "Keep the files for at least three years after filing — six if anything is questionable, longer on the paper copies involving property work. The blank-invoice workflow that survives this is unglamorous: one folder per tax year, invoices entered in number order, and a running total that matches the return. Nothing about a blank template prevents that; everything about weekly filing habits makes it easy."
+        ]
+      }
+    ]
+  },
   "overrides": {
     "eyebrow": "Fill-anywhere · blank invoice format",
     "hubHref": "/business-form-templates/",

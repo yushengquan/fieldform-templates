@@ -37,5 +37,50 @@
     "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
     "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Handyman estimating in practice: pricing models, license limits and deposits",
+    "sub": "How working handymen actually structure quotes — the difference between a quote that gets signed and one that starts a dispute.",
+    "blocks": [
+      {
+        "h3": "The three pricing models handymen put on estimates",
+        "paras": [
+          "Handyman work is priced three ways, and the estimate should make it obvious which one applies — because the customer's trust depends on knowing how the number can move."
+        ],
+        "list": [
+          "Time and materials (T&M): call-out fee plus labor hours plus materials at cost-plus. Most flexible, most common for diagnosis-style jobs where you cannot know the scope until you open it up. The estimate lists your hourly rate and states that hours will be confirmed before final billing.",
+          "Flat rate by task: a fixed price per job — 'replace garbage disposal: $220 installed'. Easiest to sell, easiest to compare, and the one Yelp-era customers have come to expect. The estimate must scope tightly: what is included, what triggers a re-quote.",
+          "Day rate: a single number for a full day of a punch-list. Fits the honey-do list jobs — a morning of small repairs quoted as one day rate beats itemizing eleven tiny tasks."
+        ]
+      },
+      {
+        "h3": "The license threshold — what you may legally quote as a handyman",
+        "paras": [
+          "Most states cap unlicensed handyman work by dollar value, and quoting above the cap is itself a violation. California's $500 limit (labor and materials combined) is the best known; it means an unlicensed operator cannot legally accept a $600 fence repair even if the customer begs. Other states set the bar differently — Nevada distinguishes handyman work under $1,000 from contracting, Texas leaves general handyman work unregulated at the state level but cities often step in, and Florida requires a license for most structural work regardless of price.",
+          "The estimate is where this surfaces. If you are licensed, the license number goes on the quote — several states require it on any estimate or bid. If you are working under a threshold, keep each quote's total under the cap rather than splitting one job into multiple $499 estimates; regulators read split invoices as evasion, not compliance."
+        ]
+      },
+      {
+        "h3": "Estimate vs. contract: when a quote becomes binding",
+        "paras": [
+          "An estimate is a good-faith forecast; a fixed quote is an offer the customer can accept — and once accepted with a deposit, it functions as a contract for the work described. Handymen get into trouble by writing 'estimate' on a document and then treating it as a binding price, or the reverse. The clean pattern is to label the document explicitly and include three clauses that make either version safe: a valid-until date (materials prices move), a change-work clause (anything outside the listed scope is quoted separately), and a deposit line with a cap.",
+          "On deposits: many states regulate how much a contractor may collect up front. California caps deposits at $1,000 or 10% of the total, whichever is smaller, for licensed contractors — handymen quoting biggish jobs there collect material costs instead of a percentage. Write the deposit as a flat amount tied to materials, and the balance-due-on-completion line keeps the whole structure enforceable without a separate contract."
+        ]
+      },
+      {
+        "h3": "The honey-do list: pricing a multi-task estimate without losing money",
+        "paras": [
+          "The classic handyman job is a list: fix the garbage disposal, re-caulk two bathrooms, hang six pictures, patch the drywall dent, adjust two doors. Itemizing each task separately kills the quote — six lines of $40-$80 reads as nickel-and-diming, and small tasks priced individually always under-recover the setup and travel between them.",
+          "Working handymen quote the list as a package: one line per task for clarity, but the totals column shows a bundled labor figure, often as a day rate or half-day rate. The customer sees transparency (each task listed) while the math reflects reality (one trip, one setup, continuous work). The Excel version of this template supports both patterns — itemized lines that sum, or a single day-rate line with the task list in the description — and the 25% deposit row recalculates either way."
+        ]
+      },
+      {
+        "h3": "Materials on the estimate: cost-plus with receipts",
+        "paras": [
+          "Materials are where handyman estimates get contested, because the customer can check the hardware store price in thirty seconds. The convention that survives scrutiny is cost-plus-stated-percentage: list materials at cost on the estimate, add a disclosed markup line (10-20% is the customary range), and offer receipts on request. Some states' contractor rules expect markup to be identified as such rather than folded invisibly into a lump sum.",
+          "The alternative — a single 'materials allowance' line with a cap — works for quote-first jobs where you buy after approval: state the allowance, state that actual costs reconcile against it, and note whether overage requires written approval. Both patterns are easier to defend than a padded lump sum, and both keep the estimate's numbers matching the final invoice, which is the moment trust is actually tested."
+        ]
+      }
+    ]
+  }
 }
