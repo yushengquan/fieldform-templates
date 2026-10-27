@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import InvoicePreview from '../../components/InvoicePreview.astro';
 import DownloadCards from '../../components/DownloadCards.astro';
 import FaqList from '../../components/FaqList.astro';
+import InvoiceBuilder from '../../components/InvoiceBuilder.astro';
 import { howToUseParagraph, howToUseCards, billingContext, tradePerson } from '../../lib/how-to-use';
 
 export function getStaticPaths() {
@@ -79,6 +80,9 @@ const popular = allTrades.filter((t: any) => popularSlugs.includes(t.slug) && t.
 // （热门页有 207 个入站内链，差 10 倍 → 位置差 20–60 名）。紧凑文字链接块，全站分发。
 const risingSlugs = ['gutter-invoice-template', 'drywall-invoice-template', 'roofer-estimate-template', 'concrete-invoice-template', 'locksmith-estimate-template', 'salon-invoice-template'];
 const rising = allTrades.filter((t: any) => risingSlugs.includes(t.slug) && t.slug !== trade.slug);
+
+// 在线发票生成器（工具闭环）— 先上位置最好的 3 个主页面，验证交互信号后再扩
+const builderSlugs = ['pest-control-invoice-template', 'hvac-invoice-template', 'drywall-invoice-template'];
 
 // 反向查找：是否有对应 guide 页指向此模板（含 altTemplateSlugs — 一个 guide 服务多个同族模板页）
 const allGuides: any[] = Object.values(import.meta.glob('../../data/guides/*.json', { eager: true })).map((m: any) => m.default);
@@ -243,6 +247,16 @@ const howToLd = JSON.stringify({
       </div>
     )}
   </section>
+
+  {/* 在线生成器 — 只在主页面、且是 GSC 位置最好的几个工种（工具闭环：下载 → 站内完成一单） */}
+  {!format && builderSlugs.includes(trade.slug) && (
+    <InvoiceBuilder
+      slug={trade.slug}
+      tradeName={trade.trade}
+      lineItems={trade.lineItems}
+      taxNote={trade.docType === 'invoice' ? 'Most states tax materials but not labor for services — leave tax at 0 if your labor is exempt in your state.' : undefined}
+    />
+  )}
 
   <section class="section wrap" id="how-to-use" style="padding-top:40px;">
     <div class="section-head">

@@ -1,0 +1,348 @@
+---
+// 在线发票生成器（纯前端，无后端、无上传）
+// 目的：把"下载完就走"变成"在站内完成一单"，改善用户信号（停留/交互/回访）
+// 预填数据来自 trade JSON 的 lineItems（各工种的典型收费项）
+interface Props {
+  slug: string;
+  tradeName: string;
+  lineItems?: any[];
+  taxNote?: string;
+}
+const { slug, tradeName, lineItems = [], taxNote } = Astro.props;
+const pid = 'ib' + slug.replace(/[^a-z0-9]/g, '');
+const rows = (lineItems.length ? lineItems : [
+  { description: 'Labor', unit: 'hr', sampleRate: 75 },
+  { description: 'Materials', unit: 'each', sampleRate: 40 },
+]).slice(0, 6).map((it: any) => ({
+  d: it.description ?? '',
+  u: it.unit ?? 'each',
+  r: Number(it.sampleRate ?? 0),
+}));
+const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
+---
+
+<section class="section wrap" id="invoice-builder" style="padding-top:44px;">
+  <div class="section-head">
+    <p style="font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Free online tool</p>
+    <h2>Build a {tradeName} invoice right here</h2>
+    <p class="lead">Type the job details and adjust the line items — the invoice updates as you go. Print it or save it as a PDF straight from your browser. Nothing is uploaded, no signup, no email. Prefer a blank file? Use the download buttons above.</p>
+  </div>
+
+  <div class="ib-grid" id={pid}>
+    <!-- 左：输入 -->
+    <div class="ib-panel">
+      <h3 class="ib-h3">1 · Your business</h3>
+      <div class="ib-2col">
+        <label class="ib-lab">Business name
+          <input class="ib-in" data-f="biz" placeholder="Rivera Pest Solutions" />
+        </label>
+        <label class="ib-lab">Phone or email
+          <input class="ib-in" data-f="contact" placeholder="(512) 555-0142" />
+        </label>
+      </div>
+      <label class="ib-lab">License / cert no. <span class="ib-opt">(optional)</span>
+        <input class="ib-in" data-f="license" placeholder="TX-APP-004821" />
+      </label>
+
+      <h3 class="ib-h3">2 · Customer &amp; job</h3>
+      <div class="ib-2col">
+        <label class="ib-lab">Customer name
+          <input class="ib-in" data-f="client" placeholder="Marisol Vega" />
+        </label>
+        <label class="ib-lab">Service address
+          <input class="ib-in" data-f="addr" placeholder="1420 Cypress Ln, Austin TX" />
+        </label>
+      </div>
+      <div class="ib-3col">
+        <label class="ib-lab">Invoice no.
+          <input class="ib-in" data-f="num" value="INV-1001" />
+        </label>
+        <label class="ib-lab">Invoice date
+          <input class="ib-in" data-f="date" type="date" />
+        </label>
+        <label class="ib-lab">Due
+          <input class="ib-in" data-f="due" type="date" />
+        </label>
+      </div>
+
+      <h3 class="ib-h3">3 · Line items</h3>
+      <div class="ib-row ib-row-head">
+        <span>Description</span><span>Qty</span><span>Rate</span><span></span>
+      </div>
+      <div id={`${pid}-lines`}></div>
+      <button type="button" class="ib-add" id={`${pid}-add`}>+ Add line item</button>
+
+      <h3 class="ib-h3">4 · Tax &amp; notes</h3>
+      <div class="ib-2col">
+        <label class="ib-lab">Sales tax (%)
+          <input class="ib-in" data-f="tax" type="number" min="0" max="30" step="0.1" value="0" />
+        </label>
+        <label class="ib-lab">Deposit received ($)
+          <input class="ib-in" data-f="deposit" type="number" min="0" step="1" value="0" />
+        </label>
+      </div>
+      <label class="ib-lab">Payment terms
+        <input class="ib-in" data-f="terms" value="Net 15. 1.5% monthly late fee on overdue balances." />
+      </label>
+      {taxNote && <p class="ib-hint">{taxNote}</p>}
+    </div>
+
+    <!-- 右：实时预览 -->
+    <div class="ib-panel ib-preview-wrap">
+      <div class="ib-preview" id={`${pid}-preview`}>
+        <div class="ibp-top">
+          <div>
+            <div class="ibp-biz" data-p="biz">Your business name</div>
+            <div class="ibp-meta" data-p="contact"></div>
+            <div class="ibp-meta" data-p="license"></div>
+          </div>
+          <div class="ibp-right">
+            <div class="ibp-title">INVOICE</div>
+            <div class="ibp-meta" data-p="num">INV-1001</div>
+            <div class="ibp-meta" data-p="dates"></div>
+          </div>
+        </div>
+        <div class="ibp-billto">
+          <span>BILL TO</span>
+          <div data-p="client">Customer name</div>
+          <div class="ibp-meta" data-p="addr"></div>
+        </div>
+        <table class="ibp-table">
+          <thead><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
+          <tbody id={`${pid}-plines`}></tbody>
+        </table>
+        <div class="ibp-totals">
+          <div><span>Subtotal</span><b data-p="sub">$0.00</b></div>
+          <div><span data-p="taxlab">Tax (0%)</span><b data-p="tax">$0.00</b></div>
+          <div class="ibp-dep"><span>Deposit received</span><b data-p="dep">$0.00</b></div>
+          <div class="ibp-grand"><span>Balance due</span><b data-p="total">$0.00</b></div>
+        </div>
+        <div class="ibp-notes" data-p="terms"></div>
+      </div>
+      <div class="ib-actions">
+        <button type="button" class="btn btn-primary" id={`${pid}-print`}>Print / save as PDF</button>
+        <button type="button" class="btn btn-ghost" id={`${pid}-copy`}>Copy as text</button>
+      </div>
+      <p class="ib-hint" id={`${pid}-msg`} style="display:none;color:var(--teal);font-weight:600;">Copied — paste it into an email or your invoicing app.</p>
+      <p class="ib-hint">Your entries stay in this browser tab. Nothing is sent to a server. Reload to start over.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ib-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+  @media (max-width:900px){.ib-grid{grid-template-columns:1fr;}}
+  .ib-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .ib-h3{font-size:15px;font-weight:800;margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  .ib-h3:first-child{margin-top:0;}
+  .ib-lab{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:10px;}
+  .ib-opt{font-weight:400;opacity:.7;}
+  .ib-in{width:100%;margin-top:4px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;background:var(--bg);color:var(--ink);}
+  .ib-in:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,104,212,.12);}
+  .ib-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ib-3col{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px;}
+  @media (max-width:520px){.ib-2col,.ib-3col{grid-template-columns:1fr;}}
+  .ib-row{display:grid;grid-template-columns:1fr 64px 84px 34px;gap:8px;align-items:center;margin-bottom:8px;}
+  .ib-row-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--muted);}
+  .ib-row .ib-in{margin-top:0;padding:8px 9px;font-size:14px;}
+  .ib-del{padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);cursor:pointer;color:var(--muted);font-size:15px;line-height:1;}
+  .ib-add{font-size:14px;color:var(--accent);background:none;border:none;cursor:pointer;font-weight:700;padding:6px 0;}
+  .ib-hint{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5;}
+  .ib-preview-wrap{position:sticky;top:80px;}
+  @media (max-width:900px){.ib-preview-wrap{position:static;}}
+  .ib-preview{background:#fff;border:1px solid #d8e0ea;border-radius:10px;padding:22px;color:#16202e;font-size:13px;box-shadow:0 6px 18px rgba(16,40,72,.06);}
+  .ibp-top{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:2px solid #16202e;}
+  .ibp-biz{font-size:16px;font-weight:800;margin-bottom:3px;}
+  .ibp-right{text-align:right;}
+  .ibp-title{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--accent);}
+  .ibp-meta{font-size:11.5px;color:#5b6b80;line-height:1.5;}
+  .ibp-billto{margin:14px 0;font-size:12px;}
+  .ibp-billto>span{display:block;font-size:10px;font-weight:800;letter-spacing:1px;color:#8798ad;margin-bottom:2px;}
+  .ibp-table{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12px;}
+  .ibp-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:#8798ad;border-bottom:1px solid #e3e9f1;padding:6px 4px;}
+  .ibp-table th.r,.ibp-table td.r{text-align:right;}
+  .ibp-table td{padding:7px 4px;border-bottom:1px solid #f0f4f9;}
+  .ibp-totals{margin-top:8px;font-size:12.5px;}
+  .ibp-totals>div{display:flex;justify-content:space-between;padding:4px 0;}
+  .ibp-dep{color:#8798ad;}
+  .ibp-grand{border-top:2px solid #16202e;margin-top:6px;padding-top:8px !important;font-size:15px;font-weight:800;}
+  .ibp-notes{margin-top:12px;font-size:11px;color:#5b6b80;border-top:1px solid #f0f4f9;padding-top:8px;line-height:1.5;}
+  .ib-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+</style>
+
+<script is:inline define:vars={{ pid, seed }}>
+  (function () {
+    var root = document.getElementById(pid);
+    if (!root) return;
+    var seedRows = JSON.parse(seed);
+    var linesEl = document.getElementById(pid + '-lines');
+    var plinesEl = document.getElementById(pid + '-plines');
+
+    function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+    function money(n) { return '$' + (Math.round(n * 100) / 100).toFixed(2); }
+    function fmtDate(d) { if (!d) return ''; var p = d.split('-'); return p.length === 3 ? p[1] + '/' + p[2] + '/' + p[0] : d; }
+
+    function addRow(data) {
+      data = data || { d: '', u: 'each', r: 0, q: 1 };
+      var row = el('div', 'ib-row');
+      var d = el('input', 'ib-in'); d.value = data.d || ''; d.placeholder = 'Description';
+      var q = el('input', 'ib-in'); q.type = 'number'; q.min = '0'; q.step = '1'; q.value = data.q || 1;
+      var r = el('input', 'ib-in'); r.type = 'number'; r.min = '0'; r.step = '0.01'; r.value = data.r || 0;
+      var del = el('button', 'ib-del', '×'); del.type = 'button';
+      row.appendChild(d); row.appendChild(q); row.appendChild(r); row.appendChild(del);
+      [d, q, r].forEach(function (i) { i.addEventListener('input', calc); });
+      del.addEventListener('click', function () { row.remove(); calc(); });
+      linesEl.appendChild(row);
+      calc();
+    }
+
+    function readRows() {
+      var out = [];
+      linesEl.querySelectorAll('.ib-row').forEach(function (row) {
+        var ins = row.querySelectorAll('input');
+        var d = ins[0].value.trim();
+        var q = parseFloat(ins[1].value) || 0;
+        var r = parseFloat(ins[2].value) || 0;
+        if (d || q || r) out.push({ d: d || 'Item', q: q, r: r, amt: q * r });
+      });
+      return out;
+    }
+
+    function field(name) {
+      var i = root.querySelector('[data-f="' + name + '"]');
+      return i ? i.value : '';
+    }
+    function put(name, txt) {
+      var t = root.querySelector('[data-p="' + name + '"]');
+      if (t) t.textContent = txt;
+    }
+
+    function calc() {
+      var rows = readRows();
+      var sub = rows.reduce(function (a, b) { return a + b.amt; }, 0);
+      var taxRate = parseFloat(field('tax')) || 0;
+      var tax = sub * taxRate / 100;
+      var dep = parseFloat(field('deposit')) || 0;
+      var total = sub + tax - dep;
+
+      // preview table
+      plinesEl.innerHTML = '';
+      rows.forEach(function (row) {
+        var tr = el('tr');
+        tr.appendChild(el('td', null, row.d));
+        tr.appendChild(el('td', 'r', String(row.q)));
+        tr.appendChild(el('td', 'r', money(row.r)));
+        tr.appendChild(el('td', 'r', money(row.amt)));
+        plinesEl.appendChild(tr);
+      });
+      if (!rows.length) {
+        var tr2 = el('tr'); var td = el('td', null, 'Add a line item to see it here'); td.colSpan = 4;
+        td.style.color = '#8798ad'; tr2.appendChild(td); plinesEl.appendChild(tr2);
+      }
+
+      put('biz', field('biz') || 'Your business name');
+      put('contact', field('contact'));
+      put('license', field('license') ? 'Lic. ' + field('license') : '');
+      put('num', field('num') || 'INV-1001');
+      var dd = fmtDate(field('date')), du = fmtDate(field('due'));
+      put('dates', (dd ? 'Issued ' + dd : '') + (du ? ' · Due ' + du : ''));
+      put('client', field('client') || 'Customer name');
+      put('addr', field('addr'));
+      put('sub', money(sub));
+      put('taxlab', 'Tax (' + taxRate + '%)');
+      put('tax', money(tax));
+      put('dep', money(dep));
+      put('total', money(total));
+      put('terms', field('terms'));
+    }
+
+    // 初始行：工种典型收费项
+    seedRows.forEach(function (row) { addRow({ d: row.d, q: 1, r: row.r }); });
+
+    // 默认日期
+    var today = new Date();
+    var iso = function (d) { return d.toISOString().slice(0, 10); };
+    var due = new Date(today.getTime() + 15 * 864e5);
+    var fDate = root.querySelector('[data-f="date"]');
+    var fDue = root.querySelector('[data-f="due"]');
+    if (fDate && !fDate.value) fDate.value = iso(today);
+    if (fDue && !fDue.value) fDue.value = iso(due);
+
+    root.addEventListener('input', calc);
+    document.getElementById(pid + '-add').addEventListener('click', function () { addRow(); });
+
+    // 打印：新窗口里生成干净发票
+    document.getElementById(pid + '-print').addEventListener('click', function () {
+      var rows = readRows();
+      var sub = rows.reduce(function (a, b) { return a + b.amt; }, 0);
+      var taxRate = parseFloat(field('tax')) || 0;
+      var tax = sub * taxRate / 100;
+      var dep = parseFloat(field('deposit')) || 0;
+      var total = sub + tax - dep;
+      var dd = fmtDate(field('date')), du = fmtDate(field('due'));
+      var body = rows.map(function (r) {
+        return '<tr><td>' + r.d + '</td><td class="r">' + r.q + '</td><td class="r">' + money(r.r) + '</td><td class="r">' + money(r.amt) + '</td></tr>';
+      }).join('');
+      var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + (field('num') || 'Invoice') + '</title>'
+        + '<style>body{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#16202e;max-width:760px;margin:36px auto;padding:0 24px;font-size:13px}'
+        + '.top{display:flex;justify-content:space-between;border-bottom:2px solid #16202e;padding-bottom:14px}'
+        + '.biz{font-size:18px;font-weight:800}.meta{font-size:11.5px;color:#5b6b80;line-height:1.6}'
+        + '.title{font-size:14px;font-weight:800;letter-spacing:2px;color:#1668d4;text-align:right}'
+        + '.billto{margin:16px 0;font-size:12px}.billto span{display:block;font-size:10px;font-weight:800;letter-spacing:1px;color:#8798ad}'
+        + 'table{width:100%;border-collapse:collapse;margin:8px 0 14px}th{text-align:left;font-size:10px;text-transform:uppercase;color:#8798ad;border-bottom:1px solid #e3e9f1;padding:7px 5px}'
+        + 'td{padding:8px 5px;border-bottom:1px solid #f0f4f9}.r{text-align:right}'
+        + '.totals{margin-left:auto;width:280px;font-size:13px}.totals div{display:flex;justify-content:space-between;padding:4px 0}'
+        + '.grand{border-top:2px solid #16202e;margin-top:6px;padding-top:8px!important;font-size:16px;font-weight:800}'
+        + '.notes{margin-top:16px;font-size:11px;color:#5b6b80;border-top:1px solid #f0f4f9;padding-top:10px}'
+        + '@media print{body{margin:0}}</style></head><body>'
+        + '<div class="top"><div><div class="biz">' + (field('biz') || 'Your business name') + '</div>'
+        + '<div class="meta">' + (field('contact') || '') + '</div>'
+        + '<div class="meta">' + (field('license') ? 'Lic. ' + field('license') : '') + '</div></div>'
+        + '<div><div class="title">INVOICE</div><div class="meta">' + (field('num') || '') + '</div>'
+        + '<div class="meta">' + (dd ? 'Issued ' + dd : '') + (du ? '<br>Due ' + du : '') + '</div></div></div>'
+        + '<div class="billto"><span>BILL TO</span><div>' + (field('client') || '') + '</div><div class="meta">' + (field('addr') || '') + '</div></div>'
+        + '<table><thead><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead><tbody>' + body + '</tbody></table>'
+        + '<div class="totals"><div><span>Subtotal</span><b>' + money(sub) + '</b></div>'
+        + '<div><span>Tax (' + taxRate + '%)</span><b>' + money(tax) + '</b></div>'
+        + '<div><span>Deposit received</span><b>' + money(dep) + '</b></div>'
+        + '<div class="grand"><span>Balance due</span><b>' + money(total) + '</b></div></div>'
+        + '<div class="notes">' + (field('terms') || '') + '</div>'
+        + '<script>window.onload=function(){setTimeout(function(){window.print()},250)}<\/script>'
+        + '</body></html>';
+      var w = window.open('', '_blank');
+      if (w) { w.document.write(html); w.document.close(); }
+      else { alert('Please allow pop-ups for this page to print the invoice.'); }
+    });
+
+    // 复制为文本
+    document.getElementById(pid + '-copy').addEventListener('click', function () {
+      var rows = readRows();
+      var sub = rows.reduce(function (a, b) { return a + b.amt; }, 0);
+      var taxRate = parseFloat(field('tax')) || 0;
+      var tax = sub * taxRate / 100;
+      var dep = parseFloat(field('deposit')) || 0;
+      var lines = [];
+      lines.push((field('biz') || 'Invoice') + ' — ' + (field('num') || ''));
+      if (field('client')) lines.push('Bill to: ' + field('client'));
+      lines.push('');
+      rows.forEach(function (r) { lines.push(r.q + ' × ' + money(r.r) + '  ' + r.d + '  = ' + money(r.amt)); });
+      lines.push('');
+      lines.push('Subtotal: ' + money(sub));
+      lines.push('Tax (' + taxRate + '%): ' + money(tax));
+      if (dep) lines.push('Deposit: -' + money(dep));
+      lines.push('BALANCE DUE: ' + money(sub + tax - dep));
+      if (field('terms')) { lines.push(''); lines.push(field('terms')); }
+      var text = lines.join('\n');
+      var msg = document.getElementById(pid + '-msg');
+      function done() { if (msg) { msg.style.display = 'block'; setTimeout(function () { msg.style.display = 'none'; }, 2600); } }
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done).catch(function () {}); }
+      else {
+        var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta);
+        ta.select(); try { document.execCommand('copy'); done(); } catch (e) {}
+        ta.remove();
+      }
+    });
+
+    calc();
+  })();
+</script>
