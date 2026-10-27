@@ -1,4 +1,4 @@
----
+﻿---
 // 在线发票生成器（纯前端，无后端、无上传）
 // 目的：把"下载完就走"变成"在站内完成一单"，改善用户信号（停留/交互/回访）
 // 预填数据来自 trade JSON 的 lineItems（各工种的典型收费项）
@@ -168,6 +168,17 @@ const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
   .ibp-grand{border-top:2px solid #16202e;margin-top:6px;padding-top:8px !important;font-size:15px;font-weight:800;}
   .ibp-notes{margin-top:12px;font-size:11px;color:#5b6b80;border-top:1px solid #f0f4f9;padding-top:8px;line-height:1.5;}
   .ib-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+  /* 打印：只输出发票预览本体（隐藏站点其余部分） */
+  @media print {
+    header, footer, nav, .section-head, .ib-panel:not(.ib-preview-wrap), .ib-actions, .ib-hint,
+    section:not(#invoice-builder), #invoice-builder > .section-head { display: none !important; }
+    body { background: #fff !important; }
+    #invoice-builder, .ib-grid { display: block !important; margin: 0 !important; padding: 0 !important; }
+    .ib-preview-wrap { position: static !important; border: 0 !important; padding: 0 !important; background: #fff !important; }
+    .ib-preview { border: 0 !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; width: 100% !important; }
+    .ib-preview * { color: #000 !important; }
+    @page { margin: 16mm; }
+  }
 </style>
 
 <script is:inline define:vars={{ pid, seed }}>
@@ -271,54 +282,10 @@ const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
     root.addEventListener('input', calc);
     document.getElementById(pid + '-add').addEventListener('click', function () { addRow(); });
 
-    // 打印：新窗口里生成干净发票
+    // 打印：直接打印当前页（配合组件内的 @media print 样式，只输出发票预览本体）
     document.getElementById(pid + '-print').addEventListener('click', function () {
-      var rows = readRows();
-      var sub = rows.reduce(function (a, b) { return a + b.amt; }, 0);
-      var taxRate = parseFloat(field('tax')) || 0;
-      var tax = sub * taxRate / 100;
-      var dep = parseFloat(field('deposit')) || 0;
-      var total = sub + tax - dep;
-      var dd = fmtDate(field('date')), du = fmtDate(field('due'));
-      var body = rows.map(function (r) {
-        return '<tr><td>' + r.d + '</td><td class="r">' + r.q + '</td><td class="r">' + money(r.r) + '</td><td class="r">' + money(r.amt) + '</td></tr>';
-      }).join('');
-      var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + (field('num') || 'Invoice') + '</title>'
-        + '<style>body{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#16202e;max-width:760px;margin:36px auto;padding:0 24px;font-size:13px}'
-        + '.top{display:flex;justify-content:space-between;border-bottom:2px solid #16202e;padding-bottom:14px}'
-        + '.biz{font-size:18px;font-weight:800}.meta{font-size:11.5px;color:#5b6b80;line-height:1.6}'
-        + '.title{font-size:14px;font-weight:800;letter-spacing:2px;color:#1668d4;text-align:right}'
-        + '.billto{margin:16px 0;font-size:12px}.billto span{display:block;font-size:10px;font-weight:800;letter-spacing:1px;color:#8798ad}'
-        + 'table{width:100%;border-collapse:collapse;margin:8px 0 14px}th{text-align:left;font-size:10px;text-transform:uppercase;color:#8798ad;border-bottom:1px solid #e3e9f1;padding:7px 5px}'
-        + 'td{padding:8px 5px;border-bottom:1px solid #f0f4f9}.r{text-align:right}'
-        + '.totals{margin-left:auto;width:280px;font-size:13px}.totals div{display:flex;justify-content:space-between;padding:4px 0}'
-        + '.grand{border-top:2px solid #16202e;margin-top:6px;padding-top:8px!important;font-size:16px;font-weight:800}'
-        + '.notes{margin-top:16px;font-size:11px;color:#5b6b80;border-top:1px solid #f0f4f9;padding-top:10px}'
-        + '@media print{body{margin:0}}</style></head><body>'
-        + '<div class="top"><div><div class="biz">' + (field('biz') || 'Your business name') + '</div>'
-        + '<div class="meta">' + (field('contact') || '') + '</div>'
-        + '<div class="meta">' + (field('license') ? 'Lic. ' + field('license') : '') + '</div></div>'
-        + '<div><div class="title">INVOICE</div><div class="meta">' + (field('num') || '') + '</div>'
-        + '<div class="meta">' + (dd ? 'Issued ' + dd : '') + (du ? '<br>Due ' + du : '') + '</div></div></div>'
-        + '<div class="billto"><span>BILL TO</span><div>' + (field('client') || '') + '</div><div class="meta">' + (field('addr') || '') + '</div></div>'
-        + '<table><thead><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead><tbody>' + body + '</tbody></table>'
-        + '<div class="totals"><div><span>Subtotal</span><b>' + money(sub) + '</b></div>'
-        + '<div><span>Tax (' + taxRate + '%)</span><b>' + money(tax) + '</b></div>'
-        + '<div><span>Deposit received</span><b>' + money(dep) + '</b></div>'
-        + '<div class="grand"><span>Balance due</span><b>' + money(total) + '</b></div></div>'
-        + '<div class="notes">' + (field('terms') || '') + '</div>'
-        + '</body></html>';
-      // 隐藏 iframe 打印：不触发弹窗拦截，也不受站点打印样式影响
-      var frame = document.createElement('iframe');
-      frame.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
-      document.body.appendChild(frame);
-      var fdoc = frame.contentWindow.document;
-      fdoc.open(); fdoc.write(html); fdoc.close();
-      var fire = function () {
-        try { frame.contentWindow.focus(); frame.contentWindow.print(); } catch (e) {}
-        setTimeout(function () { if (frame.parentNode) frame.parentNode.removeChild(frame); }, 2000);
-      };
-      setTimeout(fire, 400);
+      calc();
+      setTimeout(function () { window.print(); }, 60);
     });
 
     // 复制为文本
