@@ -307,11 +307,18 @@ const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
         + '<div><span>Deposit received</span><b>' + money(dep) + '</b></div>'
         + '<div class="grand"><span>Balance due</span><b>' + money(total) + '</b></div></div>'
         + '<div class="notes">' + (field('terms') || '') + '</div>'
-        + '<script>window.onload=function(){setTimeout(function(){window.print()},250)}<\/script>'
         + '</body></html>';
-      var w = window.open('', '_blank');
-      if (w) { w.document.write(html); w.document.close(); }
-      else { alert('Please allow pop-ups for this page to print the invoice.'); }
+      // 隐藏 iframe 打印：不触发弹窗拦截，也不受站点打印样式影响
+      var frame = document.createElement('iframe');
+      frame.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
+      document.body.appendChild(frame);
+      var fdoc = frame.contentWindow.document;
+      fdoc.open(); fdoc.write(html); fdoc.close();
+      var fire = function () {
+        try { frame.contentWindow.focus(); frame.contentWindow.print(); } catch (e) {}
+        setTimeout(function () { if (frame.parentNode) frame.parentNode.removeChild(frame); }, 2000);
+      };
+      setTimeout(fire, 400);
     });
 
     // 复制为文本
