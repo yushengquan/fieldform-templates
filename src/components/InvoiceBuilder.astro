@@ -1,4 +1,4 @@
-﻿---
+---
 // 在线发票生成器（纯前端，无后端、无上传）
 // 目的：把"下载完就走"变成"在站内完成一单"，改善用户信号（停留/交互/回访）
 // 预填数据来自 trade JSON 的 lineItems（各工种的典型收费项）
@@ -19,6 +19,9 @@ const rows = (lineItems.length ? lineItems : [
   r: Number(it.sampleRate ?? 0),
 }));
 const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
+// 服务端预渲染初始行与合计，避免 JS 执行前后跳变（CLS）
+const seedTotal = rows.reduce((a: number, r: any) => a + (r.r || 0), 0);
+const money = (n: number) => '$' + n.toFixed(2);
 ---
 
 <section class="section wrap" id="invoice-builder" style="padding-top:44px;">
@@ -69,7 +72,16 @@ const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
       <div class="ib-row ib-row-head">
         <span>Description</span><span>Qty</span><span>Rate</span><span></span>
       </div>
-      <div id={`${pid}-lines`}></div>
+      <div id={`${pid}-lines`}>
+        {rows.map((r: any) => (
+          <div class="ib-row">
+            <input class="ib-in" value={r.d} placeholder="Description" />
+            <input class="ib-in" type="number" min="0" step="1" value="1" />
+            <input class="ib-in" type="number" min="0" step="0.01" value={r.r} />
+            <button type="button" class="ib-del">×</button>
+          </div>
+        ))}
+      </div>
       <button type="button" class="ib-add" id={`${pid}-add`}>+ Add line item</button>
 
       <h3 class="ib-h3">4 · Tax &amp; notes</h3>
@@ -109,13 +121,22 @@ const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
         </div>
         <table class="ibp-table">
           <thead><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
-          <tbody id={`${pid}-plines`}></tbody>
+          <tbody id={`${pid}-plines`}>
+            {rows.map((r: any) => (
+              <tr>
+                <td>{r.d}</td>
+                <td class="r">1</td>
+                <td class="r">{money(r.r)}</td>
+                <td class="r">{money(r.r)}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
         <div class="ibp-totals">
-          <div><span>Subtotal</span><b data-p="sub">$0.00</b></div>
+          <div><span>Subtotal</span><b data-p="sub">{money(seedTotal)}</b></div>
           <div><span data-p="taxlab">Tax (0%)</span><b data-p="tax">$0.00</b></div>
           <div class="ibp-dep"><span>Deposit received</span><b data-p="dep">$0.00</b></div>
-          <div class="ibp-grand"><span>Balance due</span><b data-p="total">$0.00</b></div>
+          <div class="ibp-grand"><span>Balance due</span><b data-p="total">{money(seedTotal)}</b></div>
         </div>
         <div class="ibp-notes" data-p="terms"></div>
       </div>
@@ -268,6 +289,8 @@ const seed = JSON.stringify(rows).replace(/</g, '\\u003c');
     }
 
     // 初始行：工种典型收费项
+    // 初始行：服务端已渲染了同样的行，先清空再重建成受控行（避免重复）
+    linesEl.innerHTML = '';
     seedRows.forEach(function (row) { addRow({ d: row.d, q: 1, r: row.r }); });
 
     // 默认日期
