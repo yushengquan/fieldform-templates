@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": false,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days. Balance due on completion of final inspection.",
   "notes": "Thank you for your business. Workmanship guaranteed for 12 months on taping and seams.",
   "lineItems": [
-    {"code": "HANG", "description": "Hanging Drywall", "defaultQty": 10, "unit": "sheet", "sampleRate": 12.0, "taxable": true},
-    {"code": "TAPE", "description": "Taping & Mudding", "defaultQty": 500, "unit": "sq ft", "sampleRate": 0.6, "taxable": true},
-    {"code": "TEX", "description": "Texture Finish", "defaultQty": 300, "unit": "sq ft", "sampleRate": 0.8, "taxable": true},
-    {"code": "SAND", "description": "Sanding & Prep", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "PATCH", "description": "Patch & Repair", "defaultQty": 3, "unit": "each", "sampleRate": 45.0, "taxable": true},
-    {"code": "CLEAN", "description": "Cleanup & Disposal", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true}
+    {
+      "code": "HANG",
+      "description": "Hanging Drywall",
+      "defaultQty": 10,
+      "unit": "sheet",
+      "sampleRate": 12.0,
+      "taxable": true
+    },
+    {
+      "code": "TAPE",
+      "description": "Taping & Mudding",
+      "defaultQty": 500,
+      "unit": "sq ft",
+      "sampleRate": 0.6,
+      "taxable": true
+    },
+    {
+      "code": "TEX",
+      "description": "Texture Finish",
+      "defaultQty": 300,
+      "unit": "sq ft",
+      "sampleRate": 0.8,
+      "taxable": true
+    },
+    {
+      "code": "SAND",
+      "description": "Sanding & Prep",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "PATCH",
+      "description": "Patch & Repair",
+      "defaultQty": 3,
+      "unit": "each",
+      "sampleRate": 45.0,
+      "taxable": true
+    },
+    {
+      "code": "CLEAN",
+      "description": "Cleanup & Disposal",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 60.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +87,108 @@
     "12-month workmanship guarantee printed on the invoice"
   ],
   "faqs": [
-    {"q": "What should I include on a drywall invoice?", "a": "At minimum: your business name, the client and job site, a dated line-item list (hanging by sheet, taping and texture by square foot, patch work), tax, and a total due. Itemizing by square footage keeps estimates and final invoices comparable."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a drywall invoice?",
+      "a": "At minimum: your business name, the client and job site, a dated line-item list (hanging by sheet, taping and texture by square foot, patch work), tax, and a total due. Itemizing by square footage keeps estimates and final invoices comparable."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Drywall invoicing that survives callbacks: finish levels, sheet pricing and repair clauses",
+    "sub": "Drywall is the one trade where the invoice has to describe a finish standard, not just a quantity of work. Here is how contractors price it, prove it and bill the punch list without eating the callback.",
+    "blocks": [
+      {
+        "h3": "Price by sheet and by finished square foot — and show both",
+        "paras": [
+          "Drywall is bought in 4x8 and 4x12 sheets but priced to the customer by installed area. A residential hang runs roughly $40 to $90 per sheet installed depending on market, board thickness and ceiling height; taping and finishing adds about $0.40 to $0.80 per square foot of board; texture adds another $0.50 to $1.00 per square foot depending on whether it is a light orange-peel or a hand-troweled knockdown.",
+          "The invoice mistake is quoting one number for \"drywall\" and then arguing about what it covered. Itemize hanging by sheet count, finishing by square footage and texture separately, exactly as the line items on this template do. When a client later asks why the bill is higher than the verbal quote, the split is what shows them the extra board came from the added closet they asked for mid-job."
+        ],
+        "list": [
+          "Boards: 1/2 in for standard walls, 5/8 in for ceilings and fire-rated assemblies, moisture-resistant for baths and kitchens",
+          "Height factor: anything above a 9-foot ceiling needs scaffolding and usually adds 15-25% to labour",
+          "Waste: order 10% over the calculated area for cuts, breaks and future patches"
+        ]
+      },
+      {
+        "h3": "Name the finish level — Level 4 is not Level 5",
+        "paras": [
+          "The Gypsum Association's GA-214 defines six levels of finish, and the gap between them is the single most common dispute in drywall billing. Level 3 is tape and one coat — fine under heavy texture. Level 4 adds a second coat and is the default for most residential work. Level 5 is a full skim coat over the entire surface and is what flat-paint finishes and critical lighting demand.",
+          "Put the level on the invoice. \"Taped, mudded and ready for paint\" tells the customer nothing and tells a painter everything they need to argue about. Writing \"Level 4 finish per GA-214, ready for primer\" costs one line and ends the conversation about why the walls show telegraphing under the hallway sconce."
+        ],
+        "list": [
+          "Level 3: tape embedded, one finish coat — textured surfaces only",
+          "Level 4: two finish coats, standard for residential walls",
+          "Level 5: full skim coat, required for gloss paint, critical lighting and high-end residential",
+          "Ceilings almost always need one level higher than the walls in the same room"
+        ]
+      },
+      {
+        "h3": "Bill the punch list separately from the callback",
+        "paras": [
+          "A punch list is work you owe on the original scope — sanding a ridge, re-setting a corner bead, touching up a screw pop before the painter arrives. A callback is a defect that shows up weeks later: hairline cracks at butt joints, popped screws from lumber shrinkage, or a crack along the ceiling-wall transition as the house settles. They are different costs and belong on different documents.",
+          "Include the punch list in the final invoice as a zero-value line item list with a completion date once it is signed off, or bill it at your hourly repair rate if it was caused by another trade damaging the board after your finish. For callbacks, this template's notes field is the right place for a one-year workmanship warranty limited to the areas you finished — not to cracks caused by structural movement, roof leaks or another trade's fasteners."
+        ],
+        "list": [
+          "Punch list: included in contract, zero-line on the final invoice once signed off",
+          "Callback within warranty: repair at no charge, document the date and cause",
+          "Damage by other trades: bill hourly plus materials, photograph before repair",
+          "Structural or water-caused cracks: not a drywall defect — quote as new work"
+        ]
+      },
+      {
+        "h3": "License, insurance and the paperwork a GC will ask for",
+        "paras": [
+          "Drywall is usually subcontracted, and general contractors screen subs on three documents before they let anyone on site: state license where one exists, general liability insurance, and workers' compensation coverage. California issues a dedicated C-9 drywall licence through the CSLB; most other states fold drywall under a general or specialty contractor licence, and several require no state licence at all for residential work under a dollar threshold.",
+          "Print your licence number, insurance carrier and policy expiry in the header of the invoice, and make sure the coverage is current for the dates you worked. A GC who receives an invoice with an expired policy will hold payment until you produce a certificate — and a homeowner filing an insurance claim for water damage will need your invoice to show the work was performed by a licensed, insured contractor."
+        ],
+        "list": [
+          "Licence number and expiry in the invoice header",
+          "General liability policy number and carrier",
+          "Workers' comp certificate if you employ anyone",
+          "Certificate of insurance sent to the GC before the first day on site, not with the invoice"
+        ]
+      },
+      {
+        "h3": "Change orders: the closet that was not in the quote",
+        "paras": [
+          "Drywall scope changes more than almost any other trade because the board goes up last, after every other trade has finished moving walls, adding recessed lights and relocating outlets. Every one of those moves is a patch, a re-hang or a re-tape, and none of it was in the original square footage.",
+          "Keep a change order log on the same job number as the invoice. When a client asks for an extra outlet or a soffit change after hanging, write it as a separate numbered line with its own sheet count and date, get a text or email approving it, and bill it on the next invoice — or as its own change-order invoice if the job runs long. The invoice template's line-item structure already accepts a change-order code; use a distinct code such as CHG-01 so the customer can see the original contract and the additions side by side."
+        ],
+        "list": [
+          "Number change orders separately from the original contract",
+          "Get written approval by text or email before doing the work",
+          "Bill change orders on the next invoice, never fold them silently into the total"
+        ]
+      }
+    ]
+  }
 }
