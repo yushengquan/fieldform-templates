@@ -8,18 +8,77 @@
   "depositPct": 50,
   "licenseField": false,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Payment Terms"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Payment Terms"
+  ],
   "paymentTerms": "Net 10 — payment due within 10 days of acceptance. Workmanship guaranteed for 90 days on welded joints.",
   "notes": "Thank you for your business. Estimate valid for 30 days. A 50% deposit is due at signing for fabrication and material purchases; the balance is due upon completion.",
   "lineItems": [
-    {"code": "STK", "description": "Stick Welding Labor (SMAW)", "defaultQty": 6, "unit": "hour", "sampleRate": 60.0, "taxable": true},
-    {"code": "FLX", "description": "Flux-Core Welding Labor (FCAW)", "defaultQty": 3, "unit": "hour", "sampleRate": 75.0, "taxable": true},
-    {"code": "STL", "description": "Steel Stock / Plate", "defaultQty": 1, "unit": "job", "sampleRate": 240.0, "taxable": true},
-    {"code": "CUT", "description": "Cutting & Bevel Prep", "defaultQty": 2, "unit": "hour", "sampleRate": 55.0, "taxable": true},
-    {"code": "GAS", "description": "Shielding Gas & Consumables", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
-    {"code": "FIN", "description": "Grinding & Finishing", "defaultQty": 2, "unit": "hour", "sampleRate": 50.0, "taxable": true}
+    {
+      "code": "STK",
+      "description": "Stick Welding Labor (SMAW)",
+      "defaultQty": 6,
+      "unit": "hour",
+      "sampleRate": 60.0,
+      "taxable": true
+    },
+    {
+      "code": "FLX",
+      "description": "Flux-Core Welding Labor (FCAW)",
+      "defaultQty": 3,
+      "unit": "hour",
+      "sampleRate": 75.0,
+      "taxable": true
+    },
+    {
+      "code": "STL",
+      "description": "Steel Stock / Plate",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 240.0,
+      "taxable": true
+    },
+    {
+      "code": "CUT",
+      "description": "Cutting & Bevel Prep",
+      "defaultQty": 2,
+      "unit": "hour",
+      "sampleRate": 55.0,
+      "taxable": true
+    },
+    {
+      "code": "GAS",
+      "description": "Shielding Gas & Consumables",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "FIN",
+      "description": "Grinding & Finishing",
+      "defaultQty": 2,
+      "unit": "hour",
+      "sampleRate": 50.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals in Excel — subtotal, 50% deposit and balance update automatically",
@@ -28,15 +87,111 @@
     "Valid-until and deposit terms built in — standard for fabrication estimates"
   ],
   "faqs": [
-    {"q": "How do I estimate a welding job?", "a": "Break the job into weld processes (stick, MIG, TIG, flux-core), estimate hours for each, then add prep time (cutting, beveling, fit-up), materials at cost plus 20-30% markup, consumables and gas, mobilization if on-site, and finishing. Multiply hours by your shop or field rate, add a 50% deposit line for fabrication work, and set a 30-day valid-until date."},
-    {"q": "What's the difference between a welding estimate, a quote, and a bid?", "a": "An estimate is a good-faith price range that can move with actual hours and materials. A quote is a fixed price held for a stated period (usually 30 days). A bid is a formal proposal, usually against other bidders, on larger or contract work. This template works for all three — adjust the title and how firm you make the numbers."},
-    {"q": "How much should I charge per hour for welding?", "a": "Typical US ranges: stick/SMAW $50-$75/hr, flux-core $60-$85/hr, MIG $60-$90/hr, and TIG on stainless or aluminum $75-$125/hr. Shop rates run lower than field/on-site rates, which should cover travel and equipment. Certified welders (AWS D1.1, pipe codes) command the top of each range."},
-    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 50% deposit and balance due update automatically. The tax rate cell is left blank — enter your state's rate only if your services are taxable."}
+    {
+      "q": "How do I estimate a welding job?",
+      "a": "Break the job into weld processes (stick, MIG, TIG, flux-core), estimate hours for each, then add prep time (cutting, beveling, fit-up), materials at cost plus 20-30% markup, consumables and gas, mobilization if on-site, and finishing. Multiply hours by your shop or field rate, add a 50% deposit line for fabrication work, and set a 30-day valid-until date."
+    },
+    {
+      "q": "What's the difference between a welding estimate, a quote, and a bid?",
+      "a": "An estimate is a good-faith price range that can move with actual hours and materials. A quote is a fixed price held for a stated period (usually 30 days). A bid is a formal proposal, usually against other bidders, on larger or contract work. This template works for all three — adjust the title and how firm you make the numbers."
+    },
+    {
+      "q": "How much should I charge per hour for welding?",
+      "a": "Typical US ranges: stick/SMAW $50-$75/hr, flux-core $60-$85/hr, MIG $60-$90/hr, and TIG on stainless or aluminum $75-$125/hr. Shop rates run lower than field/on-site rates, which should cover travel and equipment. Certified welders (AWS D1.1, pipe codes) command the top of each range."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit and balance automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, 50% deposit and balance due update automatically. The tax rate cell is left blank — enter your state's rate only if your services are taxable."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating deposit and balance"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Estimating welding work: deposition math, material takeoff and bid forms",
+    "sub": "A welding estimate is a labour calculation with a material list attached. These are the numbers shop owners and field welders actually use to build one — and the omissions that turn a profitable estimate into a loss.",
+    "blocks": [
+      {
+        "h3": "Start with deposition rate, not with a gut feeling",
+        "paras": [
+          "Every welding estimate rests on one number: how many pounds of electrode or wire you can deposit per hour at a given process and position. For short-circuit MIG in the flat position a competent welder deposits roughly 3 to 5 lb/hr; spray transfer pushes that to 7 to 10 lb/hr; stick welding drops to 1.5 to 3 lb/hr because of electrode changes and slag removal; TIG is measured in inches per minute rather than pounds and is an order of magnitude slower.",
+          "From deposition rate you get arc time, and from arc time you get paid hours. A welder rarely strikes an arc for more than 30 to 40 percent of a shift on small fabrication work — the rest goes to fit-up, tacking, grinding, repositioning, and inspection. Multiply arc hours by an operating factor of 2.5 to 3 to reach the labour hours you quote. An estimator who quotes arc time as labour time is quoting a third of the real cost."
+        ],
+        "list": [
+          "Deposition rate (lb/hr) x arc-on hours = pounds deposited — sanity-check against the weld volume you calculated",
+          "Operating factor: 0.3-0.4 for small shop work, 0.5-0.6 for repetitive production",
+          "Position factor: vertical and overhead run 1.3-1.8x flat-position labour",
+          "Fit-up is frequently 30-50% of total labour on structural work — never fold it into the weld rate"
+        ]
+      },
+      {
+        "h3": "Material takeoff: list shapes, grades and cut charges separately",
+        "paras": [
+          "The material section of an estimate should read like a purchase order, because that is what it becomes. List each structural shape or plate with size, grade (A36, A572 Gr. 50, A992 for wide flanges), length and quantity. Attach the mill certificate requirement if the job is structural — a GC will ask for MTRs on anything load-bearing, and substituting uncertified steel mid-job is not an option.",
+          "Price cut charges and processing separately from stock. A plate cut on a plasma table, a beam coped for a moment connection, or pipe beveled for a butt weld all carry shop time that is invisible if you quote \"steel at $X/lb\". Galvanising and paint are also separate line items — hot-dip galvanising is priced per pound with a minimum charge, and it is routinely forgotten until the steel is already fabricated."
+        ],
+        "list": [
+          "Stock: shape/plate, grade, quantity — priced at current mill or service-centre rate",
+          "Processing: cutting, drilling, coping, beveling, bending — per piece or per hour",
+          "Finishing: galvanising (per lb, minimum charge), primer, finish coat",
+          "Consumables: wire, gas, discs — typically 8-12% of labour, billable on long jobs"
+        ]
+      },
+      {
+        "h3": "Shop work and field work are two different estimates",
+        "paras": [
+          "A shop estimate assumes a crane, a level floor, power, a welding table and the ability to position the work. A field estimate assumes none of those, plus travel, mobilisation, weather and a hot work permit. Quoting field work from shop rates is the single most common way welding contractors lose money on a job.",
+          "Field mobilisation for a one-day repair can add $400 to $900 before anyone strikes an arc: truck and trailer, generator or engine-driven welder, gas bottles, fire watch, and the time to get through site induction. Structural field work also carries inspection that shop work does not — third-party NDT on site, often at the contractor's cost, and re-inspection if a weld fails."
+        ],
+        "list": [
+          "Mobilisation: travel time and mileage, equipment, site induction, permit",
+          "Field labour premium: 15-30% over equivalent shop hours",
+          "NDT: UT/RT/MT/PT priced per weld or per foot — confirm who pays before bidding",
+          "Weather and access standby: state the rate in the estimate, not after the fact"
+        ]
+      },
+      {
+        "h3": "When the customer is a GC, the estimate has to match their bid form",
+        "paras": [
+          "General contractors do not compare free-form estimates — they take your number and drop it into a bid form with a unit price schedule. If your estimate is not structured that way, someone has to transpose it, and transposition is where scope gets lost. Ask for the bid form before you price the job.",
+          "Typical structural bid forms want a base bid, alternates, unit prices for additions and deletions, and an allowances line for items not yet specified. Unit prices are where the money is on a job that changes: a fixed rate per additional connection or per linear foot of weld lets you bill changes without renegotiating. Alternates should be priced so the GC can see the cost of each option rather than a lump-sum guess."
+        ],
+        "list": [
+          "Base bid, alternates, unit prices, allowances — four separate numbers",
+          "Unit prices: per connection, per foot of weld, per piece erected",
+          "State the estimate validity period (30 days is standard) and the escalation clause for steel",
+          "Exclusions list is part of the estimate: paint, fireproofing, permits, design fees"
+        ]
+      },
+      {
+        "h3": "Five omissions that quietly eat the margin",
+        "paras": [
+          "Undercounting fit-up is the classic — estimators price the weld and forget the clamps, jigs, tacking and grinding that hold the parts in place. Forgetting NDT is second: if the drawing specifies full penetration welds with ultrasonic testing, the inspection cost and the rework risk both belong in the number.",
+          "The others are less obvious. Consumables on a long job run 8 to 12 percent of labour and disappear from estimates done at small scale. Rework is not a hypothetical — structural welds rejected on visual or NDT inspection must be gouged out and re-welded, and a 3 to 5 percent rework allowance is normal on field work. And overhead is not margin: a shop running a crane, a truck and insurance needs 15 to 25 percent on top of labour and material before it makes a dollar of profit."
+        ],
+        "list": [
+          "Fit-up and handling labour",
+          "NDT cost and rework allowance (3-5% on field structural work)",
+          "Consumables and gas",
+          "Overhead recovery (15-25% of labour + material)",
+          "Escalation on steel priced more than 30 days out"
+        ]
+      }
+    ]
+  }
 }
