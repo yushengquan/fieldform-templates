@@ -50,6 +50,11 @@ const famMap: Record<string, string> = {
   'Metal Fabrication Shop': 'Welding',
   'Window Tinting Installer': 'Auto Detailing',
   'Boat Detailing Service': 'Auto Detailing',
+  // 建筑类工种合并集群：drywall/roofer/concrete/gutter 同一采购意图（GC 分包报价），互相导流
+  'Drywall Contractor': 'Construction',
+  'Roofer': 'Construction',
+  'Concrete Contractor': 'Construction',
+  'Gutter Service': 'Construction',
 };
 const fam = (t: any) => famMap[t.trade] ?? t.trade;
 const sameTradeRel = allTrades.filter((t: any) => fam(t) === fam(trade) && t.slug !== trade.slug);
@@ -69,6 +74,11 @@ const related = ov.relatedSlugs
 // plumbing-invoice(12)、contractor-estimate(12) — 全部进全站内链池
 const popularSlugs = ['pest-control-invoice-template', 'electrician-invoice-template', 'tiling-estimate-template', 'hvac-invoice-template', 'locksmith-invoice-template', 'electrician-estimate-template', 'carpenter-invoice-template', 'hvac-estimate-template', 'plumbing-invoice-template', 'pressure-washing-estimate-template', 'general-contractor-estimate-template', 'welding-estimate-template', 'welding-quote-template'];
 const popular = allTrades.filter((t: any) => popularSlugs.includes(t.slug) && t.slug !== trade.slug);
+
+// 第二内链池 — GSC 2026-10-27：位置 21–45 且已有真实曝光、但只有 12–27 个入站内链的页面
+// （热门页有 207 个入站内链，差 10 倍 → 位置差 20–60 名）。紧凑文字链接块，全站分发。
+const risingSlugs = ['gutter-invoice-template', 'drywall-invoice-template', 'roofer-estimate-template', 'concrete-invoice-template', 'locksmith-estimate-template', 'salon-invoice-template'];
+const rising = allTrades.filter((t: any) => risingSlugs.includes(t.slug) && t.slug !== trade.slug);
 
 // 反向查找：是否有对应 guide 页指向此模板（含 altTemplateSlugs — 一个 guide 服务多个同族模板页）
 const allGuides: any[] = Object.values(import.meta.glob('../../data/guides/*.json', { eager: true })).map((m: any) => m.default);
@@ -456,6 +466,20 @@ const howToLd = JSON.stringify({
       ))}
     </div>
   </section>
+
+  {rising.length > 0 && (
+    <section class="section wrap" style="padding-top:18px;">
+      <p style="font-size:15px;color:var(--muted);line-height:1.9;">
+        Also useful for trades work:
+        {rising.map((t: any, i: number) => (
+          <span>
+            {i > 0 && ' · '}
+            <a href={`/templates/${t.slug}/`} style="color:var(--blue);font-weight:600;">{t.trade} {t.docType}</a>
+          </span>
+        ))}
+      </p>
+    </section>
+  )}
 
   <section class="section wrap" id="faq">
     <div class="section-head">
