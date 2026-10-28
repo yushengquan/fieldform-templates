@@ -7,18 +7,77 @@
   "currency": "USD",
   "licenseField": false,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
   "notes": "Thank you for your business. Glass breakage is covered during service; screens are cleaned with the windows unless requested otherwise.",
   "lineItems": [
-    {"code": "EXT", "description": "Exterior Windows (per pane)", "defaultQty": 20, "unit": "pane", "sampleRate": 4.0, "taxable": true},
-    {"code": "INT", "description": "Interior Windows (per pane)", "defaultQty": 20, "unit": "pane", "sampleRate": 3.5, "taxable": true},
-    {"code": "SCRE", "description": "Screen Cleaning (per screen)", "defaultQty": 10, "unit": "screen", "sampleRate": 2.0, "taxable": true},
-    {"code": "TRAC", "description": "Track / Sill Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 45.0, "taxable": true},
-    {"code": "HIGH", "description": "High Windows (2nd floor+)", "defaultQty": 6, "unit": "pane", "sampleRate": 6.0, "taxable": true},
-    {"code": "STORE", "description": "Storefront / Commercial", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true}
+    {
+      "code": "EXT",
+      "description": "Exterior Windows (per pane)",
+      "defaultQty": 20,
+      "unit": "pane",
+      "sampleRate": 4.0,
+      "taxable": true
+    },
+    {
+      "code": "INT",
+      "description": "Interior Windows (per pane)",
+      "defaultQty": 20,
+      "unit": "pane",
+      "sampleRate": 3.5,
+      "taxable": true
+    },
+    {
+      "code": "SCRE",
+      "description": "Screen Cleaning (per screen)",
+      "defaultQty": 10,
+      "unit": "screen",
+      "sampleRate": 2.0,
+      "taxable": true
+    },
+    {
+      "code": "TRAC",
+      "description": "Track / Sill Cleaning",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 45.0,
+      "taxable": true
+    },
+    {
+      "code": "HIGH",
+      "description": "High Windows (2nd floor+)",
+      "defaultQty": 6,
+      "unit": "pane",
+      "sampleRate": 6.0,
+      "taxable": true
+    },
+    {
+      "code": "STORE",
+      "description": "Storefront / Commercial",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +86,98 @@
     "Notes field for glass-breakage coverage and screen policy"
   ],
   "faqs": [
-    {"q": "What should I include on a window cleaning invoice?", "a": "At minimum: your business name, the client and job-site address, a dated line-item list (exterior and interior panes, screens, tracks, high windows), tax, and a total due. Per-pane pricing keeps it easy to verify."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a window cleaning invoice?",
+      "a": "At minimum: your business name, the client and job-site address, a dated line-item list (exterior and interior panes, screens, tracks, high windows), tax, and a total due. Per-pane pricing keeps it easy to verify."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Window cleaning invoicing: per-pane, per-hour and access charges that hold up",
+    "sub": "Window cleaning is priced by the pane, by the hour, or by the storefront visit — and the difference between a profitable and an unprofitable job is usually access, not glass. Here is what belongs on the invoice.",
+    "blocks": [
+      {
+        "h3": "Three pricing models, and how to show each on an invoice",
+        "paras": [
+          "Residential work is usually priced per pane: $3 to $8 for an exterior-only single pane in a one-storey home, more for interior, more again for divided-light windows with many small panes. Counting panes is the trade's standard quantity, which is why a window cleaning invoice should list pane count by type rather than a lump sum.",
+          "Commercial storefront work is priced per visit or per hour, because the glass is large and the count is stable. A weekly storefront route is a monthly contract billed in arrears, with a line for extra visits on request. Hourly pricing applies to construction clean-up, post-renovation work and any job where the scope is unknown until you arrive — charge hourly with a stated minimum and a per-hour rate for additional time."
+        ],
+        "list": [
+          "Per pane: exterior $3-8, interior +$2-4, divided-light or storm windows +$1-2 per pane",
+          "Per visit: storefront routes typically $40-120 per visit depending on frontage and frequency",
+          "Per hour: $50-90/hr for construction clean-up and unknown-scope work, 2-hour minimum",
+          "Minimum call-out: state it — a $60 minimum stops a single-window job from losing money"
+        ]
+      },
+      {
+        "h3": "Height and access determine the price more than the glass does",
+        "paras": [
+          "A second-storey window that needs a ladder is a different job from a window you can reach standing on the ground. Above two storeys the access method changes the economics: water-fed pole work from the ground is fast and safe, but it needs a filtration system and it does not clean interior glass. Ladder work above a single storey carries fall-protection requirements, and rope access or a lift adds hundreds to a job that takes an hour of actual cleaning.",
+          "Put the access assumption on the invoice and the quote: \"ground floor and first storey included; second storey by ladder; third storey and above quoted separately\". When a customer adds an upper floor on the day, you have a defensible line to bill rather than an awkward conversation."
+        ],
+        "list": [
+          "Ground floor and first storey: standard rate",
+          "Second storey by ladder: height surcharge, usually 20-40% on those panes",
+          "Water-fed pole from ground: fast, no ladder, exterior only",
+          "Rope access or lift: quoted per job, never folded into a per-pane rate",
+          "Fall protection training and equipment is a real cost — it belongs in your overhead"
+        ]
+      },
+      {
+        "h3": "Construction clean-up is a different business with different terms",
+        "paras": [
+          "Post-construction window cleaning is not maintenance cleaning. The glass carries paint overspray, mortar, silicone and sticker adhesive, and the frames carry debris that scratches if you wipe it. It takes three to five times longer per pane, and it frequently needs a second visit after the general contractor's punch list.",
+          "Bill it hourly with a stated minimum, or per pane at two to three times the maintenance rate. Specify what you will and will not remove: mortar and paint removal with a razor or scraper is billable extra, and so is any pane that requires a chemical treatment. Get the contractor's sign-off on completion, because construction sites are where payment disputes live."
+        ],
+        "list": [
+          "Construction clean: 2-3x the maintenance per-pane rate, or hourly with a 4-hour minimum",
+          "Scraping, mortar and adhesive removal priced separately per pane",
+          "Second visit after punch list billed as a new job unless the contract says otherwise",
+          "Signed completion sheet from the site supervisor before you leave"
+        ]
+      },
+      {
+        "h3": "Recurring routes: billing in arrears with a clear cycle",
+        "paras": [
+          "Weekly, fortnightly and monthly routes are the backbone of a window cleaning business, and they are billed differently from one-off work. The service happens first and the invoice follows at the end of the month, listing each visit by date. That record is what proves the work was done when a customer disputes a charge.",
+          "Put the cycle and the notice period on every invoice: monthly in arrears, 30 days' notice to cancel the route, and a stated policy on skipped visits (billed or credited). Skipped visits are the most common source of friction on recurring routes — a customer who forgets to unlock the gate and expects not to be charged is a policy question you should have answered in writing before it happens."
+        ],
+        "list": [
+          "Monthly billing in arrears, each visit dated",
+          "30 days' notice to cancel or pause a route",
+          "Locked gate / no access: state whether it is billable (most routes charge a trip fee)",
+          "Price review clause — glass routes should reprice annually, not drift for years"
+        ]
+      }
+    ]
+  }
 }

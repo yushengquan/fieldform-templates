@@ -76,9 +76,10 @@ const related = ov.relatedSlugs
 const popularSlugs = ['pest-control-invoice-template', 'electrician-invoice-template', 'tiling-estimate-template', 'hvac-invoice-template', 'locksmith-invoice-template', 'electrician-estimate-template', 'carpenter-invoice-template', 'hvac-estimate-template', 'plumbing-invoice-template', 'pressure-washing-estimate-template', 'general-contractor-estimate-template', 'welding-estimate-template', 'welding-quote-template'];
 const popular = allTrades.filter((t: any) => popularSlugs.includes(t.slug) && t.slug !== trade.slug);
 
-// 第二内链池 — GSC 2026-10-27：位置 21–45 且已有真实曝光、但只有 12–27 个入站内链的页面
-// （热门页有 207 个入站内链，差 10 倍 → 位置差 20–60 名）。紧凑文字链接块，全站分发。
-const risingSlugs = ['gutter-invoice-template', 'drywall-invoice-template', 'roofer-estimate-template', 'concrete-invoice-template', 'locksmith-estimate-template', 'salon-invoice-template'];
+// 第二内链池 — GSC 数据驱动：位置 15–45、已有真实曝光、但入站内链只有 12–27 个的页面
+// （热门页 207 个入站内链 → 位置差 20–60 名）。紧凑文字链接块，全站分发。
+// 10/27 首批 6 个；10/28 加入 fabrication(15.3，已产生点击) 与 window-cleaning(变体点击)
+const risingSlugs = ['gutter-invoice-template', 'drywall-invoice-template', 'roofer-estimate-template', 'concrete-invoice-template', 'locksmith-estimate-template', 'salon-invoice-template', 'fabrication-invoice-template', 'window-cleaning-invoice-template'];
 const rising = allTrades.filter((t: any) => risingSlugs.includes(t.slug) && t.slug !== trade.slug);
 
 // 在线发票生成器（工具闭环）— 先上位置最好的 3 个主页面，验证交互信号后再扩

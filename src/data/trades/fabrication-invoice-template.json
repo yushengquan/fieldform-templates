@@ -145,5 +145,76 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney before use."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney before use.",
+  "deepDive": {
+    "heading": "Fabrication shop invoicing: per-piece, per-hour and stock-material billing",
+    "sub": "A fabrication job mixes engineering time, machine time and material bought at mill prices. Billing it as \"fabrication — $4,200\" hides where the money went and makes every change order a fight. Here is how shops itemize it.",
+    "blocks": [
+      {
+        "h3": "Three clocks run at once: programming, machine time and bench time",
+        "paras": [
+          "A laser or plasma cut part is charged three ways and conflating them is the usual estimating error. Programming and nesting is a one-off cost per drawing — half an hour to two hours for a simple bracket, more if the drawing needs cleanup before it can be cut. Machine time is billed at an hourly rate that should already carry the consumables, the power and the depreciation on a machine that costs six figures. Bench time is fit-up, deburring, drilling, tapping and inspection, and it is the part every shop underestimates.",
+          "On the invoice, split the three so the customer sees the logic. \"Cutting — 0.4 hr @ $145/hr\" tells them the job was small; \"fabrication — $58\" tells them nothing. When they come back with a drawing revision, you can then quote the reprogramming as a line rather than absorbing it."
+        ],
+        "list": [
+          "Programming/nesting: quoted as a setup charge, not hourly — usually $75-200 per new drawing",
+          "Machine time: laser/plasma $120-200/hr, press brake $85-150/hr, machining $90-180/hr",
+          "Bench/fit-up: 25-40% of total labour on most fabrication work",
+          "Finish: deburr included, powder coat and paint priced per square foot or per part"
+        ]
+      },
+      {
+        "h3": "Stock material is billed at mill price plus a cut and handling margin",
+        "paras": [
+          "Material is the line customers audit hardest. A fabrication shop does not buy small quantities at mill prices — it buys drops and remnants from a service centre, or cuts from its own stock bought months ago at a different price. Billing at today's mill price plus 15-25% for handling is standard practice and defensible if the invoice states the grade, the thickness and the size.",
+          "List plate and sheet as thickness x width x length, and structural shapes by designation — A36 angle 2x2x1/4, A992 wide flange W8x10, 304 stainless sheet. If the customer supplied the material, say so explicitly with a zero-value line: a supplied-material job with no note looks like a billing error when the total is half the quote."
+        ],
+        "list": [
+          "Grade and thickness on every material line: A36, A572-50, A992, 304/316 stainless, 6061 aluminium",
+          "Remnant/drop stock priced at current replacement cost, not historic cost",
+          "Cut charge separate from stock price — cutting is labour, stock is material",
+          "Customer-supplied material: zero-value line plus a note that handling is still billable"
+        ]
+      },
+      {
+        "h3": "Prototype, one-off and production runs price differently",
+        "paras": [
+          "A prototype is engineering work with an unknown outcome: the customer pays for the attempt, not for a guaranteed part, and the invoice should say so. One-off parts carry the full setup cost across a single unit. Production runs spread setup across the batch, so the per-piece price falls sharply — a bracket at $85 each for one piece might be $22 each at a hundred, and the invoice should show the setup line amortized rather than hiding it.",
+          "When a customer asks for \"a hundred of these\" after buying one at prototype pricing, the correct move is a new quote with the setup broken out, not the prototype rate multiplied by a hundred. Put the pricing basis on the invoice: \"one-off rate\" and \"production rate (setup included, 100 pcs)\" are two different documents."
+        ],
+        "list": [
+          "Prototype: time and materials, no fixed-price guarantee, revision billed as new work",
+          "One-off: full setup and programming charged to the single piece",
+          "Production: setup amortized across the batch, per-piece rate stated with the quantity",
+          "Tooling and fixtures built for the job remain your property unless sold separately"
+        ]
+      },
+      {
+        "h3": "Tolerances, inspection and certification are billable scope",
+        "paras": [
+          "A drawing with a general tolerance block is not the same as a drawing with a critical ±0.005 in feature, and they do not cost the same to make. Tight tolerances need better machines, slower feeds, more frequent checks and often a CMM report. If the customer's drawing carries a tolerance you did not price, you have agreed to it for free.",
+          "Inspection paperwork is a line item in regulated industries: material test reports (MTRs) for structural work, first-article inspection reports, dimensional reports, and certificates of conformance. Shops give these away and then resent the two hours it takes to produce them. Bill them, or at minimum state that they are included so the customer knows they received something of value."
+        ],
+        "list": [
+          "Tolerance class on the quote: general (ISO 2768-m) vs critical features called out individually",
+          "MTRs for structural steel — required on load-bearing work, billable as documentation",
+          "First-article inspection (FAI) report for production runs",
+          "Certificate of conformance: a one-page document, but it is the customer's audit trail"
+        ]
+      },
+      {
+        "h3": "The invoice terms that keep a shop out of trouble",
+        "paras": [
+          "Fabrication shops live on deposits and progress payments because material is bought before the job is paid. Fifty percent on order is normal for a first-time customer, and material-heavy jobs often go thirty percent on order, forty on delivery of the cut parts, thirty on completion. Net 30 is for established accounts only.",
+          "Two clauses do most of the work on a fabrication invoice: the quote validity (steel moves weekly, so 15 or 30 days) and the delivery/risk clause (who owns the parts in transit, who pays the freight, when title passes). Add a restocking or cancellation charge for custom-cut material — once a plate is cut to size it cannot go back into stock."
+        ],
+        "list": [
+          "Deposit: 50% on order for new customers, progress billing on long jobs",
+          "Quote validity 15-30 days with a steel escalation clause beyond that",
+          "Freight: FOB shop or delivered — state which, and who insures transit",
+          "Custom-cut material non-cancellable once cutting begins"
+        ]
+      }
+    ]
+  }
 }
