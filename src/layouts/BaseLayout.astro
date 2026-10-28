@@ -129,5 +129,16 @@ const imageUrl = new URL(ogImage ?? '/og-image.png', site).toString();
       };
     })();
   </script>
+  <script is:inline>
+    // Embed mode: ?embed=1 strips site chrome so the page can be iframed as a widget.
+    (function () {
+      if (!/[?&]embed=1/.test(location.search)) return;
+      var s = document.createElement('style');
+      s.textContent = 'header.site-header,footer,.breadcrumb,#toast{display:none!important}' +
+        'main,body{padding-top:0!important}' +
+        'body{background:#fff}';
+      document.head.appendChild(s);
+    })();
+  </script>
 </body>
 </html>

@@ -113,6 +113,21 @@ const canonical = 'https://fieldformtemplates.com/invoice-calculator/';
   </section>
   <section class="section wrap" style="padding-top:20px;">
     <div class="section-head">
+      <h2>Embed this calculator on your site</h2>
+      <p>Free to embed — no signup, no tracking beyond page views. Useful if you write about contractor pricing, invoicing or trade business basics. Paste this where you want it to appear.</p>
+    </div>
+    <div style="margin-top:20px;padding:20px 24px;background:var(--soft);border-radius:12px;">
+      <textarea id="embed-code" readonly rows="4" style="width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);resize:vertical;">&lt;iframe src="https://fieldformtemplates.com/invoice-calculator/?embed=1" width="100%" height="720" style="border:1px solid #e5e7eb;border-radius:10px;" title="Free invoice calculator — FieldForm Templates" loading="lazy"&gt;&lt;/iframe&gt;
+&lt;p style="font-size:13px;color:#6b7280;"&gt;Calculator by &lt;a href="https://fieldformtemplates.com/invoice-calculator/"&gt;FieldForm Templates&lt;/a&gt; — free invoice and estimate templates for 50+ trades.&lt;/p&gt;</textarea>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <button class="btn btn-primary" type="button" onclick="(function(){var t=document.getElementById('embed-code');t.select();document.execCommand('copy');if(navigator.clipboard)navigator.clipboard.writeText(t.value);if(window.showToast)showToast('Embed code copied');})()">Copy embed code</button>
+        <a class="btn btn-ghost" href="/invoice-calculator/?embed=1" target="_blank" rel="noopener">Preview widget →</a>
+        <span style="font-size:13px;color:var(--muted);">Works in WordPress, Squarespace, Webflow, Ghost and plain HTML.</span>
+      </div>
+    </div>
+  </section>
+  <section class="section wrap" style="padding-top:20px;">
+    <div class="section-head">
       <h2>FAQ</h2>
     </div>
     <div style="margin-top:20px;">
