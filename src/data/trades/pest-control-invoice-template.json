@@ -214,6 +214,20 @@
           "Bed bug heat treatment: $1,000-3,000; chemical treatment needs 2-3 visits",
           "Rodent exclusion: $300-800; ongoing trapping/baiting billed monthly"
         ]
+      },
+      {
+        "h3": "If your crews still use paper service tickets: printing this template on carbonless paper",
+        "paras": [
+          "Most pest control companies run a hybrid: the technician on site fills a paper service ticket, the office types it up or scans it, and the customer receives an invoice by email. If that is your workflow, print this PDF template on two-part or three-part carbonless (NCR) paper instead of buying pre-printed form books. The paper costs a fraction of custom-printed books and you keep control of the fields.",
+          "Two-part is the minimum for pest control: the white copy goes to the customer, the yellow stays in the office or in the tech's binder. Three-part adds a copy for a property manager or a real-estate transaction, which matters on termite work and on any account billed through a management company. Print on 20 lb or 22 lb NCR stock at a local print shop; most will run a few hundred sets for well under what a custom form book costs."
+        ],
+        "list": [
+          "White copy: customer; yellow: office file; pink: property manager or escrow",
+          "Number the sets sequentially before the crew leaves the shop — same rule as digital invoices",
+          "Signature and date line on every copy: the customer's signature is what proves service was performed",
+          "Pre-printed fields should include: treatment area, product used, EPA reg. number, rate applied, re-entry interval, next service date",
+          "Photograph the completed ticket before it leaves the truck — that backup costs nothing and ends most disputes"
+        ]
       }
     ]
   }
