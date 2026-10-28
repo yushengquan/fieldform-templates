@@ -172,6 +172,21 @@
           "Zero-dollar invoices for warranty callbacks are worth issuing, not skipping. A $0 invoice documents what failed, what was replaced, and that no charge applied under the labor guarantee — which matters when the customer later disputes a related repair or asks for the service history at home-sale time. Print the original invoice number in the reference field so the callback ties to the job it answers.",
           "For manufacturer-warranty parts claims you will typically need the model and serial numbers of both the failed and replacement components on paperwork — adding those to the line item description ('Condenser fan motor — Trane 4TTR6036, S/N 24192K1LF → replacement OEM motor') makes claim filing painless."
         ]
+      },
+      {
+        "h3": "Paper service tickets on the truck: what an HVAC ticket must record that an invoice does not",
+        "paras": [
+          "Many HVAC companies still run the truck on paper and type the invoice up at the office. If that is your shop, print this template on two-part carbonless paper and give the tech a pad — the office copy is what the invoice gets built from, and the customer copy is what prevents a callback argument three weeks later.",
+          "An HVAC service ticket carries information a generic invoice has no field for: equipment model and serial (needed for warranty claims and for proving which unit you serviced), refrigerant type and amount added, and the readings you took. Without those recorded at the time of service, a warranty claim becomes your word against the homeowner's, and a refrigerant audit becomes a reconstruction."
+        ],
+        "list": [
+          "Equipment: outdoor model, serial, indoor model, serial, filter size",
+          "Refrigerant: type (R-410A, R-32, R-454B), amount added in ounces, and the leak-check result",
+          "Readings: suction and liquid pressures, superheat, subcooling, indoor/outdoor ambient, static pressure",
+          "Work performed: diagnosis, repair, parts replaced with part numbers, labour hours",
+          "Customer signature and date — the single most useful line on a paper ticket",
+          "Two-part minimum: white to customer, yellow stays in the truck binder or goes to the office"
+        ]
       }
     ]
   }
