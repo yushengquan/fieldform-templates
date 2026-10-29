@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Deposit"
+  ],
   "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the job; balance due on completion.",
   "notes": "This is an estimate, not a final invoice. Final charges may vary with tile price, substrate condition, and layout complexity.",
   "lineItems": [
-    {"code": "TILE", "description": "Tile Installation", "defaultQty": 1, "unit": "sq ft", "sampleRate": 8.0, "taxable": true},
-    {"code": "LABOR", "description": "Labor", "defaultQty": 8, "unit": "hr", "sampleRate": 45.0, "taxable": true},
-    {"code": "GROUT", "description": "Grouting & Sealing", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
-    {"code": "DEMO", "description": "Tile Removal / Demo", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
-    {"code": "WATER", "description": "Waterproofing / Backer Board", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "MAT", "description": "Materials & Adhesive", "defaultQty": 1, "unit": "job", "sampleRate": 220.0, "taxable": true}
+    {
+      "code": "TILE",
+      "description": "Tile Installation",
+      "defaultQty": 1,
+      "unit": "sq ft",
+      "sampleRate": 8.0,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor",
+      "defaultQty": 8,
+      "unit": "hr",
+      "sampleRate": 45.0,
+      "taxable": true
+    },
+    {
+      "code": "GROUT",
+      "description": "Grouting & Sealing",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120.0,
+      "taxable": true
+    },
+    {
+      "code": "DEMO",
+      "description": "Tile Removal / Demo",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 180.0,
+      "taxable": true
+    },
+    {
+      "code": "WATER",
+      "description": "Waterproofing / Backer Board",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "MAT",
+      "description": "Materials & Adhesive",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 220.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals and 25% deposit in Excel",
@@ -27,16 +87,116 @@
     "License # field — most states require a contractor license on client-facing estimates"
   ],
   "faqs": [
-    {"q": "What should I include on a tile job estimate?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (installation per sq ft, labor, grouting, demo, waterproofing, materials), a validity date, deposit terms, and exclusions. Note that the estimate is not a final invoice — final charges may vary with substrate condition and layout complexity."},
-    {"q": "How do I estimate a tile job?", "a": "Measure the square footage of each surface to be tiled (length × height for walls, length × width for floors). Multiply by your per-sq-ft installation rate, then add labor hours, grouting, demo, waterproofing, and materials. Add 10–15% waste allowance for cuts and breakage. Put each on its own line so the customer can see the breakdown."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a tile job estimate?",
+      "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (installation per sq ft, labor, grouting, demo, waterproofing, materials), a validity date, deposit terms, and exclusions. Note that the estimate is not a final invoice — final charges may vary with substrate condition and layout complexity."
+    },
+    {
+      "q": "How do I estimate a tile job?",
+      "a": "Measure the square footage of each surface to be tiled (length × height for walls, length × width for floors). Multiply by your per-sq-ft installation rate, then add labor hours, grouting, demo, waterproofing, and materials. Add 10–15% waste allowance for cuts and breakage. Put each on its own line so the customer can see the breakdown."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit automatically?",
+      "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating totals and deposit"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Tiling estimates that survive the layout argument: waste, substrate and setting materials",
+    "sub": "Tile is the one trade where the customer can count the boxes on the invoice and compare them to the floor. These are the numbers that make a tile estimate defensible — and the ones contractors forget to charge for.",
+    "blocks": [
+      {
+        "h3": "Waste factor is not optional: 10% straight lay, 15% diagonal, 20%+ for patterns",
+        "paras": [
+          "Every tiling estimate starts with net square footage and then applies a waste factor, because tile is cut at the perimeter, at doorways, around fixtures and on any run that has to be laid out symmetrically. Straight lay in a rectangular room loses about 10%. Diagonal or 45-degree lay loses 15%. Herringbone, chevron and any pattern that repeats on a fixed module loses 20% or more, because you cannot use offcuts from one repeat in another.",
+          "Show the waste on the estimate as a separate line: \"tile — 180 sq ft installed, 198 sq ft supplied (10% waste)\". When the customer later asks why they paid for 20 extra square feet, the answer is already on the page. Contractors who bury waste in the rate field the same question with no answer."
+        ],
+        "list": [
+          "Straight lay, rectangular room: 10% waste",
+          "Diagonal / 45-degree lay: 15% waste",
+          "Herringbone, chevron, basketweave: 20-25% waste",
+          "Large-format tile (24x48 and up): add 5% more — corners chip and cuts cannot be reused",
+          "Keep one spare box for the customer: future repairs need a matching dye lot"
+        ]
+      },
+      {
+        "h3": "Substrate and preparation are frequently larger than the tile labour",
+        "paras": [
+          "Tile does not go onto a subfloor or wall as found. A wood subfloor needs deflection checked against the tile's L-rating, then a cement backer board or an uncoupling membrane. A slab needs flatness checked to 1/8 inch in 10 feet; anything worse needs self-levelling compound before a single tile goes down. A shower needs a waterproofing membrane and a sloped pan, and that waterproofing is a separate trade skill that many tile setters subcontract.",
+          "Estimate preparation as its own block of hours, not as a line item called \"prep\". Demo of existing tile, backer board installation, levelling, waterproofing and drain work each take measurable time, and a customer who sees them itemized understands why their bathroom estimate is not just square footage times a rate."
+        ],
+        "list": [
+          "Demo and haul-away of existing tile: billed per square foot, plus disposal",
+          "Cement board or uncoupling membrane: material plus install time",
+          "Self-levelling compound: priced per bag plus labour, only when flatness fails",
+          "Waterproofing in wet areas: membrane, banding, corners, drain collar",
+          "Deflection check on wood subframes — if it fails, the tile job cannot proceed"
+        ]
+      },
+      {
+        "h3": "Setting materials are a real cost line, and the customer's tile choice changes it",
+        "paras": [
+          "Thinset is not one product. A modified thinset for porcelain over cement board, an unmodified for a membrane that requires it, an epoxy or urethane grout for a commercial kitchen, a large-format-specific mortar for a 24x48 tile — each costs materially more than the bag at the bottom of the price list. Grout and sealant are separate again, and epoxy grout can cost five times a cement grout.",
+          "Bill materials as a line, not folded into a per-square-foot labour rate, and note the specification: \"modified thinset, 1/2 in notch, epoxy grout per owner request\". When the customer supplies their own tile, say so explicitly and state that setting materials and labour are still yours — that keeps a supplied-tile job from looking like an error when the total is only slightly lower than the full quote."
+        ],
+        "list": [
+          "Thinset type tied to tile and substrate: modified, unmodified, large-format, rapid-set",
+          "Grout: cement vs epoxy vs urethane — epoxy can be 3-5x the material cost",
+          "Sealant at changes of plane instead of grout: it is what stops the crack",
+          "Trim, Schluter profiles and thresholds: small items, real money across a whole house"
+        ]
+      },
+      {
+        "h3": "Layout, niches and the details customers remember",
+        "paras": [
+          "Layout time is where a tiling job is won or lost. Centring a pattern, aligning joints across a doorway, matching a niche to the surrounding grid, wrapping a corner so the pattern continues — each is planning work done before the first tile is set, and none of it is square footage.",
+          "Price niches, benches, curbs and shelves as each-items rather than including them in the wall rate. A shower niche takes an hour and a half of careful cutting and waterproofing; a bench is framing, board, membrane and tile. Customers add these mid-job, and a contractor who priced them at zero has donated the time."
+        ],
+        "list": [
+          "Layout and dry-lay: 1-2 hours on a typical bathroom, more on a patterned floor",
+          "Niche: priced each, including waterproofing and trim",
+          "Bench, curb, half wall: framing plus board plus membrane plus tile",
+          "Grout lines: state the joint width and whether they are sanded or unsanded"
+        ]
+      },
+      {
+        "h3": "Payment structure and the punch list",
+        "paras": [
+          "Tile work is material-heavy at the start and detail-heavy at the end, which makes the payment schedule matter. A typical split is a deposit to order tile and materials, a progress payment when the floor or walls are set, and a final payment after grouting and cleanup. Holding the last 10 percent until the customer signs off the punch list protects both sides — it gives them a reason to inspect promptly and gives you a reason to finish the details.",
+          "Put the punch list on the final invoice as items with dates, and photograph the finished work before you leave. Tile disputes are almost always about a lippage issue, a hollow-sounding tile or a grout line that does not align — and a photograph taken at handover with the customer present ends most of them before they start."
+        ],
+        "list": [
+          "Deposit on material order, progress payment at set, final after grout and clean",
+          "Hold 10% until written punch-list sign-off",
+          "Photograph finished tile, especially wet areas, before leaving",
+          "State the cure time before sealing or heavy use — grout and sealant both have one"
+        ]
+      }
+    ]
+  }
 }

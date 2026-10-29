@@ -121,5 +121,77 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Deck building invoices: board feet, footings and the inspection holdback",
+    "sub": "A deck is priced in square feet but built in footings, framing, boards and railings — each with its own permit and inspection consequence. Here is how to itemize a deck invoice so the customer sees what passed inspection and what did not.",
+    "blocks": [
+      {
+        "h3": "Price the deck in four layers, not one square-foot rate",
+        "paras": [
+          "Deck builders quote per square foot for the surface, then discover that the footings, the framing and the railing carry as much labour as the decking itself. A 300 sq ft deck might be 60% framing, footings and railing and 40% boards, but the customer mentally divides the total by square footage and compares it to a neighbour's quote for a different design.",
+          "Break the estimate into four layers: footings and posts, framing and joists, decking surface, railing and stairs. Each layer has its own material and its own hours, and each is where a change order lives. When the customer adds stairs or swaps composite for cedar, you can reprice one layer instead of the whole job."
+        ],
+        "list": [
+          "Footings: per footing, including excavation, concrete, inspection and post base",
+          "Framing: ledger, rim, joists, blocking, hangers — priced by linear foot or by piece",
+          "Decking surface: sq ft by material (pressure-treated, cedar, composite, PVC)",
+          "Railing and stairs: linear foot of railing, per-tread for stairs",
+          "Fascia and trim: often forgotten, always visible"
+        ]
+      },
+      {
+        "h3": "Footings and the inspection that stops the job",
+        "paras": [
+          "Almost every deck needs a building permit, and the footing inspection happens before any concrete is poured. Frost depth varies from 12 inches in the south to 48 inches or more in northern states, and a footing that is too shallow will fail inspection after the hole has been dug. That inspection is a schedule event, not a line item, and it costs a day of the job.",
+          "Ledger attachment is the other inspection hotspot. Bolting a ledger to a house through siding without flashing, or through a brick veneer without a standoff, is the most commonly failed deck inspection in the country. Estimate the flashing, the standoffs and the correct structural screws as their own material — and state on the invoice that the ledger attachment was inspected and approved."
+        ],
+        "list": [
+          "Footing depth to local frost line — check before quoting, not after digging",
+          "Ledger flashing and standoffs are code, not optional upgrades",
+          "Inspection milestones: footing, framing, final",
+          "Post bases and hardware rated for ground contact and treated lumber"
+        ]
+      },
+      {
+        "h3": "Composite vs wood changes the material number and the customer conversation",
+        "paras": [
+          "Composite decking costs two to three times pressure-treated per square foot, is typically sold by the linear foot of board rather than square footage, and needs specific fastener clips and a matching fascia. It also expands and contracts more, which sets the gap and the picture-frame detail. If you quote composite at the pressure-treated rate, you lose money on the biggest line in the job.",
+          "Cedar and other natural woods need staining, and staining is maintenance the customer has to do. Put both the material specification and the required maintenance interval on the estimate. A customer choosing composite for low maintenance should see that saving named on the invoice — it justifies the higher number they are being asked to approve."
+        ],
+        "list": [
+          "Board sizing: 5/4x6 nominal is 1 inch by 5.5 inch actual — price by actual coverage",
+          "Hidden fastener clips and edge screws per board type",
+          "Stain or seal: cedar and pressure-treated both need it; composite does not",
+          "Warranty: composite has a manufacturer warranty, wood has yours"
+        ]
+      },
+      {
+        "h3": "Railing, stairs and the code items nobody budgets",
+        "paras": [
+          "Railing is priced per linear foot and carries several code requirements: a maximum 4-inch gap between balusters, a 36-inch minimum height for residential, and a graspable handrail profile on stairs. Stairs are priced per tread and need their own stringers, footings and landing. These are not extras — they are code, and a deck without them fails final inspection.",
+          "Two more items that catch customers out: the deck's lateral load connection to the house (a modern requirement in most jurisdictions) and the framing inspection before decking goes on. Both belong in the estimate as named scope, because a customer who was not told about a $400 hardware kit and an extra inspection day will not pay for them at the end without an argument."
+        ],
+        "list": [
+          "Railing: linear feet, baluster spacing to code, graspable handrail on stairs",
+          "Stairs: per tread plus stringers, landing and footing",
+          "Lateral load connection hardware — required in most jurisdictions, frequently omitted",
+          "Framing inspection before decking: a schedule day, not a cost line"
+        ]
+      },
+      {
+        "h3": "Payment terms that protect a deck job",
+        "paras": [
+          "Deck jobs are front-loaded with material: lumber, concrete, hardware and railing arrive before the first board is laid. A schedule of 30 to 40 percent on contract signing, a progress payment when framing is inspected, and the balance on final inspection is standard. Holding the final payment until the final inspection passes aligns both sides — the customer has a finished deck, and you have proof that it passed.",
+          "Put the permit and inspection status on every invoice: permit number, inspections passed and their dates. If a customer sells the house two years later and the buyer's inspector asks for the deck permit, that invoice is the one document that proves the deck was built legally."
+        ],
+        "list": [
+          "Deposit at signing for materials; progress after framing inspection; balance after final",
+          "Permit number and inspection dates printed on the invoice",
+          "Change orders numbered and signed before the change is built",
+          "State the warranty: structure vs finish are usually different periods"
+        ]
+      }
+    ]
+  }
 }
