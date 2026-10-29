@@ -241,6 +241,12 @@ const howToLd = JSON.stringify({
         <p style="font-size:14px;color:var(--muted);">See the <a href={`/templates/${trade.slug}/`} style="color:var(--blue);font-weight:600;">main template page</a> or the <a href={`/templates/${trade.slug}-excel/`} style="color:var(--blue);font-weight:600;">Excel version</a> — the Excel version auto-calculates tax and totals.</p>
       </div>
     )}
+    {format === 'word' && (
+      <div class="variant-links" style="margin-top:16px;padding:16px 20px;background:var(--soft);border:1px solid var(--line);border-radius:12px;">
+        <p style="font-size:14px;font-weight:700;margin-bottom:8px;">Use it in Google Docs (free, no Microsoft Word needed)</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Download the Word file above, then open <a href="https://docs.google.com" target="_blank" rel="noopener nofollow" style="color:var(--blue);font-weight:600;">Google Docs</a> → <em>File → Open → Upload</em> and drop the .docx in. Google Docs converts it in about ten seconds and keeps the layout, the table borders and the tax row. From there you can edit on your phone, share a copy with the customer, or export back to PDF without paying for Word. If you want the file to live in Drive permanently, upload it to Drive first and open it with Google Docs from there — that way the customer's copy and your master stay separate.</p>
+      </div>
+    )}
     {format === 'excel' && (
       <div class="variant-links" style="margin-top:24px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;">
         <p style="font-size:14px;font-weight:700;margin-bottom:10px;">Other formats</p>
