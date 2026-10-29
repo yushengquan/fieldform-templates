@@ -125,5 +125,79 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state and city — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state and city — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Locksmith invoicing: service calls, key cutting and the security work that needs a paper trail",
+    "sub": "Locksmith work splits into three businesses — emergency lockouts, key and cylinder work, and security hardware — and each is priced and documented differently. Here is what belongs on the invoice.",
+    "blocks": [
+      {
+        "h3": "The lockout call is priced on time of day, not on skill",
+        "paras": [
+          "A residential lockout is a service call: a trip charge plus a rate that depends on the hour. Daytime lockouts typically run $50 to $100 including the trip; evenings, weekends and holidays multiply that by 1.5 to 2.5. Automotive lockouts are higher again because the tools and the risk are different. The invoice should show the base call, the time-of-day multiplier and any hardware separately.",
+          "State the price range before dispatch and the final price on the invoice, and never let the multiplier appear for the first time on the bill. Locksmithing has a reputation problem driven by exactly this practice, so an invoice that shows \"after-hours rate 1.5x\" as a line is both a defence and a marketing asset."
+        ],
+        "list": [
+          "Trip/service call charge, stated separately from labour",
+          "Time-of-day multiplier shown as its own line",
+          "Automotive vs residential vs commercial rates differ — name the category",
+          "Damage waiver or lock-destruction charge if drilling was required, approved before drilling"
+        ]
+      },
+      {
+        "h3": "Key cutting, rekeying and master key systems are priced per unit",
+        "paras": [
+          "Rekeying is priced per cylinder — typically $15 to $35 per lock in a residential setting, more for high-security cylinders or restricted keyways. Cutting keys is priced per key by type: standard, transponder/chip, laser-cut, and restricted. Master key systems carry an additional design and pinning charge because the system has to be planned before any cylinder is pinned.",
+          "The invoice should list cylinder count and location (front door, back door, garage entry), key type and quantity, and whether the customer received a control card for restricted keys. That control card matters: without it, the customer cannot order more keys later, and the invoice is the record that proves they were given one."
+        ],
+        "list": [
+          "Cylinders rekeyed: count and location, price each",
+          "Keys cut: quantity and type (standard, transponder, laser, restricted)",
+          "Master key system: design/pinning charge plus per-cylinder cost",
+          "Restricted key control card issued — note it on the invoice",
+          "Hardware supplied vs customer-supplied, with warranty consequences"
+        ]
+      },
+      {
+        "h3": "Security hardware and the installation record",
+        "paras": [
+          "Deadbolts, electronic locks, panic hardware and access control are installation work with a warranty, and the invoice is the installation record. Grade matters: ANSI/BHMA Grade 1 hardware is specified on commercial doors and costs several times a Grade 3 residential deadbolt. When a customer later claims the lock failed, the grade on the invoice is what determines whether the hardware was appropriate for the door.",
+          "Access control and electronic locks also need the commissioning details: who holds the master code, how many user codes were programmed, whether the audit trail was enabled. Leaving without transferring that information is how a locksmith ends up being called back to a site for free."
+        ],
+        "list": [
+          "Hardware make, model and ANSI/BHMA grade",
+          "Door type and preparation required (new bore, wrap plate, strike reinforcement)",
+          "Electronic locks: user codes programmed, master code transferred, audit trail status",
+          "Warranty: hardware manufacturer warranty vs your installation warranty"
+        ]
+      },
+      {
+        "h3": "Commercial and property-management work needs a signed work order",
+        "paras": [
+          "Commercial locksmith work usually runs through a property manager or a facilities contract, and the invoicing convention is a work order number per site visit with the authorising person named. Without that, a $600 master key job on a 40-unit building becomes a collections problem.",
+          "The other commercial convention is the keying schedule: which key opens which doors, how many copies exist, and who holds them. That schedule is a security document. It should be delivered to the client, acknowledged in writing, and the invoice should say it was issued — because if a key goes missing, the first question will be who had a copy."
+        ],
+        "list": [
+          "Work order number and authorising contact on every invoice",
+          "Keying schedule issued and acknowledged",
+          "Number of keys cut and to whom released",
+          "Response-time obligations if the contract has an SLA",
+          "Site access notes: escort required, badge, after-hours procedure"
+        ]
+      },
+      {
+        "h3": "Paper tickets still matter for mobile locksmiths",
+        "paras": [
+          "A mobile locksmith works out of a van with no office nearby. A two-part carbonless ticket printed from this template — white for the customer, yellow for the van file — is the practical record, and the customer signature is what makes a chargeback survivable.",
+          "The fields a locksmith ticket needs beyond a generic invoice: vehicle year/make/model for automotive work, VIN where a key is being cut by code, proof of ownership check for automotive lockouts (registration or title sighted), and the cylinder or lock identified by location on the property. Automotive work in particular is a fraud-sensitive area, and documenting that you verified ownership protects you as much as the customer."
+        ],
+        "list": [
+          "Automotive: year, make, model, VIN, ownership document sighted",
+          "Property: which door/cylinder, described by location",
+          "Method used: bypass, pick, drill — with customer approval for destructive entry",
+          "Keys issued: quantity and type, signed for by the customer",
+          "Customer signature and date on both copies"
+        ]
+      }
+    ]
+  }
 }

@@ -109,5 +109,77 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Plumbing invoicing: T&M vs flat rate, permit costs and the parts markup nobody explains",
+    "sub": "Plumbing is the trade where the customer is most likely to question the bill, because they cannot see what you did inside the wall. These are the conventions that make a plumbing invoice defensible.",
+    "blocks": [
+      {
+        "h3": "Time and materials or flat rate — the invoice has to match the contract",
+        "paras": [
+          "Residential service work is increasingly sold flat rate: a published price for a job, agreed before the technician starts. Commercial and remodel work is usually time and materials. The two produce different invoices, and mixing them is where disputes start.",
+          "Flat-rate invoices show the job description and the price, and nothing about hours — that is the whole point, the customer buys an outcome. T&M invoices must show arrival and departure times, labour hours at the stated rate, and every part with its price. If you sell flat rate but invoice by hours, you have taught the customer to distrust the number. Pick the model per job and say which one on the invoice header."
+        ],
+        "list": [
+          "Flat rate: job description + fixed price, no hours itemized",
+          "T&M: arrival/departure time, hours x rate, parts at list price",
+          "Diagnostic fee: charged separately and stated up front, credited against the repair if they proceed",
+          "After-hours and weekend multipliers: state the schedule (1.5x, 2x) before you dispatch"
+        ]
+      },
+      {
+        "h3": "Permits, inspections and the work that is not visible",
+        "paras": [
+          "Repiping, water heater replacement, sewer line work and any gas line alteration require a permit in most jurisdictions, and the permit has a cost plus an inspection that occupies a day. Customers routinely assume the plumber absorbs this. Put the permit on the invoice as its own line with the permit number.",
+          "The other invisible work is the reason plumbing bills look high: cutting and patching drywall, moving stored items to reach a cleanout, digging to expose a buried line, and the time spent draining and refilling a system. None of it is glamorous, all of it is billable. Itemize access and restoration separately from the plumbing work itself so the customer can see they are paying for two different trades."
+        ],
+        "list": [
+          "Permit fee and number on the invoice — required to close a sale later",
+          "Inspection re-visit if the first one fails through no fault of your work",
+          "Access and restoration: drywall cut, patch, haul-away",
+          "Excavation for buried lines: priced per hour or per foot, with backfill stated"
+        ]
+      },
+      {
+        "h3": "Parts markup is legitimate — hiding it is not",
+        "paras": [
+          "Plumbing parts are marked up. A supply house sells a ball valve at a trade price; the invoice price reflects the trade price plus handling, stocking, warranty risk and the trip to the truck. Markups of 25 to 100 percent on small parts are standard in service work, and customers who find out later feel cheated only if they feel it was concealed.",
+          "The invoice convention that avoids this is to list the part by name and description with a single price — not to print the supply-house cost and a separate markup. Markup on materials is normal business, explained in the terms section once. What is not normal is a line called \"misc. parts\" for $240, which tells the customer nothing and justifies nothing."
+        ],
+        "list": [
+          "List parts with manufacturer and model — not \"parts\"",
+          "One price per part, markup included, no cost column",
+          "Warranty on parts vs labour stated separately (parts often 1 year, labour 90 days)",
+          "Customer-supplied fixtures: state that warranty covers installation only"
+        ]
+      },
+      {
+        "h3": "Water heaters, sewer lines and the big-ticket jobs",
+        "paras": [
+          "A water heater replacement is a package: unit, expansion tank, pan and drain, venting, gas or electrical connection, permit, haul-away, and typically a six-year tank warranty. Itemize the package rather than quoting a single number, because a competing bid will differ on exactly those items and the customer needs to compare like with like.",
+          "Sewer and drain work is priced by the foot once the camera has been run, which is why the camera inspection is a billable line and not a free service. If the line needs excavation, the quote should state the footage, the depth, the restoration and whether the street or the yard is being opened. Those four numbers decide whether the job is $2,000 or $12,000, and a lump sum hides all of them."
+        ],
+        "list": [
+          "Water heater: unit, expansion tank, pan/drain, venting, connection, permit, haul-away",
+          "Camera inspection: billable, with footage documented on the invoice",
+          "Sewer replacement: footage, depth, excavation, restoration named separately",
+          "Financing or deposit terms for jobs above a stated threshold"
+        ]
+      },
+      {
+        "h3": "If your techs still write paper tickets",
+        "paras": [
+          "Many service plumbers still hand-write a ticket on site and the office types the invoice. Print this template on two-part carbonless paper rather than buying pre-printed books: white copy to the customer, yellow to the office. The customer's signature on that ticket is the single best defence against a chargeback.",
+          "What a plumbing ticket must record that a generic invoice does not: the fixture or appliance serviced with make and model, the readings taken (water pressure, temperature, flow), what was found on camera, and the parts left on site. A ticket that says \"fixed leak\" cannot support a $480 bill three weeks later."
+        ],
+        "list": [
+          "Fixture/appliance with make and model",
+          "Readings: static pressure, water temperature, GPM where relevant",
+          "Camera findings with footage marked",
+          "Parts installed with model numbers; parts supplied by customer noted separately",
+          "Customer signature and date on both copies"
+        ]
+      }
+    ]
+  }
 }
