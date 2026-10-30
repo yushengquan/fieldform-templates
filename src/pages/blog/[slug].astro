@@ -75,10 +75,22 @@ const faqLd = JSON.stringify({
     acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
 });
+// SERP 长度控制：标题 ≤60、描述 ≤157，超出会被 Google 截断（截断直接压低 CTR）。
+const clampText = (s: string, max: number): string => {
+  const t = (s ?? '').trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > max * 0.55 ? cut.slice(0, sp) : cut).replace(/[,;:\-–—]$/, '').trim();
+};
+const brandSuffix = ' | FieldForm Templates';
+let seoTitle = `${post.title}${brandSuffix}`;
+if (seoTitle.length > 60) seoTitle = clampText(post.title, 60);
+const seoDesc = clampText(post.description, 157);
 ---
 <BaseLayout
-  title={`${post.title} | FieldForm Templates`}
-  description={post.description}
+  title={seoTitle}
+  description={seoDesc}
   canonical={`${siteUrl}/blog/${post.slug}/`}
   ogImage="/og-image.png"
 >

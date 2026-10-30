@@ -150,12 +150,26 @@ const tradeKind: 'service' | 'build' | 'pro' =
   : 'pro';
 // Word/Excel 变体页 title 加入 "Bill Format" 同义词 — 用户高频搜 "bill format" 而非 "invoice template"
 const billSynonym = trade.docType === 'invoice' ? ' (Bill Format)' : '';
-const pageTitle = format
-  ? `${trade.title}${billSynonym} — Free ${fmtLabel} Download`
-  : `${trade.title} — Free PDF, Word & Excel`;
-const pageDesc = format
-  ? `Download a free ${trade.trade} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade} line items and auto-calculating totals.`
-  : trade.subtitle;
+// 标题/描述长度控制：Google SERP 约 60 字符标题、155–160 字符描述，超出会被截断，
+// 截断会直接压低 CTR（排名不变也能多拿点击）。审计 2026-10-30：95 个标题 >60、204 个描述 >160。
+const clampText = (s: string, max: number): string => {
+  const t = (s ?? '').trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > max * 0.55 ? cut.slice(0, sp) : cut).replace(/[,;:\-–—]$/, '').trim();
+};
+const titleSuffix = format ? ` — Free ${fmtLabel} Download` : ' — Free PDF, Word & Excel';
+const titleSuffixShort = format ? ` — Free ${fmtLabel}` : ' — Free PDF/Word/Excel';
+let pageTitle = `${trade.title}${billSynonym}${titleSuffix}`;
+if (pageTitle.length > 60) pageTitle = `${trade.title}${billSynonym}${titleSuffixShort}`;
+if (pageTitle.length > 60) pageTitle = clampText(`${trade.title}${billSynonym}`, 60);
+const pageDesc = clampText(
+  format
+    ? `Download a free ${trade.trade} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade} line items and auto-calculating totals.`
+    : trade.subtitle,
+  157
+);
 const firstItem = items[0] ?? { code: 'ITEM', description: 'your first line item' };
 const exampleItem = `${firstItem.description} (${firstItem.code})`;
 

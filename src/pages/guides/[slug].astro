@@ -53,10 +53,20 @@ const faqLd = JSON.stringify({
 });
 
 const howToLd = JSON.stringify(howToSchemaForGuide(guide, siteUrl));
+// SERP 长度控制：标题 ≤60、描述 ≤157（超出会被截断，截断压低 CTR）
+const clampText = (s: string, max: number): string => {
+  const t = (s ?? '').trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > max * 0.55 ? cut.slice(0, sp) : cut).replace(/[,;:\-–—]$/, '').trim();
+};
+const seoTitle = clampText(guide.title, 60);
+const seoDesc = clampText(guide.description, 157);
 ---
 <BaseLayout
-  title={guide.title}
-  description={guide.description}
+  title={seoTitle}
+  description={seoDesc}
   canonical={`${siteUrl}/guides/${guide.slug}/`}
   ogImage="/og-image.png"
 >
