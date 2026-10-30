@@ -152,14 +152,37 @@
         "h3": "Efficiency ratings, rebates and the 25C tax credit",
         "paras": [
           "Equipment efficiency is now a selling document as much as a technical one. SEER2 ratings took effect in 2023, and the minimums differ by region, so a unit that is legal in one state may not be installable in another. The estimate should state the SEER2 and HSPF2 of the proposed equipment and the regional minimum it meets.",
-          "Rebates and federal credits change yearly and are frequently the reason a customer chooses the higher-efficiency unit. If you are going to mention them, state the amount, the eligibility conditions and that the customer is responsible for claiming it. An estimate that promises a rebate the customer then fails to qualify for becomes a discount you gave away."
+          "Rebates and federal credits change yearly and are frequently the reason a customer chooses the higher-efficiency unit. If you are going to mention them, state the amount, the eligibility conditions and that the customer is responsible for claiming it. An estimate that promises a rebate the customer then fails to qualify for becomes a discount you gave away.",
+          "The three regions exist because the old single national minimum was replaced in 2023 by regional ones tied to climate. Always check the current map before quoting equipment, and note the rating on the estimate: a customer comparing two bids on price alone is usually comparing different efficiency classes without knowing it."
         ],
-        "list": [
-          "SEER2 / HSPF2 of the proposed equipment and the regional minimum",
-          "Utility rebate amount and eligibility, if quoted",
-          "Federal tax credit reference, claimed by the customer",
-          "Documentation you will provide (AHRI certificate, invoice with model numbers)"
-        ]
+        "table": {
+          "headers": [
+            "Region (DOE)",
+            "Split system SEER2 minimum",
+            "Package unit SEER2 minimum",
+            "HSPF2 minimum"
+          ],
+          "rows": [
+            [
+              "North",
+              "14.3",
+              "13.4",
+              "7.5"
+            ],
+            [
+              "Southeast",
+              "14.3",
+              "13.4",
+              "7.5"
+            ],
+            [
+              "Southwest",
+              "14.3",
+              "13.4",
+              "7.5"
+            ]
+          ]
+        }
       },
       {
         "h3": "The system is more than the box: line set, ductwork and commissioning",

@@ -132,12 +132,46 @@
           "Every welding estimate rests on one number: how many pounds of electrode or wire you can deposit per hour at a given process and position. For short-circuit MIG in the flat position a competent welder deposits roughly 3 to 5 lb/hr; spray transfer pushes that to 7 to 10 lb/hr; stick welding drops to 1.5 to 3 lb/hr because of electrode changes and slag removal; TIG is measured in inches per minute rather than pounds and is an order of magnitude slower.",
           "From deposition rate you get arc time, and from arc time you get paid hours. A welder rarely strikes an arc for more than 30 to 40 percent of a shift on small fabrication work — the rest goes to fit-up, tacking, grinding, repositioning, and inspection. Multiply arc hours by an operating factor of 2.5 to 3 to reach the labour hours you quote. An estimator who quotes arc time as labour time is quoting a third of the real cost."
         ],
-        "list": [
-          "Deposition rate (lb/hr) x arc-on hours = pounds deposited — sanity-check against the weld volume you calculated",
-          "Operating factor: 0.3-0.4 for small shop work, 0.5-0.6 for repetitive production",
-          "Position factor: vertical and overhead run 1.3-1.8x flat-position labour",
-          "Fit-up is frequently 30-50% of total labour on structural work — never fold it into the weld rate"
-        ]
+        "table": {
+          "headers": [
+            "Process",
+            "Deposition rate",
+            "Operating factor",
+            "Typical use"
+          ],
+          "rows": [
+            [
+              "Short-circuit MIG (GMAW-S)",
+              "3–5 lb/hr",
+              "0.30–0.40",
+              "Sheet metal, thin wall tube"
+            ],
+            [
+              "Spray transfer MIG (GMAW)",
+              "7–10 lb/hr",
+              "0.45–0.60",
+              "Production plate and structural"
+            ],
+            [
+              "Flux-cored (FCAW)",
+              "5–12 lb/hr",
+              "0.40–0.55",
+              "Field structural, wind-exposed sites"
+            ],
+            [
+              "Stick (SMAW)",
+              "1.5–3 lb/hr",
+              "0.25–0.35",
+              "Repair, outdoor, dirty steel"
+            ],
+            [
+              "TIG (GTAW)",
+              "Measured in in/min",
+              "0.15–0.25",
+              "Stainless, aluminium, precision"
+            ]
+          ]
+        }
       },
       {
         "h3": "Material takeoff: list shapes, grades and cut charges separately",

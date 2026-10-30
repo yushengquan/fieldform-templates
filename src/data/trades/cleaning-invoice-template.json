@@ -131,12 +131,40 @@
           "Residential recurring cleaning is usually priced per visit: a standard clean for a two-bedroom apartment runs roughly $100 to $180 depending on market and frequency, with a deep clean or move-out clean at two to three times that. Hourly pricing applies to one-off and post-construction work where the scope is unknown until you arrive, typically $35 to $60 per cleaner-hour.",
           "Commercial work is priced per square foot per visit or by the month under contract. The invoice should state which model applies, because a customer who expected per-visit pricing and receives an hourly bill will dispute the hours, and you cannot prove them wrong after the fact."
         ],
-        "list": [
-          "Recurring residential: per visit, frequency stated",
-          "Deep / move-out clean: multiple of the standard rate, listed as its own service",
-          "Post-construction: hourly with a stated minimum, or per square foot",
-          "Commercial: per square foot per visit or monthly contract value"
-        ]
+        "table": {
+          "headers": [
+            "Model",
+            "Typical rate",
+            "Best for",
+            "Invoice must show"
+          ],
+          "rows": [
+            [
+              "Per visit (recurring)",
+              "$100–180 per clean",
+              "Weekly / fortnightly homes",
+              "Frequency, rooms covered, add-ons"
+            ],
+            [
+              "Deep / move-out",
+              "2–3× the standard rate",
+              "End of tenancy, spring clean",
+              "Which deep-clean items were included"
+            ],
+            [
+              "Hourly",
+              "$35–60 per cleaner-hour",
+              "Post-construction, unknown scope",
+              "Hours, number of cleaners, minimum"
+            ],
+            [
+              "Per square foot (commercial)",
+              "$0.08–0.20 / sq ft / visit",
+              "Offices, retail, clinics",
+              "Area, frequency, supplies included?"
+            ]
+          ]
+        }
       },
       {
         "h3": "The scope checklist is the invoice's backbone",

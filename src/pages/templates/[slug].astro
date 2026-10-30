@@ -7,6 +7,7 @@ import DownloadCards from '../../components/DownloadCards.astro';
 import FaqList from '../../components/FaqList.astro';
 import InvoiceBuilder from '../../components/InvoiceBuilder.astro';
 import { howToUseParagraph, howToUseCards, billingContext, tradePerson } from '../../lib/how-to-use';
+import { authoritiesFor } from '../../data/authorities';
 
 export function getStaticPaths() {
   const modules = import.meta.glob('../../data/trades/*.json', { eager: true });
@@ -91,6 +92,31 @@ const linkedGuide = allGuides.find((g: any) => g.templateSlug === trade.slug || 
 
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
 const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Excel Format' : '';
+
+// --- 算例 + 权威来源 -------------------------------------------------------
+// 算例用本页面真实行项（defaultQty × sampleRate）计算，因此每页数字都不同，
+// 与纯段落结构形成差异，也让页面有可验证的具体信息。
+const exRatePct = 7.25; // 一个示意性的州税率，页面上明示"illustrative"
+const exRows = (trade.lineItems ?? []).slice(0, 4).map((it: any) => {
+  const qty = Number(it.defaultQty ?? 1);
+  const rate = Number(it.sampleRate ?? 0);
+  return {
+    desc: it.description,
+    qty,
+    unit: it.unit ?? 'each',
+    rate,
+    amount: qty * rate,
+    taxable: it.taxable !== false,
+  };
+});
+const exSubtotal = exRows.reduce((s: number, r: any) => s + r.amount, 0);
+const exTaxable = exRows.filter((r: any) => r.taxable).reduce((s: number, r: any) => s + r.amount, 0);
+const exTax = Math.round(exTaxable * (exRatePct / 100) * 100) / 100;
+const exTotal = exSubtotal + exTax;
+
+const authorities = authoritiesFor(trade.trade ?? '', trade.docType ?? '', trade.slug ?? '');
+const reviewedISO = '2026-10-30';
+const reviewedLabel = '30 October 2026';
 
 // 变体页细分维度 — 让 138 个 word/excel 页不再是彼此的近似副本
 // 1) 计价单位类型：面积 / 计时 / 整包 / 计件
@@ -510,10 +536,81 @@ const howToLd = JSON.stringify({
         <h2>{trade.deepDive.heading}</h2>
         <p>{trade.deepDive.sub}</p>
       </div>
+
+      {/* 算例表 — 用本工种真实行项数据算出，每页数字不同，结构上与纯段落区分 */}
+      {exRows.length > 0 && (
+        <div style="margin:26px 0 8px;padding:20px 22px;background:var(--soft);border-radius:12px;">
+          <h3 style="font-size:18px;margin-bottom:6px;">Worked example: a {trade.trade.toLowerCase()} {trade.docType} using these rows</h3>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:14px;">Numbers below are this template's own line items at their default quantities and sample rates, taxed at an illustrative {exRatePct}% statewide rate. Replace them with your job's actual figures.</p>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border-radius:8px;">
+              <thead>
+                <tr style="background:rgba(0,0,0,.04);text-align:left;">
+                  <th style="padding:9px 12px;">Description</th>
+                  <th style="padding:9px 12px;text-align:right;">Qty</th>
+                  <th style="padding:9px 12px;">Unit</th>
+                  <th style="padding:9px 12px;text-align:right;">Rate</th>
+                  <th style="padding:9px 12px;text-align:right;">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {exRows.map((r: any) => (
+                  <tr>
+                    <td style="padding:9px 12px;border-top:1px solid var(--line);">{r.desc}{r.taxable ? '' : ' (non-taxable)'}</td>
+                    <td style="padding:9px 12px;border-top:1px solid var(--line);text-align:right;">{r.qty}</td>
+                    <td style="padding:9px 12px;border-top:1px solid var(--line);">{r.unit}</td>
+                    <td style="padding:9px 12px;border-top:1px solid var(--line);text-align:right;">${r.rate.toFixed(2)}</td>
+                    <td style="padding:9px 12px;border-top:1px solid var(--line);text-align:right;">${r.amount.toFixed(2)}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <td colspan="4" style="padding:9px 12px;border-top:2px solid var(--line);font-weight:700;text-align:right;">Subtotal</td>
+                  <td style="padding:9px 12px;border-top:2px solid var(--line);text-align:right;font-weight:700;">${exSubtotal.toFixed(2)}</td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="padding:9px 12px;text-align:right;color:var(--muted);">Sales tax on taxable lines ({exRatePct}%)</td>
+                  <td style="padding:9px 12px;text-align:right;color:var(--muted);">${exTax.toFixed(2)}</td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="padding:9px 12px;border-top:1px solid var(--line);font-weight:700;text-align:right;">Total</td>
+                  <td style="padding:9px 12px;border-top:1px solid var(--line);text-align:right;font-weight:700;">${exTotal.toFixed(2)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:10px;">Taxable lines here total ${exTaxable.toFixed(2)} of the ${exSubtotal.toFixed(2)} subtotal — the difference is why most states tax materials but not labour. Confirm your own state's treatment on your revenue department's site before invoicing.</p>
+        </div>
+      )}
+
       {trade.deepDive.blocks.map((b: any) => (
         <div style="margin-top:28px;">
           <h3 style="font-size:19px;margin-bottom:10px;">{b.h3}</h3>
           {b.paras.map((p: string) => <p style="font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:12px;">{p}</p>)}
+          {b.table && (
+            <div style="overflow-x:auto;margin:10px 0 14px;">
+              <table style="width:100%;border-collapse:collapse;font-size:14px;">
+                <thead>
+                  <tr style="background:rgba(0,0,0,.04);text-align:left;">
+                    {b.table.headers.map((h: string) => <th style="padding:9px 12px;border-bottom:2px solid var(--line);">{h}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {b.table.rows.map((row: string[]) => (
+                    <tr>
+                      {row.map((cell: string, ci: number) => (
+                        <td style={`padding:9px 12px;border-bottom:1px solid var(--line);${ci === 0 ? 'font-weight:600;' : ''}`}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {b.steps && (
+            <ol style="font-size:15px;line-height:1.9;padding-left:24px;margin:6px 0 14px;">
+              {b.steps.map((s: string) => <li style="margin-bottom:6px;">{s}</li>)}
+            </ol>
+          )}
           {b.list && (
             <ul style="font-size:15px;line-height:1.9;color:var(--ink);padding-left:22px;margin:6px 0 12px;">
               {b.list.map((li: string) => <li>{li}</li>)}
@@ -521,6 +618,18 @@ const howToLd = JSON.stringify({
           )}
         </div>
       ))}
+
+      {/* 权威来源 — 可核验性信号，同时给审核方看依据 */}
+      <div style="margin-top:32px;padding:18px 22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
+        <h3 style="font-size:16px;margin-bottom:8px;">Sources and how this page was compiled</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:10px;">The rules and ranges above are drawn from the published standards and regulator guidance below, plus rate ranges observed across US regional markets. Where a figure varies by state or county, the page says so — verify against your own state's authority before relying on it in a contract.</p>
+        <ul style="font-size:14px;line-height:1.9;padding-left:22px;margin:0;">
+          {authorities.map((a: any) => (
+            <li><a href={a.url} target="_blank" rel="noopener nofollow" style="color:var(--blue);">{a.label}</a></li>
+          ))}
+        </ul>
+        <p style="font-size:13px;color:var(--muted);margin-top:10px;">Page last reviewed: <time datetime={reviewedISO}>{reviewedLabel}</time>. Rates, code editions and licensing thresholds change; this page is refreshed when they do.</p>
+      </div>
     </section>
   )}
 

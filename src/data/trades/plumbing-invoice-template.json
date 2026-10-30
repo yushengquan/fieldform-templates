@@ -120,12 +120,40 @@
           "Residential service work is increasingly sold flat rate: a published price for a job, agreed before the technician starts. Commercial and remodel work is usually time and materials. The two produce different invoices, and mixing them is where disputes start.",
           "Flat-rate invoices show the job description and the price, and nothing about hours — that is the whole point, the customer buys an outcome. T&M invoices must show arrival and departure times, labour hours at the stated rate, and every part with its price. If you sell flat rate but invoice by hours, you have taught the customer to distrust the number. Pick the model per job and say which one on the invoice header."
         ],
-        "list": [
-          "Flat rate: job description + fixed price, no hours itemized",
-          "T&M: arrival/departure time, hours x rate, parts at list price",
-          "Diagnostic fee: charged separately and stated up front, credited against the repair if they proceed",
-          "After-hours and weekend multipliers: state the schedule (1.5x, 2x) before you dispatch"
-        ]
+        "table": {
+          "headers": [
+            "Model",
+            "Invoice shows",
+            "Best for",
+            "Watch out"
+          ],
+          "rows": [
+            [
+              "Flat rate",
+              "Job description + fixed price",
+              "Residential service calls",
+              "Must be agreed before work starts"
+            ],
+            [
+              "Time and materials",
+              "Arrival/departure, hours × rate, parts",
+              "Commercial, remodels, unknown scope",
+              "Customer cannot cap the cost"
+            ],
+            [
+              "Diagnostic + repair",
+              "Trip fee (credited) then repair quote",
+              "Troubleshooting calls",
+              "Credit policy must be on the invoice"
+            ],
+            [
+              "Progress / milestone",
+              "Phase completed + stage payment",
+              "Repipes, multi-day jobs",
+              "Define what 'phase complete' means"
+            ]
+          ]
+        }
       },
       {
         "h3": "Permits, inspections and the work that is not visible",
@@ -133,11 +161,12 @@
           "Repiping, water heater replacement, sewer line work and any gas line alteration require a permit in most jurisdictions, and the permit has a cost plus an inspection that occupies a day. Customers routinely assume the plumber absorbs this. Put the permit on the invoice as its own line with the permit number.",
           "The other invisible work is the reason plumbing bills look high: cutting and patching drywall, moving stored items to reach a cleanout, digging to expose a buried line, and the time spent draining and refilling a system. None of it is glamorous, all of it is billable. Itemize access and restoration separately from the plumbing work itself so the customer can see they are paying for two different trades."
         ],
-        "list": [
-          "Permit fee and number on the invoice — required to close a sale later",
-          "Inspection re-visit if the first one fails through no fault of your work",
-          "Access and restoration: drywall cut, patch, haul-away",
-          "Excavation for buried lines: priced per hour or per foot, with backfill stated"
+        "steps": [
+          "Confirm whether the scope needs a permit — repipe, water heater, sewer line and any gas alteration usually do.",
+          "Pull the permit before work starts and record the number on the work order.",
+          "Schedule the rough inspection if the work will be covered (walls closed, trench backfilled).",
+          "Attend the final inspection and attach the signed-off card to the job file.",
+          "Bill the permit fee and the inspection time as separate lines on the invoice."
         ]
       },
       {

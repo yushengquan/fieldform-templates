@@ -136,13 +136,40 @@
           "Every tiling estimate starts with net square footage and then applies a waste factor, because tile is cut at the perimeter, at doorways, around fixtures and on any run that has to be laid out symmetrically. Straight lay in a rectangular room loses about 10%. Diagonal or 45-degree lay loses 15%. Herringbone, chevron and any pattern that repeats on a fixed module loses 20% or more, because you cannot use offcuts from one repeat in another.",
           "Show the waste on the estimate as a separate line: \"tile — 180 sq ft installed, 198 sq ft supplied (10% waste)\". When the customer later asks why they paid for 20 extra square feet, the answer is already on the page. Contractors who bury waste in the rate field the same question with no answer."
         ],
-        "list": [
-          "Straight lay, rectangular room: 10% waste",
-          "Diagonal / 45-degree lay: 15% waste",
-          "Herringbone, chevron, basketweave: 20-25% waste",
-          "Large-format tile (24x48 and up): add 5% more — corners chip and cuts cannot be reused",
-          "Keep one spare box for the customer: future repairs need a matching dye lot"
-        ]
+        "table": {
+          "headers": [
+            "Layout",
+            "Waste factor",
+            "Why"
+          ],
+          "rows": [
+            [
+              "Straight lay, rectangular room",
+              "10%",
+              "Perimeter cuts only"
+            ],
+            [
+              "Diagonal / 45-degree",
+              "15%",
+              "Cuts at every wall become triangles"
+            ],
+            [
+              "Herringbone / chevron",
+              "20–25%",
+              "Offcuts cannot transfer between repeats"
+            ],
+            [
+              "Large-format (24x48+)",
+              "+5% on top",
+              "Chip risk, cuts not reusable"
+            ],
+            [
+              "Multiple rooms with separate dye lots",
+              "+5% on top",
+              "One box per lot for future repair"
+            ]
+          ]
+        }
       },
       {
         "h3": "Substrate and preparation are frequently larger than the tile labour",
