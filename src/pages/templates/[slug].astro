@@ -129,6 +129,16 @@ const exTaxable = exRows.filter((r: any) => r.taxable).reduce((s: number, r: any
 const exTax = Math.round(exTaxable * (exRatePct / 100) * 100) / 100;
 const exTotal = exSubtotal + exTax;
 
+// 变体页只展开与格式相关的段落 + 前两段，其余引导回主页面 ——
+// 避免 word/excel 变体与主页面正文几乎完全一致（重复内容会互相稀释）。
+const ddAll: any[] = trade.deepDive?.blocks ?? [];
+const ddBlocks = format
+  ? ddAll.filter((b: any, i: number) =>
+      i < 2 || /word|excel|sheet|formula|spreadsheet|document|print|paper|docx|xlsx/i.test(b.h3 ?? '')
+    ).slice(0, 3)
+  : ddAll;
+const ddTrimmed = format ? Math.max(ddAll.length - ddBlocks.length, 0) : 0;
+
 const authorities = authoritiesFor(trade.trade ?? '', trade.docType ?? '', trade.slug ?? '');
 const reviewedISO = '2026-10-30';
 const reviewedLabel = '30 October 2026';
@@ -148,10 +158,14 @@ const tradeKind: 'service' | 'build' | 'pro' =
   /pest|hvac|plumb|locksmith|clean|appliance|gutter|junk|moving|septic|carpet|pool|snow|chimney|window/i.test(_t) ? 'service'
   : /roof|concrete|deck|contractor|framer|mason|siding|fenc|paint|tile|landscap|excavat|weld|fabricat|solar|floor|electric|carpent|remodel|demolition|insulat|paving|drywall|handyman|plaster|glazier|paving/i.test(_t) ? 'build'
   : 'pro';
-// Word/Excel 变体页 title 加入 "Bill Format" 同义词 — 用户高频搜 "bill format" 而非 "invoice template"
-const billSynonym = trade.docType === 'invoice' ? ' (Bill Format)' : '';
-// 标题/描述长度控制：Google SERP 约 60 字符标题、155–160 字符描述，超出会被截断，
-// 截断会直接压低 CTR（排名不变也能多拿点击）。审计 2026-10-30：95 个标题 >60、204 个描述 >160。
+// ── 变体页定位（2026-10-31 修正互相竞争）──────────────────────────────────
+// 问题：同一工种的主页 / word / excel 三页原本都围绕 "{trade} invoice template" 打，
+// 等于三个页面抢同一批词，互相稀释。GSC 实际数据显示这是两组不同查询：
+//   · "{trade} invoice template"      → 主页面该拿的词
+//   · "{trade} bill format in word"   → word 变体该拿的词（印度/美国中小商家高频表达）
+//   · "{trade} bill format in excel"  → excel 变体该拿的词
+// 所以：主页保留 "Template" 定位，变体改打 "Bill/Estimate Format in {格式}"。
+const docWord = trade.docType === 'invoice' ? 'Bill' : 'Estimate';
 const clampText = (s: string, max: number): string => {
   const t = (s ?? '').trim();
   if (t.length <= max) return t;
@@ -159,17 +173,26 @@ const clampText = (s: string, max: number): string => {
   const sp = cut.lastIndexOf(' ');
   return (sp > max * 0.55 ? cut.slice(0, sp) : cut).replace(/[,;:\-–—]$/, '').trim();
 };
-const titleSuffix = format ? ` — Free ${fmtLabel} Download` : ' — Free PDF, Word & Excel';
-const titleSuffixShort = format ? ` — Free ${fmtLabel}` : ' — Free PDF/Word/Excel';
-let pageTitle = `${trade.title}${billSynonym}${titleSuffix}`;
-if (pageTitle.length > 60) pageTitle = `${trade.title}${billSynonym}${titleSuffixShort}`;
-if (pageTitle.length > 60) pageTitle = clampText(`${trade.title}${billSynonym}`, 60);
-const pageDesc = clampText(
-  format
-    ? `Download a free ${trade.trade} ${docSynonym} template in ${fmtLabel} format. Editable, printable, no email required. Pre-filled with ${trade.trade} line items and auto-calculating totals.`
-    : trade.subtitle,
-  157
-);
+
+let pageTitle: string;
+let pageDesc: string;
+
+if (format === 'word') {
+  pageTitle = clampText(`${trade.trade} ${docWord} Format in Word — Free .docx Download`, 60);
+  pageDesc = clampText(
+    `Free ${trade.trade} ${docWord.toLowerCase()} format in Word (.docx) for ${trade.docType === 'invoice' ? 'invoicing' : 'quoting'} — editable, printable, no signup. Open it in Microsoft Word or upload it to Google Docs.`,
+    157
+  );
+} else if (format === 'excel') {
+  pageTitle = clampText(`${trade.trade} ${docWord} Format in Excel — Auto-Calculating .xlsx`, 60);
+  pageDesc = clampText(
+    `Free ${trade.trade} ${docWord.toLowerCase()} format in Excel (.xlsx) with live formulas — line amounts, subtotal and tax on taxable rows only. Editable in Excel, Google Sheets or LibreOffice, no signup.`,
+    157
+  );
+} else {
+  pageTitle = clampText(`${trade.title} — Free PDF, Word & Excel`, 60);
+  pageDesc = clampText(trade.subtitle, 157);
+}
 const firstItem = items[0] ?? { code: 'ITEM', description: 'your first line item' };
 const exampleItem = `${firstItem.description} (${firstItem.code})`;
 
@@ -616,7 +639,7 @@ const howToLd = JSON.stringify({
         </div>
       )}
 
-      {trade.deepDive.blocks.map((b: any) => (
+      {ddBlocks.map((b: any) => (
         <div style="margin-top:28px;">
           <h3 style="font-size:19px;margin-bottom:10px;">{b.h3}</h3>
           {b.paras.map((p: string) => <p style="font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:12px;">{p}</p>)}
@@ -652,6 +675,12 @@ const howToLd = JSON.stringify({
           )}
         </div>
       ))}
+
+      {ddTrimmed > 0 && (
+        <p style="margin-top:18px;padding:14px 18px;background:var(--soft);border-radius:10px;font-size:14.5px;line-height:1.7;">
+          This page covers the {fmtLabel} file specifically. The full guide to {trade.trade.toLowerCase()} invoicing — pricing conventions, licensing, tax treatment and the complete breakdown — lives on the <a href={`/templates/${trade.slug}/`} style="color:var(--blue);font-weight:600;">main {trade.trade.toLowerCase()} template page</a>.
+        </p>
+      )}
 
       {/* 权威来源 — 可核验性信号，同时给审核方看依据 */}
       <div style="margin-top:32px;padding:18px 22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
