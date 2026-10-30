@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Editorial standards — how these templates and guides are compiled';
+const description = 'How FieldForm Templates builds its invoice and estimate templates, where the rate ranges and licensing rules come from, what we will not publish, and how corrections are handled.';
+const canonical = `${siteUrl}/editorial-standards/`;
+const reviewed = '30 October 2026';
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:48px;max-width:860px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Editorial standards</h1>
+      <p style="font-size:17px;color:var(--muted);">How the templates and the reference content on this site are built, where the numbers come from, and what we deliberately do not publish. Last reviewed {reviewed}.</p>
+    </div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">What this site is</h2>
+    <p style="font-size:15.5px;line-height:1.8;">FieldForm Templates publishes free invoice, estimate and quote templates for trade contractors — more than fifty trades, each in PDF, Word and Excel. There is no account, no email gate and no software to sign up for. The site is independently run and funded by advertising and clearly labelled affiliate links; it is not a front end for an invoicing product.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">How the templates are built</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Each template's line items mirror how that trade actually bills: drywall by the sheet and by finished square foot, window cleaning by the pane, pest control by the treatment type and visit cadence, estimates with a deposit and balance. Those structures are not invented here — they follow the estimating conventions contractors use in the field, which we cross-check against trade association material and, where relevant, published code or licensing guidance.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">The Excel versions carry live formulas: an <code>Amount</code> column that multiplies quantity by rate, a <code>SUM</code> subtotal, and a tax row that applies the rate only to rows flagged as taxable. That last mechanism is deliberate: in most US states, materials are taxable and labour for services is not, so a template that taxes the whole subtotal produces a wrong invoice. We ship the mechanism and leave the rate blank for you to enter.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Where the reference content comes from</h2>
+    <p style="font-size:15.5px;line-height:1.8;">The guides and in-page reference sections cite their primary sources directly. In practice those are:</p>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Regulators and standards bodies</strong> — EPA (refrigerant Section 608, lead-safe RRP, pesticides), OSHA, NFPA for the National Electrical Code, Gypsum Association for GA-214 finish levels, AWS for structural welding codes, TCNA for tile installation, ICC and the American Wood Council for residential construction provisions.</li>
+      <li><strong>State licensing authorities</strong> — CSLB in California, TDLR in Texas, DBPR/CILB and FDACS in Florida, DEC in New York, and the equivalent boards elsewhere. Where licensing is municipal rather than statewide, the page says so rather than implying a national rule.</li>
+      <li><strong>Tax authorities</strong> — IRS publications for contractor classification and record-keeping, and state revenue departments for the treatment of services.</li>
+    </ul>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Rate ranges in the guides are presented as ranges, not as a price list. They come from observing what contractors in different US regional markets charge for the same scope, and they are deliberately wide, because a Los Angeles market rate and a rural Midwest rate for the same job differ by more than any single figure suggests. Every rate page says the range is indicative and that local pricing wins.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">What we do not publish</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>No sponsored placements inside content.</strong> A template or a guide is never edited to favour a paying directory or software vendor. Where an affiliate link appears, it is labelled and it never enters a downloadable template.</li>
+      <li><strong>No scraped or republished templates</strong> from other sites. The downloadable files are generated for this site from the trade structures described above.</li>
+      <li><strong>No legal or tax advice presented as advice.</strong> Licensing and tax pages describe what the authorities require and name the authority; they do not tell you what to do in your specific situation, and they say so on the page.</li>
+      <li><strong>No email gate, no account, no phone number required</strong> to download anything.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Update cadence and corrections</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Licence thresholds, code editions, efficiency standards and tax treatment all change, and pages go stale quietly. Pages that carry reference content show a “last reviewed” date, and are revisited when a standard or a state rule changes — the efficiency standards revision in 2023 and the refrigerant transition are two examples that forced updates across a group of pages at once.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">If you find something that is wrong, out of date, or true in your state but presented as if it were national, tell us through the <a href="/contact/" style="color:var(--blue);font-weight:600;">contact page</a> with the page and the correction. Corrections are applied with the reviewed date updated, and where a substantive error is found the page notes what changed.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Who this is for</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Solo contractors, two- or three-person crews, and the bookkeeper who does their paperwork — people who need a correct document today and are not going to buy, configure and learn an invoicing platform to produce it. If a template saves a plumber twenty minutes on a Sunday evening, it has done its job.</p>
+
+    <div style="margin-top:36px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14.5px;line-height:1.7;margin:0;color:var(--muted);">Related: <a href="/about/" style="color:var(--blue);font-weight:600;">About FieldForm Templates</a> · <a href="/contractor-license-requirements-by-state/" style="color:var(--blue);font-weight:600;">Contractor licence requirements by state</a> · <a href="/contact/" style="color:var(--blue);font-weight:600;">Report a correction</a></p>
+    </div>
+  </section>
+</BaseLayout>
