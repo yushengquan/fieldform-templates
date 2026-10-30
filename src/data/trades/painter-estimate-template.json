@@ -129,5 +129,63 @@
       "note": "Auto-calculating deposit and balance"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Painting estimates: square footage, prep and the two-coat question",
+    "sub": "Painting looks like the simplest trade to price and is one of the easiest to lose money on, because prep and coats are where the hours actually go. Here is how to estimate and invoice it.",
+    "blocks": [
+      {
+        "h3": "Price by area, and separate walls from ceilings and trim",
+        "paras": [
+          "Interior painting is priced per square foot of wall area or per room, and the two are not interchangeable — a bedroom with ten-foot ceilings and four doors has far more paintable surface than one with eight-foot ceilings and two. Measure wall area (perimeter × height, minus openings) and state the number on the estimate.",
+          "Ceilings, trim and doors are priced separately because they are different work: ceilings are slow overhead work, trim needs cutting in and often two coats of a different product, and doors have two faces plus edges. A single per-room price that bundles all of it hides where the hours went and makes change orders impossible to price."
+        ],
+        "list": [
+          "Wall area in square feet, measured not guessed",
+          "Ceilings priced separately (overhead work is slower)",
+          "Trim by linear foot, doors and windows per unit",
+          "Height surcharge above 10 ft, and stairwells priced as their own item"
+        ]
+      },
+      {
+        "h3": "Prep is the line that decides whether the job is profitable",
+        "paras": [
+          "Patching, sanding, caulking, priming stain or water marks, and masking are prep, and on a repaint they routinely consume 40 percent of the labour. Estimate prep as its own block of hours, priced by condition rather than by area: a wall with twenty nail holes and a wall with two are the same square footage and different jobs.",
+          "Where prep is uncertain, price it as an allowance or state a condition on the estimate — \"assumes minor patching; extensive drywall repair billed hourly\". A painter who quotes a price without that sentence ends up repairing a wall for free to avoid an argument."
+        ],
+        "list": [
+          "Patching and sanding priced by condition, not area",
+          "Priming: new drywall, stain blocking, colour changes",
+          "Caulking and filling: gaps, trim joints, exterior penetrations",
+          "Masking and protection: floors, furniture, fixtures"
+        ]
+      },
+      {
+        "h3": "Coats, sheen and who supplies the paint",
+        "paras": [
+          "Two coats is the residential standard for a colour change, and one coat over an existing similar colour is a different price. State the number of coats on the estimate, because \"painted\" means one coat to some customers and three to others, and the third coat is a change order.",
+          "Paint supply is the other fork. Contractor-supplied paint lets you control quality and charge a materials line; customer-supplied paint means you cannot warrant the finish and should say so. Sheen matters too — flat walls, satin or semi-gloss trim, and bath and kitchen ceilings in a moisture-rated product. Name the sheen so the customer is not surprised by the finish."
+        ],
+        "list": [
+          "Number of coats stated, with the colour-change assumption",
+          "Paint supplied by contractor or customer, and the warranty consequence",
+          "Sheen specified per surface (flat walls, satin trim, bath rated)",
+          "Brand and product line if the customer is paying for a premium product"
+        ]
+      },
+      {
+        "h3": "Exterior work, weather and the access problem",
+        "paras": [
+          "Exterior painting is priced by area too, but the variables multiply: siding type, height, access (ladder, scaffold, lift), and the amount of scraping and priming the surface needs. A two-storey house with failing paint is not the same job as a single-storey with sound siding, and the estimate must say which one it is.",
+          "Weather is a scheduling clause and should be in writing: exterior work needs dry conditions and surface temperatures within the product's range, and a rainy week is a schedule extension, not a discount. State the season window you are pricing for, because a job quoted in June and performed in November has a different failure risk."
+        ],
+        "list": [
+          "Siding type and condition, with scraping and priming scope",
+          "Access method and height surcharge",
+          "Weather clause: schedule extension, no price reduction",
+          "Warranty term on the coating, separate from the application"
+        ]
+      }
+    ]
+  }
 }

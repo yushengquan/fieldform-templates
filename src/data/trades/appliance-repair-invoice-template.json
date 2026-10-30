@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Service Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Payment due at time of service. Parts carry a 90-day warranty; labor is guaranteed for 90 days.",
   "notes": "Thank you for your business. Diagnostic fee is waived if you approve the repair. Brand and model should be listed on the work order for warranty tracking.",
   "lineItems": [
-    {"code": "CALL", "description": "Service Call Fee", "defaultQty": 1, "unit": "each", "sampleRate": 60.0, "taxable": true},
-    {"code": "DIAG", "description": "Diagnostic", "defaultQty": 1, "unit": "each", "sampleRate": 75.0, "taxable": true},
-    {"code": "LABOR", "description": "Labor", "defaultQty": 1, "unit": "hr", "sampleRate": 95.0, "taxable": true},
-    {"code": "PARTS", "description": "Parts / Components", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "FRIDGE", "description": "Refrigerator Repair", "defaultQty": 1, "unit": "job", "sampleRate": 40.0, "taxable": true},
-    {"code": "WASH", "description": "Washer / Dryer Repair", "defaultQty": 1, "unit": "job", "sampleRate": 35.0, "taxable": true}
+    {
+      "code": "CALL",
+      "description": "Service Call Fee",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 60.0,
+      "taxable": true
+    },
+    {
+      "code": "DIAG",
+      "description": "Diagnostic",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 75.0,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor",
+      "defaultQty": 1,
+      "unit": "hr",
+      "sampleRate": 95.0,
+      "taxable": true
+    },
+    {
+      "code": "PARTS",
+      "description": "Parts / Components",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "FRIDGE",
+      "description": "Refrigerator Repair",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 40.0,
+      "taxable": true
+    },
+    {
+      "code": "WASH",
+      "description": "Washer / Dryer Repair",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 35.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +87,97 @@
     "Diagnostic-waived note plus 90-day warranty standard for repair shops"
   ],
   "faqs": [
-    {"q": "What should I include on an appliance repair invoice?", "a": "At minimum: your business name and license number where required, the client and service address, a dated line-item list (service call, diagnostic, labor, parts), tax, and a total due. Note the parts and labor warranty and whether the diagnostic fee is waived with an approved repair."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on an appliance repair invoice?",
+      "a": "At minimum: your business name and license number where required, the client and service address, a dated line-item list (service call, diagnostic, labor, parts), tax, and a total due. Note the parts and labor warranty and whether the diagnostic fee is waived with an approved repair."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Appliance repair invoices: diagnostic fees, sealed systems and the repair-or-replace call",
+    "sub": "Appliance repair is a diagnostic business with a parts markup and a legal boundary around sealed systems. The invoice has to record both the diagnosis and the authorisation.",
+    "blocks": [
+      {
+        "h3": "The diagnostic fee is the product — price it and credit it explicitly",
+        "paras": [
+          "A service call to diagnose a dryer that will not heat is 45 to 90 minutes of skilled work, and the customer is buying the answer whether or not they proceed with the repair. Diagnostic fees typically run $75 to $150 and are commonly credited against the repair if the customer authorises it during the same visit.",
+          "State the credit policy on the invoice: \"diagnostic fee $99, credited against repair if authorised today\". Without that sentence, the customer who declines the repair believes they were charged for nothing, and the chargeback risk is real."
+        ],
+        "list": [
+          "Diagnostic / trip fee stated separately",
+          "Credit policy if the repair is authorised",
+          "Second diagnostic fee if the customer delays and the appliance changes state",
+          "After-hours and weekend multipliers"
+        ]
+      },
+      {
+        "h3": "Sealed system work needs a licence and a documented charge",
+        "paras": [
+          "Refrigerant handling is regulated. In the United States, technicians working on sealed systems must hold EPA Section 608 certification, and the invoice for a sealed-system repair should record the refrigerant type and amount added or recovered. That record is a legal requirement in many contexts and a diagnostic clue later.",
+          "Sealed-system repairs — compressor, evaporator, condenser, capillary — are also the most expensive category, and customers often ask whether to repair or replace. Bring the calculation to the invoice: age of the appliance, cost of the repair, typical remaining life. A documented recommendation protects you when the appliance fails again in six months."
+        ],
+        "list": [
+          "EPA 608 certification number on sealed-system invoices",
+          "Refrigerant type and amount recovered/added",
+          "Parts and labour split for sealed-system work",
+          "Repair-vs-replace recommendation with the numbers behind it"
+        ]
+      },
+      {
+        "h3": "Parts markup, OEM versus aftermarket, and the warranty split",
+        "paras": [
+          "Appliance parts carry substantial markup — a control board that costs $180 at trade price is billed at $280 to $350 installed. That is normal. What customers object to is discovering the part is aftermarket when they expected OEM, or that a 90-day labour warranty does not cover the part that failed.",
+          "State the part source and the warranty structure on the invoice: OEM or aftermarket, manufacturer part warranty, and your labour warranty period. If the customer declined an OEM part to save money, note that they approved the aftermarket part — otherwise the conversation six weeks later is about who chose it."
+        ],
+        "list": [
+          "Part number and OEM/aftermarket designation",
+          "Manufacturer part warranty vs your labour warranty, separately",
+          "Customer approval for aftermarket or used parts, recorded",
+          "Core charges and returns policy on special-order parts"
+        ]
+      },
+      {
+        "h3": "Access, installation conditions and the limits of the repair",
+        "paras": [
+          "Appliance repair quotes assume the appliance is accessible: not built into cabinetry without clearance, not stacked without help, not behind a full pantry. When the technician arrives and cannot safely pull the unit, that is a billable trip, and the invoice should say why.",
+          "The other limit is the installation itself. A repair on a dryer vented incorrectly, or a dishwasher without a proper air gap, will fail again. Note the installation deficiency on the invoice, recommend the correction, and record that the customer declined if they did — because the second failure is not a warranty callback."
+        ],
+        "list": [
+          "Access conditions and any move/install labour charged",
+          "Installation deficiencies noted with recommended correction",
+          "Customer decline of recommended correction, recorded",
+          "Water or drain testing performed after the repair"
+        ]
+      }
+    ]
+  }
 }

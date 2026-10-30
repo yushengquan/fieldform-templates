@@ -125,5 +125,63 @@
       "note": "Auto-calculating deposit and balance"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "General contractor estimates: cost-plus vs fixed price, allowances and retainage",
+    "sub": "A GC estimate is a contract framework as much as a price. These are the mechanisms — allowances, schedule of values, retainage, change orders — that decide whether the job is profitable.",
+    "blocks": [
+      {
+        "h3": "Cost-plus or fixed price — the choice changes everything downstream",
+        "paras": [
+          "A fixed-price estimate transfers risk to the contractor: if framing lumber rises or the crew takes longer, the GC absorbs it. A cost-plus estimate passes those through with a markup — typically 10 to 20 percent on materials and labour, sometimes a flat fee instead. Customers prefer fixed price; contractors prefer cost-plus on renovation where concealed conditions are likely.",
+          "The hybrid most renovations actually use is fixed price with allowances and a defined change-order process. That gives the customer a number they can finance, while keeping the unknowns adjustable rather than absorbed."
+        ],
+        "list": [
+          "Fixed price: risk on the contractor, allowances and change orders define the edges",
+          "Cost-plus: open-book costs plus a stated markup or fee",
+          "Not-to-exceed: cost-plus with a ceiling the customer can rely on",
+          "Markup stated per category (materials, labour, subcontractors)"
+        ]
+      },
+      {
+        "h3": "Allowances are where estimates go wrong in both directions",
+        "paras": [
+          "Allowances cover selections not yet made: tile, fixtures, lighting, appliances, cabinetry. Set them too low and the customer faces a large upcharge at selection time, which feels like a bait-and-switch even when it is documented. Set them too high and the estimate looks uncompetitive against a rival who assumed cheap finishes.",
+          "Price allowances at realistic mid-market numbers for the neighbourhood, list each one separately with its scope, and state the credit-or-charge rule. A GC who says \"tile allowance $12/sq ft, plus installation\" gives the customer a number they can shop against; one who says \"tile included\" is heading for a change-order fight."
+        ],
+        "list": [
+          "Each allowance itemized with a dollar amount and unit basis",
+          "Credit if the customer selects below the allowance",
+          "Charge as a change order if above",
+          "Selection deadline tied to the schedule"
+        ]
+      },
+      {
+        "h3": "Schedule of values and progress billing",
+        "paras": [
+          "On anything larger than a small remodel, billing is by schedule of values: the contract sum split into line items by phase (demo, foundation, framing, mechanical, finishes), each billed as it is completed. This is the mechanism that lets a GC carry material costs without financing the whole job.",
+          "Lenders and homeowners both expect it, and it makes the retainage conversation natural. Progress billing also forces discipline about what \"complete\" means for each phase — which is where disputes over 90-percent-finished framing begin."
+        ],
+        "list": [
+          "Contract sum split by phase with percentages",
+          "Billing monthly or at phase completion, as stated",
+          "Retainage held (commonly 5-10%) until substantial completion",
+          "Lien waivers from subcontractors with each progress payment"
+        ]
+      },
+      {
+        "h3": "Change orders, concealed conditions and time extensions",
+        "paras": [
+          "Renovation always finds something: rot behind tile, knob-and-tube wiring, a beam that is not where the drawing said. The estimate should state how concealed conditions are handled — typically a change order priced before the work proceeds, with the schedule extended accordingly.",
+          "A change order should carry the cost, the schedule impact and a signature. Contractors who proceed on a verbal \"go ahead\" and bill later are the ones who end up in small-claims court; the paper trail is what makes the difference, and it costs nothing to produce at the time."
+        ],
+        "list": [
+          "Concealed-conditions clause in the estimate",
+          "Change order form with cost, time impact and signature",
+          "Written approval before work proceeds",
+          "Final invoice reconciliation against the schedule of values"
+        ]
+      }
+    ]
+  }
 }

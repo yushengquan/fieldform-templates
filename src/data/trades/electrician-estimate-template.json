@@ -125,5 +125,63 @@
       "note": "Auto-calculating deposit and balance"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Electrical estimates: load calculations, allowances and what a fixed price really covers",
+    "sub": "An electrical estimate is a design commitment as much as a price — the customer is buying a system that has to pass inspection. These are the line items that make an electrical estimate professional instead of a guess.",
+    "blocks": [
+      {
+        "h3": "Start with the load calculation, not the wire list",
+        "paras": [
+          "Every service upgrade and most additions rest on a load calculation: the existing service capacity, the calculated demand of the new loads, and whether the panel can carry them. A 200-amp service that is already at 180 amps cannot absorb a 60-amp EV charger without a load management device or a service upgrade, and the customer needs to know that before they approve the number.",
+          "Put the calculation on the estimate as an attachment or a line: existing service size, calculated existing load, new load, and the conclusion. It is the difference between an estimate and a price, and it is what an inspector will ask for."
+        ],
+        "list": [
+          "Existing service amperage and panel bus rating",
+          "Calculated existing load and available capacity",
+          "New load: HVAC, EV charger, range, dryer, hot tub",
+          "Whether a load management device avoids a service upgrade"
+        ]
+      },
+      {
+        "h3": "Allowances keep the estimate honest when the customer has not chosen",
+        "paras": [
+          "Fixtures, fans, under-cabinet lighting and EV chargers are frequently unchosen at estimate time. Rather than guessing, price an allowance — a stated dollar amount the customer can spend, with anything above it billed as a change order. That protects both sides: the customer is not locked into a cheap fixture, and you are not absorbing a $2,400 chandelier.",
+          "State the allowance clearly on the estimate: \"fixture allowance — $1,500 total, credit or charge at final invoice\". Customers understand allowances because builders use them universally; what they do not understand is discovering an upcharge after the fixtures are installed."
+        ],
+        "list": [
+          "Lighting fixture allowance, total not per fixture",
+          "Appliance and equipment allowance where the customer supplies",
+          "Credit policy if under the allowance",
+          "Scheduling consequence if selection is late"
+        ]
+      },
+      {
+        "h3": "Rough-in, trim-out and the two-visit structure",
+        "paras": [
+          "Most residential electrical work is two visits: rough-in (boxes, wire, panel work, inspection) and trim-out (devices, fixtures, plates, final inspection). Pricing them as one number hides the fact that payment should happen twice, and that the second visit cannot happen until drywall and paint are done.",
+          "Estimate both phases separately and tie progress billing to them. It also clarifies the schedule: the customer learns that trim-out waits for the painter, which prevents the \"why is nobody here this week\" call during the gap every electrician lives through."
+        ],
+        "list": [
+          "Rough-in: boxes, wire, panel, permits, rough inspection",
+          "Trim-out: devices, fixtures, plates, final inspection",
+          "Progress billing at rough-in inspection, balance at final",
+          "Standby time caused by other trades billed if it exceeds a stated threshold"
+        ]
+      },
+      {
+        "h3": "Trenching, conduit and the site work nobody budgets",
+        "paras": [
+          "Any circuit that leaves the building — a detached garage, a pool, a shop, landscape lighting — needs a trench, conduit, and often a different wiring method. Trenching is priced by the linear foot and depends on depth, soil and whether it crosses paving; conduit and pull boxes are separate again.",
+          "For commercial and industrial work the conduit and wire pull is often the largest single labour item on the estimate, and the wire itself is a commodity whose price moves. State a validity period on the estimate and a wire escalation clause for anything more than a few weeks out."
+        ],
+        "list": [
+          "Trenching by linear foot: depth, soil type, paving cuts",
+          "Conduit by type and size (PVC, EMT, rigid), plus fittings and pull boxes",
+          "Wire by gauge and type, priced at current commodity",
+          "Estimate validity 15-30 days with a wire escalation clause"
+        ]
+      }
+    ]
+  }
 }

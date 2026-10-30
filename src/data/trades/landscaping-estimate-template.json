@@ -7,17 +7,70 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Deposit"
+  ],
   "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the project start date; balance due at completion.",
   "notes": "This is an estimate, not a final invoice. Material prices (mulch, sod, plants) can shift — final invoice reflects actual quantities delivered.",
   "lineItems": [
-    {"code": "CREW", "description": "Crew Labor", "defaultQty": 3, "unit": "hr", "sampleRate": 65.0, "taxable": true},
-    {"code": "MULCH", "description": "Mulch (by cu. yd.)", "defaultQty": 3, "unit": "cu yd", "sampleRate": 45.0, "taxable": true},
-    {"code": "PLANTS", "description": "Plants / Materials", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
-    {"code": "EQUIP", "description": "Equipment Rental", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
-    {"code": "DESIGN", "description": "Landscape Design", "defaultQty": 1, "unit": "job", "sampleRate": 200.0, "taxable": true}
+    {
+      "code": "CREW",
+      "description": "Crew Labor",
+      "defaultQty": 3,
+      "unit": "hr",
+      "sampleRate": 65.0,
+      "taxable": true
+    },
+    {
+      "code": "MULCH",
+      "description": "Mulch (by cu. yd.)",
+      "defaultQty": 3,
+      "unit": "cu yd",
+      "sampleRate": 45.0,
+      "taxable": true
+    },
+    {
+      "code": "PLANTS",
+      "description": "Plants / Materials",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120.0,
+      "taxable": true
+    },
+    {
+      "code": "EQUIP",
+      "description": "Equipment Rental",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "DESIGN",
+      "description": "Landscape Design",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals and 25% deposit in Excel",
@@ -26,15 +79,98 @@
     "Valid-until date + deposit section standard for landscaping quotes"
   ],
   "faqs": [
-    {"q": "What should I include on a landscaping estimate?", "a": "At minimum: your business name and license number where required, the client and job-site address, a dated line-item list (crew labor, mulch by cubic yard, plants and materials, equipment), a validity date, deposit terms, and a note that it is not a final invoice."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a landscaping estimate?",
+      "a": "At minimum: your business name and license number where required, the client and job-site address, a dated line-item list (crew labor, mulch by cubic yard, plants and materials, equipment), a validity date, deposit terms, and a note that it is not a final invoice."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit automatically?",
+      "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating totals and deposit"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Landscaping estimates: cubic yards, plant warranty and the phasing conversation",
+    "sub": "Landscaping is priced in materials that move — soil, mulch, sod, stone — plus living plants with a failure rate. An estimate that does not account for both is a donation. Here is how to build one that holds up.",
+    "blocks": [
+      {
+        "h3": "Price materials by the unit the supplier actually sells",
+        "paras": [
+          "Mulch, topsoil and compost are sold by the cubic yard, sod and turf by the square foot, stone by the ton, and plants by pot size. Converting those into a single lump sum is how estimates drift: a cubic yard covers 100 square feet at three inches deep, and a customer who changes the depth from three inches to four has just added 33 percent to the material line.",
+          "Show the quantities on the estimate: cubic yards of mulch, square feet of sod, linear feet of edging, number and size of plants. It lets the customer see what a change costs, and it lets you reprice a change without rebuilding the whole document."
+        ],
+        "list": [
+          "Mulch/soil: cubic yards, with depth stated",
+          "Sod: square feet plus a 5-10% waste for cuts",
+          "Stone: tons, plus delivery and placement",
+          "Plants: quantity, pot size, botanical and common name",
+          "Edging, fabric, drainage gravel as separate lines"
+        ]
+      },
+      {
+        "h3": "The plant warranty is a line item, not a promise",
+        "paras": [
+          "Nursery stock dies. A one-year warranty on trees and shrubs is standard, but it almost always excludes neglect — no water, damage from mowers, or a customer who planted something else over the root ball. The estimate should state the warranty period, what it covers (replacement of the plant, not labour, usually), and what voids it.",
+          "If you offer a maintenance plan, price it separately. Customers frequently assume the landscaper will water the new plants for free because the plants were expensive; naming the maintenance cost in the estimate prevents that assumption from becoming a discount you did not agree to."
+        ],
+        "list": [
+          "Warranty period and what it replaces (plant vs plant and labour)",
+          "Watering responsibility during establishment, stated",
+          "Exclusions: neglect, mower damage, frost, animal damage",
+          "Maintenance plan offered as an optional line"
+        ]
+      },
+      {
+        "h3": "Phasing, deposits and seasonal reality",
+        "paras": [
+          "Landscaping is material-heavy at the start: the first delivery of stone, soil and plants often exceeds the deposit. Standard practice is 30 to 50 percent on signing for material procurement, with the balance on completion, and progress billing on jobs that run longer than a week.",
+          "Seasonality also belongs in the estimate. Planting in midsummer in a hot climate needs irrigation in place first, and hardscape work in winter in a cold climate may be impossible. State the intended schedule and what happens if the customer delays — a plant that sits on a truck for a week in July is a warranty claim you did not cause."
+        ],
+        "list": [
+          "Deposit for material procurement, typically 30-50%",
+          "Progress billing on multi-week projects",
+          "Seasonal window and weather exclusions",
+          "Change orders for plant substitutions priced at the time of substitution"
+        ]
+      },
+      {
+        "h3": "Irrigation and drainage decide whether the job survives",
+        "paras": [
+          "A planting that is beautiful in April and dead in August usually failed on water, not on plant selection. Irrigation zones, emitter counts and controllers are their own scope with their own cost, and they should be quoted explicitly rather than assumed.",
+          "Drainage is the other invisible item. Grading, French drains and dry wells are what stop a new bed from becoming a swamp, and they are routinely omitted from estimates to keep the number competitive. Put them in, priced, and let the customer decline them in writing."
+        ],
+        "list": [
+          "Irrigation zones, heads/emitters, controller, backflow preventer",
+          "Drainage: grading, French drain by linear foot, dry well by yard",
+          "Soil amendment and pH correction where the soil is poor",
+          "Sleeves and conduit under paths for future lighting"
+        ]
+      }
+    ]
+  }
 }

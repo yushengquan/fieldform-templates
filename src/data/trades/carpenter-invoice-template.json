@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days. Late fee of 1.5% per month applies after the due date.",
   "notes": "Thank you for your business. Scope per the signed estimate; change orders billed separately.",
   "lineItems": [
-    {"code": "CAB", "description": "Custom Cabinetry / Shelving", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": true},
-    {"code": "TRIM", "description": "Trim / Molding Installation", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
-    {"code": "DECK", "description": "Deck / Patio Construction", "defaultQty": 1, "unit": "job", "sampleRate": 800.0, "taxable": true},
-    {"code": "DOOR", "description": "Door Installation / Repair", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
-    {"code": "FRAME", "description": "Framing Work", "defaultQty": 1, "unit": "job", "sampleRate": 600.0, "taxable": true},
-    {"code": "MAT", "description": "Materials & Lumber", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true}
+    {
+      "code": "CAB",
+      "description": "Custom Cabinetry / Shelving",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 450.0,
+      "taxable": true
+    },
+    {
+      "code": "TRIM",
+      "description": "Trim / Molding Installation",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 250.0,
+      "taxable": true
+    },
+    {
+      "code": "DECK",
+      "description": "Deck / Patio Construction",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 800.0,
+      "taxable": true
+    },
+    {
+      "code": "DOOR",
+      "description": "Door Installation / Repair",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 180.0,
+      "taxable": true
+    },
+    {
+      "code": "FRAME",
+      "description": "Framing Work",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 600.0,
+      "taxable": true
+    },
+    {
+      "code": "MAT",
+      "description": "Materials & Lumber",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 350.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals and tax in Excel",
@@ -27,16 +87,101 @@
     "License # field — many states require a contractor license on client-facing invoices"
   ],
   "faqs": [
-    {"q": "What should I include on a carpenter invoice?", "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (cabinetry, trim, decking, doors, framing, materials), payment terms and due date. Reference the signed estimate for scope."},
-    {"q": "How do I make a carpenter bill format in Excel?", "a": "Download the Excel version of this template — it is a ready-to-use carpenter bill format with pre-filled line items for cabinetry, trim, decking, doors, framing and materials. Enter your quantities and rates; the subtotal, tax and total due calculate automatically. Add your business name and License # and save a copy per client."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate totals automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, tax and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a carpenter invoice?",
+      "a": "At minimum: your business name and license number, the client and job-site address, a dated line-item list (cabinetry, trim, decking, doors, framing, materials), payment terms and due date. Reference the signed estimate for scope."
+    },
+    {
+      "q": "How do I make a carpenter bill format in Excel?",
+      "a": "Download the Excel version of this template — it is a ready-to-use carpenter bill format with pre-filled line items for cabinetry, trim, decking, doors, framing and materials. Enter your quantities and rates; the subtotal, tax and total due calculate automatically. Add your business name and License # and save a copy per client."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate totals automatically?",
+      "a": "Yes. Enter your quantities and rates, and the subtotal, tax and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and tax"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating totals and tax"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Carpentry invoicing: board feet, shop drawings and the finish that is not carpentry",
+    "sub": "Carpentry spans framing, trim, cabinetry and repairs, and each is measured differently. The invoice has to say which one the customer is paying for, or the material line becomes the dispute.",
+    "blocks": [
+      {
+        "h3": "Measure the way the work is actually bought",
+        "paras": [
+          "Framing lumber is bought by board feet or by the piece; trim and crown moulding by the linear foot; cabinetry by the linear foot of run or by the box; and finish carpentry by the hour or the opening. Using the wrong unit in the estimate is how a job that looked profitable at quote time loses money at invoice time.",
+          "Board feet is calculated as thickness (inches) × width (inches) × length (feet) ÷ 12. A 2x10 that is 16 feet long is 26.67 board feet. When the customer asks why the lumber line is what it is, that formula is the answer, and it is worth writing the total board footage on the invoice rather than a lump sum."
+        ],
+        "list": [
+          "Framing: board feet or pieces, with grade (SPF #2, Douglas fir)",
+          "Trim and moulding: linear feet, with profile named",
+          "Cabinetry: linear feet of run, or per box, with door/drawer count",
+          "Finish carpentry: per opening, per room, or hourly"
+        ]
+      },
+      {
+        "h3": "Shop drawings and millwork are design work",
+        "paras": [
+          "Custom cabinetry and built-ins require shop drawings before anything is cut. That drawing time is design labour, and it is billable — typically a fixed fee that is credited against the order if the customer proceeds. Contractors who include it free end up absorbing hours of revisions from a customer who cannot visualise a dimension.",
+          "The invoice for a millwork job should reference the approved drawing revision and state that the work matches it. When the customer later asks why the shelf spacing is 12 inches rather than 14, the approved drawing is the answer and the credit note is not."
+        ],
+        "list": [
+          "Shop drawing fee, credited against the order if it proceeds",
+          "Drawing revision number referenced on the invoice",
+          "Material species and grade (paint-grade poplar vs stain-grade oak)",
+          "Hardware specified separately — hinges and slides are often 10% of a cabinet job"
+        ]
+      },
+      {
+        "h3": "Finish is not carpentry, and it should not be free",
+        "paras": [
+          "Sanding, priming, painting and staining are separate trades with their own materials and drying time. A carpenter who quotes \"built and finished\" at the same rate as \"built\" has donated a day or two of labour and the cost of the finish. Price finish as its own line, or exclude it explicitly.",
+          "If the customer is arranging their own painter, say so on the invoice and state what condition the work is handed over in: sanded to 120 grit, primed, or bare. That single sentence prevents the painter from blaming the carpenter for a surface that was never in their scope."
+        ],
+        "list": [
+          "Finish priced as its own line, or excluded in writing",
+          "Handover condition: bare, sanded, primed, finished",
+          "Stain and paint colour approved by the customer before application",
+          "Cure and drying time before use, stated"
+        ]
+      },
+      {
+        "h3": "Repairs, callbacks and the warranty on workmanship",
+        "paras": [
+          "Carpentry callbacks are usually movement: a door that swells in humid weather, a joint that opens as lumber dries, a cabinet door that sags. Structural or installation defects are your warranty; seasonal movement and humidity are not, and the invoice should say so once.",
+          "For repair work, price the diagnosis before the repair, and photograph the condition before starting. A carpenter who opens a wall and finds rot is entitled to a change order — but only if the original scope said \"repair visible damage\" rather than \"repair water damage\", and only if there are photographs."
+        ],
+        "list": [
+          "Workmanship warranty term, with humidity/movement exclusions",
+          "Repairs: diagnosis priced, then repair quoted as a change order",
+          "Photographs of concealed conditions before the change order",
+          "Customer-supplied materials: labour warranty only"
+        ]
+      }
+    ]
+  }
 }

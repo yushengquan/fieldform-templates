@@ -129,5 +129,63 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Electrical invoicing: licence numbers, troubleshooting time and the parts nobody sees",
+    "sub": "Electrical work is the trade most likely to be inspected after the fact, and the invoice is the document that proves who did it and to what standard. These are the conventions electricians actually bill by.",
+    "blocks": [
+      {
+        "h3": "The licence question is state-by-state, and the invoice is where it shows",
+        "paras": [
+          "Electrical licensing is not uniform. California issues a C-10 electrical contractor licence through the CSLB. Texas has no statewide electrical licence — Houston, Dallas, Austin and San Antonio each license locally, so the registration number on your invoice is a city number. New York licenses electricians at the municipal level too, and most states that do license require both a contractor licence for the business and a journeyman or master certificate for the individual.",
+          "Print the number that applies to the entity that signed the contract. On a commercial job, the general contractor will compare your invoice against your certificate of insurance and your licence record before releasing retainage — a mismatch costs a payment cycle."
+        ],
+        "list": [
+          "Business licence number, not just the individual's certificate",
+          "Municipal registration where the state does not license",
+          "Certificate of insurance expiry date",
+          "Permit number on any job that required one"
+        ]
+      },
+      {
+        "h3": "Troubleshooting is billed as time, and the diagnostic fee is real",
+        "paras": [
+          "The majority of residential electrical calls are diagnostic: something trips a breaker, half a circuit is dead, a light flickers. The first hour is spent finding the problem, and that hour is the product you sold. Bill a diagnostic or trip charge explicitly — typically $75 to $150 in urban markets — and say whether it is credited against the repair if the customer proceeds.",
+          "Where the estimate becomes an invoice, the split matters: troubleshooting hours at the service rate, then the repair quoted as a separate line. A customer who sees \"3.5 hrs @ $110\" plus \"replace AFCI breaker — $95\" understands the bill. A single line called \"electrical work — $480\" invites the argument."
+        ],
+        "list": [
+          "Diagnostic/trip fee stated separately, with credit policy",
+          "Troubleshooting hours before the repair quote",
+          "After-hours and weekend multipliers shown as their own line",
+          "Minimum charge for a call-out, stated up front"
+        ]
+      },
+      {
+        "h3": "Materials markup and the small parts that add up",
+        "paras": [
+          "Electricians carry breakers, receptacles, boxes, wire nuts, connectors and a van full of stock that the customer never itemizes. Markup on those parts is normal — 30 to 100 percent on small items, less on large gear like panels and EV chargers, which are often passed through near cost to keep the quote competitive.",
+          "Never write \"misc. material\". List the breakers, the receptacles, the wire gauge and the footage. On a service upgrade the panel, the meter socket, the grounding electrode and the conduit are each a line. That level of detail also protects you: when a customer later claims an outlet was never replaced, the invoice says which ones were."
+        ],
+        "list": [
+          "Wire priced by the foot with gauge stated (12/2 NM-B, 6/3 NM-B)",
+          "Devices and breakers by amperage and type (20A AFCI, 50A 2-pole)",
+          "Panel and service gear by amperage and brand",
+          "Customer-supplied fixtures: labour only, installation warranty only"
+        ]
+      },
+      {
+        "h3": "Code-driven work, permits and the inspection record",
+        "paras": [
+          "A large share of electrical invoice lines exist because the code required them: AFCI protection on bedroom circuits, GFCI within six feet of water, tamper-resistant receptacles, conduit in exposed locations, and the grounding and bonding that nobody sees. Customers experience these as upcharges unless the invoice names the requirement.",
+          "Permits and inspections belong on the invoice as their own lines with the permit number. Panel upgrades, service changes, new circuits and EV chargers almost always require one, and the final inspection is what closes the job. When a house is sold two years later, that invoice is the record the buyer's inspector asks for."
+        ],
+        "list": [
+          "Permit fee plus permit number",
+          "Inspection milestones: rough-in and final",
+          "Code-required devices named as code items",
+          "Load calculation or panel schedule attached for service upgrades"
+        ]
+      }
+    ]
+  }
 }

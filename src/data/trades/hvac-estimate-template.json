@@ -130,5 +130,64 @@
       "note": "Auto-calculating deposit and balance"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing board and CPA/attorney.",
+  "deepDive": {
+    "heading": "HVAC estimates: load calculation, equipment sizing and the rebate paperwork",
+    "sub": "An HVAC estimate that is really a equipment quote invites the wrong comparison — the customer shops the box, not the system. These are the parts that make an HVAC estimate defensible.",
+    "blocks": [
+      {
+        "h3": "Size the equipment with a load calculation, not by matching the old unit",
+        "paras": [
+          "Replacing a 3-ton unit with another 3-ton unit is the single most common HVAC estimating error. The original may have been oversized for the ductwork, the windows may have been replaced since, and the house may have had insulation added. A Manual J load calculation takes an hour and produces the tonnage the house actually needs.",
+          "State on the estimate that the equipment was sized by load calculation, and include the targets: sensible and latent load, design temperatures, and the resulting tonnage. Customers who receive two quotes rarely know how to compare them — this is the line that shows your number was calculated and theirs was guessed."
+        ],
+        "list": [
+          "Manual J load calculation summary attached or referenced",
+          "Design temperatures used (winter and summer)",
+          "Resulting tonnage and airflow (CFM) target",
+          "Whether existing ductwork can carry that airflow"
+        ]
+      },
+      {
+        "h3": "Efficiency ratings, rebates and the 25C tax credit",
+        "paras": [
+          "Equipment efficiency is now a selling document as much as a technical one. SEER2 ratings took effect in 2023, and the minimums differ by region, so a unit that is legal in one state may not be installable in another. The estimate should state the SEER2 and HSPF2 of the proposed equipment and the regional minimum it meets.",
+          "Rebates and federal credits change yearly and are frequently the reason a customer chooses the higher-efficiency unit. If you are going to mention them, state the amount, the eligibility conditions and that the customer is responsible for claiming it. An estimate that promises a rebate the customer then fails to qualify for becomes a discount you gave away."
+        ],
+        "list": [
+          "SEER2 / HSPF2 of the proposed equipment and the regional minimum",
+          "Utility rebate amount and eligibility, if quoted",
+          "Federal tax credit reference, claimed by the customer",
+          "Documentation you will provide (AHRI certificate, invoice with model numbers)"
+        ]
+      },
+      {
+        "h3": "The system is more than the box: line set, ductwork and commissioning",
+        "paras": [
+          "An equipment-only quote leaves out the parts that determine whether the system works: the line set and its length, the pad or bracket, the disconnect, the condensate management, the thermostat, and any duct modifications the new airflow requires. Each is a real cost that a competitor's lower bid may simply not include.",
+          "Commissioning is the last piece. A professional installation includes measuring static pressure, verifying charge by subcooling or superheat, and documenting airflow. Put that on the estimate as an included line — it is cheap for you to do and expensive for the customer to discover was skipped."
+        ],
+        "list": [
+          "Line set length and routing, including any required relocation",
+          "Pad/bracket, disconnect, whip, condensate pump or trap",
+          "Thermostat included or by customer",
+          "Duct modifications for the new airflow",
+          "Commissioning: static pressure, charge verification, airflow measurement"
+        ]
+      },
+      {
+        "h3": "Warranty structure and the maintenance that keeps it valid",
+        "paras": [
+          "Manufacturer warranties on HVAC equipment are typically five to ten years on parts and twenty on the heat exchanger for residential, but they are conditional. Registration within a window, annual maintenance records, and proof of licensed installation are common conditions — and customers discover them when a compressor fails in year four.",
+          "The estimate should state your labour warranty separately from the manufacturer's parts warranty, and name the maintenance requirement that keeps both valid. Offering a maintenance plan as an optional line converts a warranty condition into recurring revenue, which is why most HVAC companies push it at the point of sale."
+        ],
+        "list": [
+          "Manufacturer parts warranty term and registration requirement",
+          "Your labour warranty term (commonly 1 year)",
+          "Maintenance required to keep the warranty valid",
+          "Maintenance plan offered as an optional annual line"
+        ]
+      }
+    ]
+  }
 }

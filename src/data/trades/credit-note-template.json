@@ -7,15 +7,52 @@
   "currency": "USD",
   "licenseField": false,
   "taxHint": "Tax from the original invoice applies to the credit",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Phone", "Email"],
-  "invoiceFields": ["Credit Note #", "Date", "Original Invoice #", "Reason"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Credit Note #",
+    "Date",
+    "Original Invoice #",
+    "Reason"
+  ],
   "paymentTerms": "",
   "notes": "This credit note reduces the amount owed on the original invoice. If the original invoice was already paid, the credit applies to your account or is refunded within 14 days.",
   "lineItems": [
-    {"code": "SRV", "description": "Service adjustment — work not completed", "defaultQty": 1, "unit": "job", "sampleRate": -150.0, "taxable": true},
-    {"code": "PART", "description": "Returned parts — restocking adjustment", "defaultQty": 2, "unit": "each", "sampleRate": -45.0, "taxable": true},
-    {"code": "DISC", "description": "Goodwill discount — service complaint", "defaultQty": 1, "unit": "job", "sampleRate": -50.0, "taxable": false}
+    {
+      "code": "SRV",
+      "description": "Service adjustment — work not completed",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": -150.0,
+      "taxable": true
+    },
+    {
+      "code": "PART",
+      "description": "Returned parts — restocking adjustment",
+      "defaultQty": 2,
+      "unit": "each",
+      "sampleRate": -45.0,
+      "taxable": true
+    },
+    {
+      "code": "DISC",
+      "description": "Goodwill discount — service complaint",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": -50.0,
+      "taxable": false
+    }
   ],
   "features": [
     "Fields auditors look for — credit note number, original invoice reference and reason, all in the header",
@@ -24,15 +61,39 @@
     "Covers every credit scenario — refunds, returned items, pricing corrections and goodwill adjustments"
   ],
   "faqs": [
-    {"q": "What is a credit note?", "a": "A credit note (also called a credit memo) is a document a business issues to reduce the amount a customer owes on a previous invoice — after a return, a correction, an overcharge or a goodwill discount. It references the original invoice number and shows the amount being credited."},
-    {"q": "When do I need to issue a credit note?", "a": "Whenever you need to lower a previously invoiced amount: returned goods, work not completed, an invoicing error, an overcharge, or a negotiated discount after the invoice was sent. Never edit a sent invoice — issue a credit note against it instead."},
-    {"q": "Should a credit note show tax?", "a": "Generally yes — if sales tax was charged on the original invoice, the credit note reduces the tax as well, mirroring the original taxable lines. That keeps your reported sales tax and your books in sync."},
-    {"q": "What is the difference between a credit note and a refund?", "a": "A credit note is the paperwork; a refund is the money moving. A credit note first reduces the balance on the customer's account. If they had already paid, the credit is then refunded or applied to their next invoice."}
+    {
+      "q": "What is a credit note?",
+      "a": "A credit note (also called a credit memo) is a document a business issues to reduce the amount a customer owes on a previous invoice — after a return, a correction, an overcharge or a goodwill discount. It references the original invoice number and shows the amount being credited."
+    },
+    {
+      "q": "When do I need to issue a credit note?",
+      "a": "Whenever you need to lower a previously invoiced amount: returned goods, work not completed, an invoicing error, an overcharge, or a negotiated discount after the invoice was sent. Never edit a sent invoice — issue a credit note against it instead."
+    },
+    {
+      "q": "Should a credit note show tax?",
+      "a": "Generally yes — if sales tax was charged on the original invoice, the credit note reduces the tax as well, mirroring the original taxable lines. That keeps your reported sales tax and your books in sync."
+    },
+    {
+      "q": "What is the difference between a credit note and a refund?",
+      "a": "A credit note is the paperwork; a refund is the money moving. A credit note first reduces the balance on the customer's account. If they had already paid, the credit is then refunded or applied to their next invoice."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating credit totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating credit totals"
+    }
   },
   "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
   "overrides": {
@@ -45,14 +106,89 @@
     "billingHeading": "When and how to issue a credit note",
     "billingSub": "Fixing invoices the bookkeeping-safe way — and what to write on the note.",
     "relatedSub": "More generic business forms — pick the document that fits the job.",
-    "relatedSlugs": ["service-invoice-template", "blank-invoice-template", "tax-invoice-template", "hourly-invoice-template", "work-order-template", "delivery-note-template"],
+    "relatedSlugs": [
+      "service-invoice-template",
+      "blank-invoice-template",
+      "tax-invoice-template",
+      "hourly-invoice-template",
+      "work-order-template",
+      "delivery-note-template"
+    ],
     "wordBillNote": "This Word file works as a ready-made credit note format — the same references, reason field, credited line items and tax treatment as the paper original, but fully editable. Keep one master copy on file and issue a fresh credit note within minutes whenever a bill needs correcting — no need to rebuild the layout every time.",
     "howToUseText": "Use this credit note template whenever you need to reduce the amount a customer owes on an invoice you already sent. Open the file and fill in your business details, then the header fields specific to a credit note: the credit note's own number (continuing your numbering, e.g. CN-0001), the date, the original invoice number being adjusted, and a short reason — returned items, overcharge, work not completed, goodwill. List the amounts being credited on separate lines, mirroring the original invoice's items and tax treatment so your books stay consistent; the Excel version nets the credit lines and the tax automatically to show the total credited. Send it to the customer as a PDF and file it alongside the original invoice — at tax time, credit notes are how you reduce previously reported sales and sales tax rather than silently editing history.",
     "howToUseSteps": [
-      {"title": "Reference the original invoice", "body": "Fill in your business details, then the credit note number, date, the original invoice # being adjusted, and the reason — the reference is what ties the two documents together in both your books and the customer's."},
-      {"title": "List the credited amounts", "body": "Mirror the original invoice's lines and tax treatment: if tax was charged on an item being credited, the credit line is taxable too. The Excel version nets the lines to a total credited."},
-      {"title": "Send it and file it", "body": "Email the credit note as a PDF (Word → Save As → PDF) and file it with the original invoice. If the invoice was already paid, apply the credit to their account or refund within your stated window."}
+      {
+        "title": "Reference the original invoice",
+        "body": "Fill in your business details, then the credit note number, date, the original invoice # being adjusted, and the reason — the reference is what ties the two documents together in both your books and the customer's."
+      },
+      {
+        "title": "List the credited amounts",
+        "body": "Mirror the original invoice's lines and tax treatment: if tax was charged on an item being credited, the credit line is taxable too. The Excel version nets the lines to a total credited."
+      },
+      {
+        "title": "Send it and file it",
+        "body": "Email the credit note as a PDF (Word → Save As → PDF) and file it with the original invoice. If the invoice was already paid, apply the credit to their account or refund within your stated window."
+      }
     ],
     "billingText": "The rule that matters most: never edit an invoice after sending it. Once a customer has an invoice, your copy, their copy and any tax you reported all agree on one number — editing it afterward breaks that agreement in ways that surface painfully at audit time. A credit note is the bookkeeping-safe way to correct any of the four situations that generate them: returned goods, work not completed, an overcharge or price error, and goodwill discounts after a complaint. Structure it like a mirror of the original: same line items being credited, same tax treatment, amounts shown as credits, and a header that references the original invoice number and states the reason. Number credit notes in their own sequence (CN-0001, CN-0002…) and store them with the original invoice — together they read as a complete story of what was billed and what was adjusted. On tax: if you collected sales tax on the amount being credited, the credit note should reverse that tax too, which is why the template carries a tax line mirroring the original. If the customer had already paid, the credit becomes either a refund (money out) or account credit (money owed against their next invoice) — say which in the notes. And check whether your state requires credit notes to be issued within a specific window of the original sale for the tax adjustment to count; most departments of revenue publish the rule."
+  },
+  "deepDive": {
+    "heading": "Credit notes: when to issue one, how to number it and what it does to the tax",
+    "sub": "A credit note is not a refund and not a discount — it is the document that corrects an invoice that has already been issued. Getting the linkage and the tax treatment right is what keeps the books clean.",
+    "blocks": [
+      {
+        "h3": "Four situations that need a credit note",
+        "paras": [
+          "A credit note is required whenever an invoice has to be reduced after it was issued: goods returned, work not performed, an overcharge discovered later, or a goodwill adjustment. It is not the same as a refund — the credit note corrects the sale, and the refund is the payment that may follow it.",
+          "The distinction matters for tax and for bookkeeping. If you simply refund money without a credit note, the original invoice still stands at the higher amount and your sales tax filing still includes it. The credit note is what reverses the taxable amount."
+        ],
+        "list": [
+          "Goods returned or rejected",
+          "Work not performed or partially performed",
+          "Pricing error or duplicate invoice",
+          "Goodwill discount applied after invoicing",
+          "Bad debt write-off (a different document in most jurisdictions)"
+        ]
+      },
+      {
+        "h3": "Number it in its own sequence and always reference the original",
+        "paras": [
+          "Credit notes get their own numbering series — CN-001, CN-002 — never a number from the invoice series. The credit note must carry the original invoice number and date, the reason for the credit, the amount, and the tax adjustment. Accountants and auditors look for that linkage first, because a credit note that cannot be traced back to an invoice is not evidence of anything.",
+          "Keep the same parties, the same currency and the same tax basis as the original. A credit note issued to a different entity, or in a different currency, creates a reconciliation problem that can take hours to unwind at year end."
+        ],
+        "list": [
+          "Own numbering series (CN-001 ...)",
+          "Original invoice number and date",
+          "Reason stated, not just \"adjustment\"",
+          "Same customer entity, currency and tax basis as the original"
+        ]
+      },
+      {
+        "h3": "The tax line is the part people get wrong",
+        "paras": [
+          "If the original invoice charged sales tax, the credit note must reverse the same proportion of tax. In VAT jurisdictions this is explicit: a credit note must show the VAT rate and the VAT amount being reversed, and it must be issued within the same reporting period where possible to avoid an amended return.",
+          "In US sales tax, the credit note reduces the taxable base in the period it is issued, not the period of the original sale — which means a credit issued in a later filing period requires an adjustment on the return, not a simple subtraction. That timing difference is the single most common reason a small contractor's sales tax return does not reconcile."
+        ],
+        "list": [
+          "Tax rate and tax amount reversed, matching the original",
+          "Net, tax and gross shown separately",
+          "Issue in the same period where possible",
+          "Reference for any later-period adjustment on the tax return"
+        ]
+      },
+      {
+        "h3": "Credit note vs refund vs discount: three different documents",
+        "paras": [
+          "A discount given before invoicing belongs on the invoice as a line. A credit note corrects an invoice already issued. A refund is the payment movement that may follow either. Mixing them produces books where revenue, tax and cash cannot be reconciled independently.",
+          "The practical rule: if money moved or will move, the credit note comes first and the refund references it. If nothing moved and the invoice was simply wrong, the credit note still comes first, and the corrected invoice — if one is needed — references the credit note."
+        ],
+        "list": [
+          "Discount before invoicing: a line on the invoice",
+          "Correction after invoicing: a credit note",
+          "Money returning to the customer: a refund referencing the credit note",
+          "Never delete or reissue an invoice that has already been sent"
+        ]
+      }
+    ]
   }
 }
