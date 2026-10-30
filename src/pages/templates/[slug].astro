@@ -225,6 +225,52 @@ const howToLd = JSON.stringify({
     )}
   </section>
 
+  {format === 'excel' && (
+    <section class="section wrap" style="padding-top:32px;">
+      <div class="section-head">
+        <h2>How the Excel file calculates your total</h2>
+        <p>The spreadsheet is not a picture of an invoice — it has live formulas. Here is exactly what they do, so you can trust the number or change it.</p>
+      </div>
+      <div class="card" style="margin-top:20px;">
+        <h3 style="margin-bottom:10px;">The sheet has seven columns, and two of them do the work</h3>
+        <p>Rows are laid out as <strong>#</strong>, <strong>Description</strong>, <strong>Qty</strong>, <strong>Unit</strong>, <strong>Rate ($)</strong>, <strong>Amount ($)</strong> and <strong>Taxable</strong>. Type quantities and rates into the white cells; the Amount column multiplies Qty by Rate for you, and the SUBTOTAL row adds the whole Amount column with a single <code>SUM</code>. Nothing below the subtotal needs typing.</p>
+        <p style="margin-top:12px;">The <strong>Taxable</strong> column is the part most people miss. The tax row uses a <code>SUMPRODUCT</code> that only counts rows marked TRUE in that column, then multiplies by the rate you type into the TAX RATE cell. That means you can exempt labour exactly the way most states require: leave the material rows ticked, untick the labour rows, and the tax line recalculates on materials only.</p>
+        <ul style="margin-top:12px;padding-left:20px;line-height:1.9;">
+          <li><strong>Amount</strong> — Qty × Rate, per row</li>
+          <li><strong>SUBTOTAL</strong> — SUM of the Amount column</li>
+          <li><strong>TAX RATE</strong> — type your state or county rate as a percentage, e.g. 8.25%</li>
+          <li><strong>TAX</strong> — SUMPRODUCT of taxable rows only × the rate cell</li>
+          <li><strong>TOTAL</strong> — SUBTOTAL + TAX</li>
+          {trade.docType === 'estimate' && <li><strong>DEPOSIT / BALANCE</strong> — deposit is a rounded percentage of the subtotal, balance is the remainder</li>}
+        </ul>
+        <p style="margin-top:14px;font-size:14px;color:var(--muted);">To add a line item: insert a row above the SUBTOTAL, copy the formatting from the row above, then extend the <code>SUM</code> and <code>SUMPRODUCT</code> ranges by one row. If you skip that second step the new row will not appear in the total — that is the single most common mistake with this kind of sheet.</p>
+        <p style="margin-top:10px;font-size:14px;color:var(--muted);">This template ships with these pre-filled rows for {trade.trade}: {trade.lineItems.map((it: any) => `${it.description} (${it.unit ?? 'each'} at $${it.sampleRate ?? 0})`).join('; ')}. Edit the descriptions and delete the rows you do not use before sending.</p>
+      </div>
+    </section>
+  )}
+
+  {format === 'word' && (
+    <section class="section wrap" style="padding-top:32px;">
+      <div class="section-head">
+        <h2>What you can rebrand in the Word file</h2>
+        <p>The Word version is the one to customise: it is a real document with a header block, a table and a signature area you can edit like any other .docx.</p>
+      </div>
+      <div class="card" style="margin-top:20px;">
+        <h3 style="margin-bottom:10px;">Three edits turn it into your company's document</h3>
+        <p><strong>1. The header block.</strong> Business name, address, phone, email, your licence number and the EIN / Tax ID line are all plain text at the top. Replace them once, then save the file as your master. Keep the licence line — commercial customers and insurers look for it.</p>
+        <p style="margin-top:10px;"><strong>2. The table.</strong> Columns are Description, Qty, Unit, Rate and Amount. To add a line, copy an existing row and paste it below — Word keeps the borders and shading, and then you retype the numbers. The Word version has no formulas, so retype the Amount, SUBTOTAL, TAX and TOTAL after any change. If you would rather the totals calculate themselves, use the Excel version instead.</p>
+        <p style="margin-top:10px;"><strong>3. Branding.</strong> Drop your logo into the header (Insert → Header → Pictures), set the document font to whatever your invoices already use, and adjust the accent colour of the table header row. Ten minutes once, and every future invoice matches your brand.</p>
+        <ul style="margin-top:12px;padding-left:20px;line-height:1.9;">
+          <li>Page setup: US Letter, 0.75 in margins — prints on any office printer</li>
+          <li>Signature block at the bottom: print two copies for a wet signature, or sign digitally</li>
+          <li>Terms and notes fit on page one; add a page break if your terms are longer</li>
+          <li>Send the customer a PDF (File → Save As → PDF) and keep the .docx as your editable master</li>
+        </ul>
+        <p style="margin-top:14px;font-size:14px;color:var(--muted);">The {trade.trade} version arrives with these rows ready: {trade.lineItems.map((it: any) => it.description).join(', ')}. Header fields include {trade.headerFields.slice(0, 6).join(', ')}.</p>
+      </div>
+    </section>
+  )}
+
   <section class="section wrap" id="download" style="padding-top:8px;">
     <DownloadCards slug={trade.slug} downloads={trade.downloads} active={format || undefined} />
 
