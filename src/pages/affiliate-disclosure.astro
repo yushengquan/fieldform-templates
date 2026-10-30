@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { VENDORS, hasAffiliateLinks, linkFor } from '../data/affiliates';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Affiliate disclosure — FieldForm Templates';
+const description = 'How FieldForm Templates makes money, which links are affiliate links, and what that does and does not affect.';
+const canonical = `${siteUrl}/affiliate-disclosure/`;
+const anyAffiliate = hasAffiliateLinks();
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:48px;max-width:820px;">
+    <div class="section-head">
+      <h1 style="font-size:30px;line-height:1.25;margin-bottom:12px;">Affiliate disclosure</h1>
+      <p style="font-size:16.5px;color:var(--muted);">How this site makes money, and what that means for what you read here. Last updated 30 October 2026.</p>
+    </div>
+
+    <h2 style="font-size:21px;margin:30px 0 10px;">The short version</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Everything on this site is free to download and always will be: no account, no email, no paywall on any template. The site is funded by advertising, and — once we are accepted into the relevant programs — by affiliate commissions on some links to invoicing and accounting software. If you click an affiliate link and then buy something, the vendor may pay us a commission. It costs you nothing extra.</p>
+
+    <div style="margin:22px 0;padding:16px 20px;background:var(--soft);border-radius:10px;border-left:4px solid var(--blue);">
+      <p style="font-size:15px;line-height:1.7;margin:0;"><strong>Current status:</strong> {anyAffiliate
+        ? 'Some links to software vendors on this site are affiliate links. They are marked as such on the page where they appear.'
+        : 'As of the date above, this site has no active affiliate links — every link to a software vendor is a plain link with no tracking, and we receive nothing if you sign up. This page exists so the policy is clear in advance.'}</p>
+    </div>
+
+    <h2 style="font-size:21px;margin:30px 0 10px;">What affiliate links do not affect</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>The templates themselves.</strong> A downloadable file never contains an affiliate link, a watermark or a referral code. What you download is what you would get if nobody paid us anything.</li>
+      <li><strong>Which software we recommend, and how we describe it.</strong> Recommendations are based on who the product actually fits — a solo handyman and a five-truck HVAC company need different tools. We do not accept payment to move a product up a list, and no vendor has editorial input on this site.</li>
+      <li><strong>Whether a product is mentioned at all.</strong> If a product is not a good fit for trade contractors, it does not appear, whatever it pays.</li>
+    </ul>
+
+    <h2 style="font-size:21px;margin:30px 0 10px;">How we describe software we recommend</h2>
+    <p style="font-size:15.5px;line-height:1.8;">We compare products from their published documentation, pricing pages and public feature lists. <strong>We do not claim to have personally tested every product</strong> — where a statement is based on vendor documentation, that is what it is. Pricing changes frequently, so every figure we quote is approximate and should be confirmed on the vendor's own page before you buy.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">If you think a recommendation is wrong, or a price is out of date, tell us through the <a href="/contact/" style="color:var(--blue);font-weight:600;">contact page</a> and we will fix it.</p>
+
+    <h2 style="font-size:21px;margin:30px 0 10px;">Which programs</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Software we may link to with an affiliate code, when accepted into their programs:</p>
+    <ul style="font-size:15.5px;line-height:1.95;padding-left:22px;">
+      {VENDORS.map((v) => (
+        <li>{v.name} — <a href={v.url} target="_blank" rel="noopener nofollow" style="color:var(--blue);">{v.url.replace('https://', '')}</a></li>
+      ))}
+    </ul>
+
+    <h2 style="font-size:21px;margin:30px 0 10px;">Advertising</h2>
+    <p style="font-size:15.5px;line-height:1.8;">The site also displays advertising. Advertisers do not see anything about you as an individual from us, and advertising has no influence on editorial content — no advertiser has ever been shown a page before publication, because none has asked and we would not agree to it.</p>
+
+    <h2 style="font-size:21px;margin:30px 0 10px;">Your call</h2>
+    <p style="font-size:15.5px;line-height:1.8;">If you would rather not use an affiliate link, every vendor can be reached by typing its address directly — the ones we mention are linked plainly in the list above. The templates work exactly the same either way.</p>
+
+    <div style="margin-top:36px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14.5px;line-height:1.7;margin:0;color:var(--muted);">Related: <a href="/editorial-standards/" style="color:var(--blue);font-weight:600;">Editorial standards</a> · <a href="/privacy/" style="color:var(--blue);font-weight:600;">Privacy policy</a> · <a href="/contact/" style="color:var(--blue);font-weight:600;">Contact</a></p>
+    </div>
+  </section>
+</BaseLayout>

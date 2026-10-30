@@ -1,0 +1,40 @@
+---
+// 模板页的「需要软件吗」卡片 — 克制、不干扰下载，只在指定高流量页渲染。
+// 联盟链接未开通时全部走普通外链（rel=nofollow），且不显示联盟披露。
+import { vendorsForKind, linkFor } from '../data/affiliates';
+import { hasAffiliateLinks } from '../data/affiliates';
+
+interface Props {
+  kind: 'service' | 'build' | 'pro';
+  tradeLabel: string;
+}
+
+const { kind, tradeLabel } = Astro.props;
+const vendors = vendorsForKind(kind, 2);
+const anyAffiliate = hasAffiliateLinks();
+---
+
+<section class="section wrap" style="padding-top:12px;">
+  <div style="padding:20px 24px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
+    <h2 style="font-size:17px;margin-bottom:8px;">Do you need invoicing software for this?</h2>
+    <p style="font-size:14.5px;line-height:1.7;color:var(--muted);margin-bottom:12px;">
+      Honestly, often not — the template above covers a single-truck operation for as long as you want to use it. Software starts to pay for itself when you have repeat {tradeLabel.toLowerCase()} customers, more than one crew, or invoices you have to chase. If that is where you are, these are the two that fit this kind of work:
+    </p>
+    <ul style="font-size:14.5px;line-height:1.8;margin:0 0 10px;padding-left:22px;">
+      {vendors.map((v) => {
+        const link = linkFor(v);
+        return (
+          <li>
+            <a href={link.href} target="_blank" rel={link.isAffiliate ? 'noopener sponsored' : 'noopener nofollow'} style="color:var(--blue);font-weight:600;">{v.name}</a>
+            {link.isAffiliate && <span style="font-size:12px;color:var(--muted);"> (affiliate)</span>}
+            <span style="color:var(--muted);"> — {v.bestFor.split('（')[0]}</span>
+          </li>
+        );
+      })}
+    </ul>
+    <p style="font-size:13px;color:var(--muted);margin:0;">
+      <a href="/best-invoicing-apps-for-contractors/" style="color:var(--blue);">Compare all five options by trade →</a>
+      {anyAffiliate && <> · <a href="/affiliate-disclosure/" style="color:var(--blue);">affiliate disclosure</a></>}
+    </p>
+  </div>
+</section>

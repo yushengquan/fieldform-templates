@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { VENDORS, hasAffiliateLinks, linkFor } from '../data/affiliates';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Best invoicing app for contractors (2026) — what fits which trade';
+const description = 'Which invoicing and job-management app fits which trade contractor: Jobber for field service teams, QuickBooks for accounting and taxes, FreshBooks for hourly work, Invoice Simple for phone-only invoicing. Compared from vendor documentation.';
+const canonical = `${siteUrl}/best-invoicing-apps-for-contractors/`;
+const anyAffiliate = hasAffiliateLinks();
+
+const byTrade = [
+  { trade: 'HVAC, plumbing, electrical, pest control, cleaning, landscaping', pick: 'Jobber', why: '定期上门、需要排班与派工、客户重复率高 — 排班与工单是关键，单纯开票不够。' },
+  { trade: 'General contractor, roofing, concrete, deck, remodel', pick: 'QuickBooks Online', why: '分包多、需要 1099、材料与人工要分开记账，年底报税直接出表。' },
+  { trade: 'Freelance, photographer, personal trainer, salon', pick: 'FreshBooks', why: '按小时或按项目收费，工时记录与发票绑定最省事。' },
+  { trade: 'Solo handyman, appliance repair, locksmith（现场即走）', pick: 'Invoice Simple', why: '手机上开单、拍照、客户签字、当场发 PDF — 不需要排班系统。' },
+  { trade: '刚起步、预算为零', pick: 'Wave', why: '开票与基础记账免费，等业务稳定再升级。' },
+];
+
+const comparison = [
+  { name: 'Jobber', model: '每月订阅，按用户数分层', strength: '排班 + 派工 + 报价 + 开票 + 收款一体化', weakness: '单人短工不划算；价格随团队规模上升' },
+  { name: 'QuickBooks Online', model: '每月订阅，三层方案', strength: '发票与账套打通，1099 与销售税申报', weakness: '学习曲线陡，功能过剩' },
+  { name: 'FreshBooks', model: '每月订阅，按可计费客户数', strength: '工时与发票绑定，客户门户自助付款', weakness: '客户数有上限' },
+  { name: 'Invoice Simple', model: '低价月付或年付', strength: '手机端极快，适合现场开单', weakness: '无排班、无库存、无账套' },
+  { name: 'Wave', model: '核心免费，增值收费', strength: '零成本起步', weakness: '高级功能与支持分级' },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:900px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Best invoicing app for contractors — by trade, not by feature count</h1>
+      <p style="font-size:17px;color:var(--muted);">Most "best invoicing software" lists rank the same five products in the same order and never mention the trade. A two-person drywall crew and a five-truck HVAC company do not need the same tool. This page maps the options to how each trade actually bills.</p>
+    </div>
+
+    {anyAffiliate && (
+      <div style="margin:20px 0;padding:12px 16px;background:var(--soft);border-radius:8px;font-size:13.5px;color:var(--muted);">
+        Some links on this page are affiliate links. See the <a href="/affiliate-disclosure/" style="color:var(--blue);">affiliate disclosure</a>.
+      </div>
+    )}
+
+    <h2 style="font-size:23px;margin:32px 0 12px;">Start here: what do you actually do all day?</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:14.5px;">
+        <thead>
+          <tr style="background:rgba(0,0,0,.04);text-align:left;">
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">If you are…</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">Look at</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">Because</th>
+          </tr>
+        </thead>
+        <tbody>
+          {byTrade.map((r) => (
+            <tr>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);">{r.trade}</td>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);font-weight:600;">{r.pick}</td>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);">{r.why}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin:26px 0;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:15px;line-height:1.7;margin:0;"><strong>But first: do you need software at all?</strong> If you bill fewer than about ten jobs a month and you already have a system that works, the free templates on this site plus a folder of PDFs may genuinely be enough. Software earns its keep when you have repeat customers, multiple crews, or a need to chase unpaid invoices automatically. We are not going to pretend otherwise.</p>
+    </div>
+
+    <h2 style="font-size:23px;margin:32px 0 12px;">The five options, compared honestly</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:14.5px;">
+        <thead>
+          <tr style="background:rgba(0,0,0,.04);text-align:left;">
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">Product</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">Pricing model</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">Strength</th>
+            <th style="padding:10px 12px;border-bottom:2px solid var(--line);">Weakness</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparison.map((r) => (
+            <tr>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);font-weight:600;">{r.name}</td>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);">{r.model}</td>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);">{r.strength}</td>
+              <td style="padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);">{r.weakness}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-size:23px;margin:34px 0 12px;">The details that matter to a trade business</h2>
+
+    <h3 style="font-size:18px;margin:22px 0 8px;">1. Does it handle deposits and progress billing?</h3>
+    <p style="font-size:15.5px;line-height:1.8;">Electrical, HVAC, roofing and remodels almost always take a deposit and often bill in stages. A tool that only issues a single final invoice forces you to fake a deposit as a separate invoice — which then breaks the link between the quote and the job. Jobber and QuickBooks handle progress billing natively; Invoice Simple does not.</p>
+
+    <h3 style="font-size:18px;margin:22px 0 8px;">2. Can it separate taxable materials from non-taxable labour?</h3>
+    <p style="font-size:15.5px;line-height:1.8;">This is the single most common invoice error in the trades. Most US states tax materials and not labour for services, and a tool that applies one tax rate to the whole subtotal produces a wrong invoice every time. QuickBooks supports per-line tax; Jobber supports tax groups per line item; the simpler tools often apply a single rate. Check this before you commit — it is not a feature you can add later without redoing your invoice templates.</p>
+
+    <h3 style="font-size:18px;margin:22px 0 8px;">3. What happens when the customer does not pay?</h3>
+    <p style="font-size:15.5px;line-height:1.8;">Automatic reminders, late fees and a record of what was sent and when. Chasing payment manually is the task most likely to be dropped on a busy week, which is exactly why software pays for itself first here. All five options send reminders; only the three paid platforms let you automate a late-fee schedule.</p>
+
+    <h3 style="font-size:18px;margin:22px 0 8px;">4. Does it work offline, in a basement or on a roof?</h3>
+    <p style="font-size:15.5px;line-height:1.8;">Field service work happens in places without signal. Offline-capable apps queue the invoice and sync when the phone finds a network — that is the difference between invoicing on site and remembering to do it that night. Jobber and Invoice Simple both have offline mobile apps; browser-only tools do not.</p>
+
+    <h2 style="font-size:23px;margin:34px 0 12px;">Where each one actually goes</h2>
+    <div style="margin-top:18px;">
+      {VENDORS.map((v) => {
+        const link = linkFor(v);
+        return (
+          <div style="margin-bottom:18px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
+            <h3 style="font-size:17px;margin-bottom:6px;">{v.name}</h3>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:8px;">{v.bestFor} · {v.priceNote}</p>
+            <p style="font-size:14.5px;line-height:1.7;margin-bottom:8px;">{v.why}</p>
+            <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:10px;"><strong>Watch out:</strong> {v.caveat}</p>
+            <p style="margin:0;">
+              <a href={link.href} target="_blank" rel={link.isAffiliate ? 'noopener sponsored' : 'noopener nofollow'} style="color:var(--blue);font-weight:600;font-size:14.5px;">Visit {v.name} →</a>
+              {link.isAffiliate && <span style="font-size:12px;color:var(--muted);margin-left:8px;">(affiliate link)</span>}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+
+    <h2 style="font-size:23px;margin:34px 0 12px;">If you are staying on paper (or on PDF)</h2>
+    <p style="font-size:15.5px;line-height:1.8;">That is a legitimate choice, and it is why this site exists. A free template plus a consistent numbering habit covers a surprising number of small contractors indefinitely. If you want the middle path — a real invoice number sequence, tax calculated only on materials, and a PDF the customer can pay — the <a href="/templates/" style="color:var(--blue);font-weight:600;">free templates</a> and the <a href="/invoice-calculator/" style="color:var(--blue);font-weight:600;">invoice calculator</a> do most of what a $30/month tool does for a single-truck operation.</p>
+
+    <div style="margin-top:30px;padding:16px 20px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:13.5px;line-height:1.7;margin:0;color:var(--muted);">Compiled from each vendor's published documentation and pricing pages, reviewed 30 October 2026. We do not claim to have personally tested every product; pricing changes often, so confirm on the vendor's site before buying. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a> and <a href="/affiliate-disclosure/" style="color:var(--blue);">affiliate disclosure</a>.</p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the best invoicing app for contractors?',
+        acceptedAnswer: { '@type': 'Answer', text: 'It depends on the trade. Field service trades with repeat scheduled visits (HVAC, plumbing, electrical, pest control, cleaning) are best served by Jobber. Contractors with subcontractors and tax complexity are best served by QuickBooks Online. Solo tradespeople who bill on site are best served by Invoice Simple.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do I need invoicing software as a solo contractor?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Not necessarily. Below roughly ten jobs a month, free templates plus a consistent invoice numbering system cover most needs. Software earns its cost when you have repeat customers, multiple crews, or need automated payment reminders.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which invoicing tools separate taxable materials from non-taxable labour?',
+        acceptedAnswer: { '@type': 'Answer', text: 'QuickBooks Online supports tax per line item, and Jobber supports tax groups per line. Simpler mobile tools often apply one rate to the whole subtotal, which produces incorrect invoices in states that exempt service labour.' },
+      },
+    ],
+  })} />
+</BaseLayout>
