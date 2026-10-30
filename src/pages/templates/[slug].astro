@@ -91,6 +91,22 @@ const linkedGuide = allGuides.find((g: any) => g.templateSlug === trade.slug || 
 
 const fmtLabel = format === 'word' ? 'Word' : format === 'excel' ? 'Excel' : '';
 const fmtPhrase = format === 'word' ? 'Word Format' : format === 'excel' ? 'Excel Format' : '';
+
+// 变体页细分维度 — 让 138 个 word/excel 页不再是彼此的近似副本
+// 1) 计价单位类型：面积 / 计时 / 整包 / 计件
+const _units = (trade.lineItems ?? []).map((i: any) => String(i.unit ?? 'each').toLowerCase());
+const _hasUnit = (re: RegExp) => _units.some((u: string) => re.test(u));
+const unitKind: 'area' | 'time' | 'job' | 'piece' =
+  _hasUnit(/sq|square|ft²/) ? 'area'
+  : _hasUnit(/hour|hr/) ? 'time'
+  : _hasUnit(/job|lump/) ? 'job'
+  : 'piece';
+// 2) 工种性质：上门服务 / 施工 / 专业服务（用关键词匹配实际 trade 名称）
+const _t = String(trade.trade ?? '');
+const tradeKind: 'service' | 'build' | 'pro' =
+  /pest|hvac|plumb|locksmith|clean|appliance|gutter|junk|moving|septic|carpet|pool|snow|chimney|window/i.test(_t) ? 'service'
+  : /roof|concrete|deck|contractor|framer|mason|siding|fenc|paint|tile|landscap|excavat|weld|fabricat|solar|floor|electric|carpent|remodel|demolition|insulat|paving|drywall|handyman|plaster|glazier|paving/i.test(_t) ? 'build'
+  : 'pro';
 // Word/Excel 变体页 title 加入 "Bill Format" 同义词 — 用户高频搜 "bill format" 而非 "invoice template"
 const billSynonym = trade.docType === 'invoice' ? ' (Bill Format)' : '';
 const pageTitle = format
@@ -244,6 +260,24 @@ const howToLd = JSON.stringify({
           {trade.docType === 'estimate' && <li><strong>DEPOSIT / BALANCE</strong> — deposit is a rounded percentage of the subtotal, balance is the remainder</li>}
         </ul>
         <p style="margin-top:14px;font-size:14px;color:var(--muted);">To add a line item: insert a row above the SUBTOTAL, copy the formatting from the row above, then extend the <code>SUM</code> and <code>SUMPRODUCT</code> ranges by one row. If you skip that second step the new row will not appear in the total — that is the single most common mistake with this kind of sheet.</p>
+        {unitKind === 'area' && (
+          <p style="margin-top:10px;font-size:14px;">Your rows are measured in <strong>square footage</strong>, so the Qty column is the measured area — not the number of boxes or sheets you bought. Add your waste factor to the quantity <em>before</em> typing it in: the sheet has no waste cell, and a customer who counts the boxes will otherwise find a discrepancy that looks like padding.</p>
+        )}
+        {unitKind === 'piece' && (
+          <p style="margin-top:10px;font-size:14px;">Your rows are counted in <strong>pieces</strong> (each, sheet, panel, unit), so Qty is a physical count and the Rate column should already carry handling and small-parts markup. If you bill a part at cost and add markup somewhere else, the customer will eventually add up the pieces and ask why the total is higher than the rows suggest.</p>
+        )}
+        {unitKind === 'time' && (
+          <p style="margin-top:10px;font-size:14px;">Your rows are priced in <strong>hours</strong>. The spreadsheet cannot reconstruct time after the fact, so log start and finish on the paper ticket or in your phone as you go — especially the first visit. Retrospective hours estimates are the most contested line on any service invoice.</p>
+        )}
+        {unitKind === 'job' && (
+          <p style="margin-top:10px;font-size:14px;">Your rows are <strong>lump-sum job items</strong>. A line that just says "job" is the first thing a customer disputes, because it describes no scope. Use the Description column to say what the lump covers — the area treated, the unit replaced, the number of visits included — so the price has something to attach to.</p>
+        )}
+        {trade.docType === 'estimate' && (
+          <p style="margin-top:10px;font-size:14px;">This is the <strong>estimate</strong> layout, so it carries a deposit line: DEPOSIT is <code>ROUND(SUBTOTAL × percentage, 2)</code> and BALANCE is SUBTOTAL − DEPOSIT. Change the percentage in the deposit cell rather than the amount, or the balance stops reconciling and the customer sees a total that does not add up.</p>
+        )}
+        {trade.docType === 'invoice' && (
+          <p style="margin-top:10px;font-size:14px;">This is the <strong>invoice</strong> layout, so it has no deposit row — payment terms sit in the footer. If you take a deposit mid-job, add a deposit row with a negative amount rather than editing the total, so the customer can still follow how the number was built.</p>
+        )}
         <p style="margin-top:10px;font-size:14px;color:var(--muted);">This template ships with these pre-filled rows for {trade.trade}: {trade.lineItems.map((it: any) => `${it.description} (${it.unit ?? 'each'} at $${it.sampleRate ?? 0})`).join('; ')}. Edit the descriptions and delete the rows you do not use before sending.</p>
       </div>
     </section>
@@ -267,6 +301,21 @@ const howToLd = JSON.stringify({
           <li>Send the customer a PDF (File → Save As → PDF) and keep the .docx as your editable master</li>
         </ul>
         <p style="margin-top:14px;font-size:14px;color:var(--muted);">The {trade.trade} version arrives with these rows ready: {trade.lineItems.map((it: any) => it.description).join(', ')}. Header fields include {trade.headerFields.slice(0, 6).join(', ')}.</p>
+        {tradeKind === 'service' && (
+          <p style="margin-top:10px;font-size:14px;">Because this is a <strong>call-out service</strong> document, keep the trip charge and the after-hours line visible even when they read zero — a customer comparing you against a competitor needs to see that you charge for the visit at all. If you run a maintenance plan for {trade.trade} customers, add it as a note under the table with the plan name and the visits it covers.</p>
+        )}
+        {tradeKind === 'build' && (
+          <p style="margin-top:10px;font-size:14px;">This is a <strong>construction</strong> document, so the header fields matter as much as the totals: licence number, permit number and the inspection line. General contractors keep the invoice on file and hand it to a lender or an inspector months later — a document without those fields is a document they cannot use.</p>
+        )}
+        {tradeKind === 'pro' && (
+          <p style="margin-top:10px;font-size:14px;">This is a <strong>professional services</strong> document, so scope and revisions carry more weight than materials. Use the Description column to name the deliverable and the number of revision rounds included — the argument you are trying to avoid is "that wasn't what I asked for", not "the total is wrong".</p>
+        )}
+        {unitKind === 'time' && (
+          <p style="margin-top:10px;font-size:14px;">Your rows are hourly, and Word will not add them up. After typing hours and rates, recalculate the subtotal by hand and check it against your time log — a Word invoice with a total that does not match its own rows is the fastest way to lose a dispute you would otherwise win.</p>
+        )}
+        {unitKind === 'area' && (
+          <p style="margin-top:10px;font-size:14px;">Your rows are in square footage. Type the measured area plus waste into the Qty column, and note the waste percentage in the Description or the notes block — it is the number {trade.trade.toLowerCase()}s get questioned about most often, and having it written down ends the conversation.</p>
+        )}
       </div>
     </section>
   )}
