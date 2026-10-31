@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Drywall Calculator — Sheets, Mud, Tape and Screws';
+const description = 'Free drywall calculator: enter room dimensions to get sheets of drywall, joint compound, tape, screws and an installed-cost estimate. Handles ceilings, openings and waste.';
+const canonical = `${siteUrl}/drywall-calculator/`;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:860px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Drywall calculator</h1>
+      <p style="font-size:17px;color:var(--muted);">Enter the room and it works out how many sheets, how much joint compound, how much tape and how many screws you need — plus a material cost estimate you can put straight onto an invoice.</p>
+    </div>
+
+    <div style="margin-top:26px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">
+      <div class="grid2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Room length (ft)
+          <input id="len" type="number" value="12" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Room width (ft)
+          <input id="wid" type="number" value="10" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Wall height (ft)
+          <input id="hgt" type="number" value="8" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Openings (doors + windows)
+          <input id="open" type="number" value="2" min="0" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Sheet size
+          <select id="sheet" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="32">4 × 8 ft (32 sq ft)</option>
+            <option value="48">4 × 12 ft (48 sq ft)</option>
+            <option value="40">4 × 10 ft (40 sq ft)</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Include ceiling?
+          <select id="ceil" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </label>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 0;">An average door or window is counted as 20 sq ft of opening. Waste is applied at 10% for a rectangular room — raise it for diagonal layouts or many small rooms.</p>
+    </div>
+
+    <div id="out" style="margin-top:22px;"></div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">How the calculator works</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Wall area is perimeter multiplied by height, minus openings. If the ceiling is included, length multiplied by width is added. Ten percent waste is applied to the board quantity, then the total is divided by the sheet size you selected and rounded up — you cannot buy part of a sheet.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Joint compound is estimated at roughly 0.05 gallons per square foot of board for a Level 4 finish, which is about one 4.5-gallon bucket per 900 square feet. Tape runs about one 500-foot roll per 1,000 square feet of board. Screws are counted at 32 per sheet for walls and 40 per sheet for ceilings, where spacing is tighter.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">What the numbers mean on a real job</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Sheets</strong> are what you order and what you carry. Add one or two for breakage on any job above 20 sheets.</li>
+      <li><strong>Joint compound</strong> depends on finish level: Level 4 uses roughly the figure above, while a Level 5 skim coat will use closer to double.</li>
+      <li><strong>Tape</strong> is cheap and is the item most often underestimated on a first trip.</li>
+      <li><strong>Labour</strong> is not calculated here, because it varies more than materials: hanging runs $0.50–$0.90 per square foot, taping and finishing $0.50–$1.20, and Level 5 adds 20–40% to the finish.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Put the result on an invoice</h2>
+    <p style="font-size:15.5px;line-height:1.8;">If you are billing a customer rather than buying material, the numbers above map directly onto line items: hanging by the sheet or square foot, taping and finishing by the square foot, and material as a separate line. The free <a href="/templates/drywall-invoice-template/" style="color:var(--blue);font-weight:600;">drywall invoice template</a> already has those rows set up in PDF, Word and Excel, with the Excel version calculating tax only on taxable rows. For the finishing levels the calculation feeds into, see the <a href="/templates/drywall-invoice-template/#deep-dive" style="color:var(--blue);font-weight:600;">GA-214 finish level section</a>.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Material quantities follow standard estimating practice for residential work in the United States. Prices are yours to enter — the calculator does not assume a local market rate. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a> for how figures on this site are compiled.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var ids = ['len', 'wid', 'hgt', 'open', 'sheet', 'ceil'];
+      var prices = { sheet: 16, mud: 18, tape: 6, screw: 9 };
+
+      function val(id, dflt) {
+        var el = document.getElementById(id);
+        if (!el) return dflt;
+        var v = parseFloat(el.value);
+        return isNaN(v) ? dflt : v;
+      }
+
+      function money(n) {
+        return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
+
+      function calc() {
+        var L = Math.max(val('len', 0), 0);
+        var W = Math.max(val('wid', 0), 0);
+        var H = Math.max(val('hgt', 0), 0);
+        var openings = Math.max(val('open', 0), 0);
+        var sheetSqFt = val('sheet', 32);
+        var includeCeiling = val('ceil', 1) === 1;
+
+        var perimeter = 2 * (L + W);
+        var wallArea = perimeter * H - openings * 20;
+        var ceilArea = includeCeiling ? L * W : 0;
+        var netArea = Math.max(wallArea, 0) + ceilArea;
+        var withWaste = netArea * 1.1;
+
+        var sheets = Math.ceil(withWaste / sheetSqFt);
+        var mudGallons = withWaste * 0.05;
+        var mudBuckets = Math.ceil(mudGallons / 4.5);
+        var tapeRolls = Math.max(Math.ceil(withWaste / 1000), 1);
+        var screws = Math.ceil(sheets * (includeCeiling ? 40 : 32) / 100) * 100;
+
+        var cost = sheets * prices.sheet + mudBuckets * prices.mud + tapeRolls * prices.tape + screws / 100 * prices.screw;
+
+        var rows = [
+          ['Wall area', netArea.toFixed(0) + ' sq ft' + (includeCeiling ? ' (walls + ceiling)' : ' (walls only)')],
+          ['Board to buy (incl. 10% waste)', Math.ceil(withWaste) + ' sq ft'],
+          ['Drywall sheets', sheets + ' × ' + sheetSqFt + ' sq ft'],
+          ['Joint compound', mudBuckets + ' bucket(s) ≈ ' + mudGallons.toFixed(1) + ' gal'],
+          ['Joint tape', tapeRolls + ' × 500 ft roll'],
+          ['Screws', screws.toLocaleString()],
+          ['Estimated material cost', money(cost)]
+        ];
+
+        var html = '<div style="padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">' +
+          '<h2 style="font-size:18px;margin:0 0 12px;">Your material list</h2>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:14.5px;">';
+        rows.forEach(function (r, i) {
+          var strong = i === rows.length - 1 ? 'font-weight:700;border-top:2px solid var(--line);' : 'border-top:1px solid var(--line);';
+          html += '<tr><td style="padding:9px 0;' + strong + '">' + r[0] + '</td>' +
+            '<td style="padding:9px 0;text-align:right;' + strong + '">' + r[1] + '</td></tr>';
+        });
+        html += '</table>' +
+          '<p style="font-size:13px;color:var(--muted);margin:12px 0 0;">Material cost uses placeholder prices ($' + prices.sheet + '/sheet, $' + prices.mud + '/bucket, $' + prices.tape + '/roll, $' + prices.screw + '/100 screws). Edit them to your supplier prices.</p>' +
+          '</div>';
+
+        document.getElementById('out').innerHTML = html;
+      }
+
+      ids.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', calc);
+          el.addEventListener('change', calc);
+        }
+      });
+      calc();
+    })();
+  </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many sheets of drywall do I need?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Measure the total area to be covered — perimeter times wall height, minus openings, plus the ceiling if you are boarding it — add 10% for waste, then divide by the sheet size and round up. A 12 by 10 foot room with 8 foot walls and no ceiling comes to about 332 square feet of board, which is 11 sheets of 4 by 8.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much joint compound do I need per square foot of drywall?',
+        acceptedAnswer: { '@type': 'Answer', text: 'About 0.05 gallons per square foot of board for a Level 4 finish, which works out at roughly one 4.5-gallon bucket per 900 square feet. A Level 5 skim coat uses closer to double.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How many screws per sheet of drywall?',
+        acceptedAnswer: { '@type': 'Answer', text: 'About 32 screws per 4 by 8 sheet on walls, and 40 per sheet on ceilings, where fasteners are spaced more closely. Buy in boxes of 100 and add a box for breakage.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does this calculator include labour?',
+        acceptedAnswer: { '@type': 'Answer', text: 'No. Labour varies far more than material by market and finish level. As a reference, hanging typically runs $0.50 to $0.90 per square foot installed and taping and finishing $0.50 to $1.20, with Level 5 adding 20 to 40 percent to the finishing cost.' },
+      },
+    ],
+  })} />
+</BaseLayout>

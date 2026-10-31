@@ -682,6 +682,12 @@ const howToLd = JSON.stringify({
         </p>
       )}
 
+      {/* 相关工具内链 — 工具页与模板页互相导流 */}
+      {trade.slug === 'drywall-invoice-template' && (
+        <p style="margin-top:22px;padding:14px 18px;background:var(--soft);border-radius:10px;font-size:14.5px;line-height:1.7;">
+          Working out material for the job first? The <a href="/drywall-calculator/" style="color:var(--blue);font-weight:600;">drywall calculator</a> turns room dimensions into sheets, joint compound, tape and screw quantities — the same line items you bill on this template.
+        </p>
+      )}
       {/* 权威来源 — 可核验性信号，同时给审核方看依据 */}
       <div style="margin-top:32px;padding:18px 22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
         <h3 style="font-size:16px;margin-bottom:8px;">Sources and how this page was compiled</h3>
