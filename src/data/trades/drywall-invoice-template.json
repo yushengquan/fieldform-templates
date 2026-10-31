@@ -102,6 +102,30 @@
     {
       "q": "Is this legal or tax advice?",
       "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."
+    },
+    {
+      "q": "How do you price drywall: per sheet, per square foot, or by the job?",
+      "a": "Most drywall contractors price by the square foot of finished wall for new installation, and by the sheet for small patch jobs. Hung and taped drywall typically runs $1.50 to $3.50 per square foot installed, depending on finish level, ceiling height and whether the board has to be carried upstairs. Skim-coating existing walls runs $1 to $2.50 per square foot. Pick one basis and state it on the invoice — mixing per-sheet and per-square-foot lines on the same document is the fastest way to get an invoice disputed."
+    },
+    {
+      "q": "What is a Level 4 vs Level 5 drywall finish, and how does it change the price?",
+      "a": "Level 4 is the standard for most residential work: three coats over the joints and a skim over fasteners, suitable for flat paint. Level 5 adds a full skim coat across the entire surface, which hides joint ghosting under gloss paint or raking light. Level 5 typically adds 20 to 40 percent to the finishing cost. Put the level on the invoice — a customer who received Level 4 while expecting Level 5 is the most common finish complaint in the trade."
+    },
+    {
+      "q": "Should I bill for drywall waste and offcuts?",
+      "a": "Yes, but as part of the material quantity rather than a separate surprise line. Standard practice is to price material at the delivered sheet quantity, which already includes the 10 to 15 percent waste typical of rectangular rooms. Diagonal layouts, multiple small rooms and ceilings with lots of penetrations push waste toward 20 percent. Billing material and labour separately makes the waste visible without making it look like an add-on."
+    },
+    {
+      "q": "Can I invoice for a punch-list or callback visit?",
+      "a": "Only if your original invoice or contract said callbacks outside your control would be billed. A typical clause: defects reported within 30 days from workmanship we performed are corrected at no charge, while damage from other trades, settling, or owner changes is billed at the hourly rate. The visit itself is billable at the same hourly rate as installation time; travel is often billed separately at a flat trip fee."
+    },
+    {
+      "q": "How do I invoice a job where the general contractor is the customer?",
+      "a": "Bill the GC, not the property owner, and reference the purchase order or subcontract number they gave you. GCs usually require a conditional lien waiver with each payment application, so attach it to the invoice. Retainage of 5 to 10 percent is normal on commercial work — show it as a separate line so the amount owed now and the amount held back are both clear, rather than netting it out of the total."
+    },
+    {
+      "q": "What deposit is normal for a drywall job?",
+      "a": "A deposit covering materials is standard: 30 to 50 percent for residential work, released before board is delivered. On larger commercial jobs tied to a GC's payment cycle, a materials deposit plus progress billing at rough-in and finish is more common. Whichever applies, show the deposit as a credit against the total on the invoice, not as a reduced price."
     }
   ],
   "downloads": {

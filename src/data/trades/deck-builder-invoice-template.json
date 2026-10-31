@@ -102,6 +102,30 @@
     {
       "q": "Is this legal or tax advice?",
       "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    },
+    {
+      "q": "How do you estimate a deck: per square foot or by material takeoff?",
+      "a": "Both, for different purposes. Square-foot pricing ($35 to $60 per square foot installed for a typical pressure-treated deck) is what customers compare, so use it for the first conversation. The actual estimate should be a material takeoff — joists, decking boards, posts, concrete, hangers, fasteners — because that is where the real cost lives and where a square-foot price silently loses money on a tall, small-footprint or multi-level deck."
+    },
+    {
+      "q": "What hidden costs should appear on a deck estimate?",
+      "a": "Footings are the most common omission: concrete, excavation, and inspection can add $1,000 to $4,000 depending on frost depth and how many posts need to go below grade. Others: stairs and railing priced per linear foot rather than included in the platform rate, ledger flashing and waterproofing against the house, permits, and disposal of demolition debris. Each belongs on its own line, not absorbed into the decking price."
+    },
+    {
+      "q": "How do I price deck railing and stairs?",
+      "a": "Per linear foot of railing and per step for stairs, separately from the deck surface. Railing runs $40 to $120 per linear foot installed depending on material and whether code requires a specific infill pattern; stairs run $100 to $300 per step depending on rise, width and whether a landing is needed. Counting them as part of the deck square footage is how a deck estimate loses margin on anything that is not a simple rectangle."
+    },
+    {
+      "q": "Do I need a permit, and is it billed separately?",
+      "a": "Almost every jurisdiction requires a permit for a deck above a certain height, and most require one regardless when the deck is attached to a dwelling. Bill the permit fee as a pass-through line and the time spent on drawings and inspection separately. The bigger issue is code: guard height, stair geometry and footing depth all vary, and an estimate that does not state which code edition it was priced to is a dispute waiting to happen."
+    },
+    {
+      "q": "What is a normal deposit for a deck build?",
+      "a": "A material deposit of 25 to 40 percent on acceptance is standard, released before lumber is ordered, followed by a progress payment when framing is complete and the balance at final inspection. Special-order items — composite decking in a specific colour, custom railing — often need to be covered in full at order time because they cannot be returned. Show that on the estimate rather than surprising the customer at the deposit request."
+    },
+    {
+      "q": "How do I handle a deck estimate when the customer changes material mid-job?",
+      "a": "Price changes as a written change order before the material is ordered, never after it is installed. Composite versus pressure-treated is the most common switch, and it changes material cost by a factor of two or more plus different fastener and gap requirements. Note on the original estimate that pricing assumes the material listed, and that substitutions are quoted separately."
     }
   ],
   "downloads": {

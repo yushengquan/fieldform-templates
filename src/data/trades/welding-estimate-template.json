@@ -102,6 +102,30 @@
     {
       "q": "Does the Excel version calculate the deposit and balance automatically?",
       "a": "Yes. Enter your quantity and rate per line, and the subtotal, 50% deposit and balance due update automatically. The tax rate cell is left blank — enter your state's rate only if your services are taxable."
+    },
+    {
+      "q": "How do you charge for welding: per hour, per inch, or per job?",
+      "a": "Shop work is usually quoted per job or per piece, with the hours calculated from deposition rate and joint length rather than guessed. Mobile and repair work is charged hourly plus a callout fee, because travel and setup dominate. Per-inch pricing exists for pipeline and structural work where the joint is standardised. A defensible estimate shows the basis: joint type, length, process, and hours, then the rate."
+    },
+    {
+      "q": "What should a welding estimate include besides labour and electrode?",
+      "a": "Consumables beyond the electrode are usually the difference between a profitable and a losing bid: shielding gas, grinding discs, cut-off wheels, wire brushes, anti-spatter, and any preheat fuel. On stainless and aluminium, add purging gas and pickling paste. On structural work, add inspection costs if third-party testing is required. A separate consumables line set at 8 to 15 percent of labour is common practice."
+    },
+    {
+      "q": "How much should I add for a mobile welding callout?",
+      "a": "A callout usually combines a trip fee with a minimum billed time. Typical trip fees run $75 to $200 depending on distance, with a two-hour minimum on site. The minimum matters more than the trip fee: a 20-minute field repair that consumed three hours of driving and setup should not be billed at 20 minutes. Show the minimum as its own line so the customer can see what they are paying for."
+    },
+    {
+      "q": "Do I need to include welding procedure and certification costs in the estimate?",
+      "a": "If the customer or the applicable code requires a qualified procedure, yes. Writing and qualifying a WPS/PQR costs money, and welder certification is separate. On structural jobs under AWS D1.1 this is routine; on repairs it is usually not required. State on the estimate whether the price includes procedure qualification, welder certification or third-party inspection, because each is a real cost that customers routinely assume is included."
+    },
+    {
+      "q": "How do I price a job when I cannot see the joint before quoting?",
+      "a": "Quote it as time and materials with a not-to-exceed figure, and say so on the estimate. Give the inspection and preparation as a separate priced step so the customer can stop after it if the condition changes the scope. This protects both sides: the estimate is not a guess, and the customer is not surprised by a change order on the first day of work."
+    },
+    {
+      "q": "What is a typical deposit and payment schedule for a fabrication job?",
+      "a": "Material deposit on acceptance, progress payment when the assembly is complete but not yet finished, and the balance on delivery or installation. On jobs requiring mill certificates or special-order steel, the deposit often covers the full material cost because the material cannot be returned. Showing the schedule on the estimate, not just on the invoice, is what stops the payment conversation from starting at the end of the job."
     }
   ],
   "downloads": {

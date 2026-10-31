@@ -106,6 +106,30 @@
     {
       "q": "Is this legal or tax advice?",
       "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    },
+    {
+      "q": "How do you calculate how much tile to order?",
+      "a": "Measure the area, add the waste factor for the layout, then round up to full boxes. Straight lay in a rectangular room needs 10 percent; diagonal needs 15 percent; herringbone and chevron need 20 to 25. Large-format tile and multiple dye lots each add a further 5 percent. Order all tile for one room from a single dye lot — a box from a different lot will not match, and no waste factor protects you from that."
+    },
+    {
+      "q": "What does a tile setter charge per square foot?",
+      "a": "Installation labour typically runs $4 to $12 per square foot for floor tile and $7 to $20 for wall tile, with the range driven by tile size, layout complexity, substrate condition and whether waterproofing is required. Mosaic and large-format tile sit at the top of the range because they are slow. Heated floors, niche framing and curbless shower conversions are usually priced as separate line items rather than folded into the square-foot rate."
+    },
+    {
+      "q": "Should waterproofing be a separate line on the estimate?",
+      "a": "Yes, and it is the line customers most often ask about, because until a shower leaks they do not see the value. Show the membrane, the coverage area, and whether the substrate was prepared first. On a curbless or steam shower, waterproofing and slope work can exceed the cost of the tile itself. Bundling it into a generic install rate hides the work and invites a request to remove it."
+    },
+    {
+      "q": "How do I price demolition of existing tile?",
+      "a": "Per square foot, separately from installation, because it is unpredictable. $2 to $5 per square foot is typical for floor tile over a sound substrate; considerably more when the tile is set in a thick mortar bed, bonded to a slab, or when the substrate will not survive removal. Always state on the estimate that the price assumes the substrate is reusable, and that replacement is billed as a change order."
+    },
+    {
+      "q": "What payment schedule is normal for a tiling job?",
+      "a": "Deposit on acceptance covering material, progress payment when tiling is complete but before grout, balance on final clean and walkthrough. On a bathroom remodel the deposit typically covers tile and membrane, which is the majority of the material cost. Tying each payment to a milestone the customer can see — membrane installed, tile set, grouted and cleaned — makes the schedule easy to accept."
+    },
+    {
+      "q": "How do I handle a customer-supplied tile job?",
+      "a": "Quote labour only, and state two things on the estimate: that you are not responsible for the quantity supplied, and that tile breakage, shading variation and dye-lot mismatch are the customer's risk. Also set a rate for time lost to insufficient quantity, because the second trip to collect more tile after the customer under-ordered is common and unpaid unless it was priced in advance."
     }
   ],
   "downloads": {
