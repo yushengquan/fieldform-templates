@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Roofing Calculator — Squares, Bundles, Underlayment';
+const description = 'Free roofing calculator: footprint and pitch in - shingle squares, bundles, underlayment rolls, ridge cap and nails out, with a material cost estimate. Includes pitch multipliers.';
+const canonical = `${siteUrl}/roofing-calculator/`;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:860px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Roofing calculator</h1>
+      <p style="font-size:17px;color:var(--muted);">Footprint plus pitch gives the actual roof area — which is always larger than the floor plan. From there: squares, shingle bundles, underlayment, ridge cap and nails.</p>
+    </div>
+
+    <div style="margin-top:26px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Footprint length (ft)
+          <input id="len" type="number" value="40" min="2" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Footprint width (ft)
+          <input id="wid" type="number" value="28" min="2" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Roof pitch
+          <select id="pitch" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="1.054">4/12 (walkable)</option>
+            <option value="1.083">5/12</option>
+            <option value="1.118" selected>6/12 (common)</option>
+            <option value="1.158">7/12</option>
+            <option value="1.202">8/12</option>
+            <option value="1.25">9/12</option>
+            <option value="1.302">10/12</option>
+            <option value="1.414">12/12 (45°)</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Ridge + hip length (ft)
+          <input id="ridge" type="number" value="40" min="0" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Waste
+          <select id="waste" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="0.10">10% (simple gable)</option>
+            <option value="0.15">15% (hips, valleys)</option>
+            <option value="0.20">20% (complex, many penetrations)</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Bundles per square
+          <input id="bps" type="number" value="3" min="1" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 0;">Footprint is the building outline, not the roof area. Multiply by the pitch factor to get true roof area.</p>
+    </div>
+
+    <div id="out" style="margin-top:22px;"></div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Why the roof is bigger than the floor plan</h2>
+    <p style="font-size:15.5px;line-height:1.8;">A sloped roof covers more surface than the footprint beneath it. The pitch multiplier converts one to the other: a 4/12 pitch adds about 5%, a 6/12 about 12%, an 8/12 about 20%, and a 12/12 roof is 41% larger than the plan. The multiplier comes from the secant of the roof angle, which is why the number climbs faster as the pitch steepens.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Roofing is then measured in squares — one square is 100 square feet of finished roof. Shingles are sold by the bundle, conventionally three bundles to a square, though this varies by product and is printed on the wrapper. Underlayment is sold in rolls covering roughly 400 square feet, and nails run about 320 per square for a standard installation.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Waste is not the same at every pitch</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Simple gable, 10%:</strong> two planes and few cuts. Most waste comes from the starter course and the ridge.</li>
+      <li><strong>Hips and valleys, 15%:</strong> every hip and valley generates cut-off material that cannot be reused on another plane.</li>
+      <li><strong>Complex roofs, 20%:</strong> dormers, multiple valleys, skylights and pipe penetrations. Cheap to over-order, expensive to run short mid-job.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Turn the takeoff into a quote</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Squares are the unit customers compare on, so show them, but bill on the lines that actually hold margin: tear-off and disposal, decking repair, underlayment, shingles, ridge and hip cap, flashing, ventilation and penetration boots. The free <a href="/templates/roofer-estimate-template/" style="color:var(--blue);font-weight:600;">roofer estimate template</a> has those rows set up, and the <a href="/templates/roofer-estimate-template/#deep-dive" style="color:var(--blue);font-weight:600;">roofing cost breakdown</a> explains each one.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Pitch multipliers are the standard geometric values (secant of the pitch angle). Coverage figures follow common manufacturer packaging and should be confirmed against the product you buy. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a>.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var prices = { bundle: 38, underlay: 95, ridge: 22, nails: 6 };
+      function val(id, dflt) {
+        var el = document.getElementById(id);
+        if (!el) return dflt;
+        var v = parseFloat(el.value);
+        return isNaN(v) ? dflt : v;
+      }
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+      function calc() {
+        var L = Math.max(val('len', 0), 0), W = Math.max(val('wid', 0), 0);
+        var pitch = val('pitch', 1.118);
+        var ridge = Math.max(val('ridge', 0), 0);
+        var waste = val('waste', 0.10);
+        var bps = Math.max(val('bps', 3), 1);
+
+        var footprint = L * W;
+        var roofArea = footprint * pitch;
+        var withWaste = roofArea * (1 + waste);
+        var squares = Math.ceil(withWaste / 100);
+        var bundles = Math.ceil(squares * bps);
+        var underlayRolls = Math.ceil(withWaste / 400);
+        var ridgeBundles = ridge > 0 ? Math.ceil(ridge / 35) : 0;
+        var nailBoxes = Math.ceil((squares * 320) / 1000);
+
+        var cost = bundles * prices.bundle + underlayRolls * prices.underlay + ridgeBundles * prices.ridge + nailBoxes * prices.nails;
+
+        var rows = [
+          ['Footprint', footprint.toFixed(0) + ' sq ft'],
+          ['Roof area at selected pitch', roofArea.toFixed(0) + ' sq ft'],
+          ['With ' + Math.round(waste * 100) + '% waste', withWaste.toFixed(0) + ' sq ft'],
+          ['Squares', squares + ' squares'],
+          ['Shingle bundles', bundles + ' bundles (' + bps + '/square)'],
+          ['Underlayment', underlayRolls + ' roll(s) ≈ ' + (underlayRolls * 400).toLocaleString() + ' sq ft'],
+          ['Ridge / hip cap', ridgeBundles > 0 ? ridgeBundles + ' bundle(s) for ' + ridge + ' ft' : 'not included'],
+          ['Nails', nailBoxes + ' × 1,000'],
+          ['Estimated material cost', money(cost)]
+        ];
+
+        var html = '<div style="padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">' +
+          '<h2 style="font-size:18px;margin:0 0 12px;">Your material takeoff</h2>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:14.5px;">';
+        rows.forEach(function (r, i) {
+          var strong = i === rows.length - 1 ? 'font-weight:700;border-top:2px solid var(--line);' : 'border-top:1px solid var(--line);';
+          html += '<tr><td style="padding:9px 0;' + strong + '">' + r[0] + '</td><td style="padding:9px 0;text-align:right;' + strong + '">' + r[1] + '</td></tr>';
+        });
+        html += '</table><p style="font-size:13px;color:var(--muted);margin:12px 0 0;">Cost uses placeholder prices ($' + prices.bundle + '/bundle, $' + prices.underlay + '/underlayment roll, $' + prices.ridge + '/ridge bundle, $' + prices.nails + '/1,000 nails). Labour, tear-off and disposal are not included.</p></div>';
+        document.getElementById('out').innerHTML = html;
+      }
+      ['len', 'wid', 'pitch', 'ridge', 'waste', 'bps'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); }
+      });
+      calc();
+    })();
+  </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many squares is a 40 by 28 foot roof?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The footprint is 1,120 square feet. At a 6/12 pitch the multiplier is 1.118, so the roof area is about 1,252 square feet. Adding 10 percent waste gives 12.5 squares, which is 13 squares — about 39 bundles of shingles.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How many bundles of shingles are in a square?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Three bundles per square is the standard for most asphalt shingles, though some products use four or five. The coverage is printed on the wrapper — check it before ordering, because a four-bundle product ordered at three bundles will leave you short.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I convert roof pitch to roof area?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Multiply the footprint by the pitch factor: 4/12 is 1.054, 6/12 is 1.118, 8/12 is 1.202, 10/12 is 1.302 and 12/12 is 1.414. The factor is the secant of the roof angle and always exceeds 1 because a sloped surface is larger than its projection.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much waste should I allow on a roof?',
+        acceptedAnswer: { '@type': 'Answer', text: '10 percent for a simple gable roof, 15 percent where there are hips and valleys, and 20 percent for a complex roof with dormers, multiple valleys or many penetrations. Running short mid-job costs far more than the waste.' },
+      },
+    ],
+  })} />
+</BaseLayout>

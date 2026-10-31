@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Concrete Calculator — Yards, Bags and Rebar';
+const description = 'Free concrete calculator for slabs, footings, columns and post holes: cubic yards, 60 and 80 lb bags, rebar and gravel base, with a material cost estimate.';
+const canonical = `${siteUrl}/concrete-calculator/`;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:860px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Concrete calculator</h1>
+      <p style="font-size:17px;color:var(--muted);">Slabs, footings, columns and post holes — in cubic yards, in bags, or both. Plus the gravel base and rebar that are usually forgotten until the truck is already on site.</p>
+    </div>
+
+    <div style="margin-top:26px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">
+      <label style="font-size:14px;font-weight:600;display:block;margin-bottom:10px;">What are you pouring?
+        <select id="shape" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+          <option value="slab">Slab / pad (rectangular)</option>
+          <option value="footing">Footing (trench)</option>
+          <option value="column">Column / post hole (round)</option>
+        </select>
+      </label>
+
+      <div id="rectInputs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Length (ft)
+          <input id="len" type="number" value="10" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Width (ft)
+          <input id="wid" type="number" value="10" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+      </div>
+
+      <div id="roundInputs" style="display:none;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Hole diameter (in)
+          <input id="dia" type="number" value="12" min="4" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Number of holes
+          <input id="holes" type="number" value="1" min="1" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:16px;">
+        <label style="font-size:14px;font-weight:600;">Thickness / depth (in)
+          <input id="thick" type="number" value="4" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Waste / over-order
+          <select id="waste" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="0.05" selected>5% (formed slab)</option>
+            <option value="0.10">10% (footings, uneven subgrade)</option>
+            <option value="0">none</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Gravel base depth (in)
+          <input id="gravel" type="number" value="4" min="0" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 0;">Slabs and footings use length × width. Post holes and columns use a round footprint instead. Ready-mix is ordered in cubic yards; bagged concrete mixes on site.</p>
+    </div>
+
+    <div id="out" style="margin-top:22px;"></div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">The conversion that matters</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Concrete is ordered in cubic yards. One cubic yard is 27 cubic feet, so the calculation is length × width × thickness in feet, divided by 27. A 10 by 10 foot slab at 4 inches thick is 33.3 cubic feet, which is 1.23 cubic yards — order 1.5 yards and you will not run short at the edge.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Bagged concrete is measured differently: an 80 lb bag yields about 0.6 cubic feet, a 60 lb bag about 0.45. That means roughly 45 bags of 80 lb mix per cubic yard. Bagged mix makes sense up to about a cubic yard; beyond that ready-mix is cheaper and faster, and the truck will not leave you with a wheelbarrow and a deadline.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">What the calculator adds that people forget</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Gravel base.</strong> A 4 inch compacted base under a slab adds little cost and prevents the crack that ruins the job.</li>
+      <li><strong>Over-order.</strong> Slabs formed tight need about 5% extra; footings on uneven subgrade need 10%. Never order exactly to the calculated figure.</li>
+      <li><strong>Rebar or mesh.</strong> Not interchangeable: mesh controls shrinkage cracking, rebar adds structural capacity. A slab on grade typically uses one or the other, not both.</li>
+      <li><strong>Finishing and curing</strong> are labour, not material, and belong on the estimate as their own line.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Billing the pour</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Concrete work is usually billed by volume for material, by square foot for finishing, and separately for formwork removal and site clean-up. The free <a href="/templates/concrete-invoice-template/" style="color:var(--blue);font-weight:600;">concrete invoice template</a> has those rows pre-filled in PDF, Word and Excel, with the Excel version calculating tax only on the material rows.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Yields follow standard packaged concrete figures (80 lb ≈ 0.6 cu ft, 60 lb ≈ 0.45 cu ft). Ready-mix suppliers usually have a minimum order and a short-load charge — confirm both before ordering. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a>.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var prices = { yard: 165, bag80: 7, gravel: 45, rebar: 18 };
+      function val(id, dflt) {
+        var el = document.getElementById(id);
+        if (!el) return dflt;
+        var v = parseFloat(el.value);
+        return isNaN(v) ? dflt : v;
+      }
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+
+      function toggleShape() {
+        var shape = document.getElementById('shape').value;
+        var round = shape === 'column';
+        document.getElementById('roundInputs').style.display = round ? 'grid' : 'none';
+        document.getElementById('rectInputs').style.display = round ? 'none' : 'grid';
+        calc();
+      }
+
+      function calc() {
+        var shape = document.getElementById('shape').value;
+        var T = Math.max(val('thick', 4), 1) / 12;
+        var waste = val('waste', 0.05);
+        var gravelDepth = Math.max(val('gravel', 0), 0) / 12;
+        var cuFt = 0, area = 0, gravelCuFt = 0;
+
+        if (shape === 'column') {
+          var diaFt = Math.max(val('dia', 12), 4) / 12;
+          var holes = Math.max(val('holes', 1), 1);
+          var r = diaFt / 2;
+          area = Math.PI * r * r * holes;
+          cuFt = area * T;
+          gravelCuFt = area * (gravelDepth || 0.5);
+          area = area;
+        } else {
+          var L = Math.max(val('len', 0), 0);
+          var W = Math.max(val('wid', 0), 0);
+          area = L * W;
+          cuFt = area * T;
+          gravelCuFt = area * gravelDepth;
+        }
+
+        var withWaste = cuFt * (1 + waste);
+        var yards = withWaste / 27;
+        var bags80 = Math.ceil(withWaste / 0.6);
+        var gravelYards = gravelCuFt / 27;
+        var rebarCount = shape === 'column' ? Math.max(val('holes', 1), 1) * 3 : Math.ceil(Math.max(area, 1) / 20);
+
+        var readyMixCost = yards * prices.yard;
+        var bagCost = bags80 * prices.bag80;
+        var gravelCost = gravelYards * prices.gravel;
+        var rebarCost = rebarCount * prices.rebar;
+
+        var rows = [
+          ['Volume needed', withWaste.toFixed(2) + ' cu ft'],
+          ['Cubic yards (ready-mix)', yards.toFixed(2) + ' yd³'],
+          ['80 lb bags', bags80.toLocaleString() + ' bags'],
+          ['Gravel base', gravelYards > 0 ? gravelYards.toFixed(2) + ' yd³' : 'none'],
+          ['Rebar / mesh', rebarCount + ' pieces'],
+          ['Ready-mix cost', money(readyMixCost)],
+          ['Bagged cost', money(bagCost)],
+          ['Gravel cost', money(gravelCost)],
+          ['Rebar cost', money(rebarCost)]
+        ];
+
+        var html = '<div style="padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">' +
+          '<h2 style="font-size:18px;margin:0 0 12px;">Your concrete list</h2>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:14.5px;">';
+        rows.forEach(function (r, i) {
+          var strong = 'border-top:1px solid var(--line);';
+          html += '<tr><td style="padding:9px 0;' + strong + '">' + r[0] + '</td><td style="padding:9px 0;text-align:right;' + strong + '">' + r[1] + '</td></tr>';
+        });
+        html += '<tr><td style="padding:10px 0;border-top:2px solid var(--line);font-weight:700;">Cheaper option</td>' +
+          '<td style="padding:10px 0;border-top:2px solid var(--line);text-align:right;font-weight:700;">' +
+          (readyMixCost <= bagCost ? 'Ready-mix' : 'Bagged') + '</td></tr>' +
+          '</table><p style="font-size:13px;color:var(--muted);margin:12px 0 0;">Prices are placeholders ($' + prices.yard + '/yd³ ready-mix, $' + prices.bag80 + '/80 lb bag, $' + prices.gravel + '/yd³ gravel, $' + prices.rebar + '/piece). Labour, forms and finishing are not included.</p></div>';
+        document.getElementById('out').innerHTML = html;
+      }
+
+      ['len', 'wid', 'dia', 'holes', 'thick', 'waste', 'gravel', 'shape'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', calc);
+          el.addEventListener('change', id === 'shape' ? toggleShape : calc);
+        }
+      });
+      toggleShape();
+    })();
+  </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many cubic yards of concrete for a 10 by 10 foot slab?',
+        acceptedAnswer: { '@type': 'Answer', text: 'At 4 inches thick the slab is 33.3 cubic feet, which is 1.23 cubic yards. Order 1.5 yards for a formed slab to allow for uneven subgrade and spillage.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How many 80 lb bags of concrete make a yard?',
+        acceptedAnswer: { '@type': 'Answer', text: 'About 45. An 80 lb bag yields roughly 0.6 cubic feet and a cubic yard is 27 cubic feet, so 27 divided by 0.6 gives 45 bags. A 60 lb bag yields about 0.45 cubic feet, so 60 bags to the yard.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is bagged concrete cheaper than ready-mix?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Bagged is cheaper only for very small pours. Beyond about one cubic yard ready-mix is both cheaper and faster once you account for mixing time, and suppliers typically charge a short-load fee below a minimum order.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How deep should a concrete post hole footing be?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Depth is governed by frost line and local code — commonly 36 inches where frost is a factor, with an 8 to 12 inch diameter bell. A 12 inch diameter hole 36 inches deep takes about 2.4 cubic feet, which is four 80 lb bags.' },
+      },
+    ],
+  })} />
+</BaseLayout>

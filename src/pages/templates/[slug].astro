@@ -156,6 +156,31 @@ const relatedTool: Record<string, { href: string; label: string; blurb: string }
     label: 'deck calculator',
     blurb: 'gives you the framing takeoff — boards, joists, posts, footings, stairs and railing — that a square-foot price hides.',
   },
+  'roofer-estimate-template': {
+    href: '/roofing-calculator/',
+    label: 'roofing calculator',
+    blurb: 'converts the footprint and pitch into squares, bundles, underlayment and ridge cap — the units roofing is actually sold in.',
+  },
+  'roofer-invoice-template': {
+    href: '/roofing-calculator/',
+    label: 'roofing calculator',
+    blurb: 'converts the footprint and pitch into squares, bundles, underlayment and ridge cap.',
+  },
+  'painter-estimate-template': {
+    href: '/paint-calculator/',
+    label: 'paint calculator',
+    blurb: 'turns room dimensions and coats into gallons of paint, primer, tape and covers.',
+  },
+  'painter-invoice-template': {
+    href: '/paint-calculator/',
+    label: 'paint calculator',
+    blurb: 'turns room dimensions and coats into gallons of paint, primer, tape and covers.',
+  },
+  'concrete-invoice-template': {
+    href: '/concrete-calculator/',
+    label: 'concrete calculator',
+    blurb: 'converts the pour dimensions into cubic yards, bags, gravel base and rebar.',
+  },
 };
 const authorities = authoritiesFor(trade.trade ?? '', trade.docType ?? '', trade.slug ?? '');
 const reviewedISO = '2026-10-30';
@@ -446,6 +471,14 @@ const howToLd = JSON.stringify({
     )}
   </section>
 
+  {/* 相关工具内链 — 不受 deepDive 是否存在影响，所有工种都能渲染 */}
+  {relatedTool[trade.slug] && (
+    <section class="section wrap" style="padding-top:8px;">
+      <div style="padding:16px 20px;background:var(--soft);border-radius:12px;font-size:14.5px;line-height:1.7;">
+        Working out material for the job first? The <a href={relatedTool[trade.slug].href} style="color:var(--blue);font-weight:600;">{relatedTool[trade.slug].label}</a> {relatedTool[trade.slug].blurb}
+      </div>
+    </section>
+  )}
   {/* 软件推荐卡片 — 只在主页面、且限高流量工种，避免全站铺开显得推销 */}
   {!format && softwareCtaSlugs.includes(trade.slug) && (
     <SoftwareCta kind={tradeKind} tradeLabel={trade.trade} />
@@ -701,11 +734,7 @@ const howToLd = JSON.stringify({
       )}
 
       {/* 相关工具内链 — 工具页与模板页互相导流 */}
-      {relatedTool[trade.slug] && (
-        <p style="margin-top:22px;padding:14px 18px;background:var(--soft);border-radius:10px;font-size:14.5px;line-height:1.7;">
-          Working out material for the job first? The <a href={relatedTool[trade.slug].href} style="color:var(--blue);font-weight:600;">{relatedTool[trade.slug].label}</a> {relatedTool[trade.slug].blurb}
-        </p>
-      )}
+      
       {/* 权威来源 — 可核验性信号，同时给审核方看依据 */}
       <div style="margin-top:32px;padding:18px 22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
         <h3 style="font-size:16px;margin-bottom:8px;">Sources and how this page was compiled</h3>

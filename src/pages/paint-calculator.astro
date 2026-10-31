@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Paint Calculator — Gallons, Primer and Supplies';
+const description = 'Free paint calculator: room dimensions, coats and coverage in - gallons of paint, primer, tape, rollers and drop cloths out, with a material cost estimate. Handles ceilings and trim.';
+const canonical = `${siteUrl}/paint-calculator/`;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:860px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Paint calculator</h1>
+      <p style="font-size:17px;color:var(--muted);">Wall area, coats and coverage in — gallons of paint, primer, tape and covers out. It also explains why the second coat rarely uses the paint you expected.</p>
+    </div>
+
+    <div style="margin-top:26px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Room length (ft)
+          <input id="len" type="number" value="14" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Room width (ft)
+          <input id="wid" type="number" value="12" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Wall height (ft)
+          <input id="hgt" type="number" value="8" min="1" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Doors + windows
+          <input id="open" type="number" value="2" min="0" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Coats
+          <select id="coats" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="1">1 coat</option>
+            <option value="2" selected>2 coats</option>
+            <option value="3">3 coats (colour change)</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Include ceiling?
+          <select id="ceil" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Trim to paint (linear ft)
+          <input id="trim" type="number" value="60" min="0" step="5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Coverage per gallon (sq ft)
+          <input id="cov" type="number" value="350" min="100" step="25" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 0;">An average door or window counts as 20 sq ft. Coverage drops on textured walls and bare drywall — 350 sq ft per gallon is the usual figure for painted interior walls.</p>
+    </div>
+
+    <div id="out" style="margin-top:22px;"></div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">How the gallons are calculated</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Wall area is perimeter times height, minus the openings, plus the ceiling if you are painting it. That area is multiplied by the number of coats, then divided by the coverage per gallon and rounded up to whole gallons. Primer is calculated as one coat at slightly lower coverage, because the job of primer is to seal and it does not spread as far as topcoat.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Trim is treated separately: painting 60 linear feet of baseboard and casing uses far less paint than the square footage suggests, but it needs its own gallon rather than dipping into the wall paint. Roller covers and tape are counted from area and trim length.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Why the second coat never uses what you expect</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Bare or patched drywall</strong> absorbs more than painted drywall — plan on 20–25% more on a first coat over new work.</li>
+      <li><strong>Dark to light colour changes</strong> usually need three coats, not two, and a tinted primer is cheaper than a third coat of topcoat.</li>
+      <li><strong>Textured walls</strong> expose more surface area than the flat calculation assumes; drop coverage to around 250 sq ft per gallon.</li>
+      <li><strong>Touching up later</strong> needs the same sheen and batch, so keep a labelled quart from each colour.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Putting paint on the invoice</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Painters rarely bill material as a guess — the line items are labour by area, material at cost plus a percentage, and separate lines for prep, patching and any trim or ceiling work. The free <a href="/templates/painter-estimate-template/" style="color:var(--blue);font-weight:600;">painter estimate template</a> already separates those, and the <a href="/templates/painter-estimate-template/#deep-dive" style="color:var(--blue);font-weight:600;">painting cost breakdown</a> explains the rates.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Coverage figures are typical published values for interior latex paint and primer. Always check the label on the product you buy — coverage varies by sheen, colour and substrate. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a>.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var prices = { paint: 42, primer: 32, tape: 6, cover: 9 };
+      function val(id, dflt) {
+        var el = document.getElementById(id);
+        if (!el) return dflt;
+        var v = parseFloat(el.value);
+        return isNaN(v) ? dflt : v;
+      }
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+      function calc() {
+        var L = Math.max(val('len', 0), 0), W = Math.max(val('wid', 0), 0), H = Math.max(val('hgt', 0), 0);
+        var openings = Math.max(val('open', 0), 0);
+        var coats = Math.max(val('coats', 2), 1);
+        var includeCeiling = val('ceil', 1) === 1;
+        var trim = Math.max(val('trim', 0), 0);
+        var cov = Math.max(val('cov', 350), 100);
+
+        var perimeter = 2 * (L + W);
+        var wallArea = Math.max(perimeter * H - openings * 20, 0);
+        var ceilArea = includeCeiling ? L * W : 0;
+        var wallCeil = wallArea + ceilArea;
+
+        var paintSqFt = wallCeil * coats;
+        var gallons = Math.ceil(paintSqFt / cov);
+        var primerGallons = Math.ceil(wallCeil * 1.25 / cov);
+        var trimGallons = trim > 0 ? Math.ceil(trim / 350) : 0;
+        var tapeRolls = Math.max(Math.ceil(perimeter / 60), 1);
+        var covers = Math.max(Math.ceil(wallCeil / 400), 1);
+
+        var cost = (gallons + trimGallons) * prices.paint + primerGallons * prices.primer + tapeRolls * prices.tape + covers * prices.cover;
+
+        var rows = [
+          ['Wall area', wallArea.toFixed(0) + ' sq ft'],
+          ['Ceiling area', includeCeiling ? ceilArea.toFixed(0) + ' sq ft' : 'not included'],
+          ['Total surface', wallCeil.toFixed(0) + ' sq ft'],
+          ['Coats', coats],
+          ['Wall + ceiling paint', gallons + ' gallon(s)'],
+          ['Trim paint', trimGallons > 0 ? trimGallons + ' gallon(s) for ' + trim + ' ft' : 'not included'],
+          ['Primer', primerGallons + ' gallon(s)'],
+          ['Painter tape', tapeRolls + ' roll(s)'],
+          ['Drop cloths / covers', covers],
+          ['Estimated material cost', money(cost)]
+        ];
+
+        var html = '<div style="padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">' +
+          '<h2 style="font-size:18px;margin:0 0 12px;">Your paint list</h2>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:14.5px;">';
+        rows.forEach(function (r, i) {
+          var strong = i === rows.length - 1 ? 'font-weight:700;border-top:2px solid var(--line);' : 'border-top:1px solid var(--line);';
+          html += '<tr><td style="padding:9px 0;' + strong + '">' + r[0] + '</td><td style="padding:9px 0;text-align:right;' + strong + '">' + r[1] + '</td></tr>';
+        });
+        html += '</table><p style="font-size:13px;color:var(--muted);margin:12px 0 0;">Cost uses placeholder prices ($' + prices.paint + '/gallon paint, $' + prices.primer + '/gallon primer, $' + prices.tape + '/roll tape, $' + prices.cover + '/cover). Labour and prep are not included.</p></div>';
+        document.getElementById('out').innerHTML = html;
+      }
+      ['len', 'wid', 'hgt', 'open', 'coats', 'ceil', 'trim', 'cov'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); }
+      });
+      calc();
+    })();
+  </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many gallons of paint for a 14 by 12 foot room?',
+        acceptedAnswer: { '@type': 'Answer', text: 'With 8 foot walls and two openings, the wall area is about 416 square feet; adding the ceiling brings it to 584. At 350 square feet per gallon and two coats that is roughly 3.4 gallons, so buy 4 gallons of wall paint plus about 2 gallons of primer.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does primer count as a coat of paint?',
+        acceptedAnswer: { '@type': 'Answer', text: 'No. Primer seals the surface and improves adhesion but is not a finish coat, so it does not replace one of your two topcoats. On bare drywall or a colour change a tinted primer often saves an entire third coat of topcoat.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much paint does a second coat use?',
+        acceptedAnswer: { '@type': 'Answer', text: 'On a previously painted wall a second coat generally uses slightly less than the first, but on bare or patched drywall it can use 20 to 25 percent more because the surface absorbs unevenly. Budget by area and coats rather than by the the first coat consumption.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much does a gallon of paint cover?',
+        acceptedAnswer: { '@type': 'Answer', text: 'About 350 square feet of smooth interior wall per gallon for latex paint, less for primer or textured surfaces - often 250 square feet on heavy texture. The figure on the can is a laboratory number measured on a smooth, sealed surface.' },
+      },
+    ],
+  })} />
+</BaseLayout>
