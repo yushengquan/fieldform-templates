@@ -7,18 +7,79 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "DOT / License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Move-From Address", "Move-To Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "DOT / License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Move-From Address",
+    "Move-To Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Balance due upon completion of the move. A 25% deposit was due at booking; the remainder is payable on delivery.",
   "notes": "Thank you for your business. Final charges reflect actual crew hours and services performed; any difference from the quote is itemized below.",
   "lineItems": [
-    {"code": "CREW", "description": "Crew Labor (2 movers, per hour)", "defaultQty": 8, "unit": "hr", "sampleRate": 60.0, "taxable": true},
-    {"code": "TRUCK", "description": "Truck & Fuel", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "STAI", "description": "Stairs / Walk-Up Surcharge", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
-    {"code": "WRAP", "description": "Furniture Wrap & Padding", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
-    {"code": "VAL", "description": "Insurance Valuation", "defaultQty": 1, "unit": "job", "sampleRate": 200.0, "taxable": false},
-    {"code": "DISA", "description": "Disassembly / Reassembly", "defaultQty": 1, "unit": "job", "sampleRate": 140.0, "taxable": true}
+    {
+      "code": "CREW",
+      "description": "Crew Labor (2 movers, per hour)",
+      "defaultQty": 8,
+      "unit": "hr",
+      "sampleRate": 60.0,
+      "taxable": true
+    },
+    {
+      "code": "TRUCK",
+      "description": "Truck & Fuel",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "STAI",
+      "description": "Stairs / Walk-Up Surcharge",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 90.0,
+      "taxable": true
+    },
+    {
+      "code": "WRAP",
+      "description": "Furniture Wrap & Padding",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "VAL",
+      "description": "Insurance Valuation",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200.0,
+      "taxable": false
+    },
+    {
+      "code": "DISA",
+      "description": "Disassembly / Reassembly",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 140.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +88,79 @@
     "Balance-on-delivery terms standard for moving invoices"
   ],
   "faqs": [
-    {"q": "What should I include on a moving company invoice?", "a": "At minimum: your business name and DOT number, the client, move-from and move-to addresses, dated line items (crew labor, truck and fuel, surcharges, packing, valuation), tax, and a total due. If the final charges differ from the quote, itemize the difference. Interstate moves are regulated by FMCSA."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your moving authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a moving company invoice?",
+      "a": "At minimum: your business name and DOT number, the client, move-from and move-to addresses, dated line items (crew labor, truck and fuel, surcharges, packing, valuation), tax, and a total due. If the final charges differ from the quote, itemize the difference. Interstate moves are regulated by FMCSA."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your moving authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your moving authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your moving authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Moving invoices: hourly locally, weight-based interstate",
+    "sub": "Local moves are billed by the hour and interstate moves are billed by weight and distance. Getting those two models onto one invoice template is where residential moving invoices go wrong.",
+    "blocks": [
+      {
+        "h3": "Local moves: hours, crew size and the clock",
+        "paras": [
+          "Local moving is billed hourly, with a rate that depends on crew size — a two-person crew and truck typically runs $120 to $200 per hour, three to four people $180 to $280. The clock usually starts on arrival at the origin and ends when the truck leaves the destination, with travel time between the two included.",
+          "The invoice must show the arrival time, the departure time, the crew size billed, and the hourly rate used. Disputes on local moves are almost always about hours, and the only defence is a timestamped record that the customer saw at the time — a signed bill of lading with start and finish times, not a reconstruction written afterwards."
+        ]
+      },
+      {
+        "h3": "Interstate moves: weight, distance and the estimate type",
+        "paras": [
+          "Interstate household goods moves are priced on weight and distance, and regulated by the FMCSA. The estimate type determines how much the final invoice can differ: a binding estimate fixes the price, a non-binding estimate is an approximation and the final bill is based on actual weight, and a not-to-exceed estimate caps the bill at the quoted figure even if the shipment weighs more.",
+          "The invoice has to state which type it is, the actual weight from a certified scale, the tariff rate, and any accessorial charges. A customer who signed a non-binding estimate and receives a bill 40 percent higher is legally owed an explanation and a reweigh — and the paperwork is what establishes whether they were told."
+        ],
+        "list": [
+          "Actual weight and the certified scale ticket reference",
+          "Tariff or rate per hundredweight and distance",
+          "Accessorials: stairs, long carry, shuttle, packing, appliance service",
+          "Valuation coverage selected, and its cost",
+          "Whether the estimate was binding, non-binding or not-to-exceed"
+        ]
+      },
+      {
+        "h3": "Valuation is not insurance",
+        "paras": [
+          "The free coverage that comes with an interstate move is Released Value — typically 60 cents per pound per article, which values a 10-pound lamp at $6. Full Value Protection costs extra and repairs, replaces or pays current market value for lost or damaged items. Customers routinely believe they are insured when they are on Released Value.",
+          "Put the selected valuation on the invoice with its cost, even when the customer chose the free option. That single line prevents the worst post-move conversation a mover can have."
+        ]
+      },
+      {
+        "h3": "Materials and packing as separate lines",
+        "paras": [
+          "Boxes, tape, stretch wrap, mattress bags and wardrobe cartons are 5 to 15 percent of a typical local move. Full packing service is much more — often 30 to 50 percent on top of the transport charge — because it is labour. Both belong on the invoice as their own lines with quantities, not folded into an hourly total."
+        ]
+      }
+    ]
+  }
 }

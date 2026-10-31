@@ -128,5 +128,44 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Invoicing photography: the licence is the product",
+    "sub": "A photographer does not sell photographs. They sell a licence to use photographs, and an invoice that does not state the licence terms is an invoice that has given away the most valuable thing in the transaction.",
+    "blocks": [
+      {
+        "h3": "Session fee, prints and licensing are three different sales",
+        "paras": [
+          "A session fee pays for the photographer's time and the shoot. Prints and digital files are products. Usage licensing — the right to publish the images commercially, for a defined period, in a defined territory — is where the real money sits in commercial work, and it is the line most often left off a plain invoice.",
+          "On an invoice, these should be separate lines with separate amounts whenever the answer to 'what is this for?' differs. A wedding client gets personal-use rights as part of the package; a brand gets a defined licence with a term and a territory. Writing the scope on the invoice protects both sides later."
+        ]
+      },
+      {
+        "h3": "The retainer is not a deposit",
+        "paras": [
+          "A retainer — usually 50 percent — buys the date and reserves it. It is normally non-refundable because the photographer has given up the ability to book another client that day. A deposit, by contrast, is generally refundable and is applied to the final balance. Calling a non-refundable retainer a 'deposit' in the paperwork is how photographers end up refunding it.",
+          "Invoice the retainer separately, label it a retainer, and state the cancellation terms on the same document. The remaining balance is then invoiced after delivery, or on a stated date before it."
+        ]
+      },
+      {
+        "h3": "Licensing lines worth putting on the invoice",
+        "paras": [
+          "For commercial clients, the licence is the line that needs detail: usage (digital, print, out-of-home), term (one year is typical, perpetual costs more), territory (single country, North America, worldwide), and exclusivity (exclusive in a category costs substantially more)."
+        ],
+        "list": [
+          "Personal use — prints and files for the client's own use",
+          "Commercial digital — website and social, 12 months, named territory",
+          "Print / advertising — campaign use, often priced per placement",
+          "Exclusivity — the client's competitors cannot license the same images",
+          "Extended term or territory — a priced upgrade, not a favour"
+        ]
+      },
+      {
+        "h3": "Delivery terms belong on the invoice too",
+        "paras": [
+          "State when the gallery is delivered, how long it stays online, and what happens after that. A common structure: delivery within 30 days, gallery live for 90 days, archival fee if it needs to be restored later. Putting it on the invoice, rather than leaving it in an email, means the client has actually read it."
+        ]
+      }
+    ]
+  }
 }

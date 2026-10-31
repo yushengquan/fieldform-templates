@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Invoice #", "Date", "Payment Terms", "Due Date"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Invoice #",
+    "Date",
+    "Payment Terms",
+    "Due Date"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days of invoice date. Late fee of 1.5% per month applies after the due date.",
   "notes": "Thank you for your business. This invoice covers work completed to date; change orders are billed separately.",
   "lineItems": [
-    {"code": "MATL", "description": "Materials (actual)", "defaultQty": 1, "unit": "job", "sampleRate": 4800.0, "taxable": true},
-    {"code": "SUBC", "description": "Subcontractors (electrical / plumbing / HVAC)", "defaultQty": 1, "unit": "job", "sampleRate": 3200.0, "taxable": true},
-    {"code": "LABOR", "description": "Labor (crew)", "defaultQty": 80, "unit": "hr", "sampleRate": 55.0, "taxable": true},
-    {"code": "PERMIT", "description": "Permits & Inspections", "defaultQty": 1, "unit": "job", "sampleRate": 450.0, "taxable": false},
-    {"code": "EQUIP", "description": "Equipment Rental", "defaultQty": 1, "unit": "job", "sampleRate": 650.0, "taxable": true},
-    {"code": "CLEAN", "description": "Site Prep & Cleanup", "defaultQty": 1, "unit": "job", "sampleRate": 380.0, "taxable": true}
+    {
+      "code": "MATL",
+      "description": "Materials (actual)",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 4800.0,
+      "taxable": true
+    },
+    {
+      "code": "SUBC",
+      "description": "Subcontractors (electrical / plumbing / HVAC)",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 3200.0,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Labor (crew)",
+      "defaultQty": 80,
+      "unit": "hr",
+      "sampleRate": 55.0,
+      "taxable": true
+    },
+    {
+      "code": "PERMIT",
+      "description": "Permits & Inspections",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 450.0,
+      "taxable": false
+    },
+    {
+      "code": "EQUIP",
+      "description": "Equipment Rental",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 650.0,
+      "taxable": true
+    },
+    {
+      "code": "CLEAN",
+      "description": "Site Prep & Cleanup",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 380.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating tax formulas in Excel (just enter your state rate)",
@@ -27,15 +87,99 @@
     "Change-order note keeps scope changes billable"
   ],
   "faqs": [
-    {"q": "What should I include on a general contractor invoice?", "a": "At minimum: your business name and license number, the client and job-site address, dated line items for materials, subcontractors, labor, permits, equipment and cleanup, tax, and a total due. Most states require a contractor license number on client-facing documents."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate tax automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a general contractor invoice?",
+      "a": "At minimum: your business name and license number, the client and job-site address, dated line items for materials, subcontractors, labor, permits, equipment and cleanup, tax, and a total due. Most states require a contractor license number on client-facing documents."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate tax automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if you are not required to charge sales tax."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating tax and totals"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating tax and totals"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "How general contractors bill without financing the job",
+    "sub": "A GC who bills a single lump sum at the end of a project has lent the client the entire cost of construction. Progress billing exists so that does not happen.",
+    "blocks": [
+      {
+        "h3": "Progress billing and draws",
+        "paras": [
+          "Commercial and larger residential work is billed in draws, each covering work completed to a defined point. The invoice shows the contract value, the value of work completed this period, the cumulative completed value, retainage held, and the amount now due. This is the structure of the industry-standard AIA G702 application for payment, and even a simplified version of it is recognised by lenders and owners.",
+          "The critical discipline is billing against measurable milestones — framing complete, dry-in, rough trades inspected — rather than against dates. A draw tied to a date invites the argument that the work is not done yet; a draw tied to inspection completion does not."
+        ],
+        "table": {
+          "headers": [
+            "Line",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "Contract sum",
+              "The agreed total for the project"
+            ],
+            [
+              "Completed this period",
+              "Value of work done since the last draw"
+            ],
+            [
+              "Total completed to date",
+              "Cumulative value, so the owner can audit"
+            ],
+            [
+              "Retainage held",
+              "Percentage withheld until substantial completion"
+            ],
+            [
+              "Amount due now",
+              "Completed value minus retainage minus previous payments"
+            ]
+          ]
+        }
+      },
+      {
+        "h3": "Retainage and lien waivers",
+        "paras": [
+          "Retainage of 5 to 10 percent is normal on commercial work, held until substantial completion and sometimes until final payment. It belongs on the invoice as a visible deduction rather than being netted out of the total, so the owner can see both the value earned and the value held back.",
+          "Most owners and lenders require a lien waiver with each payment — either conditional (effective when the payment clears) or unconditional (effective on signing). Send the conditional waiver with the invoice and the unconditional one only on receipt of funds. Sending an unconditional waiver before payment has cleared is how a contractor loses leverage on a slow payer."
+        ]
+      },
+      {
+        "h3": "Change orders are not invoices",
+        "paras": [
+          "A change order amends the contract; the invoice bills it. Keep them separate documents with their own numbering, and reference the change order number on the invoice line that bills it. An invoice that silently absorbs extra work into a larger total is an invoice the owner's accounts payable team will query — and every query is a delay."
+        ]
+      },
+      {
+        "h3": "When the GC becomes the payable",
+        "paras": [
+          "GCs also receive invoices from subcontractors, and the same rules apply in reverse: pay against the subcontract value, withhold retainage, collect a lien waiver, and issue a 1099-NEC at year end for any unincorporated subcontractor paid $600 or more. The paperwork discipline is symmetric — the GC who demands clean invoices from subs has to issue them as well."
+        ]
+      }
+    ]
+  }
 }

@@ -7,18 +7,79 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "DOT / License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Move-From Address", "Move-To Address", "Phone", "Email"],
-  "invoiceFields": ["Quote #", "Date", "Valid Until", "Payment Terms"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "DOT / License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Move-From Address",
+    "Move-To Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Quote #",
+    "Date",
+    "Valid Until",
+    "Payment Terms"
+  ],
   "paymentTerms": "Net 14 — payment due within 14 days of acceptance. Deposit reserves your moving date and is refundable up to 7 days before the move.",
   "notes": "Thank you for your business. Quote valid for 30 days. A 25% deposit is due at booking; the balance is due upon completion. Binding vs. non-binding estimates per FMCSA rules.",
   "lineItems": [
-    {"code": "CREW", "description": "Crew Labor (2 movers, per hour)", "defaultQty": 8, "unit": "hr", "sampleRate": 60.0, "taxable": true},
-    {"code": "TRUCK", "description": "Truck & Fuel", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "STAI", "description": "Stairs / Walk-Up Surcharge", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
-    {"code": "WRAP", "description": "Furniture Wrap & Padding", "defaultQty": 1, "unit": "job", "sampleRate": 85.0, "taxable": true},
-    {"code": "VAL", "description": "Insurance Valuation", "defaultQty": 1, "unit": "job", "sampleRate": 200.0, "taxable": false},
-    {"code": "DISA", "description": "Disassembly / Reassembly", "defaultQty": 1, "unit": "job", "sampleRate": 140.0, "taxable": true}
+    {
+      "code": "CREW",
+      "description": "Crew Labor (2 movers, per hour)",
+      "defaultQty": 8,
+      "unit": "hr",
+      "sampleRate": 60.0,
+      "taxable": true
+    },
+    {
+      "code": "TRUCK",
+      "description": "Truck & Fuel",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "STAI",
+      "description": "Stairs / Walk-Up Surcharge",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 90.0,
+      "taxable": true
+    },
+    {
+      "code": "WRAP",
+      "description": "Furniture Wrap & Padding",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "VAL",
+      "description": "Insurance Valuation",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 200.0,
+      "taxable": false
+    },
+    {
+      "code": "DISA",
+      "description": "Disassembly / Reassembly",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 140.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals in Excel — subtotal, 25% deposit and balance update automatically",
@@ -27,15 +88,96 @@
     "DOT / license field plus binding vs. non-binding note for FMCSA compliance"
   ],
   "faqs": [
-    {"q": "What should I include on a moving company quote?", "a": "At minimum: your business name and DOT number, the client, move-from and move-to addresses, dated line items (crew labor, truck and fuel, surcharges, packing, valuation), a valid-until date, deposit terms and whether the quote is binding or non-binding. Interstate moves are regulated by FMCSA."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit and balance automatically?", "a": "Yes. Enter your quantity and rate per line, and the subtotal, 25% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your moving authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a moving company quote?",
+      "a": "At minimum: your business name and DOT number, the client, move-from and move-to addresses, dated line items (crew labor, truck and fuel, surcharges, packing, valuation), a valid-until date, deposit terms and whether the quote is binding or non-binding. Interstate moves are regulated by FMCSA."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit and balance automatically?",
+      "a": "Yes. Enter your quantity and rate per line, and the subtotal, 25% deposit and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your moving authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating deposit and balance"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating deposit and balance"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your moving authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your moving authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Moving quotes: what makes an estimate binding",
+    "sub": "A moving quote is only as good as its estimate type and the survey behind it. Customers compare bottom-line numbers from quotes that are not comparable at all.",
+    "blocks": [
+      {
+        "h3": "Binding, non-binding and not-to-exceed",
+        "paras": [
+          "A binding estimate fixes the price regardless of actual weight — which means the mover carries the risk of a heavier shipment, and usually prices that risk in. A non-binding estimate is a professional guess, and the final invoice follows actual weight and services. A not-to-exceed estimate caps the bill at the quoted figure but still charges less if the shipment is lighter.",
+          "The quote must say which one it is, in terms the customer can understand, on the same page as the number. Most quote disputes are not about the price but about which kind of price the customer thought they had."
+        ],
+        "table": {
+          "headers": [
+            "Type",
+            "If the load is heavier",
+            "If lighter"
+          ],
+          "rows": [
+            [
+              "Binding",
+              "Price unchanged",
+              "Price unchanged"
+            ],
+            [
+              "Non-binding",
+              "Bill rises with actual weight",
+              "Bill falls"
+            ],
+            [
+              "Not-to-exceed",
+              "Bill capped at quote",
+              "Bill falls, capped at quote"
+            ]
+          ]
+        }
+      },
+      {
+        "h3": "The survey decides whether the quote holds",
+        "paras": [
+          "An in-home or video survey is what separates a real estimate from a phone guess. Weight estimates are driven by furniture volume, box count, and the awkward items — pianos, safes, gym equipment, large appliances. A quote given without a survey should say so explicitly, and should be priced as a range rather than a number.",
+          "Where the customer declines the survey, note it on the quote and record what was assumed: three-bedroom house, approximately 8,000 lb, two flights of stairs. Assumptions written down are what let a mover re-quote honestly when the load turns out larger."
+        ]
+      },
+      {
+        "h3": "What voids a quote",
+        "paras": [
+          "Most quotes carry conditions, and they should be on the document: the quote assumes first-floor or elevator access at both ends, a truck parkable within 75 feet, no packing service, and the inventory listed. If the customer adds a flight of stairs, a storage-in-transit period, or 20 more boxes, the quote is re-priced — legitimately.",
+          "The failure mode is the quote that lists none of this and then adds charges on the day. Those are the disputes that reach the FMCSA and the state regulator, and they are almost always caused by an incomplete quote rather than a dishonest invoice."
+        ]
+      },
+      {
+        "h3": "Deposit and cancellation terms",
+        "paras": [
+          "Interstate movers may not collect more than 10 percent before the move date under federal rules, and many states impose their own limits on local moves. Whatever the deposit is, state it on the quote along with the cancellation window and any refund terms. A quote that omits both invites a customer to assume neither exists."
+        ]
+      }
+    ]
+  }
 }

@@ -7,18 +7,78 @@
   "currency": "USD",
   "licenseField": true,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "License #", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Service Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "License #",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Service Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Deposit"
+  ],
   "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the first treatment date; balance due after service.",
   "notes": "This is an estimate, not a final invoice. Treatment type and scope are confirmed at the on-site inspection — pricing may adjust if the infestation is larger than expected.",
   "lineItems": [
-    {"code": "CALL", "description": "Service Call / Inspection", "defaultQty": 1, "unit": "each", "sampleRate": 85.0, "taxable": true},
-    {"code": "GEN", "description": "General Pest Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
-    {"code": "TERM", "description": "Termite Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 350.0, "taxable": true},
-    {"code": "ROD", "description": "Rodent Exclusion / Baiting", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "BED", "description": "Bed Bug Treatment", "defaultQty": 1, "unit": "job", "sampleRate": 250.0, "taxable": true},
-    {"code": "QTR", "description": "Quarterly Service Plan", "defaultQty": 1, "unit": "plan", "sampleRate": 95.0, "taxable": true}
+    {
+      "code": "CALL",
+      "description": "Service Call / Inspection",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 85.0,
+      "taxable": true
+    },
+    {
+      "code": "GEN",
+      "description": "General Pest Treatment",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120.0,
+      "taxable": true
+    },
+    {
+      "code": "TERM",
+      "description": "Termite Treatment",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 350.0,
+      "taxable": true
+    },
+    {
+      "code": "ROD",
+      "description": "Rodent Exclusion / Baiting",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "BED",
+      "description": "Bed Bug Treatment",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 250.0,
+      "taxable": true
+    },
+    {
+      "code": "QTR",
+      "description": "Quarterly Service Plan",
+      "defaultQty": 1,
+      "unit": "plan",
+      "sampleRate": 95.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals and 25% deposit in Excel",
@@ -27,15 +87,112 @@
     "Valid-until date + inspection-scope note standard for pest quotes"
   ],
   "faqs": [
-    {"q": "What should I include on a pest control estimate?", "a": "At minimum: your business name and license number, the client and service address, a dated line-item list (inspection, treatment type, plan), a validity date, deposit terms, and a note that final pricing is confirmed after the on-site inspection."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a pest control estimate?",
+      "a": "At minimum: your business name and license number, the client and service address, a dated line-item list (inspection, treatment type, plan), a validity date, deposit terms, and a note that final pricing is confirmed after the on-site inspection."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit automatically?",
+      "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your licensing authority and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating totals and deposit"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your licensing authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Pest control pricing: one-time visit or programme",
+    "sub": "The same pest is worth two very different prices depending on whether the customer is buying a visit or a year of coverage — and the estimate has to make that distinction clear.",
+    "blocks": [
+      {
+        "h3": "One-time treatment versus recurring programme",
+        "paras": [
+          "A single treatment for ants or spiders runs $150 to $350 depending on the property and how many areas need treating. A quarterly programme covering the same pests is typically $90 to $150 per visit, but the first visit is priced higher because it does the heavy work — interior treatment, crack and crevice, and often a granular barrier.",
+          "The estimate should show both options on the same document, because the customer who only sees the quarterly price and not the first-visit price feels misled on visit one. Showing the programme total for the year alongside the per-visit figure makes the comparison honest and makes the commitment easier to accept."
+        ],
+        "table": {
+          "headers": [
+            "Service",
+            "Typical price",
+            "Visit pattern"
+          ],
+          "rows": [
+            [
+              "One-time general pest",
+              "$150–350",
+              "Single visit plus re-treat window"
+            ],
+            [
+              "Quarterly programme",
+              "$90–150 per visit",
+              "4 visits, first visit higher"
+            ],
+            [
+              "Bed bugs (heat)",
+              "$1,000–3,000",
+              "One treatment plus inspection"
+            ],
+            [
+              "Termite liquid barrier",
+              "$1,200–2,500",
+              "Annual renewal inspection"
+            ],
+            [
+              "Termite bait stations",
+              "$1,000–2,000 + $300–500/yr",
+              "Quarterly monitoring"
+            ]
+          ]
+        }
+      },
+      {
+        "h3": "Termite work is a separate business",
+        "paras": [
+          "Termite treatment is priced on linear footage of the structure's perimeter for a liquid barrier, or on the number of bait stations for a monitoring system, and both come with renewal terms. A liquid barrier is typically $1,200 to $2,500 with an annual renewal inspection fee; a bait system runs $1,000 to $2,000 installed plus $300 to $500 a year for monitoring and replacement.",
+          "Both carry warranties, and the warranty terms are the actual product. State on the estimate what the warranty covers, how long it runs, whether it is transferable on sale of the house, and what voids it — most commonly disturbance of the treated zone by landscaping or construction."
+        ]
+      },
+      {
+        "h3": "The chemical and service-cadence lines",
+        "paras": [
+          "Where the estimate lists treatment types, the chemical matters to some customers and to the warranty. Note the active ingredient class, whether the treatment is interior, exterior or both, and how re-infestation between visits is handled. 'Free re-treat between scheduled visits' is a real selling point and belongs on the estimate as a stated term, not a verbal promise."
+        ],
+        "list": [
+          "Areas treated: interior, exterior perimeter, attic, crawlspace, garage",
+          "Treatment method: spray, granular, bait, dust, heat",
+          "Re-treat window and whether it is free",
+          "Warranty duration and transferability",
+          "Renewal price for year two, stated up front"
+        ]
+      },
+      {
+        "h3": "Licensing and disclosure",
+        "paras": [
+          "Pest control is a licensed activity in every state, and most states require the licence number on contracts and often on invoices. State-licensed applicators must also provide the pesticide label information for products used. Putting the licence number and the product information reference on the estimate is not bureaucracy — in several states it is a requirement, and in all of them it is what distinguishes a professional operation from a trunk slammer."
+        ]
+      }
+    ]
+  }
 }

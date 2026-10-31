@@ -7,18 +7,77 @@
   "currency": "USD",
   "licenseField": false,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Property Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Property Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Deposit"
+  ],
   "paymentTerms": "Estimate valid for 30 days. A 25% deposit secures the job; balance due on completion.",
   "notes": "This is an estimate, not a final invoice. Final charges may vary with surface condition and access.",
   "lineItems": [
-    {"code": "DRIVE", "description": "Driveway Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 120.0, "taxable": true},
-    {"code": "HOUSE", "description": "House Exterior", "defaultQty": 1, "unit": "job", "sampleRate": 180.0, "taxable": true},
-    {"code": "DECK", "description": "Deck & Patio", "defaultQty": 1, "unit": "job", "sampleRate": 150.0, "taxable": true},
-    {"code": "FENCE", "description": "Fence Cleaning", "defaultQty": 1, "unit": "job", "sampleRate": 90.0, "taxable": true},
-    {"code": "SIDEW", "description": "Sidewalk / Walkway", "defaultQty": 1, "unit": "job", "sampleRate": 60.0, "taxable": true},
-    {"code": "GUTTER", "description": "Gutter Cleaning (soft wash)", "defaultQty": 1, "unit": "job", "sampleRate": 75.0, "taxable": true}
+    {
+      "code": "DRIVE",
+      "description": "Driveway Cleaning",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120.0,
+      "taxable": true
+    },
+    {
+      "code": "HOUSE",
+      "description": "House Exterior",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 180.0,
+      "taxable": true
+    },
+    {
+      "code": "DECK",
+      "description": "Deck & Patio",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 150.0,
+      "taxable": true
+    },
+    {
+      "code": "FENCE",
+      "description": "Fence Cleaning",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 90.0,
+      "taxable": true
+    },
+    {
+      "code": "SIDEW",
+      "description": "Sidewalk / Walkway",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 60.0,
+      "taxable": true
+    },
+    {
+      "code": "GUTTER",
+      "description": "Gutter Cleaning (soft wash)",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 75.0,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals and 25% deposit in Excel",
@@ -27,15 +86,87 @@
     "Surface checklist helps clients add or remove items before signing"
   ],
   "faqs": [
-    {"q": "What should I include on a pressure washing estimate?", "a": "At minimum: your business name, the client and property address, a dated surface-by-surface list (driveway, house exterior, deck, fence, sidewalk), a validity date, deposit terms, and a note that it is not a final invoice."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a pressure washing estimate?",
+      "a": "At minimum: your business name, the client and property address, a dated surface-by-surface list (driveway, house exterior, deck, fence, sidewalk), a validity date, deposit terms, and a note that it is not a final invoice."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit automatically?",
+      "a": "Yes. Enter your quantities and rates, and the subtotal, 25% deposit and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating totals and deposit"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "How pressure washing jobs are actually priced",
+    "sub": "Surface type drives both the price and the pressure. The same square footage is worth four times as much on a roof as on a driveway, and using the driveway setting on a roof is how contractors buy their customers new shingles.",
+    "blocks": [
+      {
+        "h3": "The pricing basis: surface, not square footage",
+        "paras": [
+          "Concrete flatwork is the baseline: driveways and sidewalks typically run $0.15 to $0.35 per square foot, or $100 to $300 for a standard driveway. House washing is priced per square foot of exterior wall at $0.20 to $0.50, or as a flat $150 to $400 for a typical single-family home. Roofs soft-washed run $0.30 to $0.60 per square foot because the work is slower and the liability is higher.",
+          "Fences, decks and patios break the square-foot model entirely. A fence is priced per linear foot because both sides may need cleaning, and a wooden deck per square foot but at a much lower pressure with a different chemical. Quoting all of it at one per-square-foot rate is how a job ends up unprofitable on the fence and overpriced on the driveway."
+        ],
+        "list": [
+          "Driveway / flatwork: $0.15–0.35 per sq ft, $100–300 typical",
+          "House wash: $0.20–0.50 per sq ft of wall, $150–400 typical",
+          "Roof (soft wash): $0.30–0.60 per sq ft",
+          "Fence: $1.50–3.00 per linear foot, both sides extra",
+          "Gutter brightening: $1.50–2.50 per linear foot"
+        ]
+      },
+      {
+        "h3": "Pressure limits are a legal exposure, not a preference",
+        "paras": [
+          "Concrete tolerates 3,000 to 4,000 PSI. Wood siding and decks should stay under about 1,200 PSI or the grain lifts. Stucco and painted surfaces usually want under 1,500 PSI with a wide fan tip, and asphalt shingles should never see more than about 100 PSI — which is why roofs are soft-washed with a chemical and low pressure rather than blasted.",
+          "Put the method on the estimate, not just the price. 'Roof soft wash at low pressure with sodium hypochlorite' sets an expectation and protects you when a customer asks why their neighbour's roof was power washed at high pressure. It also justifies a price that looks higher than a competitor who is about to damage the shingles."
+        ]
+      },
+      {
+        "h3": "Water, chemicals and reclaim",
+        "paras": [
+          "A pressure washer consumes 2 to 4 gallons per minute, so a 30-minute house wash can use over 100 gallons. Most residential jobs run off the customer's spigot, but jobs without water access need a tank and a pump, which is a real cost that belongs on the estimate as its own line.",
+          "Some jurisdictions require wash water recovery, particularly where runoff reaches storm drains. If reclaim is required, that equipment and time change the price significantly. Chemicals — sodium hypochlorite, surfactants, rust remover — are typically 5 to 10 percent of the job price and are the line most often forgotten when a contractor wins a bid that was too cheap."
+        ],
+        "steps": [
+          "Confirm water access and flow rate before quoting.",
+          "Check whether the jurisdiction requires reclaim for this runoff path.",
+          "Price the chemical mix as a separate material line.",
+          "State the method and pressure range on the estimate.",
+          "Note that pre-existing damage (chipped paint, loose flashing) is documented before work starts."
+        ]
+      },
+      {
+        "h3": "Recurring work is where the margin is",
+        "paras": [
+          "A one-off house wash is a commodity. A twice-yearly maintenance contract with the same customer, invoiced the same way each visit, is a business. Price the maintenance visit 10 to 20 percent below the one-off rate to make the commitment worthwhile, and the customer stops shopping the price each season.",
+          "Invoice lines should match the surfaces: house wash, driveway, walkways, deck, gutter brightening, chemical treatment. Keeping them separate makes it obvious what was done on each visit, and makes it easy to add or drop a surface without renegotiating the whole price."
+        ]
+      }
+    ]
+  }
 }

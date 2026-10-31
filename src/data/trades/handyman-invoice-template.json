@@ -113,5 +113,45 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Handyman pricing and the licensing line you must not cross",
+    "sub": "Handyman work lives right up against the threshold where a licence is required. The invoice is where that boundary becomes evidence.",
+    "blocks": [
+      {
+        "h3": "Three pricing models, three invoice formats",
+        "paras": [
+          "Hourly work is the default for unknown scope: a rate per hour, a minimum call-out, and a record of arrival and departure. Per-task pricing works when the job is a defined item — hang a door, replace a faucet — and it rewards efficiency. Bundled visits, where several small tasks are done in one trip, are usually the most profitable because travel is paid once.",
+          "All three can appear on the same invoice, and often should. A visit that started as hourly work and grew into a defined task is cleaner billed as one line for the hourly portion and one for the fixed-price item, rather than averaged into a single number nobody can defend."
+        ]
+      },
+      {
+        "h3": "Where the handyman exemption stops",
+        "paras": [
+          "Many states allow unlicensed handyman work only below a dollar threshold per job — commonly $500 to $1,000 — and prohibit structural, electrical, plumbing and gas work regardless of value. The threshold is usually measured per job, not per visit, so splitting one large job into several small invoices to stay under it is a violation rather than a workaround.",
+          "The invoice should describe the work in enough detail that the scope is obvious: 'replace two interior door handles' is fine; 'general repairs' on a $900 invoice invites the question of what was actually done and whether it required a licence. Where a licensed trade is required, sub it out and show the subcontractor's name on the invoice."
+        ],
+        "list": [
+          "Flat-rate tasks: mounts, hang, assembly, small repairs",
+          "Hourly work: diagnostics, unknown scope, punch lists",
+          "Minimum call-out: stated rate for the first hour or hour and a half",
+          "Materials: at cost or with a stated markup, as its own line",
+          "Subcontracted licensed work: shown as pass-through, with the sub named"
+        ]
+      },
+      {
+        "h3": "Parts markup and the customer who supplies them",
+        "paras": [
+          "A 15 to 30 percent markup on parts is normal and covers the trip to the supplier and the warranty risk. State it rather than burying it in the labour rate — a customer who can see the markup can accept it, while a customer who suspects the hourly rate was inflated to hide it will argue about both.",
+          "If the customer supplies the part, say so on the invoice and note that the workmanship warranty does not extend to the supplied item. When a customer-supplied faucet fails in three months, that one line is the difference between a free callback and a paid one."
+        ]
+      },
+      {
+        "h3": "The invoice is your scope document",
+        "paras": [
+          "For a handyman, the invoice is often the only written record of what was agreed. Describe the work performed specifically enough that a reader unfamiliar with the visit understands it, note anything the customer declined, and note anything that was observed and recommended but not done. That last item protects against the call three weeks later asking why the loose railing was never mentioned."
+        ]
+      }
+    ]
+  }
 }

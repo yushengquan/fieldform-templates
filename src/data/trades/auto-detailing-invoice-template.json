@@ -124,5 +124,79 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your tax authority and CPA/attorney.",
+  "deepDive": {
+    "heading": "Detailing invoices: packages, stages and mobile premiums",
+    "sub": "Detailing is sold as packages but priced by process. The invoice needs both, because the package name is what the customer bought and the process is what justifies the price.",
+    "blocks": [
+      {
+        "h3": "Package tiers and what separates them",
+        "paras": [
+          "An exterior wash and a full interior detail are different products, and the price gap is not a markup — it is hours. A basic wash and vacuum is one to two hours; a full interior and exterior detail is four to six; a paint correction is a full day or more. If the invoice only says 'full detail', the customer has no way to see why the next tier costs twice as much.",
+          "The package names vary by shop, which is fine, but the invoice line should carry a short description of what was included: decontamination and clay, interior steam and extraction, engine bay, headlight restoration. Those descriptions are also what the customer compares when they shop your price against someone else's."
+        ],
+        "table": {
+          "headers": [
+            "Tier",
+            "Typical content",
+            "Time"
+          ],
+          "rows": [
+            [
+              "Wash / maintenance",
+              "Exterior wash, wheels, vacuum",
+              "1–2 hours"
+            ],
+            [
+              "Interior detail",
+              "Steam, extraction, plastics, glass",
+              "2–4 hours"
+            ],
+            [
+              "Full detail",
+              "Interior plus exterior decontamination",
+              "4–6 hours"
+            ],
+            [
+              "Paint correction",
+              "Machine polish, 1 or 2 stage",
+              "6–12 hours"
+            ],
+            [
+              "Ceramic coating",
+              "Correction plus coating application",
+              "1–3 days"
+            ]
+          ]
+        }
+      },
+      {
+        "h3": "Paint correction is billed by stage, not by car",
+        "paras": [
+          "A one-step polish removes light swirls and improves gloss. A two-step adds a cutting stage and removes deeper defects, and takes roughly twice as long. A ceramic coating is priced on top because the surface preparation is the labour, and a coating applied over uncorrected paint is a warranty claim waiting to happen.",
+          "Invoice correction as its own line with the stage stated, and note the condition assessment that justified it. 'Two-stage correction required due to automatic car wash swirls' is a defensible invoice. A single big number is a negotiation."
+        ]
+      },
+      {
+        "h3": "The mobile premium and its conditions",
+        "paras": [
+          "Mobile detailing carries a travel charge — commonly $25 to $75 within a service radius — and requires water and power access that the customer may not have. A mobile job without a water source means the detailer brings a tank and a generator, which is a different, higher price.",
+          "Put the access requirement on the invoice and on the booking confirmation: 'customer to provide water spigot and 120V outlet'. When neither is available on arrival, the honest invoice is a trip charge, and having stated the requirement in advance is what makes it collectable."
+        ],
+        "steps": [
+          "Confirm vehicle condition and take photos before starting.",
+          "Note any pre-existing damage on the invoice.",
+          "State the correction stage used and why.",
+          "Bill travel as a separate line where the job is mobile.",
+          "State the coating cure time and the wash restrictions that follow it."
+        ]
+      },
+      {
+        "h3": "Deposits and no-shows",
+        "paras": [
+          "A deposit of 20 to 50 percent is standard for correction and coating work because the slot is long and hard to fill at short notice. State the cancellation window — typically 48 hours — and what is retained if it is missed. A no-show policy that only exists in conversation is not a policy."
+        ]
+      }
+    ]
+  }
 }
