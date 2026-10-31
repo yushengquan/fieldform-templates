@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Free Contractor Calculators — 8 Trade Cost and Material Tools';
+const description = 'Eight free calculators for trade contractors: invoice, welding estimate, drywall, tile, deck, roofing, paint and concrete. Material quantities and cost, no signup.';
+const canonical = `${siteUrl}/calculators/`;
+
+const calcs = [
+  {
+    href: '/invoice-calculator/',
+    name: 'Invoice calculator',
+    blurb: 'Line items in, tax on the taxable rows only, balance due out. The one to use when the invoice total has to be right the first time.',
+    use: 'Billing a finished job',
+  },
+  {
+    href: '/welding-estimate-calculator/',
+    name: 'Welding estimate calculator',
+    blurb: 'Joint length and deposition rate into labour hours, consumables and a per-job price.',
+    use: 'Quoting fabrication or repair work',
+  },
+  {
+    href: '/drywall-calculator/',
+    name: 'Drywall calculator',
+    blurb: 'Room dimensions into sheets, joint compound, tape and screws, with waste built in.',
+    use: 'Ordering material before a hang',
+  },
+  {
+    href: '/tile-calculator/',
+    name: 'Tile calculator',
+    blurb: 'Tiles, boxes, thinset, grout and spacers, using the waste factor your layout actually needs.',
+    use: 'Sizing a floor or shower',
+  },
+  {
+    href: '/deck-calculator/',
+    name: 'Deck calculator',
+    blurb: 'The framing takeoff a square-foot price hides: boards, joists, posts, footings, stairs and railing.',
+    use: 'Building a deck estimate',
+  },
+  {
+    href: '/roofing-calculator/',
+    name: 'Roofing calculator',
+    blurb: 'Footprint and pitch into the true roof area, squares, bundles, underlayment and ridge cap.',
+    use: 'Pricing a re-roof',
+  },
+  {
+    href: '/paint-calculator/',
+    name: 'Paint calculator',
+    blurb: 'Gallons of paint and primer for a room, with the coat count and ceiling included.',
+    use: 'Ordering paint for an interior',
+  },
+  {
+    href: '/concrete-calculator/',
+    name: 'Concrete calculator',
+    blurb: 'Cubic yards, 80 lb bags, gravel base and rebar — plus whether ready-mix or bagged is cheaper.',
+    use: 'Pouring a slab or footings',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:900px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Free calculators for trade contractors</h1>
+      <p style="font-size:17px;color:var(--muted);">Eight tools that do the arithmetic the estimate depends on — material quantities, labour hours, and the cost lines that are usually missing from a per-square-foot price. All free and browser-based, no signup.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:26px;">
+      {calcs.map((c) => (
+        <a href={c.href} style="display:block;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;">
+          <div style="font-size:16.5px;font-weight:700;color:var(--ink);margin-bottom:6px;">{c.name}</div>
+          <div style="font-size:14px;line-height:1.65;color:var(--muted);margin-bottom:10px;">{c.blurb}</div>
+          <div style="font-size:12.5px;color:var(--blue);font-weight:600;">{c.use} →</div>
+        </a>
+      ))}
+    </div>
+
+    <h2 style="font-size:22px;margin:38px 0 10px;">Why these exist</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Most invoice and estimate problems start before the paperwork: the material quantity was wrong, the waste factor was guessed, or a line item that costs real money — footings, waterproofing, tear-off, permits — never made it onto the price. Each calculator here exists because that specific number was being estimated by eye.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Every tool shows its working: the formula, the coverage or yield assumption, and the waste factor by layout type. Where a figure comes from a manufacturer or a code, the page says so. Nothing is rounded in a way that flatters the answer.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">From calculator to invoice</h2>
+    <p style="font-size:15.5px;line-height:1.8;">The quantities from these tools map onto the free templates: <a href="/templates/" style="color:var(--blue);font-weight:600;">245 invoice, estimate and quote templates</a> across 50+ trades, each pre-filled with the line items that trade actually bills, in PDF, Word and Excel. The Excel versions carry the same logic the calculators use — line amount, subtotal, and tax applied only to taxable rows.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Figures follow standard estimating practice and published manufacturer coverage. Always confirm against the product you buy and your local code. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a>.</p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Free calculators for trade contractors',
+    description: 'Eight free calculators for invoice totals, welding estimates, drywall, tile, deck, roofing, paint and concrete quantities.',
+    hasPart: calcs.map((c) => ({
+      '@type': 'WebApplication',
+      name: c.name,
+      url: `${siteUrl}${c.href}`,
+      applicationCategory: 'BusinessApplication',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    })),
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Free templates', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${siteUrl}/calculators/` },
+    ],
+  })} />
+</BaseLayout>

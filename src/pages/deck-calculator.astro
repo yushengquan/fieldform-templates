@@ -155,7 +155,32 @@ const canonical = `${siteUrl}/deck-calculator/`;
     })();
   </script>
 
+      <p style="margin-top:26px;font-size:14.5px;">
+      <a href="/calculators/" style="color:var(--blue);font-weight:600;">← All 8 free contractor calculators</a>
+    </p>
   <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Deck calculator',
+    url: 'https://fieldformtemplates.com/deck-calculator/',
+    description: 'Free deck calculator — boards, joists, posts, footings, stairs and railing.',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Any (browser-based)',
+    browserRequirements: 'Requires JavaScript',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    isAccessibleForFree: true,
+    publisher: { '@type': 'Organization', name: 'FieldForm Templates', url: 'https://fieldformtemplates.com/' },
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Free templates', item: 'https://fieldformtemplates.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Calculators', item: 'https://fieldformtemplates.com/calculators/' },
+      { '@type': 'ListItem', position: 3, name: 'Deck calculator', item: 'https://fieldformtemplates.com/deck-calculator/' },
+    ],
+  })} />
+<script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
