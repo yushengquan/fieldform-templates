@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Tile Calculator — Tiles, Boxes, Thinset and Grout';
+const description = 'Free tile calculator: area, tile size and layout in - tiles, boxes, thinset, grout, spacers and material cost out. Waste factors by layout included.';
+const canonical = `${siteUrl}/tile-calculator/`;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:860px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Tile calculator</h1>
+      <p style="font-size:17px;color:var(--muted);">Area, tile size and layout in — tiles, boxes, thinset, grout and spacers out. Waste is applied by layout type, because a diagonal or herringbone floor consumes far more tile than a straight lay.</p>
+    </div>
+
+    <div style="margin-top:26px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Area length (ft)
+          <input id="len" type="number" value="10" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Area width (ft)
+          <input id="wid" type="number" value="8" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Tile width (in)
+          <input id="tw" type="number" value="12" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Tile height (in)
+          <input id="th" type="number" value="24" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Layout
+          <select id="layout" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="0.10">Straight lay (10% waste)</option>
+            <option value="0.15">Diagonal / 45° (15% waste)</option>
+            <option value="0.22">Herringbone (22% waste)</option>
+            <option value="0.05">No waste (net area only)</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Tiles per box
+          <input id="perbox" type="number" value="6" min="1" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 0;">Add a further 5% for large-format tile (24 × 48 and above), or when buying from more than one dye lot.</p>
+    </div>
+
+    <div id="out" style="margin-top:22px;"></div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">How the calculator works</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Area is length multiplied by width. The waste factor for your layout is added, then the total is divided by the area of a single tile and rounded up to whole tiles, then converted to boxes. Thinset is estimated at one 50 lb bag per 60 square feet with a 1/4 inch notch trowel — a 1/2 inch notch for large-format tile uses roughly twice as much, which is why the square-foot coverage figure on the bag drops sharply as tile size rises.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Grout is estimated from tile size: smaller tiles mean more joints and therefore more grout. A 25 lb bag covers roughly 90 square feet of 12 × 24 tile at a 1/8 inch joint, and considerably less for mosaic. Spacers are counted at about one per two tiles, because they are reused as you work.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">Waste factors that actually matter</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Straight lay, rectangular room:</strong> 10%. Cuts happen at the perimeter and the offcuts are largely unusable.</li>
+      <li><strong>Diagonal / 45°:</strong> 15%. Every wall becomes a run of triangular cuts.</li>
+      <li><strong>Herringbone and chevron:</strong> 20–25%. Offcuts cannot transfer between repeats, so the waste is structural rather than careless.</li>
+      <li><strong>Large format:</strong> add 5%. Chip risk is higher and cut pieces are rarely reusable.</li>
+      <li><strong>Multiple dye lots:</strong> add 5%. Order the whole job from one lot, and keep one box for future repair.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">From quantity to invoice</h2>
+    <p style="font-size:15.5px;line-height:1.8;">The quantities above map onto invoice lines: tile and setting material as material, installation by the square foot, demolition separately, and waterproofing as its own line. The free <a href="/templates/tiling-estimate-template/" style="color:var(--blue);font-weight:600;">tiling estimate template</a> has those rows ready in PDF, Word and Excel — and the <a href="/templates/tiling-estimate-template/#deep-dive" style="color:var(--blue);font-weight:600;">waste-factor section</a> explains why the number this calculator produces is not padding.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Coverage figures follow manufacturer guidance for standard Portland-based thinset and sanded grout. Always confirm against the bag you buy — coverage varies by brand, trowel size and substrate flatness. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a>.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var prices = { tile: 4.5, thinset: 22, grout: 20, spacers: 8 };
+      function val(id, dflt) {
+        var el = document.getElementById(id);
+        if (!el) return dflt;
+        var v = parseFloat(el.value);
+        return isNaN(v) ? dflt : v;
+      }
+      function money(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+      function calc() {
+        var L = Math.max(val('len', 0), 0), W = Math.max(val('wid', 0), 0);
+        var tw = Math.max(val('tw', 12), 0.25), th = Math.max(val('th', 12), 0.25);
+        var waste = val('layout', 0.10);
+        var perBox = Math.max(val('perbox', 1), 1);
+
+        var area = L * W;
+        var withWaste = area * (1 + waste);
+        var tileSqFt = (tw * th) / 144;
+        var tiles = Math.ceil(withWaste / tileSqFt);
+        var boxes = Math.ceil(tiles / perBox);
+        var thinsetBags = Math.max(Math.ceil(withWaste / 60), 1);
+        var groutBags = Math.max(Math.ceil(withWaste / 90), 1);
+        var spacers = Math.ceil(tiles / 2);
+
+        var cost = boxes * perBox * tileSqFt * prices.tile + thinsetBags * prices.thinset + groutBags * prices.grout + Math.ceil(spacers / 100) * prices.spacers;
+
+        var rows = [
+          ['Floor / wall area', area.toFixed(0) + ' sq ft'],
+          ['Area with ' + Math.round(waste * 100) + '% waste', withWaste.toFixed(0) + ' sq ft'],
+          ['Tiles needed', tiles.toLocaleString() + ' × ' + tw + '″ × ' + th + '″'],
+          ['Boxes to buy', boxes + ' box(es) of ' + perBox],
+          ['Thinset', thinsetBags + ' × 50 lb bag'],
+          ['Grout', groutBags + ' × 25 lb bag'],
+          ['Spacers', spacers.toLocaleString()],
+          ['Estimated material cost', money(cost)]
+        ];
+
+        var html = '<div style="padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">' +
+          '<h2 style="font-size:18px;margin:0 0 12px;">Your material list</h2>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:14.5px;">';
+        rows.forEach(function (r, i) {
+          var strong = i === rows.length - 1 ? 'font-weight:700;border-top:2px solid var(--line);' : 'border-top:1px solid var(--line);';
+          html += '<tr><td style="padding:9px 0;' + strong + '">' + r[0] + '</td><td style="padding:9px 0;text-align:right;' + strong + '">' + r[1] + '</td></tr>';
+        });
+        html += '</table><p style="font-size:13px;color:var(--muted);margin:12px 0 0;">Material cost uses placeholder prices ($' + prices.tile + '/sq ft tile, $' + prices.thinset + '/50 lb thinset, $' + prices.grout + '/25 lb grout, $' + prices.spacers + '/100 spacers). Edit to your supplier prices.</p></div>';
+        document.getElementById('out').innerHTML = html;
+      }
+      ['len', 'wid', 'tw', 'th', 'layout', 'perbox'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); }
+      });
+      calc();
+    })();
+  </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many tiles do I need for a 10 by 8 foot floor?',
+        acceptedAnswer: { '@type': 'Answer', text: 'An 80 square foot floor needs 88 square feet of tile with a 10 percent straight-lay waste factor. In 12 by 24 inch tile — 2 square feet each — that is 44 tiles, or 8 boxes of 6. A diagonal layout at 15 percent waste takes 92 square feet, which rounds to 46 tiles.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much thinset do I need for tile?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Roughly one 50 lb bag per 60 square feet with a 1/4 inch notch trowel. A 1/2 inch notch for large-format tile roughly doubles consumption, so a 24 by 48 tile job may need one bag per 30 to 35 square feet.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much extra tile should I buy?',
+        acceptedAnswer: { '@type': 'Answer', text: '10 percent for a straight lay, 15 percent for diagonal, 20 to 25 percent for herringbone and chevron. Add 5 percent for large-format tile, and 5 percent more if the job spans multiple dye lots. Keep at least one box for future repair.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much grout do I need per square foot of tile?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A 25 lb bag of sanded grout covers roughly 90 square feet of 12 by 24 tile at a 1/8 inch joint. Smaller tile means more joints and therefore more grout per square foot, so mosaic can consume three to four times as much.' },
+      },
+    ],
+  })} />
+</BaseLayout>

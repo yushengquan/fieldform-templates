@@ -139,6 +139,24 @@ const ddBlocks = format
   : ddAll;
 const ddTrimmed = format ? Math.max(ddAll.length - ddBlocks.length, 0) : 0;
 
+// 模板页 → 对应计算器（工具页内链，双向导流）
+const relatedTool: Record<string, { href: string; label: string; blurb: string }> = {
+  'drywall-invoice-template': {
+    href: '/drywall-calculator/',
+    label: 'drywall calculator',
+    blurb: 'turns room dimensions into sheets, joint compound, tape and screw quantities — the same line items you bill here.',
+  },
+  'tiling-estimate-template': {
+    href: '/tile-calculator/',
+    label: 'tile calculator',
+    blurb: 'works out tiles, boxes, thinset, grout and spacers for the area, with the waste factor your layout actually needs.',
+  },
+  'deck-builder-invoice-template': {
+    href: '/deck-calculator/',
+    label: 'deck calculator',
+    blurb: 'gives you the framing takeoff — boards, joists, posts, footings, stairs and railing — that a square-foot price hides.',
+  },
+};
 const authorities = authoritiesFor(trade.trade ?? '', trade.docType ?? '', trade.slug ?? '');
 const reviewedISO = '2026-10-30';
 const reviewedLabel = '30 October 2026';
@@ -683,9 +701,9 @@ const howToLd = JSON.stringify({
       )}
 
       {/* 相关工具内链 — 工具页与模板页互相导流 */}
-      {trade.slug === 'drywall-invoice-template' && (
+      {relatedTool[trade.slug] && (
         <p style="margin-top:22px;padding:14px 18px;background:var(--soft);border-radius:10px;font-size:14.5px;line-height:1.7;">
-          Working out material for the job first? The <a href="/drywall-calculator/" style="color:var(--blue);font-weight:600;">drywall calculator</a> turns room dimensions into sheets, joint compound, tape and screw quantities — the same line items you bill on this template.
+          Working out material for the job first? The <a href={relatedTool[trade.slug].href} style="color:var(--blue);font-weight:600;">{relatedTool[trade.slug].label}</a> {relatedTool[trade.slug].blurb}
         </p>
       )}
       {/* 权威来源 — 可核验性信号，同时给审核方看依据 */}

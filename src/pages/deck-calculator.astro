@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
+const title = 'Deck Calculator — Boards, Joists, Posts and Concrete';
+const description = 'Free deck calculator: deck size in - decking boards, joists, beam, posts, footings, stairs, railing and lumber cost out. Includes 16 inch joist spacing.';
+const canonical = `${siteUrl}/deck-calculator/`;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="section wrap" style="padding-top:44px;max-width:880px;">
+    <div class="section-head">
+      <h1 style="font-size:32px;line-height:1.25;margin-bottom:14px;">Deck calculator</h1>
+      <p style="font-size:17px;color:var(--muted);">Enter the deck footprint and it works out decking boards, joists, rim joists, beam, posts, concrete, stairs and railing — the items that are usually missing from a square-foot price.</p>
+    </div>
+
+    <div style="margin-top:26px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;">
+        <label style="font-size:14px;font-weight:600;">Deck length (ft)
+          <input id="len" type="number" value="16" min="2" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Deck width, house to edge (ft)
+          <input id="wid" type="number" value="12" min="2" step="1" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Deck height above grade (ft)
+          <input id="hgt" type="number" value="3" min="0.5" step="0.5" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;" />
+        </label>
+        <label style="font-size:14px;font-weight:600;">Joist spacing
+          <select id="spacing" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="16">16 in on centre</option>
+            <option value="12">12 in on centre (heavy loads)</option>
+            <option value="24">24 in on centre (composite only)</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Board length (ft)
+          <select id="blen" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="12">12 ft</option>
+            <option value="16">16 ft</option>
+            <option value="8">8 ft</option>
+            <option value="20">20 ft</option>
+          </select>
+        </label>
+        <label style="font-size:14px;font-weight:600;">Stairs
+          <select id="stairs" style="width:100%;margin-top:6px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <option value="1">Include stairs</option>
+            <option value="0">No stairs</option>
+          </select>
+        </label>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 0;">Assumes the deck is attached to the house on one long side, so railing runs on the two ends and the outer edge. Footings are counted at 12 inch diameter, 36 inch depth — deeper where frost requires it.</p>
+    </div>
+
+    <div id="out" style="margin-top:22px;"></div>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">What gets calculated</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Decking boards are computed as linear feet across the deck width plus a 10 percent waste factor, then divided by the board length you select and rounded up. Joists are counted from the joist spacing across the deck length, each the full width of the deck. Rim joists, a two-ply beam and posts on 8 foot centres finish the frame. Footings are converted to 80 lb bags of concrete.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Stairs are calculated at a 7.5 inch rise per step, which is inside the common building code range, with two stringers and a tread per step. Railing length is the two ends plus the open edge — the house side obviously does not need one.</p>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">The line items a square-foot price hides</h2>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;">
+      <li><strong>Footings.</strong> Concrete, excavation and inspection typically add $1,000–4,000 depending on depth and how many posts need to go below grade.</li>
+      <li><strong>Railing.</strong> $40–120 per linear foot installed, depending on material and the infill pattern your code requires.</li>
+      <li><strong>Stairs.</strong> $100–300 per step depending on rise, width and landings. Rarely included in a per-square-foot rate.</li>
+      <li><strong>Ledger flashing and waterproofing</strong> where the deck meets the house — a small cost that prevents a very large one.</li>
+      <li><strong>Permit and inspection time</strong>, which belongs on the estimate as its own line.</li>
+    </ul>
+
+    <h2 style="font-size:22px;margin:34px 0 10px;">From takeoff to estimate</h2>
+    <p style="font-size:15.5px;line-height:1.8;">Quantities from this calculator drop straight onto the free <a href="/templates/deck-builder-invoice-template/" style="color:var(--blue);font-weight:600;">deck builder estimate template</a>, which already separates platform, railing, stairs, footings and permit lines in PDF, Word and Excel. The <a href="/templates/deck-builder-invoice-template/#deep-dive" style="color:var(--blue);font-weight:600;">hidden-cost section</a> explains why each belongs on its own line rather than folded into the decking rate.</p>
+
+    <div style="margin-top:30px;padding:18px 22px;background:var(--soft);border-radius:12px;">
+      <p style="font-size:14px;line-height:1.7;margin:0;color:var(--muted);">Framing follows common residential practice under the IRC — 16 inch joist spacing, posts on 8 foot centres, 7.5 inch stair rise. Local amendments vary, particularly for frost depth and guard height. See our <a href="/editorial-standards/" style="color:var(--blue);">editorial standards</a>.</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var prices = { board: 14, joist: 18, post: 32, concrete: 7, railing: 55, tread: 12, fastener: 120 };
+      function val(id, dflt) {
+        var el = document.getElementById(id);
+        if (!el) return dflt;
+        var v = parseFloat(el.value);
+        return isNaN(v) ? dflt : v;
+      }
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+      function calc() {
+        var L = Math.max(val('len', 0), 0);
+        var W = Math.max(val('wid', 0), 0);
+        var H = Math.max(val('hgt', 0), 1);
+        var spacing = val('spacing', 16);
+        var blen = val('blen', 12);
+        var withStairs = val('stairs', 1) === 1;
+
+        var area = L * W;
+
+        // 5.5 inch board face = 0.4583 ft
+        var boardWidthFt = 5.5 / 12;
+        var boardLinFt = (area / boardWidthFt) * 1.1;
+        var boards = Math.ceil(boardLinFt / blen);
+
+        // joists span the width, spaced along the length
+        var joistCount = Math.floor((L * 12) / spacing) + 1;
+        var joistLinFt = joistCount * W;
+        var rimLinFt = 2 * L;
+        var beamLinFt = 2 * L;
+
+        var joistBoards = Math.ceil(joistLinFt / 12) + Math.ceil(rimLinFt / 12) + Math.ceil(beamLinFt / 12);
+
+        var postCount = Math.ceil(L / 8) + 1;
+        var footingBags = postCount * 4;
+
+        var risers = Math.ceil((H * 12) / 7.5);
+        var stairWidth = 4;
+        var treads = withStairs ? risers : 0;
+        var stringerBoards = withStairs ? Math.ceil((risers * 1.4) / 12) * 2 : 0;
+
+        var railLinFt = withStairs ? 2 * W + L : 2 * W + L;
+
+        var cost = boards * prices.board +
+          joistBoards * prices.joist +
+          postCount * prices.post +
+          footingBags * prices.concrete +
+          railLinFt * prices.railing +
+          treads * prices.tread +
+          prices.fastener;
+
+        var rows = [
+          ['Deck area', area.toFixed(0) + ' sq ft'],
+          ['Decking boards', boards + ' × ' + blen + ' ft (incl. 10% waste)'],
+          ['Joists (' + spacing + '″ o.c.)', joistCount + ' joists, ' + joistLinFt.toFixed(0) + ' linear ft'],
+          ['Rim joists + 2-ply beam', rimLinFt + ' ft rim, ' + beamLinFt + ' ft beam'],
+          ['Framing boards to buy', joistBoards + ' × 12 ft class'],
+          ['Posts (6×6)', postCount],
+          ['Footings', postCount + ' × 12″ × 36″ ≈ ' + footingBags + ' bags of concrete'],
+          ['Stairs', withStairs ? risers + ' risers, ' + treads + ' treads, ' + stringerBoards + ' stringers' : 'none'],
+          ['Railing', railLinFt.toFixed(0) + ' linear ft'],
+          ['Estimated material cost', money(cost)]
+        ];
+
+        var html = '<div style="padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);">' +
+          '<h2 style="font-size:18px;margin:0 0 12px;">Your material takeoff</h2>' +
+          '<table style="width:100%;border-collapse:collapse;font-size:14.5px;">';
+        rows.forEach(function (r, i) {
+          var strong = i === rows.length - 1 ? 'font-weight:700;border-top:2px solid var(--line);' : 'border-top:1px solid var(--line);';
+          html += '<tr><td style="padding:9px 0;' + strong + '">' + r[0] + '</td><td style="padding:9px 0;text-align:right;' + strong + '">' + r[1] + '</td></tr>';
+        });
+        html += '</table><p style="font-size:13px;color:var(--muted);margin:12px 0 0;">Cost uses placeholder prices ($' + prices.board + '/board, $' + prices.joist + '/framing board, $' + prices.post + '/post, $' + prices.concrete + '/80 lb bag, $' + prices.railing + '/linear ft railing, $' + prices.tread + '/tread, $' + prices.fastener + ' fasteners). Labour is not included.</p></div>';
+        document.getElementById('out').innerHTML = html;
+      }
+      ['len', 'wid', 'hgt', 'spacing', 'blen', 'stairs'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); }
+      });
+      calc();
+    })();
+  </script>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many deck boards do I need for a 16 by 12 foot deck?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A 16 by 12 foot deck is 192 square feet. With a 5.5 inch board face that is about 419 linear feet, plus 10 percent waste, so roughly 461 linear feet — 39 boards at 12 feet or 29 at 16 feet.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How many footings does a deck need?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Posts are typically spaced no more than 8 feet apart along the beam. A 16 foot deck needs three posts on the outer beam. Each footing at 12 inches by 36 inches takes roughly four 80 lb bags of concrete, and deeper footings are required where frost penetrates the ground.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the maximum joist spacing for decking?',
+        acceptedAnswer: { '@type': 'Answer', text: '16 inches on centre for standard 5/4 wood decking, 12 inches for heavier loads or diagonal board layouts, and up to 24 inches only for composite decking whose manufacturer permits it. The span also depends on joist size — a 2x8 cannot span as far as a 2x10 at the same spacing.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much does a deck cost per square foot?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A pressure-treated deck typically runs $35 to $60 per square foot installed, composite $45 to $90. That square-foot figure usually excludes railing, stairs, footings and permits, which is why the material takeoff matters more than the headline rate when you are building the estimate.' },
+      },
+    ],
+  })} />
+</BaseLayout>
