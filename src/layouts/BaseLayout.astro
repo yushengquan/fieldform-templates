@@ -5,9 +5,11 @@ interface Props {
   title: string;
   description: string;
   canonical?: string;
+  robots?: string;
   ogImage?: string;
 }
-const { title, description, canonical, ogImage } = Astro.props;
+const { title, description, canonical, ogImage, robots } = Astro.props;
+const robotsContent = robots ?? 'index,follow,max-image-preview:large';
 const site = Astro.site?.toString() ?? 'https://fieldform-templates.pages.dev';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site).toString();
 const imageUrl = new URL(ogImage ?? '/og-image.png', site).toString();
@@ -17,7 +19,7 @@ const imageUrl = new URL(ogImage ?? '/og-image.png', site).toString();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content={robotsContent}>
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>

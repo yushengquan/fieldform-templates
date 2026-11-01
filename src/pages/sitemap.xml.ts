@@ -72,8 +72,6 @@ export const GET: APIRoute = async ({ site }) => {
       lastmod: lastmodBySlug[t.slug],
     })),
     ...trades.flatMap((t) => [
-      { loc: `${base}/templates/${t.slug}-word/`, priority: '0.8', changefreq: 'monthly', lastmod: lastmodBySlug[t.slug] },
-      { loc: `${base}/templates/${t.slug}-excel/`, priority: '0.8', changefreq: 'monthly', lastmod: lastmodBySlug[t.slug] },
     ]),
   ];
 

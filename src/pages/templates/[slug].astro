@@ -333,7 +333,7 @@ const howToLd = JSON.stringify({
   })),
 });
 ---
-<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`}>
+<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`} robots={format ? 'noindex,follow' : undefined}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <script is:inline type="application/ld+json" set:html={appLd}></script>
