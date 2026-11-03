@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Payhip 产品链接 —— 拿到后替换这三行即可
+const PRODUCTS = [
+  {
+    name: 'HVAC Invoice & Estimate Template',
+    blurb: 'One trade, both documents, all three formats. Check the quality before you buy the pack.',
+    price: '$5',
+    was: '',
+    badge: 'Sample',
+    image: '/shop/cover-sample.png',
+    href: 'PAYHIP_LINK_SAMPLE',
+    includes: ['HVAC invoice (Word, Excel, PDF)', 'HVAC estimate (Word, Excel, PDF)', 'Pre-filled line items', 'Commercial licence'],
+  },
+  {
+    name: '10 Trade Invoice & Estimate Templates',
+    blurb: 'The ten trades you bill most, in all three formats. Pre-filled line items, automatic tax in Excel.',
+    price: '$14',
+    was: '$70',
+    badge: 'Most popular',
+    image: '/shop/cover-10pack.png',
+    href: 'PAYHIP_LINK_10',
+    includes: ['10 trades, 56 files', 'HVAC, plumbing, electrical, drywall, landscaping', 'General contractor, painting, roofing, concrete, pest control', 'Excel auto-calculates tax'],
+  },
+  {
+    name: '69 Trade Invoice Templates — Complete Library',
+    blurb: 'Every invoice and estimate in the library, in Word, Excel and PDF. 208 files, 69 trades.',
+    price: '$29',
+    was: '$345',
+    badge: 'Best value',
+    image: '/shop/cover-69pack.png',
+    href: 'PAYHIP_LINK_69',
+    includes: ['69 trades, 208 files', 'Every template in the library', 'About 42 cents per trade', 'Commercial licence'],
+  },
+];
+
+const FAQ = [
+  ['What format are the files in?', 'Every template comes as .docx (Word / Google Docs), .xlsx (Excel / Google Sheets) and .pdf (print and fill by hand).'],
+  ['Can I use these for my business?', 'Yes. Use them for unlimited jobs in your own business, add your logo and licence number. You cannot resell or redistribute the files.'],
+  ['Does the tax calculate automatically?', 'In the Excel version, yes. Enter your state rate once and subtotal, tax and total update. The Word and PDF versions leave tax blank for you to fill.'],
+  ['Are these legal or tax advice?', 'No. They are blank forms and general guidance. Invoice requirements and tax rules differ by state and country — check with your licensing authority and a CPA.'],
+  ['How do I get the files?', 'Instant download after checkout. You also get an email with the link.'],
+  ['Can I get a refund?', 'These are digital downloads, so sales are final. If a file will not open, reply to the order email and we will fix it the same day.'],
+];
+---
+
+<BaseLayout
+  title="Invoice and Estimate Templates for Contractors — FieldForm Templates"
+  description="Downloadable invoice and estimate templates for 69 trades. Word, Excel and PDF, pre-filled with the line items each trade actually bills."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Templates you can actually bill with</p>
+      <h1>Invoice and estimate templates for 69 trades</h1>
+      <p class="lede">
+        Pre-filled with the line items each trade actually bills — not a blank table.
+        Word, Excel and PDF in every download. One purchase, unlimited jobs.
+      </p>
+      <div class="trust">
+        <span>Instant download</span>
+        <span>No subscription</span>
+        <span>No watermark</span>
+        <span>Commercial licence</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="products">
+    <div class="wrap grid">
+      {PRODUCTS.map((p) => (
+        <article class="card">
+          <div class="thumb">
+            <img src={p.image} alt={p.name} loading="lazy" />
+            <span class="badge">{p.badge}</span>
+          </div>
+          <div class="body">
+            <h2>{p.name}</h2>
+            <p class="blurb">{p.blurb}</p>
+            <ul>
+              {p.includes.map((i) => <li>{i}</li>)}
+            </ul>
+            <div class="buy">
+              <div class="price">
+                <strong>{p.price}</strong>
+                {p.was && <s>{p.was}</s>}
+              </div>
+              <a class="btn" href={p.href} rel="noopener">Get it now</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <h2>Why these are not blank forms</h2>
+      <div class="why-grid">
+        <div>
+          <h3>Line items are already written</h3>
+          <p>A drywall invoice opens with hanging, taping, finish level and patch work. A plumbing invoice opens with service call, labour hours, parts and permit. You change numbers, not structure.</p>
+        </div>
+        <div>
+          <h3>Terminology that matches the trade</h3>
+          <p>Retainage and progress billing for general contractors. Trip fee for electricians. Disposal for junk removal. The vocabulary is right, so clients do not question the line.</p>
+        </div>
+        <div>
+          <h3>Three formats, one purchase</h3>
+          <p>Excel calculates tax. Word restyles. PDF prints. Most template packs give you one format and charge for the rest.</p>
+        </div>
+        <div>
+          <h3>Written by someone who reads the paperwork</h3>
+          <p>Every template is checked against how invoices are actually reviewed — payment terms, licence fields, and the disclaimer that keeps you out of trouble.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      {FAQ.map(([q, a]) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Not sure which pack?</h2>
+      <p>Start with the $5 sample. If the layout works for you, the 10-trade pack is the one most contractors buy.</p>
+      <a class="btn big" href={PRODUCTS[0].href} rel="noopener">Try the $5 sample</a>
+    </div>
+  </section>
+
+  <style>
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .hero { padding: 72px 0 40px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #fff; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: #93c5fd; margin: 0 0 16px; }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 0 0 18px; max-width: 800px; }
+    .lede { font-size: 19px; line-height: 1.6; color: #cbd5e1; max-width: 720px; margin: 0 0 28px; }
+    .trust { display: flex; flex-wrap: wrap; gap: 10px; }
+    .trust span { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); padding: 7px 14px; border-radius: 999px; font-size: 14px; }
+    .products { padding: 56px 0; background: #f8fafc; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+    .thumb { position: relative; aspect-ratio: 4/3; background: #0f172a; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .badge { position: absolute; top: 12px; left: 12px; background: #2563eb; color: #fff; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
+    .body { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .body h2 { font-size: 19px; margin: 0; line-height: 1.3; }
+    .blurb { color: #475569; font-size: 14px; line-height: 1.55; margin: 0; }
+    .body ul { margin: 0; padding-left: 18px; color: #334155; font-size: 14px; line-height: 1.7; }
+    .buy { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 8px; }
+    .price { display: flex; align-items: baseline; gap: 8px; }
+    .price strong { font-size: 26px; }
+    .price s { color: #94a3b8; font-size: 15px; }
+    .btn { background: #2563eb; color: #fff; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 10px; white-space: nowrap; }
+    .btn:hover { background: #1d4ed8; }
+    .btn.big { padding: 15px 28px; font-size: 17px; display: inline-block; }
+    .why { padding: 64px 0; }
+    .why h2 { font-size: 28px; margin: 0 0 28px; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .why-grid h3 { font-size: 16px; margin: 0 0 8px; }
+    .why-grid p { color: #475569; font-size: 15px; line-height: 1.65; margin: 0; }
+    .faq { padding: 0 0 64px; }
+    .faq h2 { font-size: 28px; margin: 0 0 20px; }
+    details { border-bottom: 1px solid #e2e8f0; padding: 14px 0; }
+    summary { font-weight: 600; cursor: pointer; font-size: 16px; }
+    details p { color: #475569; font-size: 15px; line-height: 1.65; margin: 10px 0 0; }
+    .cta { padding: 56px 0 80px; background: #0f172a; color: #fff; text-align: center; }
+    .cta h2 { font-size: 28px; margin: 0 0 10px; }
+    .cta p { color: #cbd5e1; max-width: 560px; margin: 0 auto 24px; }
+  </style>
+</BaseLayout>
