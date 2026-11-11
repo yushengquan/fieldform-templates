@@ -332,8 +332,21 @@ const howToLd = JSON.stringify({
     text: s.body,
   })),
 });
+
+// —— 变体页 index 例外名单 ——
+// 2026-11-01 把 138 个 -word/-excel 变体页统一 noindex 以降低"批量内容"风险。
+// 但 GSC 实测发现其中 4 个变体页排名 1-11（是我们最好的资产），
+// 关掉它们等于主动放弃已有排名，所以单独放行这 4 个，其余 134 个维持 noindex。
+const INDEX_EXCEPTIONS: Record<string, string[]> = {
+  'christmas-light-installation-estimate-template': ['word'],
+  'christmas-light-installation-invoice-template': ['word', 'excel'],
+  'mover-invoice-template': ['word'],
+};
+const keepIndex = format
+  ? (INDEX_EXCEPTIONS[trade.slug] ?? []).includes(format)
+  : true;
 ---
-<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`} robots={format ? 'noindex,follow' : undefined}>
+<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`} robots={keepIndex ? undefined : 'noindex,follow'}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <script is:inline type="application/ld+json" set:html={appLd}></script>
