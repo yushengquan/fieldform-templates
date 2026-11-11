@@ -65,6 +65,33 @@ const canonical = `${siteUrl}/deck-calculator/`;
       <li><strong>Permit and inspection time</strong>, which belongs on the estimate as its own line.</li>
     </ul>
 
+    <h2 style="font-size:22px;margin:34px 0 10px;">Sizing the beam: the number the calculator does not guess</h2>
+    <p style="font-size:15.5px;line-height:1.8;">The beam takeoff on this page gives you the <strong>length</strong> of beam you need. The <strong>size</strong> depends on two things: how far the joists span on either side of it, and how far apart the posts are. That combination is set by the beam span table in IRC R507.5, and it is the number a building inspector will check first.</p>
+    <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Typical ground-level residential values for a built-up beam of two plies, assuming No. 2 southern pine and 16 inch joist spacing:</p>
+    <table style="width:100%;border-collapse:collapse;font-size:15px;margin:14px 0 6px;">
+      <thead>
+        <tr style="background:var(--soft);">
+          <th style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);">Beam</th>
+          <th style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);">Max joist span 8 ft</th>
+          <th style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);">Max joist span 12 ft</th>
+          <th style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);">Max joist span 16 ft</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px 12px;border-bottom:1px solid var(--line);">2 – 2×8</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">8 ft</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">6 ft</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">not permitted</td></tr>
+        <tr><td style="padding:10px 12px;border-bottom:1px solid var(--line);">2 – 2×10</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">9 ft</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">7 ft</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">6 ft</td></tr>
+        <tr><td style="padding:10px 12px;border-bottom:1px solid var(--line);">2 – 2×12</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">11 ft</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">8 ft</td><td style="padding:10px 12px;border-bottom:1px solid var(--line);">7 ft</td></tr>
+        <tr><td style="padding:10px 12px;">3 – 2×10</td><td style="padding:10px 12px;">11 ft</td><td style="padding:10px 12px;">9 ft</td><td style="padding:10px 12px;">7 ft</td></tr>
+      </tbody>
+    </table>
+    <ul style="font-size:15.5px;line-height:1.9;padding-left:22px;margin-top:12px;">
+      <li><strong>Post spacing follows the beam.</strong> If the table says the beam can span 9 ft, the posts go on 9 ft centres — not on the 8 ft the calculator defaults to. Fewer posts is cheaper in concrete and dig time.</li>
+      <li><strong>Beam size drives post and footing size.</strong> A wider beam carries more load, so footing diameter goes up. Recheck the footing bag count after you change the beam.</li>
+      <li><strong>Species and grade change the table.</strong> The spans above assume No. 2 southern pine; a lower grade drops them by roughly one row, and engineered lumber has its own published span tables.</li>
+      <li><strong>Ledger attachment is separate.</strong> The beam spanning to posts does not remove the need for correctly flashed ledger fasteners at the house — that is a different part of R507.</li>
+    </ul>
+    <p style="font-size:14px;line-height:1.7;margin-top:14px;color:var(--muted);">This table is a planning aid, not a substitute for the adopted code. Frost depth, snow load, guard height and local amendments change the answer — the free deck builder estimate template has a line for the structural review and permit so the cost of getting it checked appears on the quote.</p>
+
     <h2 style="font-size:22px;margin:34px 0 10px;">From takeoff to estimate</h2>
     <p style="font-size:15.5px;line-height:1.8;">Quantities from this calculator drop straight onto the free <a href="/templates/deck-builder-invoice-template/" style="color:var(--blue);font-weight:600;">deck builder estimate template</a>, which already separates platform, railing, stairs, footings and permit lines in PDF, Word and Excel. The <a href="/templates/deck-builder-invoice-template/#deep-dive" style="color:var(--blue);font-weight:600;">hidden-cost section</a> explains why each belongs on its own line rather than folded into the decking rate.</p>
 

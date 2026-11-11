@@ -212,6 +212,19 @@
           "Get written approval by text or email before doing the work",
           "Bill change orders on the next invoice, never fold them silently into the total"
         ]
+      },
+      {
+        "h3": "A worked example: 12×16 ft room, 8 ft ceilings",
+        "paras": [
+          "Walls: 2 × (12 + 16) = 56 linear ft × 8 ft = 448 sq ft. Ceiling: 12 × 16 = 192 sq ft. Total = 640 sq ft. Add 10% waste = 704 sq ft. A 4×8 sheet covers 32 sq ft, so 704 ÷ 32 = 22 sheets.",
+          "At a typical $18–$28 per sheet for 1/2 in, materials land around $400–$620. Labour is normally quoted per finished square foot: roughly $1.50–$2.50 for hang-and-finish at Level 4, and $2.50–$4.00 when Level 5 is specified. On 640 sq ft that is $960–$1,600 (Level 4) or $1,600–$2,560 (Level 5)."
+        ],
+        "list": [
+          "Document the sheet count and the waste percentage on the invoice — a customer who sees '22 sheets @ 10% waste' rarely argues about the total",
+          "If Level 5 was specified, name it in the line description: it is the single most common callback dispute in drywall",
+          "Joint compound, tape and screws are usually 8–12% of the materials line — bill them as a single 'finishing materials' row rather than three tiny ones",
+          "Rates vary widely by market; treat these ranges as a sanity check, not a price list"
+        ]
       }
     ]
   }

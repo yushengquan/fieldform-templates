@@ -137,5 +137,39 @@
       "note": "Auto-calculating tax and totals"
     }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Marine services rules vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Marine services rules vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Boat detailing invoices: price by length, adjust for condition",
+    "sub": "Marine detailing is quoted by length overall (LOA) because surface area scales with it, then adjusted for how long the hull has sat in the water.",
+    "blocks": [
+      {
+        "h3": "Price by boat length, then by condition",
+        "paras": [
+          "Put the length bracket in the line description — it removes the ambiguity when the customer measures their boat differently than you did.",
+          "Condition is the second axis. A hull that has been in the water all season needs far more compounding than one pulled and rinsed monthly, and that difference is most of the labour."
+        ],
+        "list": [
+          "Under 20 ft: wash and interior clean roughly $250–$450; full detail roughly $450–$800",
+          "20–30 ft: wash and interior roughly $400–$700; full detail with compound and wax $800–$1,500",
+          "30–40 ft: full detail commonly $1,500–$2,800 depending on oxidation",
+          "Billed separately: bottom cleaning, teak treatment, canvas and isinglass, metal polishing",
+          "Winterising and shrink wrap are seasonal lines — quote them in the same document so the customer sees the annual total"
+        ]
+      },
+      {
+        "h3": "What goes on a marine invoice that a car invoice does not",
+        "paras": [
+          "Boat work almost always happens at a marina or a customer's slip, so travel and field-service time is a real cost line rather than an overhead you absorb.",
+          "Hull condition is also a liability question: if you compound a gelcoat that is already thin, the invoice should record the condition you found it in before work started."
+        ],
+        "list": [
+          "Marina or slip location on the invoice — it proves where the work happened if there is a dispute",
+          "Travel or field service charge as its own line, not folded into the package price",
+          "Condition noted before work: oxidation level, existing scratches, damaged isinglass",
+          "Water and power access fees, where the marina charges them",
+          "Photo reference on file — the cheapest defence against a claim that you caused damage you did not cause"
+        ]
+      }
+    ]
+  }
 }
