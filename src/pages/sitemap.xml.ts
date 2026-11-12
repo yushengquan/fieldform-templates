@@ -63,7 +63,16 @@ export const GET: APIRoute = async ({ site }) => {
     lastmod: today,
   }));
 
-  // trade 模板页：主页面 0.9，word/excel 变体 0.8
+  // 变体页 index 例外名单 —— 必须与 src/pages/templates/[slug].astro 的 INDEX_EXCEPTIONS 保持一致。
+  // 2026-11-01 全站 138 个 -word/-excel 变体页统一 noindex 并从 sitemap 移除；
+  // 但其中 4 个实测排名 1-11，是站点最好的资产，单独放行（保持 index + 进 sitemap）。
+  const INDEX_EXCEPTIONS: Record<string, string[]> = {
+    'christmas-light-installation-estimate-template': ['word'],
+    'christmas-light-installation-invoice-template': ['word', 'excel'],
+    'mover-invoice-template': ['word'],
+  };
+
+  // trade 模板页：主页面 0.9，放行的变体页 0.8
   const tradeUrls = [
     ...trades.map((t) => ({
       loc: `${base}/templates/${t.slug}/`,
@@ -71,8 +80,14 @@ export const GET: APIRoute = async ({ site }) => {
       changefreq: 'monthly',
       lastmod: lastmodBySlug[t.slug],
     })),
-    ...trades.flatMap((t) => [
-    ]),
+    ...trades.flatMap((t) =>
+      (INDEX_EXCEPTIONS[t.slug] ?? []).map((format) => ({
+        loc: `${base}/templates/${t.slug}-${format}/`,
+        priority: '0.8',
+        changefreq: 'monthly',
+        lastmod: lastmodBySlug[t.slug],
+      }))
+    ),
   ];
 
   // guide 页：0.6 monthly（信息型长尾，低于模板页权重）
