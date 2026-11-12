@@ -105,6 +105,10 @@
     {
       "q": "Is this legal or tax advice?",
       "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your tax authority and a CPA or attorney before use."
+    },
+    {
+      "q": "Do I charge tax on auto detailing services?",
+      "a": "It depends on the state: some tax car washing and detailing as a service, some only tax the products or only apply tax when the vehicle is repaired rather than cleaned. Check your state's department of revenue for 'car wash' and 'detailing' specifically — the rules differ from general automotive repair. If you are taxable, put the rate on the invoice and show tax as its own line, because a detailing customer comparing two quotes will flag a total that does not add up."
     }
   ],
   "downloads": {
@@ -210,6 +214,72 @@
           "Add-ons to line out separately: engine bay, headlight restoration, ozone treatment, ceramic coating",
           "Travel or mobile-service fee is its own line — do not bury it in the package price"
         ]
+      },
+      {
+        "h3": "Example invoice: a $485 full detail on an SUV",
+        "paras": [
+          "This is what a mid-market full detail looks like written out. The point is not the exact prices — they vary by metro — but that every hour the customer is paying for has its own line, and the add-ons are separated from the package."
+        ],
+        "table": {
+          "headers": [
+            "Line",
+            "Detail",
+            "Qty",
+            "Rate",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Full detail",
+              "Exterior decontamination, interior steam and extraction",
+              "1",
+              "$320",
+              "$320"
+            ],
+            [
+              "Paint decontamination",
+              "Clay bar + iron remover",
+              "1",
+              "$75",
+              "$75"
+            ],
+            [
+              "Pet hair removal",
+              "Add-on, 45 minutes",
+              "1",
+              "$45",
+              "$45"
+            ],
+            [
+              "Engine bay clean",
+              "Degrease and dress",
+              "1",
+              "$45",
+              "$45"
+            ],
+            [
+              "— Subtotal",
+              "",
+              "",
+              "",
+              "$485"
+            ],
+            [
+              "Sales tax (services taxable in this state)",
+              "8.25%",
+              "",
+              "",
+              "$40.01"
+            ],
+            [
+              "Total due",
+              "",
+              "",
+              "",
+              "$525.01"
+            ]
+          ]
+        }
       }
     ]
   }

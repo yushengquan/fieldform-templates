@@ -2,8 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fieldformtemplates.com';
-const title = 'Deck Calculator — Boards, Joists, Posts and Concrete';
-const description = 'Free deck calculator: deck size in - decking boards, joists, beam, posts, footings, stairs, railing and lumber cost out. Includes 16 inch joist spacing.';
+const title = 'Deck Calculator — Boards, Joists, Beam Size and Posts';
+const description = 'Free deck calculator and deck beam calculator: enter the footprint to get decking boards, joists, beam size, post spacing, footings, stairs, railing and lumber cost. Includes 16 inch joist spacing.';
 const canonical = `${siteUrl}/deck-calculator/`;
 ---
 
@@ -65,7 +65,7 @@ const canonical = `${siteUrl}/deck-calculator/`;
       <li><strong>Permit and inspection time</strong>, which belongs on the estimate as its own line.</li>
     </ul>
 
-    <h2 style="font-size:22px;margin:34px 0 10px;">Sizing the beam: the number the calculator does not guess</h2>
+    <h2 style="font-size:22px;margin:34px 0 10px;">Deck beam size: the number the calculator does not guess</h2>
     <p style="font-size:15.5px;line-height:1.8;">The beam takeoff on this page gives you the <strong>length</strong> of beam you need. The <strong>size</strong> depends on two things: how far the joists span on either side of it, and how far apart the posts are. That combination is set by the beam span table in IRC R507.5, and it is the number a building inspector will check first.</p>
     <p style="font-size:15.5px;line-height:1.8;margin-top:12px;">Typical ground-level residential values for a built-up beam of two plies, assuming No. 2 southern pine and 16 inch joist spacing:</p>
     <table style="width:100%;border-collapse:collapse;font-size:15px;margin:14px 0 6px;">

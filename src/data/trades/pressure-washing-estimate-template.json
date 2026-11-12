@@ -101,6 +101,14 @@
     {
       "q": "Is this legal or tax advice?",
       "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    },
+    {
+      "q": "Should I quote pressure washing by the hour or by the square foot?",
+      "a": "By surface, almost always. Hourly pricing punishes you for being fast and rewards the customer for a slow job; square-foot rates let a confident crew earn more on the same surface. Keep an hourly figure in reserve only for one-off surfaces you have never measured — and quote a not-to-exceed cap so the customer is not exposed."
+    },
+    {
+      "q": "How much deposit should a pressure washing estimate ask for?",
+      "a": "For residential work under $1,000, nothing or a small booking fee is normal. For commercial jobs, roofs, or anything that needs a lift, water source or permits, ask 25–50% up front — you are booking crew days and equipment, and a commercial client who cancels a week out has cost you real money. State the deposit in the estimate itself so it is agreed before the work starts."
     }
   ],
   "downloads": {
@@ -179,6 +187,83 @@
           "House siding (soft wash): roughly $0.20–$0.45 per sq ft of wall area",
           "Roof soft wash: roughly $0.30–$0.60 per sq ft — always quoted as soft wash, never high pressure",
           "Minimum job charge: most operators set $150–$250, and it belongs on the estimate as its own line"
+        ]
+      },
+      {
+        "h3": "A worked estimate: driveway, walkway and house wash",
+        "paras": [
+          "Customers compare bids on the total, so build the estimate from measurable surfaces and show each one. The example below is a typical single-family job; the numbers are what a two-person crew charges in most US metros, and the surfaces are what you can actually pace off on site."
+        ],
+        "table": {
+          "headers": [
+            "Surface",
+            "Measured",
+            "Rate",
+            "Line total"
+          ],
+          "rows": [
+            [
+              "Concrete driveway (2-car)",
+              "600 sq ft",
+              "$0.20/sq ft",
+              "$120"
+            ],
+            [
+              "Front walkway + porch",
+              "150 sq ft",
+              "$0.25/sq ft",
+              "$38"
+            ],
+            [
+              "House soft wash (single storey)",
+              "1,600 sq ft",
+              "$0.18/sq ft",
+              "$288"
+            ],
+            [
+              "Fence line (wood, soft wash)",
+              "80 linear ft",
+              "$1.20/lin ft",
+              "$96"
+            ],
+            [
+              "Gutter brightening (exterior faces)",
+              "90 linear ft",
+              "$1.50/lin ft",
+              "$135"
+            ],
+            [
+              "— Subtotal before travel",
+              "",
+              "",
+              "$677"
+            ],
+            [
+              "Travel / setup (over 20 miles)",
+              "",
+              "flat",
+              "$45"
+            ],
+            [
+              "Estimate total",
+              "",
+              "",
+              "$722"
+            ]
+          ]
+        }
+      },
+      {
+        "h3": "Soft wash versus pressure: the line that protects you",
+        "paras": [
+          "Anything that can be damaged by force — painted siding, asphalt shingles, vinyl, stucco, wood decks, screens — should be listed as soft wash with a chemical, not pressure. Writing 'soft wash' on the estimate and 'low pressure, 60–100 PSI' in the notes is what a customer's insurance adjuster and your own liability coverage will look at if something is damaged."
+        ],
+        "list": [
+          "Concrete (flat, bare): pressure 2,500–3,500 PSI is normal",
+          "Paver and stamped concrete: keep under 2,000 PSI or the finish etches",
+          "Vinyl and painted siding: soft wash only, under 200 PSI",
+          "Roof shingles: never pressure — soft wash with a bleach mix, always quoted as its own line",
+          "Wood deck and fence: 500–1,200 PSI with a fan tip, plus a refinish line if the grain lifts"
         ]
       }
     ]

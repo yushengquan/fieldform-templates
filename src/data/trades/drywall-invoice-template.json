@@ -225,6 +225,46 @@
           "Joint compound, tape and screws are usually 8–12% of the materials line — bill them as a single 'finishing materials' row rather than three tiny ones",
           "Rates vary widely by market; treat these ranges as a sanity check, not a price list"
         ]
+      },
+      {
+        "h3": "GA-214 finish levels, side by side",
+        "paras": [
+          "Finish level is the single most disputed line on a drywall invoice, because Level 4 and Level 5 look identical under normal lighting and completely different under a raking light or a gloss paint. Put the level on the invoice with the standard reference so the expectation is set in writing."
+        ],
+        "table": {
+          "headers": [
+            "Level",
+            "What it includes",
+            "Where it is specified",
+            "Cost vs L4"
+          ],
+          "rows": [
+            [
+              "Level 2",
+              "Tape and one coat over joints",
+              "Garages, utility rooms, above ceilings",
+              "−25%"
+            ],
+            [
+              "Level 3",
+              "Tape plus second coat, no full skim",
+              "Walls behind heavy texture",
+              "−10%"
+            ],
+            [
+              "Level 4",
+              "Tape plus third coat, full sand",
+              "Default for flat paint, most residential",
+              "baseline"
+            ],
+            [
+              "Level 5",
+              "Level 4 plus full skim coat of joint compound",
+              "Gloss/sheen paint, critical lighting, high-end",
+              "+15–30%"
+            ]
+          ]
+        }
       }
     ]
   }

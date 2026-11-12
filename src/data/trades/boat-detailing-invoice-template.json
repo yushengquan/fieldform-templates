@@ -118,6 +118,10 @@
     {
       "q": "Does the Excel version calculate tax automatically?",
       "a": "Yes. Enter your quantity and rate per line, and the subtotal, tax and total update automatically. Leave the tax rate blank if detailing services are not taxable in your state."
+    },
+    {
+      "q": "How do I price boat detailing when the owner asks 'how much for a detail'?",
+      "a": "Answer with the length tier plus condition, never a single number. Ask for the length overall (LOA), whether it has been in salt water, and how long since the last compound. A 24 ft freshwater bowrider in decent shape is a $300–$500 job; the same length with three seasons of oxidation and salt is $700+. Quote a range on those three inputs, then confirm after a test spot on the gelcoat."
     }
   ],
   "downloads": {
@@ -168,6 +172,77 @@
           "Condition noted before work: oxidation level, existing scratches, damaged isinglass",
           "Water and power access fees, where the marina charges them",
           "Photo reference on file — the cheapest defence against a claim that you caused damage you did not cause"
+        ]
+      },
+      {
+        "h3": "Length tiers and what each one actually costs",
+        "paras": [
+          "Marine detailing is priced by length first because length drives both surface area and access. A 24-foot bowrider is a half-day job; a 40-foot sportfisher with tower, teak and multiple heads is a multi-day job at three to four times the rate. Putting the length tier on the invoice — not just the package name — is what keeps a $900 bill from looking arbitrary."
+        ],
+        "table": {
+          "headers": [
+            "Length tier",
+            "Typical scope",
+            "Price band",
+            "Days"
+          ],
+          "rows": [
+            [
+              "Under 20 ft (runabout, skiff)",
+              "Wash, vacuum, vinyl wipe-down",
+              "$150–$300",
+              "half day"
+            ],
+            [
+              "20–26 ft (bowrider, cuddy)",
+              "Wash, compound, interior, glass",
+              "$300–$600",
+              "1 day"
+            ],
+            [
+              "27–33 ft (cruiser, walkaround)",
+              "Above plus bilge, teak, canvas",
+              "$600–$1,100",
+              "1–2 days"
+            ],
+            [
+              "34–40 ft (sportfisher, cruiser)",
+              "Full compound, wax, topside polish, detail",
+              "$1,100–$2,000",
+              "2–3 days"
+            ],
+            [
+              "Over 40 ft / multi-deck",
+              "Quoted after inspection",
+              "$2,000+",
+              "3+ days"
+            ]
+          ]
+        }
+      },
+      {
+        "h3": "Saltwater, oxidation and the surcharge that is not optional",
+        "paras": [
+          "Saltwater hulls need an acid wash and more time on the gelcoat than freshwater boats. Heavy oxidation — the chalky, faded finish on a boat left uncovered — can double the labour because compound has to be worked in passes rather than once. Bill oxidation as a separate line with its own hours, or you will eat the cost on every sun-baked boat that comes in."
+        ],
+        "list": [
+          "Acid wash / salt removal: $3–$6 per foot, every saltwater job",
+          "Heavy oxidation removal: $8–$15 per foot, quoted after a test spot",
+          "Teak cleaning and oiling: $20–$35 per linear foot of teak",
+          "Canvas and upholstery: $40–$90 per piece, mould removal priced higher",
+          "Mould / mildew remediation below decks: hourly, with photos before and after"
+        ]
+      },
+      {
+        "h3": "Winterising and storage are separate invoices",
+        "paras": [
+          "Cleaning a boat for winter is a different scope from a mid-season detail: the goal is to remove salt, fish blood and organic matter that will stain through the off-season, then protect surfaces before shrink-wrap or indoor storage. Owners who pay for this in the autumn rarely dispute the spring commission, because the invoice shows what was protected and when."
+        ],
+        "list": [
+          "Pre-storage detail (wash, acid rinse, wax, interior dry-out): $250–$600",
+          "Engine and bilge flush: $120–$250, always its own line",
+          "Cover / shrink-wrap prep and fitting: $15–$30 per foot",
+          "Spring commission (uncover, wash, systems check): $200–$450"
         ]
       }
     ]
