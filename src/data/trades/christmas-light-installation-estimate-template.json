@@ -7,19 +7,78 @@
   "currency": "USD",
   "licenseField": false,
   "taxHint": "Look up your state's sales tax rate",
-  "headerFields": ["Business Name", "Business Address", "Phone", "Email", "EIN / Tax ID"],
-  "billToFields": ["Client Name", "Client Address", "Job Site Address", "Phone", "Email"],
-  "invoiceFields": ["Estimate #", "Date", "Valid Until", "Deposit"],
+  "headerFields": [
+    "Business Name",
+    "Business Address",
+    "Phone",
+    "Email",
+    "EIN / Tax ID"
+  ],
+  "billToFields": [
+    "Client Name",
+    "Client Address",
+    "Job Site Address",
+    "Phone",
+    "Email"
+  ],
+  "invoiceFields": [
+    "Estimate #",
+    "Date",
+    "Valid Until",
+    "Deposit"
+  ],
   "paymentTerms": "Estimate valid for 30 days. A 50% deposit secures the season; balance due on completion of installation.",
   "depositPct": 50,
   "notes": "This is an estimate, not a final invoice. Final price may vary with roof pitch, story height, and custom runs.",
   "lineItems": [
-    {"code": "ROOFLINE", "description": "Roofline / Eave Lighting (per linear ft)", "defaultQty": 150, "unit": "lf", "sampleRate": 9, "taxable": true},
-    {"code": "WREATHS", "description": "Wreaths & Garland", "defaultQty": 3, "unit": "each", "sampleRate": 45, "taxable": true},
-    {"code": "TIMERS", "description": "Timer / Controller Setup", "defaultQty": 1, "unit": "each", "sampleRate": 35, "taxable": true},
-    {"code": "EXTENSIONS", "description": "Extension Cords & Clips (materials)", "defaultQty": 1, "unit": "lot", "sampleRate": 60, "taxable": true},
-    {"code": "TAKEDOWN", "description": "Season Takedown & Storage Prep", "defaultQty": 1, "unit": "job", "sampleRate": 120, "taxable": true},
-    {"code": "LABOR", "description": "Installation Labor (crew hours)", "defaultQty": 6, "unit": "hr", "sampleRate": 75, "taxable": true}
+    {
+      "code": "ROOFLINE",
+      "description": "Roofline / Eave Lighting (per linear ft)",
+      "defaultQty": 150,
+      "unit": "lf",
+      "sampleRate": 9,
+      "taxable": true
+    },
+    {
+      "code": "WREATHS",
+      "description": "Wreaths & Garland",
+      "defaultQty": 3,
+      "unit": "each",
+      "sampleRate": 45,
+      "taxable": true
+    },
+    {
+      "code": "TIMERS",
+      "description": "Timer / Controller Setup",
+      "defaultQty": 1,
+      "unit": "each",
+      "sampleRate": 35,
+      "taxable": true
+    },
+    {
+      "code": "EXTENSIONS",
+      "description": "Extension Cords & Clips (materials)",
+      "defaultQty": 1,
+      "unit": "lot",
+      "sampleRate": 60,
+      "taxable": true
+    },
+    {
+      "code": "TAKEDOWN",
+      "description": "Season Takedown & Storage Prep",
+      "defaultQty": 1,
+      "unit": "job",
+      "sampleRate": 120,
+      "taxable": true
+    },
+    {
+      "code": "LABOR",
+      "description": "Installation Labor (crew hours)",
+      "defaultQty": 6,
+      "unit": "hr",
+      "sampleRate": 75,
+      "taxable": true
+    }
   ],
   "features": [
     "Auto-calculating totals and 50% deposit in Excel",
@@ -28,17 +87,95 @@
     "Notes field covers roof pitch and story height variables that move the final price"
   ],
   "faqs": [
-    {"q": "What should I include on a Christmas light installation estimate?", "a": "At minimum: your business name, the client and job-site address, a dated line-item list (roofline lighting by the linear foot, wreaths, garland, timers, takedown, labor), a validity date, deposit terms, and a note that it is not a final invoice."},
-    {"q": "How much does Christmas light installation cost?", "a": "Most US companies charge $8–$12 per linear foot of roofline lighting with materials and labor included, so a 150 ft single-story roofline runs $1,350–$1,800 for the season. Wreaths and garland run $30–$60 per piece, timers $25–$50, and takedown is often bundled into the per-foot rate."},
-    {"q": "How much deposit should I collect?", "a": "50% is the industry standard for holiday lighting — it covers the lights and materials you buy before install day. The balance is due once the display is up and the client has signed off."},
-    {"q": "Is this template free to use?", "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."},
-    {"q": "Does the Excel version calculate the deposit automatically?", "a": "Yes. Enter your quantities and rates, and the subtotal, 50% deposit and balance due update automatically."},
-    {"q": "Is this legal or tax advice?", "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."}
+    {
+      "q": "What should I include on a Christmas light installation estimate?",
+      "a": "At minimum: your business name, the client and job-site address, a dated line-item list (roofline lighting by the linear foot, wreaths, garland, timers, takedown, labor), a validity date, deposit terms, and a note that it is not a final invoice."
+    },
+    {
+      "q": "How much does Christmas light installation cost?",
+      "a": "Most US companies charge $8–$12 per linear foot of roofline lighting with materials and labor included, so a 150 ft single-story roofline runs $1,350–$1,800 for the season. Wreaths and garland run $30–$60 per piece, timers $25–$50, and takedown is often bundled into the per-foot rate."
+    },
+    {
+      "q": "How much deposit should I collect?",
+      "a": "50% is the industry standard for holiday lighting — it covers the lights and materials you buy before install day. The balance is due once the display is up and the client has signed off."
+    },
+    {
+      "q": "Is this template free to use?",
+      "a": "Yes. All three formats (PDF, Word, Excel) are free to download with no email required."
+    },
+    {
+      "q": "Does the Excel version calculate the deposit automatically?",
+      "a": "Yes. Enter your quantities and rates, and the subtotal, 50% deposit and balance due update automatically."
+    },
+    {
+      "q": "Is this legal or tax advice?",
+      "a": "No. Templates are for informational purposes only. Requirements vary by state — verify with your contractor board and a CPA or attorney before use."
+    }
   ],
   "downloads": {
-    "pdf": {"label": "PDF", "gate": "none", "note": "Print-ready, no email required"},
-    "word": {"label": "Word", "gate": "none", "note": "Easy to edit and type in"},
-    "excel": {"label": "Excel", "gate": "none", "note": "Auto-calculating totals and deposit"}
+    "pdf": {
+      "label": "PDF",
+      "gate": "none",
+      "note": "Print-ready, no email required"
+    },
+    "word": {
+      "label": "Word",
+      "gate": "none",
+      "note": "Easy to edit and type in"
+    },
+    "excel": {
+      "label": "Excel",
+      "gate": "none",
+      "note": "Auto-calculating totals and deposit"
+    }
   },
-  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney."
+  "disclaimer": "Template for informational purposes only; does not constitute legal, tax, or accounting advice. Requirements vary by state — verify with your contractor board and CPA/attorney.",
+  "deepDive": {
+    "heading": "Christmas light estimates: measure the roofline, then price the difficulty",
+    "sub": "The estimate is the document that decides whether the season is profitable, because it is where access difficulty either gets priced or gets absorbed.",
+    "blocks": [
+      {
+        "h3": "Measure the roofline first — it is the number the quote hangs on",
+        "paras": [
+          "Walk the property and measure the eave run, then add the gables and any second-story sections separately. A single-story ranch of 100 linear feet and a two-story with three gables of the same 100 feet are not the same job, and the estimate should show why.",
+          "Per-foot pricing typically runs $3-$8 per linear foot installed. Access difficulty, pitch and roof material are what move a quote inside that range, so name them on the estimate rather than burying them in the total."
+        ],
+        "list": [
+          "Linear feet of eave, gable and second-story roofline listed separately",
+          "Pitch and roof material noted — steep and metal roofs price higher",
+          "Tree and bush wrapping quoted per tree by height",
+          "Ground-level lighting and pathway runs quoted per fixture",
+          "Access notes: ladder placement, garden beds, slopes, and whether a lift is needed"
+        ]
+      },
+      {
+        "h3": "Quote the takedown in the estimate, not as an afterthought",
+        "paras": [
+          "The single most common post-season dispute is a customer who assumed takedown was included. Quoting it in the estimate, with a date window, removes the argument before it exists.",
+          "It also changes how the customer reads the total. A season price that includes install and takedown is easier to accept than an install price that grows by $300 in January."
+        ],
+        "list": [
+          "Takedown window stated as a calendar date range",
+          "Storage offer priced separately, since it is a recurring revenue line",
+          "Payment terms: deposit at booking, balance at install — booking deposits are standard in this trade because December capacity is finite",
+          "Season capacity note: the estimate can be declined if the install date passes",
+          "Whether the customer supplies any of the lighting, and at whose risk it is installed"
+        ]
+      },
+      {
+        "h3": "Two estimate options beat one",
+        "paras": [
+          "Homeowners buying holiday lighting are usually deciding between tiers, not between buying and not buying. Presenting a basic and an upgraded option in one estimate raises the average job value without extra sales effort.",
+          "Keep both options on the same page so the comparison is immediate — a second document rarely gets read."
+        ],
+        "list": [
+          "Option A: roofline only, standard single-story access",
+          "Option B: roofline plus trees, wreaths and controller",
+          "Optional add-ons listed with prices rather than 'call for quote'",
+          "Both options show the takedown line so the comparison is like for like",
+          "Expiry date on the estimate, tied to remaining December capacity"
+        ]
+      }
+    ]
+  }
 }

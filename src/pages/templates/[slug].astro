@@ -345,8 +345,14 @@ const INDEX_EXCEPTIONS: Record<string, string[]> = {
 const keepIndex = format
   ? (INDEX_EXCEPTIONS[trade.slug] ?? []).includes(format)
   : true;
+// 蚕食收敛：被 noindex 的变体页把 canonical 指回主页面，
+// 让 GSC 里"同一个词被主页面 + 变体页分抢"的信号集中到主页面。
+// 例外放行的变体页保持自指 canonical（它们本身就是要独立参与排名的页面）。
+const canonicalHref = keepIndex
+  ? undefined
+  : `https://fieldformtemplates.com/templates/${trade.slug}/`;
 ---
-<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`} robots={keepIndex ? undefined : 'noindex,follow'}>
+<BaseLayout title={pageTitle} description={pageDesc} ogImage={`/og/${trade.slug}.png`} robots={keepIndex ? undefined : 'noindex,follow'} canonical={canonicalHref}>
   <script is:inline type="application/ld+json" set:html={jsonLd}></script>
   <script is:inline type="application/ld+json" set:html={breadcrumbLd}></script>
   <script is:inline type="application/ld+json" set:html={appLd}></script>
